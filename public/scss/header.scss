@@ -2,7 +2,7 @@
   display:flex;
   flex-direction: row;
   width:100%;
-  height: 300px;
+  height: 100px;
   align-items: center;
   background-color: gray;
   margin:0;
@@ -19,7 +19,7 @@
 
 .headerLogo{
   @extend .headerSection;
-  background-image: url("../../Public/img/logo.png");
+  background-image: url("/public/img/logo.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
