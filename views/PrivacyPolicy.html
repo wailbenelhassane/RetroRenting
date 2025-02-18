@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/public/scss/PrivacyPolicy.css">
+  <title>Política de Privacidad</title>
+
+</head>
+<body>
+
+<div class="content">
+  <h1>Política de Privacidad</h1>
+
+  <p>Última actualización: <span id="fecha"></span></p>
+
+  <script>
+    const hoy = new Date();
+    const fechaFormateada = hoy.toLocaleDateString('es-ES', {
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric'
+    });
+    document.getElementById("fecha").textContent = fechaFormateada;
+  </script>
+
+  <button class="back-button" onclick="window.history.back()"> Volver a la Página Anterior</button>
+
+  <h2>1. Introducción</h2>
+  <p>En [Nombre de la Empresa], nos comprometemos a proteger su privacidad. Esta Política de Privacidad explica cómo recopilamos, usamos y protegemos su información personal cuando utiliza nuestro sitio web y servicios.</p>
+
+  <h2>2. Información que Recopilamos</h2>
+  <p>Recopilamos información personal cuando usted se registra en nuestro sitio, realiza una compra o interactúa con nuestros servicios. Esta información puede incluir su nombre, dirección de correo electrónico, dirección postal, número de teléfono y otra información relevante.</p>
+
+  <h2>3. Uso de la Información</h2>
+  <p>Usamos la información que recopilamos para proporcionar y mejorar nuestros servicios, procesar transacciones, responder a consultas y enviarle comunicaciones relacionadas con su cuenta o nuestras ofertas.</p>
+
+  <h2>4. Seguridad de la Información</h2>
+  <p>Tomamos medidas de seguridad razonables para proteger su información personal contra accesos no autorizados, alteración o destrucción. Sin embargo, no podemos garantizar la seguridad absoluta en línea.</p>
+
+  <h2>5. Compartir Información</h2>
+  <p>No compartimos su información personal con terceros, excepto cuando sea necesario para cumplir con la ley o para realizar un servicio solicitado por usted (como el procesamiento de pagos). También podemos compartir información con nuestros proveedores de servicios que nos ayudan a operar el sitio web y ofrecer nuestros servicios.</p>
+
+  <h2>6. Cookies</h2>
+  <p>Usamos cookies para mejorar la experiencia del usuario en nuestro sitio. Las cookies son pequeños archivos de texto que se almacenan en su dispositivo. Usted puede ajustar la configuración de su navegador para rechazar cookies, pero esto podría afectar la funcionalidad del sitio.</p>
+
+  <h2>7. Sus Derechos</h2>
+  <p>Usted tiene derecho a acceder, corregir o eliminar la información personal que hemos recopilado sobre usted. Si desea hacerlo, póngase en contacto con nosotros a través de [dirección de correo electrónico de contacto].</p>
+
+  <h2>8. Cambios a Esta Política</h2>
+  <p>Nos reservamos el derecho de modificar esta Política de Privacidad en cualquier momento. Le notificaremos sobre los cambios mediante la actualización de la fecha de la última actualización al inicio de esta página.</p>
+
+  <h2>9. Contacto</h2>
+  <p>Si tiene preguntas o inquietudes sobre nuestra Política de Privacidad, por favor, póngase en contacto con nosotros en: [Correo electrónico de contacto].</p>
+</div>
+
+</body>
+</html>

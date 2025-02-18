@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/public/scss/Accessibility.css">
+    <title>Accesibilidad</title>
+</head>
+<body>
+
+<div class="content">
+    <h1>Declaración de Accesibilidad</h1>
+
+    <p>Última actualización: <span id="fecha"></span></p>
+
+    <script>
+        const hoy = new Date();
+        const fechaFormateada = hoy.toLocaleDateString('es-ES', {
+            day: '2-digit',
+            month: '2-digit',
+            year: 'numeric'
+        });
+        document.getElementById("fecha").textContent = fechaFormateada;
+    </script>
+
+    <button class="back-button" onclick="window.history.back()"> Volver a la Página Anterior</button>
+
+
+    <h2>1. Nuestro Compromiso con la Accesibilidad</h2>
+    <p>En [Nombre de tu sitio o empresa], nos esforzamos por hacer que nuestra plataforma sea accesible para todos los usuarios, incluidos aquellos con discapacidades. Nuestro objetivo es cumplir con los estándares internacionales de accesibilidad y asegurarnos de que todos los usuarios puedan disfrutar de la mejor experiencia posible en nuestro sitio.</p>
+
+    <h2>2. Accesibilidad del Sitio Web</h2>
+    <p>Este sitio web está diseñado para ser accesible, y seguimos las directrices WCAG (Web Content Accessibility Guidelines) para asegurar que las personas con discapacidades visuales, auditivas, motrices y cognitivas puedan navegar de manera efectiva. Esto incluye:</p>
+    <ul>
+        <li>Texto alternativo para imágenes.</li>
+        <li>Contrastes de color adecuados para facilitar la lectura.</li>
+        <li>Navegación sencilla y lógica.</li>
+        <li>Compatibilidad con lectores de pantalla y otras tecnologías asistivas.</li>
+    </ul>
+
+    <h2>3. Herramientas de Accesibilidad</h2>
+    <p>Ofrecemos varias herramientas para mejorar la accesibilidad en nuestro sitio. Entre ellas se incluyen:</p>
+    <ul>
+        <li><strong>Ajuste de tamaño de texto:</strong> Puede aumentar o reducir el tamaño del texto en la mayoría de las páginas utilizando las opciones de su navegador.</li>
+        <li><strong>Contraste de colores:</strong> Si tiene dificultades para leer el texto, puede ajustar el contraste de colores a través de su navegador o utilizando herramientas de accesibilidad de su dispositivo.</li>
+        <li><strong>Lectores de pantalla:</strong> Nuestro sitio es compatible con tecnologías de asistencia como lectores de pantalla. Asegúrese de que la funcionalidad esté habilitada en su dispositivo.</li>
+    </ul>
+
+    <h2>4. Mejoras Continuas</h2>
+    <p>Seguimos trabajando para mejorar la accesibilidad de nuestro sitio y adaptarlo a las nuevas tecnologías. Si encuentra algún problema de accesibilidad, por favor, háganoslo saber para que podamos solucionarlo.</p>
+
+    <h2>5. Cómo Hacer Uso de las Herramientas de Accesibilidad</h2>
+    <p>Si desea obtener más información sobre cómo utilizar las herramientas de accesibilidad en su navegador o dispositivo, consulte los siguientes enlaces:</p>
+    <ul>
+        <li><a href="https://www.w3.org/WAI/test-evaluate/" target="_blank">Herramientas de evaluación de accesibilidad (W3C)</a></li>
+        <li><a href="https://www.microsoft.com/enable/" target="_blank">Microsoft Accessibilidad</a></li>
+        <li><a href="https://www.apple.com/accessibility/" target="_blank">Accesibilidad en dispositivos Apple</a></li>
+    </ul>
+
+    <h2>6. Contacto</h2>
+    <p>Si tiene preguntas o sugerencias sobre cómo mejorar la accesibilidad de nuestro sitio, no dude en ponerse en contacto con nosotros. Estamos comprometidos con hacer nuestro sitio accesible para todos.</p>
+    <p>Correo electrónico de contacto: [correo electrónico de contacto]</p>
+</div>
+
+</body>
+</html>
