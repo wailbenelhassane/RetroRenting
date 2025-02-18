@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/public/scss/AdChoices.css">
+    <title>Opciones de Anuncios (Ad Choices)</title>
+</head>
+<body>
+<div data-include="partials/footer.html"></div>
+<div class="content">
+    <h1>Opciones de Anuncios (Ad Choices)</h1>
+
+    <p>Última actualización: <span id="fecha"></span></p>
+
+    <script>
+        const hoy = new Date();
+        const fechaFormateada = hoy.toLocaleDateString('es-ES', {
+            day: '2-digit',
+            month: '2-digit',
+            year: 'numeric'
+        });
+        document.getElementById("fecha").textContent = fechaFormateada;
+    </script>
+
+    <button class="back-button" onclick="window.history.back()"> Volver a la Página Anterior</button>
+
+
+    <h2>1. Introducción</h2>
+    <p>Nos comprometemos a ofrecerle la mejor experiencia de usuario posible, incluyendo anuncios relevantes y no intrusivos. Esta página le explica cómo usamos anuncios y cómo puede controlar las opciones relacionadas con la publicidad que se le muestra mientras navega en nuestro sitio web.</p>
+
+    <h2>2. ¿Qué son los anuncios basados en intereses?</h2>
+    <p>Los anuncios basados en intereses son aquellos que se muestran a los usuarios según su actividad en línea. Utilizamos información sobre su actividad de navegación (como sitios web visitados, búsquedas realizadas, etc.) para ofrecerle anuncios que creemos que pueden ser de su interés.</p>
+
+    <h2>3. ¿Cómo gestionamos los anuncios?</h2>
+    <p>Utilizamos varias plataformas de publicidad de terceros que recopilan información sobre su actividad en línea para mostrarle anuncios más relevantes. Estas plataformas usan tecnologías como cookies y píxeles de seguimiento para personalizar la publicidad.</p>
+
+    <h2>4. Opciones de Control sobre los Anuncios</h2>
+    <p>Usted tiene control sobre la mayoría de los anuncios que ve. Puede optar por no recibir anuncios basados en intereses de muchos de nuestros socios publicitarios. Para gestionar sus preferencias, puede visitar los siguientes sitios:</p>
+    <ul>
+        <li><a href="https://www.aboutads.info/choices/" target="_blank">Your Ad Choices (USA)</a></li>
+        <li><a href="https://www.youronlinechoices.eu/" target="_blank">Your Online Choices (Europa)</a></li>
+        <li><a href="https://www.google.com/settings/ads" target="_blank">Configuración de anuncios de Google</a></li>
+    </ul>
+
+    <h2>5. ¿Cómo puede desactivar las cookies?</h2>
+    <p>Puede configurar su navegador para rechazar las cookies o eliminar las cookies existentes. Tenga en cuenta que al hacerlo, algunas características del sitio pueden no funcionar correctamente.</p>
+
+    <h2>6. Información adicional</h2>
+    <p>Si desea obtener más información sobre cómo usamos la publicidad basada en intereses, o si tiene alguna pregunta sobre las opciones de anuncios, no dude en ponerse en contacto con nosotros.</p>
+
+    <h2>7. Contacto</h2>
+    <p>Para cualquier consulta sobre esta política de Ad Choices, por favor, póngase en contacto con nosotros a través de [correo electrónico de contacto].</p>
+</div>
+
+</body>
+</html>
