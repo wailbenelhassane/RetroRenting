@@ -5,7 +5,7 @@
   height: 100px;
   align-items: center;
   background-color: gray;
-  margin: 0;
+  position: fixed;
 }
 .header a, .header p {
   cursor: pointer;

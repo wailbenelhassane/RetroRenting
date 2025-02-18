@@ -1,5 +1,5 @@
-.carViewerContainer{
-  display:flex;
+.carViewerContainer {
+  display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
@@ -8,16 +8,16 @@
   margin-top: 10%;
 }
 
-.principalImage{
-  display:flex;
+.principalImage {
+  display: flex;
   width: 50%;
   height: 500px;
   background-color: gray;
-  cursor:pointer;
+  cursor: pointer;
 }
 
-.secondaryImageSection{
-  display:flex;
+.secondaryImageSection {
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -26,12 +26,14 @@
   width: 10%;
   margin-left: 1%;
   height: 500px;
-  .secondaryImage{
-    display: flex;
-    width:100%;
-    height: 30%;
-    background-color: gray;
-    align-items: center;
-    cursor: pointer;
-  }
 }
+.secondaryImageSection .secondaryImage {
+  display: flex;
+  width: 100%;
+  height: 30%;
+  background-color: gray;
+  align-items: center;
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=CarViewer.css.map */
