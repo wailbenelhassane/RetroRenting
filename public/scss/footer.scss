@@ -1,0 +1,33 @@
+footer {
+  background-color: lightgray;
+  color: black;
+  text-align: center;
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20px; /* Ajusta la altura según necesites */
+  margin-top: 20px;
+}
+
+ul li a{
+  text-decoration: none;
+  color: black;
+}
+
+.separator-bar{
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+/* Estilos de la lista */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+li {
+  display: inline;
+}

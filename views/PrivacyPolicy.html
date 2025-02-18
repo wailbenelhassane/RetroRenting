@@ -3,41 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/public/scss/PrivacyPolicy.css">
   <title>Política de Privacidad</title>
-  <style>
-    .back-button {
-      padding: 10px 20px;
-      color: black;
-      border: none;
-      border-radius: none;
-      cursor: pointer;
-    }
-    body {
-      font-family: Arial, sans-serif;
-      margin: 20px;
-      line-height: 1.6;
-    }
-    h1 {
-      text-align: center;
-    }
-    h2 {
-      color: #333;
-    }
-    p {
-      margin-bottom: 20px;
-    }
-    .content {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-  </style>
+
 </head>
 <body>
 
 <div class="content">
   <h1>Política de Privacidad</h1>
 
-  <p>Última actualización: [Fecha]</p>
+  <p>Última actualización: <span id="fecha"></span></p>
+
+  <script>
+    const hoy = new Date();
+    const fechaFormateada = hoy.toLocaleDateString('es-ES', {
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric'
+    });
+    document.getElementById("fecha").textContent = fechaFormateada;
+  </script>
 
   <button class="back-button" onclick="window.history.back()"> Volver a la Página Anterior</button>
 
