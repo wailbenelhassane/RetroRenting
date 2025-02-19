@@ -2,25 +2,18 @@ footer {
     background-color: lightgray;
     color: black;
     text-align: center;
-    padding: 15px;
     display: flex;
+    position: absolute;
     justify-content: center;
     align-items: center;
-    height: 20px; /* Ajusta la altura según necesites */
+    height: 40px;
     margin-top: 20px;
+    border: none;
+    box-shadow: none;
+    bottom: 0;
+    width: 100%;
 }
 
-ul li a{
-    text-decoration: none;
-    color: black;
-}
-
-.separator-bar{
-    margin-left: 10px;
-    margin-right: 10px;
-}
-
-/* Estilos de la lista */
 ul {
     list-style: none;
     padding: 0;
@@ -28,6 +21,16 @@ ul {
     display: flex;
 }
 
-li {
+ul li {
     display: inline;
+}
+
+ul li a {
+    text-decoration: none;
+    color: black;
+}
+
+.separator-bar {
+    margin-left: 10px;
+    margin-right: 10px;
 }
