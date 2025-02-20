@@ -1,0 +1,29 @@
+.side-text-section-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2%;
+}
+
+.side-text-section-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  height: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.side-text-section-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  height: 500px;
+  background-color: lightgray;
+}

@@ -1,0 +1,63 @@
+.catalog-card-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+.catalog-card-container a {
+  cursor: pointer;
+  font-size: 0.75rem;
+  text-decoration: none;
+  color: black;
+}
+
+.catalog-card {
+  display: flex;
+  flex-direction: row;
+  height: 400px;
+  margin: 15px;
+  width: 30%;
+  flex: 1;
+  transition: all ease-in-out 0.333s;
+  position: relative;
+  overflow: hidden;
+}
+.catalog-card:hover {
+  flex-grow: 2;
+}
+.catalog-card:hover .catalog-card-info {
+  display: flex;
+}
+.catalog-card:hover .catalog-card-image {
+  width: 50%;
+}
+.catalog-card .catalog-card-image {
+  height: 100%;
+  width: 80%;
+  background-image: url("https://dbackdrop.es/cdn/shop/products/unnamed_1200x1200.png?v=1628839358");
+  background-position: center;
+  background-size: cover;
+}
+.catalog-card .catalog-card-info {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(128, 128, 128, 0.9);
+  height: 100%;
+  width: 50%;
+  position: absolute;
+  right: 0;
+}
+.catalog-card .catalog-card-button {
+  display: flex;
+  background-color: darkgray;
+  justify-content: center;
+  align-items: center;
+  width: 25%;
+  height: 10%;
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=catalog-section.css.map */
