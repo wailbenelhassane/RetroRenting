@@ -10,7 +10,6 @@ export async function includeHTML() {
 
             element.innerHTML = await response.text();
 
-            // Cargar el CSS correspondiente
             const cssFile = file.replace(".html", ".css").replace("partials/", "../../public/scss/");
             if (!document.querySelector(`link[href="${cssFile}"]`)) {
                 const link = document.createElement("link");
@@ -30,25 +29,44 @@ export async function fetchJSON(path) {
     try {
         const response = await fetch(path);
         if (!response.ok) throw new Error(`Error al obtener JSON desde: ${path}`);
-        const data = await response.json();
-        return data;
+        return await response.json();
     } catch (error) {
         console.error("Error al cargar el JSON:", error);
         return null;
     }
 }
 
+export function setMultipleImages(images) {
+    Object.entries(images).forEach(([key, imageData]) => {
+        let selector = "";
+
+        selector = "." + imageData.selector;
+
+        const imgElements = document.querySelectorAll(selector);
+        if (imgElements.length > 0) {
+            imgElements.forEach((imgElement) => {
+                if (imageData.src) {
+                    imgElement.src = imageData.src;
+                    imgElement.alt = imageData.altText || "Imagen no encontrada";
+                }
+            });
+        } else {
+            console.error("The element not found.");
+        }
+    });
+}
+
 export function setImage(elementSelector, data) {
-    console.log("Configurando imagen con los datos:", data);
 
     const imgElement = document.querySelector(elementSelector);
     if (imgElement && data.src) {
         imgElement.src = data.src;
         imgElement.alt = data.altText || "Image not found";
-        console.log(`Imagen establecida correctamente en ${elementSelector}`);
     } else {
-        console.error(`No se encontró el elemento con el selector: ${elementSelector} o la ruta de la imagen es inválida.`);
+        console.error("The element not found.");
     }
 }
 
-document.addEventListener("DOMContentLoaded", includeHTML);
+document.addEventListener("DOMContentLoaded", async () => {
+    await includeHTML();
+});

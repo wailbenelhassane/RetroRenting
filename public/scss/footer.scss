@@ -1,11 +1,14 @@
+$dark-gray: #1F1F1F;
+$font-family: "Roboto", sans-serif;
 $background-color: lightgray;
-$text-color: black;
+$text-color: white;
 $footer-height: 40px;
 $margin-top: 20px;
 $separator-margin: 10px;
 
 footer {
-  background-color: $background-color;
+  background: rgba(30, 30, 30, 0.5);
+  backdrop-filter: blur(10px);
   color: $text-color;
   text-align: center;
   display: flex;
@@ -13,7 +16,6 @@ footer {
   align-items: center;
   height: $footer-height;
   margin-top: $margin-top;
-  border: none;
   box-shadow: none;
   width: 100%;
 
@@ -29,6 +31,7 @@ footer {
       a {
         text-decoration: none;
         color: $text-color;
+        font-family: $font-family;
       }
     }
   }

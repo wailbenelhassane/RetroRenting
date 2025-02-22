@@ -1,9 +1,11 @@
-$header-bg-color: gray;
-$text-color: black;
+$black: #000000;
+$dark-gray: #1F1F1F;
+$font-family: "Roboto", sans-serif;
+$text-color: white;
 $header-height: 85px;
-$logo-size: 120px;
+$logo-size: 110px;
 $font-size: 1.2rem;
-$margin-spacing: 5px;
+$margin-spacing: 5vh;
 $section-width: 20%;
 
 @mixin flex-center($direction: row) {
@@ -14,44 +16,60 @@ $section-width: 20%;
 }
 
 .header {
-  display: flex;
-  flex-direction: row;
+  @include flex-center(row);
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
   width: 100%;
   height: $header-height;
-  align-items: center;
-  background-color: $header-bg-color;
   position: fixed;
   top: 0;
 
-  a,
-  p {
+  a {
     cursor: pointer;
+    color: $text-color;
     margin: $margin-spacing;
     font-size: $font-size;
     text-decoration: none;
-    color: $text-color;
+    font-weight: bold;
+    font-family: $font-family;
   }
 }
 
-.header-section {
-  @include flex-center(row);
+.header-logo {
+  display: flex;
+  align-items: flex-start;
+  left: 0;
   width: $section-width;
-  height: 100%;
+
+  img {
+    width: $logo-size;
+    height: $logo-size;
+    object-fit: contain;
+  }
 }
 
-.header-logo {
-  @extend .header-section;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+.header-menu {
+  @include flex-center(row);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  .header-section {
+    margin: 0 $margin-spacing;
+  }
 }
 
 .header-register {
   @include flex-center(row);
   width: $section-width;
-}
 
-.logo-image {
-  height: $logo-size;
-  width: $logo-size;
+  a {
+    margin: 5px;
+  }
+
+  span {
+    font-size: $font-size;
+    font-weight: bold;
+    color: $text-color;
+  }
 }
