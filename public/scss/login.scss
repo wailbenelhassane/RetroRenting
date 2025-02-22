@@ -1,6 +1,7 @@
 $black: #000000;
 $dark-gray: #1F1F1F;
 $accent-color: #B8860B;
+$secondary-hover: #9a7006;
 $font-family: "Roboto", sans-serif;
 $text-color: white;
 $input-border-color: #ccc;
@@ -121,6 +122,10 @@ body {
         border-radius: $button-radius;
         padding: 10px 15px;
         margin-top: 20px;
+      }
+
+      button:hover {
+        background-color: $secondary-hover;
       }
     }
 

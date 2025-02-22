@@ -102,6 +102,9 @@ body {
   padding: 10px 15px;
   margin-top: 20px;
 }
+.login-form-container .input-container .login-form button:hover {
+  background-color: #9a7006;
+}
 .login-form-container .input-container .login-links {
   color: white;
   font-size: 1.2rem;
