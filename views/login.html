@@ -2,30 +2,39 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>RetroRenting</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sign in to RetroRenting, your vintage car rental platform.">
+    <title>RetroRenting - Sign In</title>
     <link rel="stylesheet" href="../public/scss/login.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="aside-image">
-        <img src="../public/img/login.jpg" alt="">
-    </div>
+    <aside class="aside-image">
+        <img src="../public/img/login.jpg" alt="Car image background.">
+    </aside>
 
-    <div class="login-form-container">
+    <section class="login-form-container">
         <div class="login-logo">
             <img src="../public/img/logo.png" alt="Logo">
         </div>
+
         <div class="login-header">
             <h1>Sign in!</h1>
         </div>
-        <div class="back-link">
-            &larr; Go back
+
+        <nav aria-label="Go back">
+            <a id="back-link" href="#" onclick="history.back(); return false"> &larr; Go back</a>
+        </nav>
+
+        <div class="input-container">
+            <form class="login-form" action="/login" method="post">
+                <input type="text" name="username" placeholder="Username" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <button class="login-btn" type="submit">Sign in</button>
+            </form>
+
+            <p id="sign-up-link">Don´t have an account? <a href="" id="sign-up-btn">Sign up</a></p>
         </div>
-        <form class="login-form" action="/login" method="post">
-            <input type="text" name="username" placeholder="Username" required>
-            <input type="password" name="password" placeholder="Password" required>
-            <button class="login-btn" type="submit">Sign in</button>
-        </form>
-        <p id="sign-up-link">Don´t have an account? <a href="" id="sign-up-btn">Sign up</a></p>
-    </div>
+    </section>
 </body>
 </html>

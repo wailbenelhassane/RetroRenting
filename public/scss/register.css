@@ -1,0 +1,93 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  height: 100vh;
+}
+
+.aside-image {
+  width: 50%;
+  position: relative;
+}
+
+.aside-image img {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+}
+
+.register-form-container {
+  background-color: #333333;
+  width: 50%;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.register-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+}
+
+.register-form #logo {
+  width: 150px;
+  height: 150px;
+}
+
+.register-name-group-input {
+  width: 150px;
+  height: 25px;
+}
+
+.register-form input {
+  width: 300px;
+  height: 25px;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  margin-top: 10px;
+}
+
+.register-form button {
+  width: 125px;
+  height: 50px;
+  background-color: #B8860B;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 10px 15px;
+  margin-top: 20px;
+  margin-left: 30%;
+}
+
+#sign-up-link {
+  color: white;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+#sign-up-btn {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+/*# sourceMappingURL=register.css.map */

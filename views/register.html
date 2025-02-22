@@ -17,18 +17,21 @@
         <div class="register-header">
             <h1>Sign in!</h1>
         </div>
-        <form class="register-form" action="/register" method="post">
-            <div class="register-name-group-input">
-                <input type="text" name="name" placeholder="Name">
-                <input type="text" name="surname" placeholder="Surname">
-            </div>
-            <input type="email" name="email" placeholder="Email">
-            <input type="text" name="username" placeholder="Username">
-            <input type="password" name="password" placeholder="Password">
-            <input type="password" name="confirm-password" placeholder="Confirm Password">
-            <button class="register-btn" type="submit">Sign in</button>
-        </form>
-        <p id="sign-up-link">Already have an account? <a href="" id="sign-in-btn">Sign in</a></p>
+        <div class="input-container">
+            <form class="register-form" action="/register" method="post">
+                <a id="back-link" href="#" onclick="history.back(); return false"> &larr; Go back</a>
+                <div class="register-name-group-input">
+                    <input type="text" name="name" placeholder="Name">
+                    <input type="text" name="surname" placeholder="Surname">
+                </div>
+                <input type="email" name="email" placeholder="Email">
+                <input type="text" name="username" placeholder="Username">
+                <input type="password" name="password" placeholder="Password">
+                <input type="password" name="confirm-password" placeholder="Confirm Password">
+                <button class="register-btn" type="submit">Sign in</button>
+            </form>
+            <p id="sign-up-link">Already have an account? <a href="" id="sign-in-btn">Sign in</a></p>
+        </div>
     </div>
 </body>
 </html>
