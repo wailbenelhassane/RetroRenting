@@ -11,24 +11,20 @@ footer {
   box-shadow: none;
   width: 100%;
 }
-
-ul {
+footer ul {
   list-style: none;
   padding: 0;
   margin: 0;
   display: flex;
 }
-
-ul li {
+footer ul li {
   display: inline;
 }
-
-ul li a {
+footer ul li a {
   text-decoration: none;
   color: black;
 }
-
-.separator-bar {
+footer .separator-bar {
   margin-left: 10px;
   margin-right: 10px;
 }

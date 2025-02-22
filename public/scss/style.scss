@@ -1,18 +1,29 @@
+$margin: 0;
+$padding: 0;
+$box-sizing: border-box;
+$full-width: 100%;
+$full-height: 100%;
+$padding-top: 50px;
+
+@mixin reset {
+  margin: $margin;
+  padding: $padding;
+  box-sizing: $box-sizing;
+}
+
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  @include reset;
 }
 
 html,
 body {
   display: flex;
   flex-direction: column;
-  padding-top: 50px;
-  width: 100%;
-  height: 100%;
-}
+  padding-top: $padding-top;
+  width: $full-width;
+  height: $full-height;
 
-.content {
-  flex: 1;
+  .content {
+    flex: 1;
+  }
 }

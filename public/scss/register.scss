@@ -20,7 +20,7 @@ body {
   object-fit: cover;
 }
 
-.login-form-container {
+.register-form-container {
   background-color: #333333;
   width: 50%;
   color:white;
@@ -30,29 +30,30 @@ body {
   align-items: center;
 }
 
-.login-header {
+.register-header {
   display: flex;
   align-items: center;
   gap: 10px;
   margin-bottom: 20px;
 }
 
-.back-link {
-  left: 100%;
-}
-
-.login-form {
+.register-form {
   display: flex;
   flex-direction: column;
   justify-items: center;
 }
 
-.login-form #logo{
+.register-form #logo{
   width: 150px;
   height: 150px;
 }
 
-.login-form input {
+.register-name-group-input {
+  width: 150px;
+  height: 25px;
+}
+
+.register-form input {
   width: 300px;
   height: 25px;
   padding: 5px 10px;
@@ -62,7 +63,7 @@ body {
   margin-top: 10px;
 }
 
-.login-form button {
+.register-form button {
   width: 125px;
   height: 50px;
   background-color: #B8860B;

@@ -1,34 +1,40 @@
+$background-color: lightgray;
+$text-color: black;
+$footer-height: 40px;
+$margin-top: 20px;
+$separator-margin: 10px;
+
 footer {
-  background-color: lightgray;
-  color: black;
+  background-color: $background-color;
+  color: $text-color;
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 40px;
-  margin-top: 20px;
+  height: $footer-height;
+  margin-top: $margin-top;
   border: none;
   box-shadow: none;
   width: 100%;
-}
 
-ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-}
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
 
-ul li {
-  display: inline;
-}
+    li {
+      display: inline;
 
-ul li a {
-  text-decoration: none;
-  color: black;
-}
+      a {
+        text-decoration: none;
+        color: $text-color;
+      }
+    }
+  }
 
-.separator-bar {
-  margin-left: 10px;
-  margin-right: 10px;
+  .separator-bar {
+    margin-left: $separator-margin;
+    margin-right: $separator-margin;
+  }
 }

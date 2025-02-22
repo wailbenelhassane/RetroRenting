@@ -1,14 +1,13 @@
 .side-text-section-container {
   display: flex;
   flex-direction: row;
-  width: 100%;
-  height: auto;
   justify-content: center;
   align-items: center;
+  width: 100%;
+  height: auto;
   margin-top: 2%;
 }
-
-.side-text-section-text {
+.side-text-section-container .side-text-section-text {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -18,9 +17,9 @@
   padding-left: 15px;
   padding-right: 15px;
 }
-
-.side-text-section-image {
+.side-text-section-container .side-text-section-image {
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   width: 40%;
