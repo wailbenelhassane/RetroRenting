@@ -7,8 +7,8 @@ $input-border-color: #ccc;
 $box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 $border-radius: 15px;
 $button-radius: 5px;
-$input-width: 450px;
-$input-height: 45px;
+$input-width: 45vh;
+$input-height: 4vh;
 $font-size-base: 1rem;
 $font-size-small: 1.2rem;
 $font-size-large: 4rem;
@@ -124,13 +124,19 @@ body {
       }
     }
 
-    #sign-up-link {
+    .login-links {
       color: $text-color;
       font-size: $font-size-small;
       font-family: $font-family;
       margin-top: 10px;
 
       #sign-up-btn {
+        text-decoration: none;
+        color: $text-color;
+        font-weight: bold;
+      }
+
+      #reemail-btn {
         text-decoration: none;
         color: $text-color;
         font-weight: bold;

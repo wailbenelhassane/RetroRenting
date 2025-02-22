@@ -1,7 +1,7 @@
 $header-bg-color: gray;
 $text-color: black;
 $header-height: 85px;
-$logo-size: 75px;
+$logo-size: 120px;
 $font-size: 1.2rem;
 $margin-spacing: 5px;
 $section-width: 20%;
@@ -51,7 +51,7 @@ $section-width: 20%;
   width: $section-width;
 }
 
-#logo {
+.logo-image {
   height: $logo-size;
   width: $logo-size;
 }

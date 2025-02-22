@@ -74,8 +74,8 @@ body {
   font-family: "Roboto", sans-serif;
 }
 .login-form-container .input-container .login-form input {
-  width: 450px;
-  height: 45px;
+  width: 45vh;
+  height: 4vh;
   font-size: 1rem;
   padding: 5px 10px;
   border: 1px solid #ccc;
@@ -102,13 +102,18 @@ body {
   padding: 10px 15px;
   margin-top: 20px;
 }
-.login-form-container .input-container #sign-up-link {
+.login-form-container .input-container .login-links {
   color: white;
   font-size: 1.2rem;
   font-family: "Roboto", sans-serif;
   margin-top: 10px;
 }
-.login-form-container .input-container #sign-up-link #sign-up-btn {
+.login-form-container .input-container .login-links #sign-up-btn {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+.login-form-container .input-container .login-links #reemail-btn {
   text-decoration: none;
   color: white;
   font-weight: bold;
