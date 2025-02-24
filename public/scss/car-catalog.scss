@@ -1,11 +1,13 @@
-$background-color: gray;
+$background-color: #B8860B;
 $text-color: white;
 $hover-transition: all ease-in-out 300ms;
-$menu-item-width: 80%;
+$menu-item-width: 45%;
+$font-family: "Roboto", sans-serif;
 $menu-item-height: 300px;
 $catalog-image-width: 55%;
 $catalog-menu-width: 30%;
 $container-height: 500px;
+$font-size-base: 1.5rem;
 $container-margin-top: 2%;
 
 @mixin center-flex($direction: row) {
@@ -25,7 +27,6 @@ $container-margin-top: 2%;
     @include center-flex;
     width: $catalog-image-width;
     height: $container-height;
-    background-color: $background-color;
     cursor: pointer;
   }
 
@@ -33,19 +34,30 @@ $container-margin-top: 2%;
     @include center-flex(column);
     width: $catalog-menu-width;
     height: $container-height;
+    list-style: none;
 
     .car-catalog-menu-item {
-      @include center-flex;
+      display: flex;
+      align-items: center;
       margin-bottom: 20px;
       width: $menu-item-width;
       height: $menu-item-height;
       background-color: $background-color;
+      backdrop-filter: blur(10px);
       color: $text-color;
       cursor: pointer;
 
       &:hover {
         margin-left: -80px;
         transition: $hover-transition;
+      }
+
+      .car-catalog-menu-item-element {
+        margin-left: 15%;
+        text-decoration: none;
+        color: $text-color;
+        font-family: $font-family;
+        font-size: $font-size-base;
       }
     }
   }

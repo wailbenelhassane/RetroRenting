@@ -1,0 +1,51 @@
+$active-color: #4caf50;
+$inactive-color: #f44336;
+$font-family: "Roboto", sans-serif;
+$text-color: white;
+$circle-size: 50px;
+$arrow-color: white;
+
+.progress-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px auto;
+  gap: 20px;
+
+  .progress-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    .step-circle {
+      width: $circle-size;
+      height: $circle-size;
+      background-color: $inactive-color;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+      transition: background-color 0.3s ease;
+    }
+
+    .step-label {
+      font-size: 1rem;
+      color: $text-color;
+      font-family: $font-family;
+    }
+
+    &.active .step-circle {
+      background-color: $active-color;
+    }
+  }
+
+  .progress-arrow {
+    font-size: 2rem;
+    color: $arrow-color;
+  }
+}

@@ -3,5 +3,5 @@ import { loadHeaderContent } from "./header.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
     await includeHTML();
-    loadHeaderContent();
+    await loadHeaderContent();
 });
