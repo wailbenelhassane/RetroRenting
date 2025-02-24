@@ -4,11 +4,11 @@
 }
 
 .main-driver-form-container {
-  background-color: #d3d3d3;
+  background-color: #6e6e6e;
   padding: 20px;
   border-radius: 5px;
-  height: 50vh;
-  width: 100vh;
+  height: 90%;
+  width: 20%;
   margin: 30px auto;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 }
@@ -48,6 +48,9 @@
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
   font-family: "Roboto", sans-serif;
 }
+.input-container .main-driver-form .name-group input:focus {
+  outline: none;
+}
 .input-container .main-driver-form input,
 .input-container .main-driver-form select {
   width: 100%;
@@ -60,15 +63,18 @@
 .input-container .main-driver-form .phone-group {
   display: flex;
   width: 100%;
-  gap: 10px;
+  gap: 5px;
 }
 .input-container .main-driver-form .phone-group select {
-  width: 20%;
+  width: 30%;
   background-size: cover;
   border-radius: 5px;
 }
+.input-container .main-driver-form .phone-group select:focus {
+  outline: none;
+}
 .input-container .main-driver-form .phone-group input {
-  width: 80%;
+  width: 70%;
 }
 .input-container .main-driver-form button {
   width: 125px;
@@ -86,6 +92,14 @@
 }
 .input-container .main-driver-form button:hover {
   background-color: #9a7006;
+}
+.input-container .main-driver-form .btn-container {
+  display: flex;
+  justify-content: center;
+}
+
+footer {
+  bottom: 0;
 }
 
 /*# sourceMappingURL=main-driver-form.css.map */
