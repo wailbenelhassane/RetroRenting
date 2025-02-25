@@ -3,6 +3,7 @@
 ## Nombre del Proyecto y Componentes del Grupo
 
 **Proyecto:** RetroRenting  
+**Grupo:** 41.7  
 **Integrantes del Grupo:**
 - Carlos Ruano Ramos.
 - Wail Ben El Hassan Boudhar.
@@ -20,7 +21,7 @@ RetroRenting es una plataforma para la gestión de alquileres con temática retr
   Muestra la lista de productos disponibles para alquilar, con detalles y fotografías.
 - **Reserva de artículos:**  
   Facilita la reserva de productos, confirmando disponibilidad y fechas.
--  **Información de la empresa:**
+-  **Información de la empresa:**  
   Permite a los usuarios conocer la filosofía y metodología de la empresa.
 - **Integración de pagos:**  
   Procesamiento seguro de pagos en línea.
@@ -47,4 +48,5 @@ RetroRenting es una plataforma para la gestión de alquileres con temática retr
 ## Enlace a Figma
 
 Accede al prototipo interactivo y a los diseños de la interfaz en el siguiente enlace:  
-[Figma - RetroRenting](https://www.figma.com/file/ejemplo/RetroRenting)
+[Figma - RetroRenting](https://www.figma.com/design/3tJJktKu1mzKrl00TrFpcL/PWM-SKETCHUP?node-id=0-1&t=2qq8GJ8OPPS50LA7-1)  
+[Figma - RetroRenting Prototype](https://www.figma.com/proto/3tJJktKu1mzKrl00TrFpcL/PWM-SKETCHUP?node-id=0-1&t=2qq8GJ8OPPS50LA7-1)
