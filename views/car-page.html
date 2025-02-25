@@ -11,9 +11,18 @@
     <div data-include="partials/header.html"></div>
     <div class="content">
         <div data-include="partials/car-viewer.html"></div>
-        <!--<div data-include="partials/car-details.html"></div>-->
-        <div data-include="partials/car-details-bar.html"></div>
-        <div data-include="partials/booking-bar-2.html"></div>
+        <section class="bar-car-details-booking-container">
+            <div class="toggle-buttons">
+                <button class="toggle-button active" id="car-details-btn">Car Details</button>
+                <button class="toggle-button" id="book-now-btn">Book now</button>
+            </div>
+
+            <div class="content-section">
+                <div class="content active" id="car-details-content" data-include="partials/car-details-bar.html"></div>
+                <div class="content" id="book-now-content" data-include="partials/booking-bar-2.html"></div>
+            </div>
+        </section>
+
     </div>
     <div data-include="partials/footer.html"></div>
 </body>
