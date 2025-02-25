@@ -1,4 +1,4 @@
-$dark-gray: #d3d3d3;
+$dark-gray: #6e6e6e;
 $accent-color: #b8860b;
 $secondary-hover: #9a7006;
 $font-family: "Roboto", sans-serif;
@@ -28,8 +28,8 @@ $font-size-small: 1.2rem;
   background-color: $dark-gray;
   padding: 20px;
   border-radius: $border-radius;
-  height: 50vh;
-  width: 100vh;
+  height: 90%;
+  width: 20%;
   margin: 30px auto;
   box-shadow: $box-shadow;
 }
@@ -67,6 +67,10 @@ $font-size-small: 1.2rem;
         box-shadow: $box-shadow;
         font-family: $font-family;
       }
+
+      input:focus {
+        outline: none;
+      }
     }
 
     input,
@@ -82,16 +86,20 @@ $font-size-small: 1.2rem;
     .phone-group {
       display: flex;
       width: 100%;
-      gap: 10px;
+      gap: 5px;
 
       select {
-        width: 20%;
+        width: 30%;
         background-size: cover;
         border-radius: $border-radius;
       }
 
+      select:focus {
+        outline: none;
+      }
+
       input {
-        width: 80%;
+        width: 70%;
       }
     }
 
@@ -113,5 +121,14 @@ $font-size-small: 1.2rem;
     button:hover {
       background-color: $secondary-hover;
     }
+
+    .btn-container {
+      display: flex;
+      justify-content: center;
+    }
   }
+}
+
+footer {
+  bottom: 0;
 }

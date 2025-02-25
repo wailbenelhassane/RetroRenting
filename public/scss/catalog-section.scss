@@ -23,6 +23,8 @@
   transition: all ease-in-out 0.333s;
   position: relative;
   overflow: hidden;
+  background-color: white;
+  border-radius: 10px;
 
   &:hover {
     flex-grow: 2;
@@ -37,11 +39,25 @@
   }
 
   .catalog-card-image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     height: 100%;
-    width: 80%;
-    background-image: url("https://dbackdrop.es/cdn/shop/products/unnamed_1200x1200.png?v=1628839358");
-    background-position: center;
-    background-size: cover;
+    width: 100%;
+    overflow: hidden;
+
+    img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: cover;
+    }
+
+    p {
+      margin-top: 10px;
+      font-weight: bold;
+      text-align: center;
+    }
   }
 
   .catalog-card-info {
@@ -49,20 +65,34 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: rgba(gray, 0.9);
+    color: white;
     height: 100%;
     width: 50%;
     position: absolute;
     right: 0;
+    padding: 20px;
+    text-align: center;
+
+    p {
+      margin: 10px 0;
+      color:black;
+    }
   }
 
   .catalog-card-button {
     display: flex;
-    background-color: darkgray;
+    background-color: green;
     justify-content: center;
     align-items: center;
-    width: 25%;
-    height: 10%;
+    width: 50%;
+    height: 40px;
     cursor: pointer;
+    border-radius: 5px;
+    margin-top: 15px;
+
+    a {
+      color: white;
+      font-weight: bold;
+    }
   }
 }

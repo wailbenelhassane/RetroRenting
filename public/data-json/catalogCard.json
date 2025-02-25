@@ -1,0 +1,53 @@
+{
+  "catalogCards": [
+    {
+      "title": "Chevrolet Camaro",
+      "image": {
+        "src": "/RetroRenting/public/img/cars/70/chevrolet-camaro-70/full-frontal.jpg",
+        "altText": "Chevrolet Camaro 1970"
+      },
+      "info": [
+        "Motor V8 de 6.5L",
+        "Potencia: 375 HP",
+        "0-100 km/h en 6.0s"
+      ],
+      "button": {
+        "text": "Ver más",
+        "link": "/RetroRenting/views/car-page.html"
+      }
+    },
+    {
+      "title": "Ford Mustang",
+      "image": {
+        "src": "/RetroRenting/public/img/cars/70/ford-mustang-70/full-frontal.jpg",
+        "altText": "Ford Mustang 1970"
+      },
+      "info": [
+        "Motor V8 de 6.5L",
+        "Potencia: 375 HP",
+        "0-100 km/h en 6.0s"
+      ],
+      "button": {
+        "text": "Ver más",
+        "link": "/RetroRenting/views/car-page.html"
+      }
+    },
+    {
+      "title": "Jaguar E Type",
+      "image": {
+        "src": "/RetroRenting/public/img/cars/70/jaguar-e-type-70/full-frontal.jpg",
+        "altText": "Jaguar E Type 1970"
+      },
+      "info": [
+        "Motor V8 de 6.5L",
+        "Potencia: 375 HP",
+        "0-100 km/h en 6.0s"
+      ],
+      "button": {
+        "text": "Ver más",
+        "link": "/RetroRenting/views/car-page.html"
+      }
+    }
+  ]
+}
+

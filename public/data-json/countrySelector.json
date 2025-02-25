@@ -1,0 +1,9 @@
+{
+  "countries": [
+    {"value":  "ES", "name":  "Spain", "prefix":  "(+34)"},
+    {"value":  "IT", "name":  "Italy", "prefix":  "(+39)"},
+    {"value":  "POR", "name":  "Portugal", "prefix":  "(+351)"},
+    {"value":  "GER", "name":  "Germany", "prefix":  "(+30)"},
+    {"value":  "AND", "name":  "Andorra", "prefix":  "(+376)"}
+  ]
+}

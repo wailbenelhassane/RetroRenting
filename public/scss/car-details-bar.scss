@@ -1,0 +1,42 @@
+$background-color: #1e1e1e;
+$box-background: #f0f0f0;
+$text-color: #333;
+$box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+$border-radius: 12px;
+$spacing: 20px;
+
+.car-details-container {
+  width: 80%;
+  max-width: 1200px;
+  padding: $spacing;
+  background-color: darken($background-color, 5%);
+  border-radius: $border-radius;
+  box-shadow: $box-shadow;
+}
+
+.car-details-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); // Diseño adaptable
+  gap: $spacing;
+  padding: 0;
+  margin: 0;
+}
+
+.car-details-box {
+  background-color: $box-background;
+  padding: $spacing;
+  border-radius: $border-radius;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  box-shadow: $box-shadow;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  .car-details-box-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: $text-color;
+  }
+}
