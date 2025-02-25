@@ -1,23 +1,43 @@
+@charset "UTF-8";
 body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
   background-color: black;
   margin: 0;
   font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.reviews {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  max-width: 800px;
+  width: 100%;
+  margin: 20px auto;
 }
 
 .card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 250px;
   background-color: #8B6508;
   color: white;
   text-align: center;
   padding: 20px;
-  border-radius: 10px;
+  border-radius: 0px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
-
+.card p {
+  padding: 10px;
+}
 .profile-pic {
   width: 80px;
   height: 80px;
@@ -29,4 +49,7 @@ body {
 .stars {
   color: gold;
   font-size: 20px;
+  background: #8B6508;
 }
+
+/*# sourceMappingURL=reviews.css.map */
