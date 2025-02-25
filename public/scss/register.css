@@ -66,8 +66,6 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 120%;
-  background-color: red;
 }
 .register-form-container .input-container .register-form label {
   margin-top: 2vh;
