@@ -14,13 +14,16 @@
 RetroRenting es una plataforma para la gestión de alquileres con temática retro. La aplicación permite a los usuarios explorar un catálogo de artículos vintage, realizar reservas, gestionar sus pedidos y administrar pagos de manera segura.
 
 ## Requisitos Funcionales
-
-- **Registro e inicio de sesión:**  
-  Permite a los usuarios crear cuentas, autenticarse y gestionar su perfil.
-- **Visualización del catálogo:**  
-  Muestra la lista de productos disponibles para alquilar, con detalles y fotografías.
-- **Reserva de artículos:**  
-  Facilita la reserva de productos, confirmando disponibilidad y fechas.
+- **Poder visualizar un cátologo de coches:**  
+  Permite a los usuarios visualizar la flota de vehículos disponibles, observando una imagen del vehículo y una serie de características básicas(motor, potencia y tiempo de 0-100).
+- **Poder ver una ficha detallada:**  
+  Permite a los usuarios visualizar una ficha del vehículo con imágenes caracteristicas básicas del vehículo(motor, potencia y tiempo de 0-100).
+- **Poder realizar la reservar de un coche:**
+  Permite a los usuarios realizar una reserva de un coche, ubicada en un lugar y tiempo (con fecha de inicio y fin).
+- **Poder registrarse en la página web:**
+  Permite a los usuarios registrarse en la página web con los siguientes datos: nombre, apellidos, dirección de correo email, nombre de usuario y contraseña.
+- **Poder iniciar sesión en la página web:**
+  Permite a los usuarios iniciar sesión en la página web con los siguientes datos: nombre de usuario y contraseña. 
 -  **Información de la empresa:**  
   Permite a los usuarios conocer la filosofía y metodología de la empresa.
 - **Integración de pagos:**  
@@ -32,9 +35,7 @@ RetroRenting es una plataforma para la gestión de alquileres con temática retr
 
 ## Archivos Templates Identificados
 - **Templates de la Interfaz:**
-  - `header.html` – Cargado en `index.html`
-  - `footer.html` – Cargado en `index.html`
-  - `index.html` – Cargado en `index.html`
+- 
 
 ## Otros Aspectos a Considerar en la Evaluación
 
