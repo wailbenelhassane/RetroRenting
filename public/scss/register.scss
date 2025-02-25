@@ -64,15 +64,15 @@ body {
 
   .register-logo {
     img {
-      width: 270px;
-      height: 270px;
+      width: 14vw;
+      height: 23vh;
     }
   }
 
   .register-header {
     @include flex-center(row);
-    gap: 10px;
-    margin-bottom: 10px;
+    gap: 2vh;
+    margin-bottom: 1vh;
 
     h1 {
       font-size: $font-size-large;
@@ -87,7 +87,6 @@ body {
     font-size: $font-size-small;
     color: $text-color;
     text-decoration: none;
-    margin-bottom: 10px;
   }
 
   .input-container {
@@ -97,7 +96,7 @@ body {
       @include flex-center(column);
 
       label {
-        margin-top: 10px;
+        margin-top: 2vh;
         font-size: $font-size-base;
         font-family: $font-family;
       }
@@ -106,29 +105,31 @@ body {
         width: $input-width;
         height: $input-height;
         font-size: $font-size-base;
-        padding: 5px 10px;
-        border: 1px solid $input-border-color;
+        padding: 1vh 1vh;
+        border: 0.1vh solid $input-border-color;
         border-radius: $border-radius;
         box-shadow: $box-shadow;
-        margin-top: 5px;
+        margin-top: 0.3vh;
+        margin-bottom: 0.3vh;
       }
 
       .name-group {
         @include flex-group();
         height: $input-height-group;
         width: $input-width-group;
-        margin-bottom: 5px;
+        margin-bottom: 0.3vh;
+        gap: 0.5vw;
       }
 
       input:focus {
         outline: none;
         box-shadow: $box-shadow;
-        border: 1px solid $input-border-color;
+        border: 0.1vh solid $input-border-color;
       }
 
       button {
-        width: 125px;
-        height: 50px;
+        width: 10vw;
+        height: 5vh;
         background-color: $accent-color;
         font-size: 20px;
         font-weight: bold;
@@ -150,7 +151,7 @@ body {
       color: $text-color;
       font-size: $font-size-small;
       font-family: $font-family;
-      margin-top: 10px;
+      margin-top: 1vh;
 
       #sign-in-btn {
         text-decoration: none;
