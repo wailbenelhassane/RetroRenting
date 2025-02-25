@@ -23,6 +23,7 @@ $section-width: 20%;
   height: $header-height;
   position: fixed;
   top: 0;
+  z-index: 100;
 
   a {
     cursor: pointer;
