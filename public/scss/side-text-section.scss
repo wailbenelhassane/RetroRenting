@@ -20,11 +20,15 @@ $padding-sides: 15px;
   margin-top: $margin-top;
 
   .side-text-section-text {
-    @include flex-center(column);
+    justify-content: center;
+    align-items: center;
     width: $text-width;
     height: 100%;
     padding-left: $padding-sides;
     padding-right: $padding-sides;
+    h2{
+      margin-bottom: 20px;
+    }
   }
 
   .side-text-section-image {

@@ -1,0 +1,163 @@
+{
+  "decades": [
+    {
+      "title": "70’s",
+      "catalogCards": [
+        {
+          "title": "Chevrolet Camaro",
+          "image": {
+            "src": "/RetroRenting/public/img/cars/70/chevrolet-camaro-70/full-frontal.jpg",
+            "altText": "Chevrolet Camaro 1970"
+          },
+          "info": [
+            "Motor V8 de 6.5L",
+            "Potencia: 375 HP",
+            "0-100 km/h en 6.0s"
+          ],
+          "button": {
+            "text": "Ver más",
+            "link": "/RetroRenting/views/car-page.html"
+          }
+        },
+        {
+          "title": "Ford Mustang",
+          "image": {
+            "src": "/RetroRenting/public/img/cars/70/ford-mustang-70/full-frontal.jpg",
+            "altText": "Ford Mustang 1970"
+          },
+          "info": [
+            "Motor V8 de 6.5L",
+            "Potencia: 375 HP",
+            "0-100 km/h en 6.0s"
+          ],
+          "button": {
+            "text": "Ver más",
+            "link": "/RetroRenting/views/car-page.html"
+          }
+        },
+        {
+          "title": "Jaguar E Type",
+          "image": {
+            "src": "/RetroRenting/public/img/cars/70/jaguar-e-type-70/full-frontal.jpg",
+            "altText": "Jaguar E Type 1970"
+          },
+          "info": [
+            "Motor V8 de 6.5L",
+            "Potencia: 375 HP",
+            "0-100 km/h en 6.0s"
+          ],
+          "button": {
+            "text": "Ver más",
+            "link": "/RetroRenting/views/car-page.html"
+          }
+        }
+      ]
+    },
+    {
+      "title": "80’s",
+      "catalogCards": [
+        {
+          "title": "BMW Sedan Series 6",
+          "image": {
+            "src": "/RetroRenting/public/img/cars/80/bmw-sedan-series-6-80/full-frontal.jpg",
+            "altText": "BMW Sedan Series 6"
+          },
+          "info": [
+            "Motor V8 de 5.7L",
+            "Potencia: 230 HP",
+            "0-100 km/h en 7.0s"
+          ],
+          "button": {
+            "text": "Ver más",
+            "link": "/RetroRenting/views/car-page.html"
+          }
+        },
+        {
+          "title": "Mercedes Benz 500",
+          "image": {
+            "src": "/RetroRenting/public/img/cars/80/mercedes-benz-500-sec/full-frontal.jpg",
+            "altText": "Mercedes Benz 500"
+          },
+          "info": [
+            "Motor V8 de 5.7L",
+            "Potencia: 230 HP",
+            "0-100 km/h en 7.0s"
+          ],
+          "button": {
+            "text": "Ver más",
+            "link": "/RetroRenting/views/car-page.html"
+          }
+        },
+        {
+          "title": "Spider Veloce 2DR",
+          "image": {
+            "src": "/RetroRenting/public/img/cars/80/spider-veloce-2DR-80/full-frontal.jpg",
+            "altText": "Spider Veloce 2DR"
+          },
+          "info": [
+            "Motor V8 de 5.7L",
+            "Potencia: 230 HP",
+            "0-100 km/h en 7.0s"
+          ],
+          "button": {
+            "text": "Ver más",
+            "link": "/RetroRenting/views/car-page.html"
+          }
+        }
+      ]
+    },
+    {
+      "title": "90’s",
+      "catalogCards": [
+        {
+          "title": "Acura NS2X2DR",
+          "image": {
+            "src": "/RetroRenting/public/img/cars/90/acura-nsx2dr-90/full-frontal.jpg",
+            "altText": "Acura NS2X2DR 1990"
+          },
+          "info": [
+            "Motor RB26DETT de 2.6L",
+            "Potencia: 280 HP",
+            "0-100 km/h en 5.6s"
+          ],
+          "button": {
+            "text": "Ver más",
+            "link": "/RetroRenting/views/car-page.html"
+          }
+        },
+        {
+          "title": "Ferrari Mondial",
+          "image": {
+            "src": "/RetroRenting/public/img/cars/90/ferrari-mondial-90/full-frontal.jpg",
+            "altText": "Ferrari Mondial 1990"
+          },
+          "info": [
+            "Motor 2JZ-GTE de 3.0L",
+            "Potencia: 280 HP",
+            "0-100 km/h en 5.3s"
+          ],
+          "button": {
+            "text": "Ver más",
+            "link": "/RetroRenting/views/car-page.html"
+          }
+        },
+        {
+          "title": "Porsche 911 Speedster",
+          "image": {
+            "src": "/RetroRenting/public/img/cars/90/porsche-911-speedster-90/full-frontal.jpg",
+            "altText": "Porsche 911 Speedster 1990"
+          },
+          "info": [
+            "Motor rotativo 13B",
+            "Potencia: 255 HP",
+            "0-100 km/h en 5.9s"
+          ],
+          "button": {
+            "text": "Ver más",
+            "link": "/RetroRenting/views/car-page.html"
+          }
+        }
+      ]
+    }
+  ]
+}
