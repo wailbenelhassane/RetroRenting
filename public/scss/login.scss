@@ -8,8 +8,8 @@ $input-border-color: #ccc;
 $box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 $border-radius: 15px;
 $button-radius: 5px;
-$input-width: 45vh;
-$input-height: 4vh;
+$input-width: 35.14vw;
+$input-height:  6.2vh;
 $font-size-base: 1rem;
 $font-size-small: 1.2rem;
 $font-size-large: 4rem;
@@ -54,8 +54,8 @@ body {
 
   .login-logo {
     img {
-      width: 270px;
-      height: 270px;
+      width: 10vw;
+      height: 20vh;
     }
   }
 
@@ -101,6 +101,7 @@ body {
         border-radius: $border-radius;
         box-shadow: $box-shadow;
         margin-top: 5px;
+        margin-bottom: 2vh;
       }
 
       input:focus {
@@ -110,8 +111,8 @@ body {
       }
 
       button {
-        width: 125px;
-        height: 50px;
+        width: 12vw;
+        height: 5vh;
         background-color: $accent-color;
         font-size: 20px;
         font-weight: bold;
@@ -121,7 +122,8 @@ body {
         cursor: pointer;
         border-radius: $button-radius;
         padding: 10px 15px;
-        margin-top: 20px;
+        margin-top: 2vh;
+        margin-bottom: 3vh;
       }
 
       button:hover {

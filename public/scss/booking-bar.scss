@@ -1,5 +1,6 @@
 $primary-color: #555;
 $secondary-color: #B8860B;
+$secondary-color-lighter: #cf9d2e;
 $secondary-hover: #9a7006;
 $text-color: white;
 $font-family: "Roboto", sans-serif;
@@ -16,6 +17,7 @@ $box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
   height: 35px;
   box-shadow: $box-shadow;
   border: 1px solid #ccc;
+
   &:focus {
     outline: none;
   }
@@ -62,7 +64,7 @@ $box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
     .booking-bar-form {
       display: flex;
       flex-direction: row;
-      gap: 30px
+      gap: 30px;
     }
 
     .booking-section {
