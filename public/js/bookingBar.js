@@ -20,4 +20,8 @@ export async function populateCarSelect() {
     }
 }
 
-document.addEventListener("DOMContentLoaded", populateCarSelect);
+export async function initAutocomplete(query){
+    const response = await fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(query)}.json?access_token=pk.eyJ1IjoiZGV4YXJveiIsImEiOiJjbTdqcHFlb2UwNWEzMmpzYnhhNnl5aWhmIn0.vbHSNRoIW5vppCg59RDAFQ`);
+    const data = await response.json();
+    return data.features[0].text;
+}

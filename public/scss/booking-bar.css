@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .booking-bar-container {
   display: flex;
   flex-direction: column;
@@ -70,6 +71,38 @@
 }
 .booking-bar-container .booking-bar .book-btn:hover {
   background-color: #9a7006;
+}
+
+/* 🔍 Sugerencias de autocompletado personalizado */
+.location-autocomplete {
+  position: relative;
+  width: 100%;
+}
+
+.suggestions-box {
+  position: absolute;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 1000;
+  margin-top: 5px;
+  display: none;
+}
+
+.suggestion-item {
+  padding: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  font-family: "Roboto", sans-serif;
+  color: #555;
+}
+.suggestion-item:hover {
+  background-color: #cf9d2e;
+  color: white;
 }
 
 /*# sourceMappingURL=booking-bar.css.map */
