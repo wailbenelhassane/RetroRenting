@@ -6,7 +6,7 @@
 **Grupo:** 41.7  
 **Integrantes del Grupo:**
 - Carlos Ruano Ramos.
-- Wail Ben El Hassan Boudhar.
+- Wail Ben El Hassane Boudhar.
 - Eduardo Marrero González.
 
 ## Descripción del Proyecto
@@ -32,6 +32,47 @@ RetroRenting es una plataforma para la gestión de alquileres con temática retr
 ## Archivo PDF con Mockups y Storyboard
 - **Nombre del archivo:** `mockups_storyboard.pdf`
 - **Ubicación:** `/docs/mockups_storyboard.pdf`
+
+## Listado de páginas HTML y Mockup que implementan  
+### 1. **Inicio (`index.html`)**
+- **Mockup Implementado:** [LandingPage](URL_DEL_MOCKUP)  
+
+---
+
+### 2. **Cátologo (`catalog.html`)**
+- **Mockup Implementado:** [Catalog](URL_DEL_MOCKUP)  
+  
+---
+
+### 3. **Sobre nosotros (`about-us.html`)**
+- **Mockup Implementado:** [About Us](URL_DEL_MOCKUP)  
+  
+---
+
+### 4. **Login (`login.html`)**
+- **Mockup Implementado:** [Login](URL_DEL_MOCKUP)  
+  
+---
+
+### 5. **Register (`register.html`)**
+- **Mockup Implementado:** [Register](URL_DEL_MOCKUP)  
+  
+---
+
+### 6. **Página del coche (`car-page.html`)**
+- **Mockup Implementado:** [Car Page](URL_DEL_MOCKUP)  
+  
+---
+
+### 7. **Datos de la reserva (`car-reservation-information.html`)**
+- **Mockup Implementado:** [Car Reservation Information](URL_DEL_MOCKUP)  
+  
+---
+
+### 8. **Confirmación de la reserva (`car-reservation-confirmation.html`)**
+- **Mockup Implementado:** [Car Reservation Final](URL_DEL_MOCKUP)  
+  
+---
 
 ## Archivos Templates Identificados
 - **Templates de la Interfaz:**
