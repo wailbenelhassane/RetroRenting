@@ -141,7 +141,11 @@ RetroRenting es una plataforma para la gestión de alquileres con temática retr
   Para la correcta gestión de las hojas de estilo se ha utilizado SASS.  
 
 - **Buenas Prácticas y Convención de Código:**  
-  Se ha mantenido una estructura coherente para facilitar la comprensión y futuras mejoras.  
+  Se ha mantenido una estructura coherente para facilitar la comprensión y futuras mejoras.
+  
+- **Elección del estilo:**  
+  Para la realización del diseño y de la consecuente implementación hemos decidido elegir una gamma de colores elegante y seria, puesto que se ha buscado evocar la seriedad y elegancia que los coches retro transmiten.  
+
 
 ## Enlace a Figma
 Accede al prototipo interactivo y a los diseños de la interfaz en el siguiente enlace:  
