@@ -114,6 +114,18 @@ RetroRenting es una plataforma para la gestión de alquileres con temática retr
 
 ### 13. **Process Booking 2 (`process-booking-2.html`)**
 - **Template Integrado en:** car-reservation-confirmation.html  
+
+### 14. **Car Viewer (`car-viewer.html`)**
+- **Template Integrado en:** car-page.html  
+
+### 15. **Booking Bar 2 (`booking-bar-2.html`)**
+- **Template Integrado en:** bar-car-details-booking.html  
+
+### 16. **Car Details Bar (`car-details-bar.html`)**
+- **Template Integrado en:** bar-car-details-booking.html  
+
+### 17. **Bar Car Details Booking (`bar-car-details-booking.html`)**
+- **Template Integrado en:** car-page.html  
   
 ## Otros Aspectos a Considerar en la Evaluación
 
