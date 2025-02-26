@@ -158,4 +158,3 @@ Accede al tablero de Trello en el siguiente enlace:
 
 ## Archivo PDF con Evolución de Trello
 - **Nombre del archivo:** `Trello.pdf`
-- **Ubicación:** `/RetroRenting/docs/Trello.pdf`
