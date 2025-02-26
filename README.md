@@ -31,7 +31,7 @@ RetroRenting es una plataforma para la gestión de alquileres con temática retr
 
 ## Archivo PDF con Mockups y Storyboard
 - **Nombre del archivo:** `mockups_storyboard.pdf`
-- **Ubicación:** `/docs/mockups_storyboard.pdf`
+- **Ubicación:** `/RetroRenting/docs/mockups_storyboard.pdf`
 
 ## Listado de páginas HTML y Mockup que implementan  
 ### 1. **Inicio (`index.html`)**
@@ -146,4 +146,12 @@ RetroRenting es una plataforma para la gestión de alquileres con temática retr
 ## Enlace a Figma
 Accede al prototipo interactivo y a los diseños de la interfaz en el siguiente enlace:  
 [Figma - RetroRenting](https://www.figma.com/design/3tJJktKu1mzKrl00TrFpcL/PWM-SKETCHUP?node-id=0-1&t=2qq8GJ8OPPS50LA7-1)  
-[Figma - RetroRenting Prototype](https://www.figma.com/proto/3tJJktKu1mzKrl00TrFpcL/PWM-SKETCHUP?node-id=0-1&t=2qq8GJ8OPPS50LA7-1)
+[Figma - RetroRenting Prototype](https://www.figma.com/proto/3tJJktKu1mzKrl00TrFpcL/PWM-SKETCHUP?node-id=0-1&t=2qq8GJ8OPPS50LA7-1)  
+
+## Enlace a Trello
+Accede al tablero de Trello en el siguiente enlace:  
+[Trello - RetroRenting](https://trello.com/invite/b/67a18f3fb9657c193acf4ff9/ATTI3a3925842578ad946f4ed8babcafac164807B3B7/pwm)
+
+## Archivo PDF con Evolución de Trello
+- **Nombre del archivo:** `Trello.pdf`
+- **Ubicación:** `/RetroRenting/docs/Trello.pdf`
