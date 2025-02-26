@@ -30,8 +30,8 @@ RetroRenting es una plataforma para la gestión de alquileres con temática retr
   Procesamiento seguro de pagos en línea.
 
 ## Archivo PDF con Mockups y Storyboard
-- **Nombre del archivo:** `mockups_storyboard.pdf`
-- **Ubicación:** `/RetroRenting/docs/mockups_storyboard.pdf`
+- **Nombre del archivo:** `Sprint_1_figma_sketchup_no_color.pdf`  
+- **Nombre del archivo:** `Sprint_1_figma_sketchup_color.pdf`  
 
 ## Listado de páginas HTML y Mockup que implementan  
 ### 1. **Inicio (`index.html`)**
