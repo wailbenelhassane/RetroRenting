@@ -144,7 +144,7 @@ RetroRenting es una plataforma para la gestión de alquileres con temática retr
   Se ha mantenido una estructura coherente para facilitar la comprensión y futuras mejoras.
   
 - **Elección del estilo:**  
-  Para la realización del diseño y de la consecuente implementación hemos decidido elegir una gamma de colores elegante y seria, puesto que se ha buscado evocar la seriedad y elegancia que los coches retro transmiten.  
+  Para la realización del diseño y de la consecuente implementación hemos decidido elegir una gama de colores elegante y seria, puesto que se ha buscado evocar la seriedad y elegancia que los coches retro transmiten.  
 
 
 ## Enlace a Figma
