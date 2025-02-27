@@ -1,13 +1,15 @@
 $background-color: gray;
 $container-width: 100%;
 $container-height: 100%;
-$image-section-width: 50%;
-$secondary-section-width: 10%;
+$image-section-width: 60%;
+$secondary-section-width: 30%;
 $secondary-image-height: 30%;
 $viewer-height: 500px;
 $container-margin-top: 69px;
 $gap-size: 10px;
 $padding-size: 1%;
+$image-border: 2px solid #ccc;
+$selected-border-color: #007bff;
 
 @mixin center-flex($direction: row) {
   display: flex;
@@ -28,6 +30,14 @@ $padding-size: 1%;
     height: $viewer-height;
     background-color: $background-color;
     cursor: pointer;
+    overflow: hidden;
+    border: $image-border;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
   }
 
   .secondary-image-section {
@@ -44,6 +54,19 @@ $padding-size: 1%;
       height: $secondary-image-height;
       background-color: $background-color;
       cursor: pointer;
+      border: $image-border;
+      transition: border-color 0.3s ease;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      &.selected {
+        border-color: $selected-border-color;
+        transform: scale(1.05);
+      }
     }
   }
 }
