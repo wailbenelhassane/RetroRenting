@@ -25,3 +25,32 @@ export async function initAutocomplete(query){
     const data = await response.json();
     return data.features[0].text;
 }
+
+export function getBookingData() {
+    console.log("Hola Pepe")
+    const form = document.querySelector(".booking-bar-form");
+
+    form.addEventListener("submit", async function (event) {
+        event.preventDefault();
+
+        const carSelected = document.getElementById("car-selector").value;
+        const locationInput = document.getElementById("location-selector").value;
+        const pickupDate = document.getElementById("pickup-date-selector").value;
+        const returnDate = document.getElementById("return-date-selector").value;
+
+        if (!carSelected || !locationInput || !pickupDate || !returnDate) {
+            alert("Please fill in all the fields.");
+            return;
+        }
+
+        const formattedDate = `${pickupDate} - ${returnDate}`;
+
+        localStorage.setItem("bookingBar", JSON.stringify({
+            "car": carSelected,
+            "location": locationInput,
+            "date": formattedDate
+        }));
+
+        window.location.href = "../views/car-reservation-confirm.html";
+    });
+}
