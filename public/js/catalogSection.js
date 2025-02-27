@@ -1,4 +1,3 @@
-
 import { fetchJSON } from "./main.js";
 
 export async function loadCatalogSections() {
@@ -16,15 +15,12 @@ export async function loadCatalogSections() {
 
     catalogContainer.innerHTML = "";
 
-
     data.decades.forEach(decade => {
-
         const sectionElement = document.createElement("section");
 
         const titleElement = document.createElement("div");
         titleElement.classList.add("catalog-title");
         titleElement.textContent = decade.title;
-
 
         const cardContainer = document.createElement("div");
         cardContainer.classList.add("catalog-card-container");
@@ -39,8 +35,8 @@ export async function loadCatalogSections() {
                 </div>
                 <div class="catalog-card-info">
                     ${card.info.map(infoText => `<p>${infoText}</p>`).join("")}
-                    <div class="catalog-card-button">
-                        <a href="${card.button.link}">${card.button.text}</a>
+                    <div>
+                        <button data-car-id="${card.id}" class="catalog-card-button">Ver más</button>
                     </div>
                 </div>
             `;
@@ -49,8 +45,14 @@ export async function loadCatalogSections() {
 
         sectionElement.appendChild(titleElement);
         sectionElement.appendChild(cardContainer);
-
         catalogContainer.appendChild(sectionElement);
+    });
+
+    document.querySelectorAll('.catalog-card-button').forEach(button => {
+        button.addEventListener('click', (event) => {
+            const carId = event.target.getAttribute('data-car-id');
+            window.location.href = `/RetroRenting/views/car-page.html?carId=${carId}`;
+        });
     });
 }
 

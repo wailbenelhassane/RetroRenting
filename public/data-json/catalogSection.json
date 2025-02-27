@@ -4,6 +4,7 @@
       "title": "70’s",
       "catalogCards": [
         {
+          "id": "chevrolet-camaro-70",
           "title": "Chevrolet Camaro",
           "image": {
             "src": "/RetroRenting/public/img/cars/70/chevrolet-camaro-70/full-frontal.jpg",
@@ -20,6 +21,7 @@
           }
         },
         {
+          "id": "ford-mustang-70",
           "title": "Ford Mustang",
           "image": {
             "src": "/RetroRenting/public/img/cars/70/ford-mustang-70/full-frontal.jpg",
@@ -36,6 +38,7 @@
           }
         },
         {
+          "id": "jaguar-e-type-70",
           "title": "Jaguar E Type",
           "image": {
             "src": "/RetroRenting/public/img/cars/70/jaguar-e-type-70/full-frontal.jpg",
@@ -57,6 +60,7 @@
       "title": "80’s",
       "catalogCards": [
         {
+          "id": "bmw-sedan-series-6-80",
           "title": "BMW Sedan Series 6",
           "image": {
             "src": "/RetroRenting/public/img/cars/80/bmw-sedan-series-6-80/full-frontal.jpg",
@@ -73,6 +77,7 @@
           }
         },
         {
+          "id": "mercedes-benz-500-80",
           "title": "Mercedes Benz 500",
           "image": {
             "src": "/RetroRenting/public/img/cars/80/mercedes-benz-500-sec/full-frontal.jpg",
@@ -89,6 +94,7 @@
           }
         },
         {
+          "id": "spider-veloce-2dr-80",
           "title": "Spider Veloce 2DR",
           "image": {
             "src": "/RetroRenting/public/img/cars/80/spider-veloce-2DR-80/full-frontal.jpg",
@@ -110,6 +116,7 @@
       "title": "90’s",
       "catalogCards": [
         {
+          "id": "acura-nsx2dr-90",
           "title": "Acura NS2X2DR",
           "image": {
             "src": "/RetroRenting/public/img/cars/90/acura-nsx2dr-90/full-frontal.jpg",
@@ -126,6 +133,7 @@
           }
         },
         {
+          "id": "ferrari-mondial-90",
           "title": "Ferrari Mondial",
           "image": {
             "src": "/RetroRenting/public/img/cars/90/ferrari-mondial-90/full-frontal.jpg",
@@ -142,6 +150,7 @@
           }
         },
         {
+          "id": "porsche-911-speedster-90",
           "title": "Porsche 911 Speedster",
           "image": {
             "src": "/RetroRenting/public/img/cars/90/porsche-911-speedster-90/full-frontal.jpg",
