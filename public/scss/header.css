@@ -6,7 +6,7 @@
   background: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(10px);
   width: 100%;
-  height: 85px;
+  height: 11vh;
   position: fixed;
   top: 0;
   z-index: 100;
@@ -28,8 +28,8 @@
   width: 20%;
 }
 .header-logo img {
-  width: 110px;
-  height: 110px;
+  width: 12vh;
+  height: 12vh;
   object-fit: contain;
 }
 
@@ -54,7 +54,7 @@
   width: 20%;
 }
 .header-register a {
-  margin: 5px;
+  margin: 0.2vw;
 }
 .header-register span {
   font-size: 1.2rem;

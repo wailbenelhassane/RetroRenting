@@ -40,8 +40,8 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: row;
-  gap: 10px;
-  margin-bottom: 10px;
+  gap: 1vh;
+  margin-bottom: 1vh;
 }
 .login-form-container .login-header h1 {
   font-size: 4rem;
@@ -54,7 +54,7 @@ body {
   font-size: 1.2rem;
   color: white;
   text-decoration: none;
-  margin-bottom: 10px;
+  margin-bottom: 1vh;
 }
 .login-form-container .input-container {
   display: flex;
@@ -69,7 +69,7 @@ body {
   flex-direction: column;
 }
 .login-form-container .input-container .login-form label {
-  margin-top: 10px;
+  margin-top: 1vh;
   font-size: 1rem;
   font-family: "Roboto", sans-serif;
 }
@@ -77,11 +77,11 @@ body {
   width: 35.14vw;
   height: 6.2vh;
   font-size: 1rem;
-  padding: 5px 10px;
+  padding: 1vh 2vh;
   border: 1px solid #ccc;
-  border-radius: 15px;
+  border-radius: 3vh;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-  margin-top: 5px;
+  margin-top: 1vh;
   margin-bottom: 2vh;
 }
 .login-form-container .input-container .login-form input:focus {
@@ -99,7 +99,7 @@ body {
   font-family: "Roboto", sans-serif;
   border: none;
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: 1vh;
   padding: 10px 15px;
   margin-top: 2vh;
   margin-bottom: 3vh;
@@ -111,7 +111,7 @@ body {
   color: white;
   font-size: 1.2rem;
   font-family: "Roboto", sans-serif;
-  margin-top: 10px;
+  margin-top: 2vh;
 }
 .login-form-container .input-container .login-links #sign-up-btn {
   text-decoration: none;

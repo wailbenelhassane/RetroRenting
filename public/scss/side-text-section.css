@@ -13,11 +13,11 @@
   align-items: center;
   width: 40%;
   height: 100%;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 3vh;
+  padding-right: 3vh;
 }
 .side-text-section-container .side-text-section-text h2 {
-  margin-bottom: 20px;
+  margin-bottom: 4vh;
 }
 .side-text-section-container .side-text-section-image {
   display: flex;
@@ -25,7 +25,7 @@
   justify-content: center;
   align-items: center;
   width: 40%;
-  height: 500px;
+  height: 50vh;
   background-color: lightgray;
 }
 

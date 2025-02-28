@@ -6,8 +6,8 @@ $font-family: "Roboto", sans-serif;
 $text-color: white;
 $input-border-color: #ccc;
 $box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-$border-radius: 15px;
-$button-radius: 5px;
+$border-radius: 3vh;
+$button-radius: 1vh;
 $input-width: 45vh;
 $input-height: 4vh;
 $input-width-group: 45vh;
@@ -138,8 +138,8 @@ body {
         border: none;
         cursor: pointer;
         border-radius: $button-radius;
-        padding: 10px 15px;
-        margin-top: 20px;
+        padding: 1vh 2vh;
+        margin-top: 2vh;
       }
 
       button:hover {

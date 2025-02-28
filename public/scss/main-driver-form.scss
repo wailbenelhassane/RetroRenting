@@ -26,18 +26,18 @@ $font-size-small: 1.2rem;
 
 .main-driver-form-container {
   background-color: $dark-gray;
-  padding: 20px;
+  padding: 4vh;
   border-radius: $border-radius;
   height: 90%;
   width: 20%;
-  margin: 30px auto;
+  margin: 6vh auto;
   box-shadow: $box-shadow;
 }
 
 .main-driver-header {
   text-align: center;
   font-family: $font-family;
-  margin-bottom: 20px;
+  margin-bottom: 5vh;
 
   h2 {
     font-size: $font-size-small;
@@ -52,7 +52,7 @@ $font-size-small: 1.2rem;
   .main-driver-form {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 3vh;
 
     .name-group {
       display: flex;

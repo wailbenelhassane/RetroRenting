@@ -1,7 +1,7 @@
 body {
   background-color: black;
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: "Roboto", sans-serif;
   display: flex;
   flex-direction: column;
 }
@@ -16,32 +16,31 @@ body {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 20px;
-  max-width: 800px;
+  gap: 2vh;
+  max-width: 100vw;
   width: 100%;
-  margin: 20px auto;
+  margin: 1vh auto;
 }
 
 .card {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 250px;
+  width: 12vw;
   background-color: #8B6508;
   color: white;
   text-align: center;
-  padding: 20px;
-  border-radius: 0px;
+  padding: 4vh;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .card p {
-  padding: 10px;
+  padding: 2vh;
 }
 
 .profile-pic {
-  width: 80px;
-  height: 80px;
+  width: 4vw;
+  height: 8vh;
   border-radius: 50%;
   border: 3px solid white;
   object-fit: cover;
