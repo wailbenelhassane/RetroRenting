@@ -13,8 +13,8 @@ $box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
   padding: 5px 10px;
   border-radius: $input-radius;
   font-size: $font-size;
-  width: 200px;
-  height: 35px;
+  width: 15vw;
+  height: 3.5vh;
   box-shadow: $box-shadow;
   border: 1px solid #ccc;
 
@@ -31,7 +31,7 @@ $box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
   border: none;
   cursor: pointer;
   border-radius: $border-radius;
-  font-size: 14px;
+  font-size: $font-size;
   transition: background-color 0.3s ease;
 
   &:hover {
@@ -64,14 +64,14 @@ $box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
     .booking-bar-form {
       display: flex;
       flex-direction: row;
-      gap: 30px;
+      gap: 5vh;
     }
 
     .booking-section {
       display: flex;
       flex-direction: column;
       color: $text-color;
-      font-size: 14px;
+      font-size: $font-size;
       font-weight: bold;
 
       input, select {
@@ -89,7 +89,7 @@ $box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
         font-size: 20px;
         font-weight: bold;
         font-family: $font-family;
-        margin-bottom: 5px;
+        margin-bottom: 1vh;
       }
     }
 

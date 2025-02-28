@@ -22,7 +22,7 @@
 .booking-bar-container .booking-bar .booking-bar-form {
   display: flex;
   flex-direction: row;
-  gap: 30px;
+  gap: 5vh;
 }
 .booking-bar-container .booking-bar .booking-section {
   display: flex;
@@ -35,8 +35,8 @@
   padding: 5px 10px;
   border-radius: 15px;
   font-size: 14px;
-  width: 200px;
-  height: 35px;
+  width: 15vw;
+  height: 3.5vh;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
   border: 1px solid #ccc;
 }
@@ -53,7 +53,7 @@
   font-size: 20px;
   font-weight: bold;
   font-family: "Roboto", sans-serif;
-  margin-bottom: 5px;
+  margin-bottom: 1vh;
 }
 .booking-bar-container .booking-bar .book-btn {
   background-color: #B8860B;
