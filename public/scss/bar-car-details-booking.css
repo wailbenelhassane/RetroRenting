@@ -1,0 +1,61 @@
+@charset "UTF-8";
+.bar-car-details-booking-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 800px;
+  margin: auto;
+}
+
+.toggle-buttons {
+  display: flex;
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.toggle-btn {
+  flex: 1;
+  padding: 15px;
+  background-color: #e0e0e0;
+  border: none;
+  font-size: 18px;
+  font-weight: bold;
+  color: #555;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.toggle-btn.active {
+  background-color: #555;
+  color: #fff;
+}
+
+.toggle-btn:not(.active):hover {
+  background-color: #d0d0d0;
+}
+
+.content-wrapper {
+  position: relative;
+  width: 100%;
+  height: 300px; /* Ajusta esto según el contenido */
+  overflow: hidden;
+  margin-top: 20px;
+}
+
+.content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: none;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.content.active {
+  display: block;
+}
+
+/*# sourceMappingURL=bar-car-details-booking.css.map */

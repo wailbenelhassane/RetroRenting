@@ -1,0 +1,80 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.book-summary-container {
+  background-color: #6e6e6e;
+  padding: 20px;
+  border-radius: 5px;
+  min-width: 250px;
+  max-width: 350px;
+  margin: 30px auto;
+  text-align: center;
+}
+
+.book-summary-header {
+  font-family: "Roboto", sans-serif;
+  margin-bottom: 15px;
+}
+.book-summary-header h1 {
+  font-size: 1.2rem;
+  color: white;
+}
+
+.book-summary-details {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.book-summary-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  color: white;
+  padding: 5px 0;
+}
+
+.book-summary-label {
+  font-weight: bold;
+}
+
+.car-selected,
+.location-selected,
+.date-selected {
+  flex-grow: 1;
+  text-align: right;
+  color: #f0f0f0;
+  min-height: 20px;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pay-now-button {
+  width: 125px;
+  height: 50px;
+  background-color: #b8860b;
+  font-size: 15px;
+  font-weight: bold;
+  color: white;
+  font-family: "Roboto", sans-serif;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 10px 15px;
+  transition: background-color 0.3s ease-in-out;
+}
+.pay-now-button:hover {
+  background-color: #9a7006;
+}
+
+/*# sourceMappingURL=book-summary.css.map */
