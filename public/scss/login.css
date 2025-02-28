@@ -4,7 +4,7 @@
 }
 
 body {
-  background: linear-gradient(180deg, #000000 71%, #1F1F1F 99%);
+  background: black;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -90,7 +90,7 @@ body {
   border: 1px solid #ccc;
 }
 .login-form-container .input-container .login-form button {
-  width: 12vw;
+  width: 15vw;
   height: 5vh;
   background-color: #B8860B;
   font-size: 20px;
