@@ -6,17 +6,17 @@
 
 .book-summary-container {
   background-color: #6e6e6e;
-  padding: 20px;
-  border-radius: 5px;
-  min-width: 250px;
-  max-width: 350px;
-  margin: 30px auto;
+  padding: 2vh;
+  border-radius: 1vh;
+  min-width: 15vw;
+  max-width: 30vw;
+  margin: 3vh auto;
   text-align: center;
 }
 
 .book-summary-header {
   font-family: "Roboto", sans-serif;
-  margin-bottom: 15px;
+  margin-bottom: 3vh;
 }
 .book-summary-header h1 {
   font-size: 1.2rem;
@@ -37,7 +37,7 @@
   font-family: "Roboto", sans-serif;
   font-size: 1rem;
   color: white;
-  padding: 5px 0;
+  padding: 1vh 0;
 }
 
 .book-summary-label {
@@ -50,27 +50,27 @@
   flex-grow: 1;
   text-align: right;
   color: #f0f0f0;
-  min-height: 20px;
+  min-height: 2vh;
 }
 
 .btn-container {
   display: flex;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 3vh;
 }
 
 .pay-now-button {
-  width: 125px;
-  height: 50px;
+  width: 12vw;
+  height: 5vh;
   background-color: #b8860b;
-  font-size: 15px;
+  font-size: 2vh;
   font-weight: bold;
   color: white;
   font-family: "Roboto", sans-serif;
   border: none;
   cursor: pointer;
-  border-radius: 5px;
-  padding: 10px 15px;
+  border-radius: 1vh;
+  padding: 1vh 2vh;
   transition: background-color 0.3s ease-in-out;
 }
 .pay-now-button:hover {
