@@ -17,6 +17,7 @@ $container-margin-top: 2%;
   flex-direction: $direction;
 }
 
+
 .car-catalog-container {
   @include center-flex(row);
   width: 100%;

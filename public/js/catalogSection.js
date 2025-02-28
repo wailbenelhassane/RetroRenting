@@ -36,7 +36,7 @@ export async function loadCatalogSections() {
                 <div class="catalog-card-info">
                     ${card.info.map(infoText => `<p>${infoText}</p>`).join("")}
                     <div>
-                        <button data-car-id="${card.id}" class="catalog-card-button">Ver más</button>
+                        <button data-car-id="${card.id}" class="catalog-card-button">See more</button>
                     </div>
                 </div>
             `;
