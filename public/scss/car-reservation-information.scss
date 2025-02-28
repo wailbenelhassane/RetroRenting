@@ -24,11 +24,15 @@ body {
   padding-top: $padding-top;
   width: $full-width;
   height: $full-height;
-  background: linear-gradient(180deg, $black 71%, $dark-gray 99%);
   color: white;
 
   .content {
     display: flex;
-    justify-content: center;
+  }
+
+  .bar-car-details-booking {
+    position: absolute;
+    width: 50%;
+    height: 50%;
   }
 }

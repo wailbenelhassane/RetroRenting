@@ -8,5 +8,4 @@ document.addEventListener("DOMContentLoaded", async () => {
     await loadHeaderContent();
     await loadCarDetails();
     await changeImage();
-
 });
