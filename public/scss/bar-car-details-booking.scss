@@ -1,0 +1,41 @@
+/* Contenedor de botones */
+.toggle-buttons {
+  display: flex;
+  width: 600px;
+  margin: 20px auto; /* Centrar en la página */
+  border-radius: 8px;
+  overflow: hidden; /* Mantiene los bordes redondeados */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Botones generales */
+.toggle-btn {
+  width: 120px;
+  flex: 1; /* Ambos botones ocupan el mismo espacio */
+  padding: 20px; /* Aumentar el tamaño del botón */
+  background-color: #e0e0e0; /* Fondo gris claro */
+  border: none;
+  font-size: 20px; /* Tamaño de fuente mayor */
+  font-weight: bold;
+  color: #555; /* Texto gris oscuro */
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border-right: 1px solid #ccc; /* Separación entre los botones */
+}
+
+/* Remover borde derecho del último botón */
+.toggle-btn:last-child {
+  border-right: none;
+}
+
+/* Botón activo */
+.toggle-btn.active {
+  background-color: #555; /* Fondo gris oscuro cuando está activo */
+  color: #fff; /* Texto blanco */
+}
+
+/* Hover para botones inactivos */
+.toggle-btn:not(.active):hover {
+  background-color: #d0d0d0;
+}

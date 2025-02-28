@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sign up to RetroRenting, your vintage car rental platform.">
+    <title>RetroRenting - Sign Up</title>
+    <script type="module" defer src="../public/js/register.js"></script>
+    <link rel="stylesheet" href="../public/scss/register.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+<aside class="aside-image">
+    <img src="../public/img/register.jpg" alt="Car image background.">
+</aside>
+
+<section class="register-form-container">
+    <div class="register-logo">
+        <img src="../public/img/logo.png" alt="Logo">
+    </div>
+
+    <div class="register-header">
+        <h1>Sign up!</h1>
+    </div>
+
+    <nav aria-label="Go back">
+        <a id="back-link" href="#" onclick="history.back(); return false"> &larr; Go back</a>
+    </nav>
+
+    <div class="input-container">
+        <form class="register-form" action="/register" method="post">
+            <div class="name-group">
+                <input type="text" name="first-name" placeholder="First Name" required>
+                <input type="text" name="last-name" placeholder="Last Name" required>
+            </div>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button class="register-btn" type="submit">Sign up</button>
+        </form>
+
+        <p id="sign-in-link">Already have an account? <a href="" id="sign-in-btn">Sign in</a></p>
+    </div>
+</section>
+</body>
+</html>

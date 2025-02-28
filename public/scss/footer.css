@@ -1,0 +1,33 @@
+footer {
+  background: rgba(30, 30, 30, 0.5);
+  backdrop-filter: blur(10px);
+  color: white;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  margin-top: 20px;
+  box-shadow: none;
+  width: 100%;
+}
+footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+footer ul li {
+  display: inline;
+}
+footer ul li a {
+  text-decoration: none;
+  color: white;
+  font-family: "Roboto", sans-serif;
+}
+footer .separator-bar {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+/*# sourceMappingURL=footer.css.map */

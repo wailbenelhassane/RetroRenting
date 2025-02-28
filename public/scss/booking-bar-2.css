@@ -1,0 +1,65 @@
+.booking-bar-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2%;
+  gap: 20px;
+  font-family: "Roboto", sans-serif;
+}
+.booking-bar-container .booking-bar {
+  display: flex;
+  align-items: center;
+  background-color: #555;
+  padding: 10px;
+  border-radius: 5px;
+  gap: 30px;
+}
+.booking-bar-container .booking-bar .booking-section {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+}
+.booking-bar-container .booking-bar .booking-section input, .booking-bar-container .booking-bar .booking-section select {
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-size: 14px;
+  width: 200px;
+  height: 35px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  border: 1px solid #ccc;
+}
+.booking-bar-container .booking-bar .booking-section input:focus, .booking-bar-container .booking-bar .booking-section select:focus {
+  outline: none;
+}
+.booking-bar-container .booking-bar .booking-section select {
+  cursor: pointer;
+}
+.booking-bar-container .booking-bar .booking-section .label-selector {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: "Roboto", sans-serif;
+  margin-bottom: 5px;
+}
+.booking-bar-container .booking-bar .book-btn {
+  background-color: #B8860B;
+  font-weight: bold;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+  margin-top: 20%;
+  height: 100%;
+}
+.booking-bar-container .booking-bar .book-btn:hover {
+  background-color: #9a7006;
+}
+
+/*# sourceMappingURL=booking-bar-2.css.map */

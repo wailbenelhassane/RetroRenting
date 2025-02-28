@@ -1,0 +1,43 @@
+$dark-gray: #1F1F1F;
+$font-family: "Roboto", sans-serif;
+$background-color: lightgray;
+$text-color: white;
+$footer-height: 40px;
+$margin-top: 20px;
+$separator-margin: 10px;
+
+footer {
+  background: rgba(30, 30, 30, 0.5);
+  backdrop-filter: blur(10px);
+  color: $text-color;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: $footer-height;
+  margin-top: $margin-top;
+  box-shadow: none;
+  width: 100%;
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+
+    li {
+      display: inline;
+
+      a {
+        text-decoration: none;
+        color: $text-color;
+        font-family: $font-family;
+      }
+    }
+  }
+
+  .separator-bar {
+    margin-left: $separator-margin;
+    margin-right: $separator-margin;
+  }
+}

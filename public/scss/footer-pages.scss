@@ -1,0 +1,33 @@
+$primary-color: black;
+$heading-color: #333;
+$font-family: Arial, sans-serif;
+$button-padding: 10px 20px;
+$paragraph-margin-bottom: 20px;
+$max-content-width: 800px;
+$line-height: 1.6;
+
+.back-button {
+  padding: $button-padding;
+  color: $primary-color;
+  border: none;
+  cursor: pointer;
+}
+
+.content {
+  max-width: $max-content-width;
+  margin: 0 auto;
+  font-family: $font-family;
+  line-height: $line-height;
+
+  h1 {
+    text-align: center;
+  }
+
+  h2 {
+    color: $heading-color;
+  }
+
+  p {
+    margin-bottom: $paragraph-margin-bottom;
+  }
+}

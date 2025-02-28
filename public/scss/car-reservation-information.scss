@@ -1,0 +1,34 @@
+$black: #000000;
+$dark-gray: #1c1c1c;
+$margin: 0;
+$padding: 0;
+$box-sizing: border-box;
+$full-width: 100%;
+$full-height: 100%;
+$padding-top: 50px;
+
+@mixin reset {
+  margin: $margin;
+  padding: $padding;
+  box-sizing: $box-sizing;
+}
+
+* {
+  @include reset;
+}
+
+html,
+body {
+  display: flex;
+  flex-direction: column;
+  padding-top: $padding-top;
+  width: $full-width;
+  height: $full-height;
+  background: linear-gradient(180deg, $black 71%, $dark-gray 99%);
+  color: white;
+
+  .content {
+    display: flex;
+    justify-content: center;
+  }
+}

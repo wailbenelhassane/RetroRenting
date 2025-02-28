@@ -1,0 +1,98 @@
+$dark-gray: #6e6e6e;
+$accent-color: #b8860b;
+$secondary-hover: #9a7006;
+$font-family: "Roboto", sans-serif;
+$text-color: white;
+$box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+$border-radius: 5px;
+$button-radius: 5px;
+$font-size-base: 1rem;
+$font-size-small: 1.2rem;
+
+@mixin flex-center($direction: column) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $direction;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.book-summary-container {
+  background-color: $dark-gray;
+  padding: 20px;
+  border-radius: $border-radius;
+  min-width: 250px;
+  max-width: 350px;
+  margin: 30px auto;
+  text-align: center;
+}
+
+.book-summary-header {
+  font-family: $font-family;
+  margin-bottom: 15px;
+
+  h1 {
+    font-size: $font-size-small;
+    color: $text-color;
+  }
+}
+
+.book-summary-details {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.book-summary-item {
+  display: flex;
+  justify-content: space-between;  // Ensures labels & values are aligned
+  align-items: center;
+  width: 100%;
+  font-family: $font-family;
+  font-size: $font-size-base;
+  color: $text-color;
+  padding: 5px 0;
+}
+
+.book-summary-label {
+  font-weight: bold;
+}
+
+.car-selected,
+.location-selected,
+.date-selected {
+  flex-grow: 1;
+  text-align: right;
+  color: #f0f0f0; // Light gray to differentiate from label
+  min-height: 20px; // Ensures empty fields don’t collapse
+}
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pay-now-button {
+  width: 125px;
+  height: 50px;
+  background-color: $accent-color;
+  font-size: 15px;
+  font-weight: bold;
+  color: $text-color;
+  font-family: $font-family;
+  border: none;
+  cursor: pointer;
+  border-radius: $button-radius;
+  padding: 10px 15px;
+  transition: background-color 0.3s ease-in-out;
+
+  &:hover {
+    background-color: $secondary-hover;
+  }
+}

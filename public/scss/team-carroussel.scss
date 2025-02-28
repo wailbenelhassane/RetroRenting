@@ -1,0 +1,40 @@
+.team-carousel-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
+  width: 100%;
+  overflow: hidden;
+  margin-top: 3%;
+  margin-bottom: 3%;
+  position: relative;
+}
+
+.team-carousel {
+  display: flex;
+  width: 60%;
+  height: 100%;
+  position: relative;
+}
+
+.team-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.team-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.team-image.active {
+ display:flex;
+}
