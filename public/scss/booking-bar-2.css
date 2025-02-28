@@ -6,12 +6,6 @@
   gap: 20px;
   font-family: "Roboto", sans-serif;
 }
-.booking-bar-container .booking-bar-title {
-  text-align: center;
-  color: white;
-  font-weight: bold;
-  font-size: 2.3vh;
-}
 .booking-bar-container .booking-bar {
   display: flex;
   align-items: center;
