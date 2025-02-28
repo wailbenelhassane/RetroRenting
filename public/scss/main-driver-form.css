@@ -20,7 +20,7 @@
 }
 .main-driver-header h2 {
   font-size: 1.2rem;
-  color: black;
+  color: white;
 }
 
 .input-container {
@@ -82,7 +82,7 @@
   background-color: #b8860b;
   font-size: 15px;
   font-weight: bold;
-  color: black;
+  color: white;
   font-family: "Roboto", sans-serif;
   border: none;
   cursor: pointer;
