@@ -8,14 +8,14 @@
 .content {
   max-width: 100%;
   margin: 0 auto;
-  font-family: Arial, sans-serif;
+  font-family: "Roboto", sans-serif;
   line-height: 1.6;
 }
 .content h1 {
   text-align: center;
 }
 .content h2 {
-  color: #333;
+  color: #555;
 }
 .content p {
   margin-bottom: 20px;

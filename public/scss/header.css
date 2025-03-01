@@ -13,7 +13,7 @@
 }
 .header a {
   cursor: pointer;
-  color: white;
+  color: #FFFFFF;
   margin: 5vh;
   font-size: 1.2rem;
   text-decoration: none;
@@ -54,12 +54,12 @@
   width: 20%;
 }
 .header-register a {
-  margin: 0.2vw;
+  margin: 5px;
 }
 .header-register span {
   font-size: 1.2rem;
   font-weight: bold;
-  color: white;
+  color: #FFFFFF;
 }
 
 /*# sourceMappingURL=header.css.map */

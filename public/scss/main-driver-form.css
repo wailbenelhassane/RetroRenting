@@ -4,23 +4,23 @@
 }
 
 .main-driver-form-container {
-  background-color: #6e6e6e;
-  padding: 20px;
+  background-color: #1F1F1F;
+  padding: 4vh;
   border-radius: 5px;
   height: 90%;
   width: 20%;
-  margin: 30px auto;
+  margin: 6vh auto;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .main-driver-header {
   text-align: center;
   font-family: "Roboto", sans-serif;
-  margin-bottom: 20px;
+  margin-bottom: 5vh;
 }
 .main-driver-header h2 {
   font-size: 1.2rem;
-  color: white;
+  color: #FFFFFF;
 }
 
 .input-container {
@@ -33,7 +33,7 @@
 .input-container .main-driver-form {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 3vh;
 }
 .input-container .main-driver-form .name-group {
   display: flex;
@@ -79,10 +79,10 @@
 .input-container .main-driver-form button {
   width: 125px;
   height: 50px;
-  background-color: #b8860b;
+  background-color: #9a7006;
   font-size: 15px;
   font-weight: bold;
-  color: white;
+  color: #FFFFFF;
   font-family: "Roboto", sans-serif;
   border: none;
   cursor: pointer;
@@ -91,7 +91,7 @@
   margin-top: 20px;
 }
 .input-container .main-driver-form button:hover {
-  background-color: #9a7006;
+  background-color: #8B6508;
 }
 .input-container .main-driver-form .btn-container {
   display: flex;

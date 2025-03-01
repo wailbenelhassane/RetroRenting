@@ -1,6 +1,6 @@
+@use 'variables';
+
 $primary-color: black;
-$heading-color: #333;
-$font-family: Arial, sans-serif;
 $button-padding: 10px 20px;
 $paragraph-margin-bottom: 20px;
 $max-content-width: 100%;
@@ -16,7 +16,7 @@ $line-height: 1.6;
 .content {
   max-width: $max-content-width;
   margin: 0 auto;
-  font-family: $font-family;
+  font-family: variables.$font-family;
   line-height: $line-height;
 
   h1 {
@@ -24,7 +24,7 @@ $line-height: 1.6;
   }
 
   h2 {
-    color: $heading-color;
+    color: variables.$gray;
   }
 
   p {

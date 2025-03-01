@@ -1,7 +1,5 @@
-$black: #000000;
-$dark-gray: #1F1F1F;
-$font-family: "Roboto", sans-serif;
-$text-color: white;
+@use 'variables';
+
 $header-height: 11vh;
 $logo-size: 12vh;
 $font-size: 1.2rem;
@@ -27,12 +25,12 @@ $section-width: 20%;
 
   a {
     cursor: pointer;
-    color: $text-color;
+    color: variables.$text-color;
     margin: $margin-spacing;
     font-size: $font-size;
     text-decoration: none;
     font-weight: bold;
-    font-family: $font-family;
+    font-family: variables.$font-family;
   }
 }
 
@@ -71,6 +69,6 @@ $section-width: 20%;
   span {
     font-size: $font-size;
     font-weight: bold;
-    color: $text-color;
+    color: variables.$text-color;
   }
 }

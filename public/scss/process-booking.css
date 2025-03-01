@@ -15,7 +15,7 @@
   width: 50px;
   height: 50px;
   background-color: #f44336;
-  color: white;
+  color: #FFFFFF;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -27,7 +27,7 @@
 }
 .progress-bar .progress-step .step-label {
   font-size: 1rem;
-  color: white;
+  color: #FFFFFF;
   font-family: "Roboto", sans-serif;
 }
 .progress-bar .progress-step.active .step-circle {

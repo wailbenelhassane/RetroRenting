@@ -1,7 +1,7 @@
 footer {
   background: rgba(30, 30, 30, 0.5);
   backdrop-filter: blur(10px);
-  color: white;
+  color: #FFFFFF;
   text-align: center;
   display: flex;
   justify-content: center;
@@ -22,7 +22,7 @@ footer ul li {
 }
 footer ul li a {
   text-decoration: none;
-  color: white;
+  color: #FFFFFF;
   font-family: "Roboto", sans-serif;
 }
 footer .separator-bar {
