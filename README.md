@@ -14,7 +14,7 @@
 RetroRenting es una plataforma para la gestión de alquileres con temática retro. La aplicación permite a los usuarios explorar un catálogo de artículos vintage, realizar reservas, gestionar sus pedidos y administrar pagos de manera segura.
 
 ## Requisitos Funcionales
-- **Poder visualizar un cátologo de coches:**  
+- **Poder visualizar un cátalogo de coches:**  
   Permite a los usuarios visualizar la flota de vehículos disponibles, observando una imagen del vehículo y una serie de características básicas(motor, potencia y tiempo de 0-100).
 - **Poder ver una ficha detallada:**  
   Permite a los usuarios visualizar una ficha del vehículo con imágenes caracteristicas básicas del vehículo(motor, potencia y tiempo de 0-100).
