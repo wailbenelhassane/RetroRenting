@@ -6,7 +6,7 @@
 **Grupo:** 41.7  
 **Integrantes del Grupo:**
 - Carlos Ruano Ramos.
-- Wail Ben El Hassane Boudhar.
+- Wail Ben el Hassane Boudhar.
 - Eduardo Marrero González.
 
 ## Descripción del Proyecto
@@ -15,9 +15,9 @@ RetroRenting es una plataforma para la gestión de alquileres con temática retr
 
 ## Requisitos Funcionales
 - **Poder visualizar un cátalogo de coches:**  
-  Permite a los usuarios visualizar la flota de vehículos disponibles, observando una imagen del vehículo y una serie de características básicas(motor, potencia y tiempo de 0-100).
+  Permite a los usuarios visualizar la lista de vehículos disponibles, observando una imagen del vehículo y una serie de características básicas(motor, potencia y tiempo de 0-100km/h).
 - **Poder ver una ficha detallada:**  
-  Permite a los usuarios visualizar una ficha del vehículo con imágenes caracteristicas básicas del vehículo(motor, potencia y tiempo de 0-100).
+  Permite a los usuarios visualizar una ficha del vehículo con imágenes caracteristicas básicas del vehículo(motor, potencia y tiempo de 0-100km/h).
 - **Poder realizar la reservar de un coche:**
   Permite a los usuarios realizar una reserva de un coche, ubicada en un lugar y tiempo (con fecha de inicio y fin).
 - **Poder registrarse en la página web:**
@@ -39,7 +39,7 @@ RetroRenting es una plataforma para la gestión de alquileres con temática retr
 
 ---
 
-### 2. **Cátologo (`catalog.html`)**
+### 2. **Cátalogo (`catalog.html`)**
 - **Mockup Implementado:** [Catalog]  
   
 ---
@@ -115,16 +115,13 @@ RetroRenting es una plataforma para la gestión de alquileres con temática retr
 ### 13. **Process Booking 2 (`process-booking-2.html`)**
 - **Template Integrado en:** car-reservation-confirmation.html  
 
-### 14. **Car Viewer (`car-viewer.html`)**
-- **Template Integrado en:** car-page.html  
-
-### 15. **Booking Bar 2 (`booking-bar-2.html`)**
+### 14. **Booking Bar 2 (`booking-bar-2.html`)**
 - **Template Integrado en:** bar-car-details-booking.html  
 
-### 16. **Car Details Bar (`car-details-bar.html`)**
+### 15. **Car Details Bar (`car-details-bar.html`)**
 - **Template Integrado en:** bar-car-details-booking.html  
 
-### 17. **Bar Car Details Booking (`bar-car-details-booking.html`)**
+### 16. **Bar Car Details Booking (`bar-car-details-booking.html`)**
 - **Template Integrado en:** car-page.html  
   
 ## Otros Aspectos a Considerar en la Evaluación
@@ -135,7 +132,7 @@ RetroRenting es una plataforma para la gestión de alquileres con temática retr
     - Script encargado de cargar las imágenes mediante un JSON.
     - Script encargado de cargar contenido de información mediante un JSON.
     - Script encargado de realizar sugerencias en la barra de localización (booking-bar.html) -> implementación mediante console.log().
-    - Script encargado de realizar un carrousel de imágenes.  
+    - Script encargado de realizar un carrusel de imágenes.  
 
 - **Organización de las Hojas de Estilo:**  
   Para la correcta gestión de las hojas de estilo se ha utilizado SASS.  
