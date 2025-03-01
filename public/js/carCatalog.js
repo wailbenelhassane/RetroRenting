@@ -26,9 +26,6 @@ export async function initCarCatalog() {
             setImage(carImageSelector, { src: images[decade], altText: `Car image from ${decade}s` });
         });
 
-        item.addEventListener("mouseleave", function () {
-            setImage(carImageSelector, { src: images["70"], altText: "Car image from 70s" });
-        });
     });
 }
 
