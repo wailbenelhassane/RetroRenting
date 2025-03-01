@@ -10,11 +10,11 @@ export async function loadTextSections() {
             let sectionKey = sectionElement.getAttribute("data-section");
 
             if (count === 0) {
-                sectionElement.setAttribute('data-section', 'about');
-                sectionKey = 'about';
-            } else {
                 sectionElement.setAttribute('data-section', 'philosophy');
                 sectionKey = 'philosophy';
+            } else {
+                sectionElement.setAttribute('data-section', 'contact');
+                sectionKey = 'contact';
             }
 
             const sectionData = data.sections[sectionKey];

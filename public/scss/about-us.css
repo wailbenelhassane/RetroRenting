@@ -23,4 +23,22 @@ body .content {
   margin-top: 2vh;
 }
 
+.center-align {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.general-button {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  background-color: #b28317;
+  color: white;
+  width: 10%;
+}
+
 /*# sourceMappingURL=about-us.css.map */
