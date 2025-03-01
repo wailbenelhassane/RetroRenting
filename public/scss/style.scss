@@ -1,5 +1,5 @@
-$black: #000000;
-$dark-gray: #1c1c1c;
+@use 'variables';
+
 $margin: 0;
 $padding: 0;
 $box-sizing: border-box;
@@ -24,10 +24,22 @@ body {
   padding-top: $padding-top;
   width: $full-width;
   height: $full-height;
-  background: black;
-  color: white;
+  background: variables.$background-color;
+  color: variables.$text-color;
 
   .content {
     flex: 1;
   }
+}
+
+.center-align{display:flex; width:100%; justify-content: center; align-items: center;}
+
+.general-button{
+  display:flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  background-color: variables.$resalt-color;
+  width: 10%;
 }

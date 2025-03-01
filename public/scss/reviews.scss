@@ -1,4 +1,6 @@
 @charset "UTF-8";
+@use 'variables';
+
 body {
   background-color: black;
   margin: 0;
@@ -28,7 +30,7 @@ body {
   flex-direction: column;
   align-items: center;
   width: 12vw;
-  background-color: #8B6508;
+  background-color: variables.$resalt-color;
   color: white;
   text-align: center;
   padding: 4vh;
@@ -48,7 +50,6 @@ body {
 .stars {
   color: gold;
   font-size: 20px;
-  background: #8B6508;
 }
 
 /*# sourceMappingURL=reviews.css.map */
