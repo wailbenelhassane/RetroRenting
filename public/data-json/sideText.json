@@ -1,0 +1,16 @@
+{
+  "sections": {
+    "whoAreWe": {
+      "title": "Who are we?",
+      "content": "Lorem Ipsum is simply dummy text of the printing and typesetting industry...",
+      "src": "../public/img/who-are-we.jpg",
+      "alt": "Image representing who we are"
+    },
+    "ourService": {
+      "title": "Our Service",
+      "content": "Our service is to provide the best service...",
+      "src": "../public/img/our-service.jpg",
+      "alt": "Image representing Our Service"
+    }
+  }
+}
