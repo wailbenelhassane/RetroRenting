@@ -36,9 +36,9 @@
   margin-bottom: 20px;
   width: 65%;
   height: 275px;
-  background-color: #B8860B;
+  background-color: #9a7006;
   backdrop-filter: blur(10px);
-  color: white;
+  color: #FFFFFF;
   cursor: pointer;
 }
 .car-catalog-container .car-catalog-menu .car-catalog-menu-item:hover {
@@ -48,7 +48,7 @@
 .car-catalog-container .car-catalog-menu .car-catalog-menu-item .car-catalog-menu-item-element {
   margin-left: 15%;
   text-decoration: none;
-  color: white;
+  color: #FFFFFF;
   font-family: "Roboto", sans-serif;
   font-size: 1.5rem;
 }

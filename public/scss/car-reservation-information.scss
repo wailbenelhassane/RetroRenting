@@ -1,5 +1,5 @@
-$black: #000000;
-$dark-gray: #1c1c1c;
+@use 'variables';
+
 $margin: 0;
 $padding: 0;
 $box-sizing: border-box;
@@ -24,7 +24,7 @@ body {
   padding-top: $padding-top;
   width: $full-width;
   height: $full-height;
-  color: white;
+  color: variables.$text-color;
 
   .content {
     display: flex;

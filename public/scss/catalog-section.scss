@@ -1,3 +1,5 @@
+@use 'variables';
+
 .catalog-card-container {
   display: flex;
   flex-direction: row;
@@ -14,10 +16,10 @@
 }
 
 .catalog-title {
-  background-color: #b28317;
-  color: white;
+  background-color: variables.$resalt-color;
+  color: variables.$text-color;
   text-align:center;
-  font-family: "Roboto", sans-serif;
+  font-family: variables.$font-family;
   font-size: 1.5rem;
   font-weight: bold;
   padding: 2vh 4vh;
@@ -79,7 +81,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: white;
+    color: variables.$text-color;
     height: 100%;
     width: 50%;
     position: absolute;
@@ -95,7 +97,7 @@
 
   .catalog-card-button {
     display: flex;
-    background-color: #b28317;
+    background-color: variables.$resalt-color;
     justify-content: center;
     align-items: center;
     width: 100%;
@@ -112,7 +114,7 @@
   }
 
   .catalog-card-button:hover {
-    background-color: #8c6813;
+    background-color: variables.$resalt-color-darker;
   }
 
 }

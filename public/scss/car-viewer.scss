@@ -1,4 +1,5 @@
-$background-color: gray;
+@use 'variables';
+
 $container-width: 100%;
 $container-height: 100%;
 $image-section-width: 60%;
@@ -28,7 +29,7 @@ $selected-border-color: #007bff;
     @include center-flex;
     width: $image-section-width;
     height: $viewer-height;
-    background-color: $background-color;
+    background-color: variables.$gray;
     cursor: pointer;
     overflow: hidden;
     border: $image-border;
@@ -52,7 +53,7 @@ $selected-border-color: #007bff;
       @include center-flex;
       width: 100%;
       height: $secondary-image-height;
-      background-color: $background-color;
+      background-color: variables.$gray;
       cursor: pointer;
       border: $image-border;
       transition: border-color 0.3s ease;

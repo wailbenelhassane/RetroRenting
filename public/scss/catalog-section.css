@@ -14,8 +14,8 @@
 }
 
 .catalog-title {
-  background-color: #b28317;
-  color: white;
+  background-color: #9a7006;
+  color: #FFFFFF;
   text-align: center;
   font-family: "Roboto", sans-serif;
   font-size: 1.5rem;
@@ -72,7 +72,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: white;
+  color: #FFFFFF;
   height: 100%;
   width: 50%;
   position: absolute;
@@ -86,7 +86,7 @@
 }
 .catalog-card .catalog-card-button {
   display: flex;
-  background-color: #b28317;
+  background-color: #9a7006;
   justify-content: center;
   align-items: center;
   width: 100%;
@@ -102,7 +102,7 @@
   transition: background-color 0.3s ease;
 }
 .catalog-card .catalog-card-button:hover {
-  background-color: #8c6813;
+  background-color: #8B6508;
 }
 
 /*# sourceMappingURL=catalog-section.css.map */

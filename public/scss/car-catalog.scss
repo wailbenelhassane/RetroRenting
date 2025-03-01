@@ -1,8 +1,7 @@
-$background-color: #B8860B;
-$text-color: white;
+@use 'variables';
+
 $hover-transition: all ease-in-out 300ms;
 $menu-item-width: 65%;
-$font-family: "Roboto", sans-serif;
 $menu-item-height: 275px;
 $catalog-image-width: 55%;
 $catalog-menu-width: 20%;
@@ -47,9 +46,9 @@ $font-size-base: 1.5rem;
       margin-bottom: 20px;
       width: $menu-item-width;
       height: $menu-item-height;
-      background-color: $background-color;
+      background-color: variables.$resalt-color;
       backdrop-filter: blur(10px);
-      color: $text-color;
+      color: variables.$text-color;
       cursor: pointer;
 
       &:hover {
@@ -60,8 +59,8 @@ $font-size-base: 1.5rem;
       .car-catalog-menu-item-element {
         margin-left: 15%;
         text-decoration: none;
-        color: $text-color;
-        font-family: $font-family;
+        color: variables.$text-color;
+        font-family: variables.$font-family;
         font-size: $font-size-base;
       }
     }
