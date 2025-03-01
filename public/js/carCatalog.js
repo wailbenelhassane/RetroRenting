@@ -3,19 +3,18 @@ import {fetchJSON, setImage} from "./main.js";
 export async function initCarCatalog() {
     const carImageSelector = ".car-image";
     const menuItems = document.querySelectorAll(".car-catalog-menu-item");
-    const carData = await fetchJSON("../public/data-json/images.json");
+    const carData = await fetchJSON("../public/data-json/catalogCars.json");
     if (!carData || !carData.images) return;
 
-    const getRandomCarImage = (decade) => {
+    const getCarImage = (decade) => {
         const cars = Object.values(carData.images[decade]);
-        const randomCar = cars[Math.floor(Math.random() * cars.length)];
-        return randomCar.principal;
+        return cars[0];
     };
 
     const images = {
-        "70": getRandomCarImage("70"),
-        "80": getRandomCarImage("80"),
-        "90": getRandomCarImage("90"),
+        "70": getCarImage("70"),
+        "80": getCarImage("80"),
+        "90": getCarImage("90"),
     };
 
     setImage(carImageSelector, { src: images["70"], altText: "Car image from 70s" });
