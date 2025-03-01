@@ -10,6 +10,8 @@ export async function includeHTML() {
 
             element.innerHTML = await response.text();
 
+            await processNestedComponents(element);
+
             const cssFile = file.replace(".html", ".css").replace("partials/", "../../public/scss/");
             if (!document.querySelector(`link[href="${cssFile}"]`)) {
                 const link = document.createElement("link");
@@ -21,6 +23,41 @@ export async function includeHTML() {
         } catch (error) {
             console.error(error);
             element.innerHTML = "<p>No se pudo cargar el componente.</p>";
+        }
+    }
+}
+
+async function processNestedComponents(parentElement) {
+    const nestedElements = parentElement.querySelectorAll("[data-include]");
+
+    if (nestedElements.length > 0) {
+        console.log("Cargando componentes anidados dentro de:", parentElement);
+
+        for (const nestedElement of nestedElements) {
+            const nestedFile = nestedElement.getAttribute("data-include");
+
+            try {
+                const response = await fetch(nestedFile);
+                if (!response.ok) throw new Error(`Error al cargar ${nestedFile}`);
+
+                nestedElement.innerHTML = await response.text();
+
+                // Llamada recursiva para cargar componentes aún más anidados
+                await processNestedComponents(nestedElement);
+
+                // Cargar CSS si es necesario
+                const nestedCssFile = nestedFile.replace(".html", ".css").replace("partials/", "../../public/scss/");
+                if (!document.querySelector(`link[href="${nestedCssFile}"]`)) {
+                    const link = document.createElement("link");
+                    link.rel = "stylesheet";
+                    link.href = nestedCssFile;
+                    document.head.appendChild(link);
+                }
+
+            } catch (error) {
+                console.error(error);
+                nestedElement.innerHTML = "<p>No se pudo cargar el componente anidado.</p>";
+            }
         }
     }
 }

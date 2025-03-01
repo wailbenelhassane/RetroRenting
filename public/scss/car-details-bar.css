@@ -1,6 +1,6 @@
 .details-bar-container {
-  width: 35%;
-  height: 8%;
+  width: 32vw;
+  height: 8vh;
   display: flex;
   flex-direction: column;
   align-items: center;

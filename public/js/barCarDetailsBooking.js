@@ -10,6 +10,7 @@ export async function barCarDetails() {
 
             if (targetContent) {
                 targetContent.classList.add("active");
+
                 console.log("Activated:", targetContent);
             } else {
                 console.error("Target not found:", decade);
