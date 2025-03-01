@@ -12,7 +12,6 @@ export async function loadCarDetails() {
     const carData = findCarById(data.decades, carId);
     if (carData) {
         updateCarViewer(carData);
-        loadCarInfo();
     }
 }
 
@@ -39,26 +38,55 @@ function updateCarViewer(carData) {
     secondaryImages[2].src = carData.image.src.replace("full-frontal", "side-profile");
 }
 
-function loadCarInfo() {
-    const carDetailsBtn = document.getElementById("car-details-btn");
-    const bookNowBtn = document.getElementById("book-now-btn");
-    const carDetailsContent = document.getElementById("car-details-content");
-    const bookNowContent = document.getElementById("book-now-content");
+export async function loadDetailsBar() {
+    const carId = new URLSearchParams(window.location.search).get("carId");
+    if (!carId) {
+        console.error("❌ No se encontró carId en la URL");
+        return;
+    }
 
-    carDetailsBtn.addEventListener("click", function () {
-        switchTab(carDetailsBtn, bookNowBtn, carDetailsContent, bookNowContent);
-    });
+    try {
+        const data = await fetchJSON("/RetroRenting/public/data-json/catalogSection.json");
 
-    bookNowBtn.addEventListener("click", function () {
-        switchTab(bookNowBtn, carDetailsBtn, bookNowContent, carDetailsContent);
-    });
+        if (!data || !data.decades) {
+            console.error("❌ No se pudo cargar el JSON de autos.");
+            return;
+        }
+
+        const carData = findCarById(data.decades, carId);
+        if (!carData || !carData.info) {
+            console.error(`❌ No se encontraron detalles para el carId: ${carId}`);
+            return;
+        }
+
+        const detailsBar = document.querySelector(".details-bar");
+        if (!detailsBar) {
+            console.error("❌ No se encontró la sección .details-bar en el DOM");
+            return;
+        }
+
+        detailsBar.innerHTML = "";
+
+        carData.info.forEach(detail => {
+            const detailSection = document.createElement("div");
+            detailSection.classList.add("detail-section");
+
+            const detailLabel = document.createElement("p");
+            detailLabel.classList.add("detail-label");
+            detailLabel.textContent = detail;
+
+            detailSection.appendChild(detailLabel);
+            detailsBar.appendChild(detailSection);
+        });
+
+        console.log(`✅ Detalles del auto ${carId} cargados correctamente`);
+
+    } catch (error) {
+        console.error("❌ Error al cargar los detalles del auto:", error);
+    }
 }
 
-function switchTab(activeBtn, inactiveBtn, activeContent, inactiveContent) {
-    activeBtn.classList.add("active");
-    inactiveBtn.classList.remove("active");
-    activeContent.classList.add("active");
-    inactiveContent.classList.remove("active");
-}
-
-document.addEventListener("DOMContentLoaded", loadCarDetails);
+document.addEventListener("DOMContentLoaded", () => {
+    loadCarDetails();
+    loadDetailsBar();
+});
