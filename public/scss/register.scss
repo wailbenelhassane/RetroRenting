@@ -1,9 +1,5 @@
-$black: #000000;
-$dark-gray: #1F1F1F;
-$accent-color: #B8860B;
-$secondary-hover: #9a7006;
-$font-family: "Roboto", sans-serif;
-$text-color: white;
+@use 'variables';
+
 $input-border-color: #ccc;
 $box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 $border-radius: 3vh;
@@ -58,7 +54,7 @@ body {
 
 .register-form-container {
   width: 50%;
-  color: $text-color;
+  color: variables.$text-color;
   @include flex-center(column);
   margin-top: 5%;
 
@@ -76,7 +72,7 @@ body {
 
     h1 {
       font-size: $font-size-large;
-      font-family: $font-family;
+      font-family: variables.$font-family;
     }
   }
 
@@ -85,7 +81,7 @@ body {
     text-align: left;
     cursor: pointer;
     font-size: $font-size-small;
-    color: $text-color;
+    color: variables.$text-color;
     text-decoration: none;
   }
 
@@ -98,7 +94,7 @@ body {
       label {
         margin-top: 2vh;
         font-size: $font-size-base;
-        font-family: $font-family;
+        font-family: variables.$font-family;
       }
 
       input {
@@ -130,11 +126,11 @@ body {
       button {
         width: 10vw;
         height: 5vh;
-        background-color: $accent-color;
+        background-color: variables.$resalt-color;
         font-size: 20px;
         font-weight: bold;
-        color: $text-color;
-        font-family: $font-family;
+        color: variables.$text-color;
+        font-family: variables.$font-family;
         border: none;
         cursor: pointer;
         border-radius: $button-radius;
@@ -143,19 +139,19 @@ body {
       }
 
       button:hover {
-        background-color: $secondary-hover;
+        background-color: variables.$resalt-color-darker;
       }
     }
 
     #sign-in-link {
-      color: $text-color;
+      color: variables.$text-color;
       font-size: $font-size-small;
-      font-family: $font-family;
+      font-family: variables.$font-family;
       margin-top: 1vh;
 
       #sign-in-btn {
         text-decoration: none;
-        color: $text-color;
+        color: variables.$text-color;
         font-weight: bold;
       }
     }
