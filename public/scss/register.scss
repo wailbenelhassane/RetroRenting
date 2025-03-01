@@ -52,7 +52,7 @@ body {
   }
 }
 
-.register-form-container {
+.register-container {
   width: 50%;
   color: variables.$text-color;
   @include flex-center(column);
@@ -89,7 +89,7 @@ body {
     @include flex-center(column);
 
     label {
-      margin-top: 2vh;
+      margin-top: 1.5vh;
       font-size: $font-size-base;
       font-family: variables.$font-family;
     }
@@ -106,18 +106,18 @@ body {
       margin-bottom: 0.3vh;
     }
 
+    input:focus {
+      outline: none;
+      box-shadow: $box-shadow;
+      border: 0.1vh solid $input-border-color;
+    }
+
     .name-group {
       @include flex-group();
       height: $input-height-group;
       width: $input-width-group;
       margin-bottom: 0.3vh;
       gap: 0.5vw;
-    }
-
-    input:focus {
-      outline: none;
-      box-shadow: $box-shadow;
-      border: 0.1vh solid $input-border-color;
     }
 
     button {

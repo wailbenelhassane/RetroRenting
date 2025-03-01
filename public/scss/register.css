@@ -22,7 +22,7 @@ body {
   object-fit: cover;
 }
 
-.register-form-container {
+.register-container {
   width: 50%;
   color: #FFFFFF;
   display: flex;
@@ -31,11 +31,11 @@ body {
   flex-direction: column;
   margin-top: 5%;
 }
-.register-form-container .register-logo img {
+.register-container .register-logo img {
   width: 10vw;
   height: 20vh;
 }
-.register-form-container .register-header {
+.register-container .register-header {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -43,11 +43,11 @@ body {
   gap: 2vh;
   margin-bottom: 1vh;
 }
-.register-form-container .register-header h1 {
+.register-container .register-header h1 {
   font-size: 4rem;
   font-family: "Roboto", sans-serif;
 }
-.register-form-container #back-link {
+.register-container #back-link {
   width: 100%;
   text-align: left;
   cursor: pointer;
@@ -55,18 +55,18 @@ body {
   color: #FFFFFF;
   text-decoration: none;
 }
-.register-form-container .register-form {
+.register-container .register-form {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
-.register-form-container .register-form label {
-  margin-top: 2vh;
+.register-container .register-form label {
+  margin-top: 1.5vh;
   font-size: 1rem;
   font-family: "Roboto", sans-serif;
 }
-.register-form-container .register-form input {
+.register-container .register-form input {
   width: 45vh;
   height: 4vh;
   font-size: 1rem;
@@ -77,7 +77,12 @@ body {
   margin-top: 0.3vh;
   margin-bottom: 0.3vh;
 }
-.register-form-container .register-form .name-group {
+.register-container .register-form input:focus {
+  outline: none;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  border: 0.1vh solid #ccc;
+}
+.register-container .register-form .name-group {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -88,12 +93,7 @@ body {
   margin-bottom: 0.3vh;
   gap: 0.5vw;
 }
-.register-form-container .register-form input:focus {
-  outline: none;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-  border: 0.1vh solid #ccc;
-}
-.register-form-container .register-form button {
+.register-container .register-form button {
   width: 10vw;
   height: 5vh;
   background-color: #9a7006;
@@ -107,16 +107,16 @@ body {
   padding: 1vh 2vh;
   margin-top: 2vh;
 }
-.register-form-container .register-form button:hover {
+.register-container .register-form button:hover {
   background-color: #8B6508;
 }
-.register-form-container #sign-in-link {
+.register-container #sign-in-link {
   color: #FFFFFF;
   font-size: 1.2rem;
   font-family: "Roboto", sans-serif;
   margin-top: 1vh;
 }
-.register-form-container #sign-in-link #sign-in-btn {
+.register-container #sign-in-link #sign-in-btn {
   text-decoration: none;
   color: #FFFFFF;
   font-weight: bold;

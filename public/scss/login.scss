@@ -42,7 +42,7 @@ body {
   }
 }
 
-.login-form-container {
+.login-container {
   width: 50%;
   color: variables.$text-color;
   @include flex-center(column);
@@ -56,7 +56,7 @@ body {
   }
 
   .login-header {
-    @include flex-center(row);
+    @include flex-center(column);
     gap: 1vh;
     margin-bottom: 1vh;
 
@@ -76,74 +76,70 @@ body {
     margin-bottom: 1vh;
   }
 
-  .input-container {
+  .login-form {
     @include flex-center(column);
 
-    .login-form {
-      @include flex-center(column);
-
-      label {
-        margin-top: 1vh;
-        font-size: $font-size-base;
-        font-family: variables.$font-family;
-      }
-
-      input {
-        width: $input-width;
-        height: $input-height;
-        font-size: $font-size-base;
-        padding: 1vh 2vh;
-        border: 1px solid $input-border-color;
-        border-radius: $border-radius;
-        box-shadow: $box-shadow;
-        margin-top: 1vh;
-        margin-bottom: 2vh;
-      }
-
-      input:focus {
-        outline: none;
-        box-shadow: $box-shadow;
-        border: 1px solid $input-border-color;
-      }
-
-      button {
-        width: 15vw;
-        height: 5vh;
-        background-color: variables.$resalt-color;
-        font-size: 20px;
-        font-weight: bold;
-        color: variables.$text-color;
-        font-family: variables.$font-family;
-        border: none;
-        cursor: pointer;
-        border-radius: $button-radius;
-        padding: 10px 15px;
-        margin-top: 2vh;
-        margin-bottom: 3vh;
-      }
-
-      button:hover {
-        background-color: variables.$resalt-color-darker;
-      }
+    label {
+      margin-top: 1vh;
+      font-size: $font-size-base;
+      font-family: variables.$font-family;
     }
 
-    .login-links {
+    input {
+      width: $input-width;
+      height: $input-height;
+      font-size: $font-size-base;
+      padding: 1vh 2vh;
+      border: 1px solid $input-border-color;
+      border-radius: $border-radius;
+      box-shadow: $box-shadow;
+      margin-top: 1vh;
+      margin-bottom: 2vh;
+    }
+
+    input:focus {
+      outline: none;
+      box-shadow: $box-shadow;
+      border: 1px solid $input-border-color;
+    }
+
+    button {
+      width: 15vw;
+      height: 5vh;
+      background-color: variables.$resalt-color;
+      font-size: 20px;
+      font-weight: bold;
       color: variables.$text-color;
-      font-size: $font-size-small;
       font-family: variables.$font-family;
+      border: none;
+      cursor: pointer;
+      border-radius: $button-radius;
+      padding: 10px 15px;
       margin-top: 2vh;
+      margin-bottom: 3vh;
+    }
 
-      #sign-up-btn {
-        text-decoration: none;
-        color: variables.$text-color;
-        font-weight: bold;
-      }
+    button:hover {
+      background-color: variables.$resalt-color-darker;
+    }
+  }
 
-      #reemail-btn {
-        text-decoration: none;
-        color: variables.$text-color;
-        font-weight: bold;
-      }
+  .login-links {
+    color: variables.$text-color;
+    font-size: $font-size-small;
+    font-family: variables.$font-family;
+    margin-top: 2vh;
+
+    #sign-up-btn {
+      text-decoration: none;
+      color: variables.$text-color;
+      font-weight: bold;
+    }
+
+    #reemail-btn {
+      text-decoration: none;
+      color: variables.$text-color;
+      font-weight: bold;
     }
   }
 }
