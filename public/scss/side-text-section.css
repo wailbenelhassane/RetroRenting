@@ -11,10 +11,9 @@
 .side-text-section-container .side-text-section-text {
   justify-content: center;
   align-items: center;
-  width: 40%;
+  width: 30%;
   height: 100%;
   padding-left: 3vh;
-  padding-right: 3vh;
 }
 .side-text-section-container .side-text-section-text h2 {
   margin-bottom: 4vh;
@@ -26,7 +25,11 @@
   align-items: center;
   width: 40%;
   height: 50vh;
-  background-color: lightgray;
+}
+.side-text-section-container .side-text-section-image img {
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
 }
 
 /*# sourceMappingURL=side-text-section.css.map */
