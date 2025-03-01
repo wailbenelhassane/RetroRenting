@@ -42,21 +42,24 @@
   position: relative;
   width: 100%;
   height: 300px;
-  overflow: hidden;
   margin-top: 20px;
 }
 
 .content-bar {
-  position: absolute;
+  position: relative;
   width: 100%;
   height: 100%;
+  min-height: 300px;
   visibility: hidden;
-  transition: opacity 0.3s ease-in-out;
+  opacity: 0;
+  display: none;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
 }
 
 .content-bar.active {
   visibility: visible;
   opacity: 1;
+  display: block;
 }
 
 /*# sourceMappingURL=bar-car-details-booking.css.map */
