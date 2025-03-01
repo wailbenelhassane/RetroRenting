@@ -1,9 +1,4 @@
-$primary-color: #555;
-$secondary-color: #B8860B;
-$secondary-color-lighter: #cf9d2e;
-$secondary-hover: #9a7006;
-$text-color: white;
-$font-family: "Roboto", sans-serif;
+@use 'variables';
 $font-size: 14px;
 $border-radius: 5px;
 $input-radius: 15px;
@@ -26,7 +21,7 @@ $box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 @mixin button-style($bg-color, $hover-color) {
   background-color: $bg-color;
   font-weight: bold;
-  color: $text-color;
+  color: variables.$text-color;
   padding: 10px 15px;
   border: none;
   cursor: pointer;
@@ -35,7 +30,7 @@ $box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
   transition: background-color 0.3s ease;
 
   &:hover {
-    background-color: $hover-color;
+    background-color: variables.$resalt-color-darker;
   }
 }
 
@@ -45,11 +40,11 @@ $box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
   align-items: center;
   margin-top: 2%;
   gap: 20px;
-  font-family: $font-family;
+  font-family: variables.$font-family;
 
   .booking-bar-title {
     text-align: center;
-    color: $text-color;
+    color: variables.$text-color;
     font-weight: bold;
     font-size: 2.3vh;
   }
@@ -57,7 +52,7 @@ $box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
   .booking-bar {
     display: flex;
     align-items: center;
-    background-color: $primary-color;
+    background-color: variables.$gray;
     padding: 10px;
     border-radius: $border-radius;
 
@@ -70,7 +65,7 @@ $box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
     .booking-section {
       display: flex;
       flex-direction: column;
-      color: $text-color;
+      color: variables.$text-color;
       font-size: $font-size;
       font-weight: bold;
 
@@ -88,13 +83,13 @@ $box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
         align-items: center;
         font-size: 20px;
         font-weight: bold;
-        font-family: $font-family;
+        font-family: variables.$font-family;
         margin-bottom: 1vh;
       }
     }
 
     .book-btn {
-      @include button-style($secondary-color, $secondary-hover);
+      @include button-style(variables.$resalt-color, variables.$resalt-color-darker);
       margin-top: 20%;
       height: 100%;
     }

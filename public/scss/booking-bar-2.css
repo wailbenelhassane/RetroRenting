@@ -21,7 +21,7 @@
 .booking-bar-container .booking-bar .booking-section {
   display: flex;
   flex-direction: column;
-  color: white;
+  color: #FFFFFF;
   font-size: 14px;
   font-weight: bold;
 }
@@ -50,7 +50,7 @@
   margin-bottom: 5px;
 }
 .booking-bar-container .booking-bar .book-btn {
-  background-color: #B8860B;
+  background-color: #9a7006;
   font-weight: bold;
   color: white;
   padding: 10px 15px;
@@ -63,7 +63,7 @@
   height: 100%;
 }
 .booking-bar-container .booking-bar .book-btn:hover {
-  background-color: #9a7006;
+  background-color: #8B6508;
 }
 
 /*# sourceMappingURL=booking-bar-2.css.map */

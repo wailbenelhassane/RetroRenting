@@ -5,7 +5,7 @@
 }
 
 .book-summary-container {
-  background-color: #6e6e6e;
+  background-color: #1F1F1F;
   padding: 2vh;
   border-radius: 1vh;
   min-width: 15vw;
@@ -20,7 +20,7 @@
 }
 .book-summary-header h1 {
   font-size: 1.2rem;
-  color: white;
+  color: #FFFFFF;
 }
 
 .book-summary-details {
@@ -36,7 +36,7 @@
   width: 100%;
   font-family: "Roboto", sans-serif;
   font-size: 1rem;
-  color: white;
+  color: #FFFFFF;
   padding: 1vh 0;
 }
 
@@ -62,10 +62,10 @@
 .pay-now-button {
   width: 12vw;
   height: 5vh;
-  background-color: #b8860b;
+  background-color: #9a7006;
   font-size: 2vh;
   font-weight: bold;
-  color: white;
+  color: #FFFFFF;
   font-family: "Roboto", sans-serif;
   border: none;
   cursor: pointer;
@@ -74,7 +74,7 @@
   transition: background-color 0.3s ease-in-out;
 }
 .pay-now-button:hover {
-  background-color: #9a7006;
+  background-color: #8B6508;
 }
 
 /*# sourceMappingURL=book-summary.css.map */

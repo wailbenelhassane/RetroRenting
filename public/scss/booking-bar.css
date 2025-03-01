@@ -8,7 +8,7 @@
 }
 .booking-bar-container .booking-bar-title {
   text-align: center;
-  color: white;
+  color: #FFFFFF;
   font-weight: bold;
   font-size: 2.3vh;
 }
@@ -27,7 +27,7 @@
 .booking-bar-container .booking-bar .booking-section {
   display: flex;
   flex-direction: column;
-  color: white;
+  color: #FFFFFF;
   font-size: 14px;
   font-weight: bold;
 }
@@ -56,9 +56,9 @@
   margin-bottom: 1vh;
 }
 .booking-bar-container .booking-bar .book-btn {
-  background-color: #B8860B;
+  background-color: #9a7006;
   font-weight: bold;
-  color: white;
+  color: #FFFFFF;
   padding: 10px 15px;
   border: none;
   cursor: pointer;
@@ -69,7 +69,7 @@
   height: 100%;
 }
 .booking-bar-container .booking-bar .book-btn:hover {
-  background-color: #9a7006;
+  background-color: #8B6508;
 }
 
 /*# sourceMappingURL=booking-bar.css.map */
