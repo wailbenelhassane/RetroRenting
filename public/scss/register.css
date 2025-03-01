@@ -39,7 +39,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: row;
+  flex-direction: column;
   gap: 2vh;
   margin-bottom: 1vh;
 }
@@ -55,24 +55,18 @@ body {
   color: #FFFFFF;
   text-decoration: none;
 }
-.register-form-container .input-container {
+.register-form-container .register-form {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
-.register-form-container .input-container .register-form {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-.register-form-container .input-container .register-form label {
+.register-form-container .register-form label {
   margin-top: 2vh;
   font-size: 1rem;
   font-family: "Roboto", sans-serif;
 }
-.register-form-container .input-container .register-form input {
+.register-form-container .register-form input {
   width: 45vh;
   height: 4vh;
   font-size: 1rem;
@@ -83,7 +77,7 @@ body {
   margin-top: 0.3vh;
   margin-bottom: 0.3vh;
 }
-.register-form-container .input-container .register-form .name-group {
+.register-form-container .register-form .name-group {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -94,12 +88,12 @@ body {
   margin-bottom: 0.3vh;
   gap: 0.5vw;
 }
-.register-form-container .input-container .register-form input:focus {
+.register-form-container .register-form input:focus {
   outline: none;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
   border: 0.1vh solid #ccc;
 }
-.register-form-container .input-container .register-form button {
+.register-form-container .register-form button {
   width: 10vw;
   height: 5vh;
   background-color: #9a7006;
@@ -113,16 +107,16 @@ body {
   padding: 1vh 2vh;
   margin-top: 2vh;
 }
-.register-form-container .input-container .register-form button:hover {
+.register-form-container .register-form button:hover {
   background-color: #8B6508;
 }
-.register-form-container .input-container #sign-in-link {
+.register-form-container #sign-in-link {
   color: #FFFFFF;
   font-size: 1.2rem;
   font-family: "Roboto", sans-serif;
   margin-top: 1vh;
 }
-.register-form-container .input-container #sign-in-link #sign-in-btn {
+.register-form-container #sign-in-link #sign-in-btn {
   text-decoration: none;
   color: #FFFFFF;
   font-weight: bold;
