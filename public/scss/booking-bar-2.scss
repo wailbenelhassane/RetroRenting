@@ -1,10 +1,5 @@
 @use 'variables';
 
-$primary-color: #555;
-$secondary-color: #B8860B;
-$secondary-hover: #9a7006;
-$text-color: white;
-$font-family: "Roboto", sans-serif;
 $font-size: 14px;
 $border-radius: 5px;
 $input-radius: 15px;
@@ -26,7 +21,7 @@ $box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 @mixin button-style($bg-color, $hover-color) {
   background-color: $bg-color;
   font-weight: bold;
-  color: $text-color;
+  color: variables.$text-color;
   padding: 10px 15px;
   border: none;
   cursor: pointer;
@@ -47,7 +42,7 @@ $box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
   align-items: center;
   margin-top: 2%;
   gap: 20px;
-  font-family: $font-family;
+  font-family: variables.$font-family;
 
   .booking-bar {
     width: 100%;
