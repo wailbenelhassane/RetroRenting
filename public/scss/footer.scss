@@ -4,7 +4,7 @@ $footer-height: 5vh;
 $margin-top: 4vh;
 $separator-margin: 10px;
 
-footer {
+.site-footer {
   background: rgba(30, 30, 30, 0.5);
   backdrop-filter: blur(10px);
   color: variables.$text-color;
@@ -17,13 +17,13 @@ footer {
   box-shadow: none;
   width: 100%;
 
-  ul {
+  .footer-menu {
     list-style: none;
     padding: 0;
     margin: 0;
     display: flex;
 
-    li {
+    .footer-item {
       display: inline;
 
       a {

@@ -1,4 +1,4 @@
-.header {
+.main-nav {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -11,7 +11,7 @@
   top: 0;
   z-index: 100;
 }
-.header a {
+.main-nav a {
   cursor: pointer;
   color: #FFFFFF;
   margin: 5vh;
@@ -21,19 +21,19 @@
   font-family: "Roboto", sans-serif;
 }
 
-.header-logo {
+.logo-container {
   display: flex;
   align-items: flex-start;
   left: 0;
   width: 20%;
 }
-.header-logo img {
+.logo-container img {
   width: 12vh;
   height: 12vh;
   object-fit: contain;
 }
 
-.header-menu {
+.navigation-menu {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -42,21 +42,21 @@
   padding: 0;
   margin: 0;
 }
-.header-menu .header-section {
+.navigation-menu .navigation-item {
   margin: 0 5vh;
 }
 
-.header-register {
+.auth-links {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   width: 20%;
 }
-.header-register a {
+.auth-links a {
   margin: 5px;
 }
-.header-register span {
+.auth-links span {
   font-size: 1.2rem;
   font-weight: bold;
   color: #FFFFFF;

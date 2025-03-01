@@ -1,4 +1,4 @@
-footer {
+.site-footer {
   background: rgba(30, 30, 30, 0.5);
   backdrop-filter: blur(10px);
   color: #FFFFFF;
@@ -11,21 +11,21 @@ footer {
   box-shadow: none;
   width: 100%;
 }
-footer ul {
+.site-footer .footer-menu {
   list-style: none;
   padding: 0;
   margin: 0;
   display: flex;
 }
-footer ul li {
+.site-footer .footer-menu .footer-item {
   display: inline;
 }
-footer ul li a {
+.site-footer .footer-menu .footer-item a {
   text-decoration: none;
   color: #FFFFFF;
   font-family: "Roboto", sans-serif;
 }
-footer .separator-bar {
+.site-footer .separator-bar {
   margin-left: 10px;
   margin-right: 10px;
 }

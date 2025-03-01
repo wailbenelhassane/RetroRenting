@@ -13,7 +13,7 @@ $section-width: 20%;
   align-items: center;
 }
 
-.header {
+.main-nav {
   @include flex-center(row);
   background: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(10px);
@@ -34,7 +34,7 @@ $section-width: 20%;
   }
 }
 
-.header-logo {
+.logo-container {
   display: flex;
   align-items: flex-start;
   left: 0;
@@ -47,18 +47,18 @@ $section-width: 20%;
   }
 }
 
-.header-menu {
+.navigation-menu {
   @include flex-center(row);
   list-style: none;
   padding: 0;
   margin: 0;
 
-  .header-section {
+  .navigation-item {
     margin: 0 $margin-spacing;
   }
 }
 
-.header-register {
+.auth-links {
   @include flex-center(row);
   width: $section-width;
 
