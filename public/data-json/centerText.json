@@ -1,0 +1,12 @@
+{
+  "sections": {
+    "philosophy": {
+      "title": "Our Philosophy",
+      "content": "Lorem Ipsum is simply dummy text of the printing and typesetting industry..."
+    },
+    "contact": {
+      "title": "Contact Us",
+      "content": "We are a company focused on bringing classic cars back to life..."
+    }
+  }
+}

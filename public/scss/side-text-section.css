@@ -1,0 +1,35 @@
+.side-text-section-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+.side-text-section-container .side-text-section-text {
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  height: 100%;
+  padding-left: 3vh;
+}
+.side-text-section-container .side-text-section-text h2 {
+  margin-bottom: 4vh;
+}
+.side-text-section-container .side-text-section-image {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  height: 50vh;
+}
+.side-text-section-container .side-text-section-image img {
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+}
+
+/*# sourceMappingURL=side-text-section.css.map */

@@ -1,0 +1,47 @@
+@use 'variables';
+
+$footer-height: 5vh;
+$margin-top: 4vh;
+$separator-margin: 10px;
+
+.footer-nav {
+  background: rgba(30, 30, 30, 0.5);
+  backdrop-filter: blur(10px);
+  color: variables.$text-color;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: $footer-height;
+  margin-top: $margin-top;
+  box-shadow: none;
+  width: 100%;
+
+  .footer-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+
+    .footer-item {
+      display: inline;
+
+      a {
+        text-decoration: none;
+        color: variables.$text-color;
+        font-family: variables.$font-family;
+      }
+    }
+
+    .footer-item:not(:last-child)::after {
+      content: " | ";
+      color: variables.$text-color;
+      padding: 0 8px;
+    }
+  }
+
+  .separator-bar {
+    margin-left: $separator-margin;
+    margin-right: $separator-margin;
+  }
+}

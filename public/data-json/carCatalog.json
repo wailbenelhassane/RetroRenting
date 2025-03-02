@@ -1,0 +1,25 @@
+{
+  "catalogImages": [
+    {
+      "decade": "70s",
+      "image": {
+        "src": "/RetroRenting/public/img/70s-car.jpg",
+        "altText": "Classic car from the 70s"
+      }
+    },
+    {
+      "decade": "80s",
+      "image": {
+        "src": "/RetroRenting/public/img/80s-car.jpg",
+        "altText": "Retro car from the 80s"
+      }
+    },
+    {
+      "decade": "90s",
+      "image": {
+        "src": "/RetroRenting/public/img/90s-car.jpg",
+        "altText": "Sport car from the 90s"
+      }
+    }
+  ]
+}

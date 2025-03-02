@@ -1,0 +1,13 @@
+{
+  "logoImage": {
+    "selector": "logo-image",
+    "src": "/RetroRenting/public/img/logo.png",
+    "altText": "RetroRenting Logo."
+  },
+
+  "asideImage": {
+    "selector": "background-aside-image",
+    "src": "/RetroRenting/public/img/register.jpg",
+    "altText": "Cars Image Background."
+  }
+}

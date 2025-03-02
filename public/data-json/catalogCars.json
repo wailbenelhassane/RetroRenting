@@ -1,0 +1,13 @@
+{
+  "images" : {
+    "70" : {
+      "image" : "/RetroRenting/public/img/cars/70/ford-mustang-70/full-frontal-removebg.png"
+    },
+    "80" : {
+      "image" : "/RetroRenting/public/img/cars/80/spider-veloce-2DR-80/full-frontal-removebg.png"
+    },
+    "90" : {
+      "image" : "/RetroRenting/public/img/cars/90/porsche-911-speedster-90/full-frontal-removebg.png"
+    }
+  }
+}
