@@ -12,4 +12,5 @@ document.addEventListener("DOMContentLoaded", async () => {
   await initTeamCarousel();
   await getReviews();
   await loadTextSections();
+  await loadSideTextSections();
 });
