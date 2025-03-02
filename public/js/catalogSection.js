@@ -15,8 +15,11 @@ export async function loadCatalogSections() {
 
     catalogContainer.innerHTML = "";
 
-    data.decades.forEach(decade => {
+    const decadeIds = [70, 80, 90];
+
+    data.decades.forEach((decade, index) => {
         const sectionElement = document.createElement("section");
+        sectionElement.id = decadeIds[index] || `decade-${index}`;
 
         const titleElement = document.createElement("div");
         titleElement.classList.add("catalog-title");
@@ -56,4 +59,17 @@ export async function loadCatalogSections() {
     });
 }
 
-document.addEventListener("DOMContentLoaded", loadCatalogSections);
+document.addEventListener("DOMContentLoaded", async () => {
+    await loadCatalogSections();
+
+    if (window.location.hash) {
+        const targetId = window.location.hash.substring(1);
+        setTimeout(() => {
+            const targetElement = document.getElementById(targetId);
+            if (targetElement) {
+                targetElement.scrollIntoView({ behavior: "smooth" });
+            }
+        }, 300);
+    }
+});
+
