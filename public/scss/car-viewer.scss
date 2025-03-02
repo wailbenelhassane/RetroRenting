@@ -6,7 +6,6 @@ $image-section-width: 60%;
 $secondary-section-width: 30%;
 $secondary-image-height: 30%;
 $viewer-height: 500px;
-$container-margin-top: 69px;
 $gap-size: 10px;
 $padding-size: 1%;
 $image-border: 2px solid #ccc;
@@ -23,7 +22,6 @@ $selected-border-color: #007bff;
   @include center-flex(row);
   width: $container-width;
   height: $container-height;
-  margin-top: $container-margin-top;
 
   .principal-image {
     @include center-flex;

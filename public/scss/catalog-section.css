@@ -71,6 +71,7 @@
   margin-top: 2vh;
   font-weight: bold;
   text-align: center;
+  color: black;
 }
 .catalog-card .catalog-card-info {
   display: none;

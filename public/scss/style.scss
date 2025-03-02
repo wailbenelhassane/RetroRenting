@@ -44,3 +44,11 @@ body {
   color: variables.$text-color;
   width: 10%;
 }
+
+.car-name{
+  display:flex;
+  margin: 4%;
+  font-size: 3rem;
+  font-weight: bold;
+  color: variables.$text-color;
+}

@@ -12,6 +12,7 @@ export async function loadCarDetails() {
     const carData = findCarById(data.decades, carId);
     if (carData) {
         updateCarViewer(carData);
+        updateCarName(carData.title);
     }
 }
 
@@ -38,10 +39,17 @@ function updateCarViewer(carData) {
     secondaryImages[2].src = carData.image.src.replace("full-frontal", "side-profile");
 }
 
+function updateCarName(carTitle) {
+    const carNameElement = document.querySelector(".car-name");
+    if (carNameElement) {
+        carNameElement.textContent = carTitle;
+    }
+}
+
 export async function loadDetailsBar() {
     const carId = new URLSearchParams(window.location.search).get("carId");
     if (!carId) {
-        console.error("❌ No se encontró carId en la URL");
+        console.error("No se encontró carId en la URL");
         return;
     }
 
@@ -49,19 +57,19 @@ export async function loadDetailsBar() {
         const data = await fetchJSON("/RetroRenting/public/data-json/catalogSection.json");
 
         if (!data || !data.decades) {
-            console.error("❌ No se pudo cargar el JSON de autos.");
+            console.error("No se pudo cargar el JSON.");
             return;
         }
 
         const carData = findCarById(data.decades, carId);
         if (!carData || !carData.info) {
-            console.error(`❌ No se encontraron detalles para el carId: ${carId}`);
+            console.error(`No se encontraron detalles para el carId: ${carId}`);
             return;
         }
 
         const detailsBar = document.querySelector(".details-bar");
         if (!detailsBar) {
-            console.error("❌ No se encontró la sección .details-bar en el DOM");
+            console.error("No se encontró la sección .details-bar en el DOM");
             return;
         }
 
@@ -79,7 +87,7 @@ export async function loadDetailsBar() {
             detailsBar.appendChild(detailSection);
         });
     } catch (error) {
-        console.error("❌ Error al cargar los detalles del auto:", error);
+        console.error("Error al cargar los detalles del coche:", error);
     }
 }
 
