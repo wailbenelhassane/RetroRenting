@@ -70,7 +70,7 @@ RetroRenting es una plataforma para la gestión de alquileres con temática retr
 ---
 
 ### 8. **Confirmación de la reserva (`car-reservation-confirmation.html`)**
-- **Mockup Implementado:** [Car Reservation Final]  
+- **Mockup Implementado:** [Car Reservation Confirmation]  
   
 ---
 
@@ -98,7 +98,7 @@ RetroRenting es una plataforma para la gestión de alquileres con temática retr
 - **Template Integrado en:** about-us.html
   
 ### 8. **Side Text Section (`side-text-section.html`)**
-- **Template Integrado en:** side-text-section.html
+- **Template Integrado en:** about-us.html
   
 ### 9. **Center Text Section (`center-text-section.html`)**
 - **Template Integrado en:** about-us.html
