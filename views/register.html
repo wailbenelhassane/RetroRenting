@@ -1,47 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Sign up to RetroRenting, your vintage car rental platform.">
-    <title>RetroRenting - Sign Up</title>
-    <script type="module" defer src="../public/js/register.js"></script>
-    <link rel="stylesheet" href="../public/scss/register.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-</head>
-<body>
-    <aside class="aside-image">
-        <img class="background-aside-image" src="" alt="Loading Image.">
-    </aside>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Sign up to RetroRenting, your vintage car rental platform.">
+        <title>RetroRenting - Sign Up</title>
+        <script type="module" defer src="../public/js/register.js"></script>
+        <link rel="stylesheet" href="../public/scss/register.css">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <aside class="aside-image">
+            <img class="background-aside-image" src="" alt="Loading Image.">
+        </aside>
 
-    <main class="register-container">
-        <header class="register-header">
-            <div class="register-logo">
-                <img class="logo-image" src="" alt="Loading Image.">
-            </div>
-            <h1>Sign up!</h1>
-        </header>
-
-        <nav aria-label="Go back">
-            <a id="back-link" href="#" onclick="history.back(); return false"> &larr; Go back</a>
-        </nav>
-
-        <section class="register-form-container">
-            <form class="register-form" action="/register" method="post">
-                <div class="name-group">
-                    <input type="text" name="first-name" placeholder="First Name" required>
-                    <input type="text" name="last-name" placeholder="Last Name" required>
+        <main class="register-container">
+            <header class="register-header">
+                <div class="register-logo">
+                    <img class="logo-image" src="" alt="Loading Image.">
                 </div>
-                <input type="email" name="email" placeholder="Email" required>
-                <input type="text" name="username" placeholder="Username" required>
-                <input type="password" name="password" placeholder="Password" required>
-                <button class="register-btn" type="submit">Sign up</button>
-            </form>
-        </section>
+                <h1>Sign up!</h1>
+            </header>
 
-        <footer>
-            <p id="sign-in-link">Already have an account? <a href="login.html" id="sign-in-btn">Sign in</a></p>
-        </footer>
-    </main>
-</body>
+            <nav aria-label="Go back">
+                <a id="back-link" href="#" onclick="history.back(); return false"> &larr; Go back</a>
+            </nav>
+
+            <section class="register-form-container">
+                <form class="register-form" action="/register" method="post">
+                    <div class="name-group">
+                        <input type="text" name="first-name" placeholder="First Name" required>
+                        <input type="text" name="last-name" placeholder="Last Name" required>
+                    </div>
+                    <input type="email" name="email" placeholder="Email" required>
+                    <input type="text" name="username" placeholder="Username" required>
+                    <input type="password" name="password" placeholder="Password" required>
+                    <button class="register-btn" type="submit">Sign up</button>
+                </form>
+            </section>
+
+            <footer>
+                <p id="sign-in-link">Already have an account? <a href="login.html" id="sign-in-btn">Sign in</a></p>
+            </footer>
+        </main>
+    </body>
 </html>
