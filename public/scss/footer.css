@@ -1,4 +1,4 @@
-.site-footer {
+.footer-nav {
   background: rgba(30, 30, 30, 0.5);
   backdrop-filter: blur(10px);
   color: #FFFFFF;
@@ -11,21 +11,21 @@
   box-shadow: none;
   width: 100%;
 }
-.site-footer .footer-menu {
+.footer-nav .footer-menu {
   list-style: none;
   padding: 0;
   margin: 0;
   display: flex;
 }
-.site-footer .footer-menu .footer-item {
+.footer-nav .footer-menu .footer-item {
   display: inline;
 }
-.site-footer .footer-menu .footer-item a {
+.footer-nav .footer-menu .footer-item a {
   text-decoration: none;
   color: #FFFFFF;
   font-family: "Roboto", sans-serif;
 }
-.site-footer .separator-bar {
+.footer-nav .separator-bar {
   margin-left: 10px;
   margin-right: 10px;
 }
