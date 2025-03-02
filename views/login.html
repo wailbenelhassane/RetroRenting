@@ -1,43 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Sign in to RetroRenting, your vintage car rental platform.">
-    <title>RetroRenting - Sign In</title>
-    <script type="module" defer src="../public/js/login.js"></script>
-    <link rel="stylesheet" href="../public/scss/login.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-</head>
-<body>
-    <aside class="aside-image">
-        <img class="background-aside-image" src="" alt="Loading Image.">
-    </aside>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Sign in to RetroRenting, your vintage car rental platform.">
+        <title>RetroRenting - Sign In</title>
+        <script type="module" defer src="../public/js/login.js"></script>
+        <link rel="stylesheet" href="../public/scss/login.css">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <aside class="aside-image">
+            <img class="background-aside-image" src="" alt="Loading Image.">
+        </aside>
 
-    <main class="login-container">
-        <header class="login-header">
-            <div class="login-logo">
-                <img class="logo-image" src="" alt="Loading Image.">
-            </div>
-            <h1>Sign in!</h1>
-        </header>
+        <main class="login-container">
+            <header class="login-header">
+                <div class="login-logo">
+                    <img class="logo-image" src="" alt="Loading Image.">
+                </div>
+                <h1>Sign in!</h1>
+            </header>
 
-        <nav aria-label="Go back">
-            <a id="back-link" href="#" onclick="history.back(); return false"> &larr; Go back</a>
-        </nav>
+            <nav aria-label="Go back">
+                <a id="back-link" href="#" onclick="history.back(); return false"> &larr; Go back</a>
+            </nav>
 
-        <section class="login-form-container">
-            <form class="login-form" action="/login" method="post">
-                <input type="text" name="username" placeholder="Username" required>
-                <input type="password" name="password" placeholder="Password" required>
-                <button class="login-btn" type="submit">Sign in</button>
-            </form>
-        </section>
+            <section class="login-form-container">
+                <form class="login-form" action="/login" method="post">
+                    <input type="text" name="username" placeholder="Username" required>
+                    <input type="password" name="password" placeholder="Password" required>
+                    <button class="login-btn" type="submit">Sign in</button>
+                </form>
+            </section>
 
-        <footer class="login-links">
-            <p id="sign-up-link">Don´t have an account? <a href="register.html" id="sign-up-btn">Sign up</a></p>
-            <p id="reemail-link">Forget your password? <a href="" id="reemail-btn">Send email</a></p>
-        </footer>
-    </main>
-</body>
+            <footer class="login-links">
+                <p id="sign-up-link">Don´t have an account? <a href="register.html" id="sign-up-btn">Sign up</a></p>
+                <p id="reemail-link">Forget your password? <a href="" id="reemail-btn">Send email</a></p>
+            </footer>
+        </main>
+    </body>
 </html>
