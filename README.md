@@ -1,5 +1,8 @@
 ## RetroRenting
 
+## AVISO  
+Para poder usar el repositorio es necesario que cuando se descargue se cambie el nombre del directorio raíz a "RetroRenting". 
+
 ## Nombre del Proyecto y Componentes del Grupo
 
 **Proyecto:** RetroRenting  
