@@ -4,8 +4,6 @@ export async function populateCarSelect() {
     const data = await fetchJSON("../public/data-json/bookingBar.json");
     const carSelector = document.getElementById("car-selector");
 
-    console.log(data);
-
     if (data && data.cars) {
         carSelector.innerHTML = "";
 
@@ -27,7 +25,6 @@ export async function initAutocomplete(query){
 }
 
 export function getBookingData() {
-    console.log("Hola Pepe")
     const form = document.querySelector(".booking-bar-form");
 
     form.addEventListener("submit", async function (event) {

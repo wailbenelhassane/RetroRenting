@@ -78,9 +78,6 @@ export async function loadDetailsBar() {
             detailSection.appendChild(detailLabel);
             detailsBar.appendChild(detailSection);
         });
-
-        console.log(`✅ Detalles del auto ${carId} cargados correctamente`);
-
     } catch (error) {
         console.error("❌ Error al cargar los detalles del auto:", error);
     }

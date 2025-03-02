@@ -31,8 +31,6 @@ async function processNestedComponents(parentElement) {
     const nestedElements = parentElement.querySelectorAll("[data-include]");
 
     if (nestedElements.length > 0) {
-        console.log("Cargando componentes anidados dentro de:", parentElement);
-
         for (const nestedElement of nestedElements) {
             const nestedFile = nestedElement.getAttribute("data-include");
 
@@ -42,10 +40,8 @@ async function processNestedComponents(parentElement) {
 
                 nestedElement.innerHTML = await response.text();
 
-                // Llamada recursiva para cargar componentes aún más anidados
                 await processNestedComponents(nestedElement);
 
-                // Cargar CSS si es necesario
                 const nestedCssFile = nestedFile.replace(".html", ".css").replace("partials/", "../../public/scss/");
                 if (!document.querySelector(`link[href="${nestedCssFile}"]`)) {
                     const link = document.createElement("link");

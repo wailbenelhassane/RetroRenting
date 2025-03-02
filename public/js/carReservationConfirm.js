@@ -9,7 +9,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 function loadCarData() {
     document.addEventListener("DOMContentLoaded", function () {
-        console.log("Hola Pepe")
         const bookingData = JSON.parse(localStorage.getItem("bookingData"));
 
         if (bookingData) {
