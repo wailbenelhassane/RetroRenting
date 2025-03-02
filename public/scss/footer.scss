@@ -32,6 +32,12 @@ $separator-margin: 10px;
         font-family: variables.$font-family;
       }
     }
+
+    .footer-item:not(:last-child)::after {
+      content: " | ";
+      color: variables.$text-color;
+      padding: 0 8px;
+    }
   }
 
   .separator-bar {

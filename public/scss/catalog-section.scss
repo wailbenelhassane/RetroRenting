@@ -1,5 +1,10 @@
 @use 'variables';
 
+.catalog-phrase {
+  text-align: center;
+  font-family: variables.$font-family;
+}
+
 .catalog-card-container {
   display: flex;
   flex-direction: row;
