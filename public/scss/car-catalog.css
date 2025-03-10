@@ -5,6 +5,7 @@
   flex-direction: row;
   width: 100%;
   height: 100%;
+  position: relative;
 }
 .car-catalog-container .car-catalog-image {
   display: flex;
@@ -14,12 +15,36 @@
   width: 55%;
   height: 500px;
   cursor: pointer;
+  position: relative;
 }
 .car-catalog-container .car-catalog-image .car-image {
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
   display: block;
+}
+.car-catalog-container .car-catalog-image .mobile-controls {
+  display: none;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  justify-content: space-between;
+}
+.car-catalog-container .car-catalog-image .mobile-controls button {
+  background-color: #9a7006;
+  color: #FFFFFF;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  opacity: 0.8;
+}
+.car-catalog-container .car-catalog-image .mobile-controls button:hover {
+  opacity: 1;
 }
 .car-catalog-container .car-catalog-menu {
   display: flex;
@@ -51,6 +76,48 @@
   color: #FFFFFF;
   font-family: "Roboto", sans-serif;
   font-size: 1.5rem;
+}
+.car-catalog-container .mobile-menu {
+  display: none;
+  width: 80%;
+  background-color: #9a7006;
+  text-align: center;
+  padding: 15px 0;
+}
+.car-catalog-container .mobile-menu .mobile-catalog-link {
+  text-decoration: none;
+  color: #FFFFFF;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .car-catalog-container {
+    flex-direction: column;
+    height: auto;
+  }
+  .car-catalog-container .car-catalog-image {
+    width: 90%;
+    height: auto;
+    aspect-ratio: 16/9;
+    margin-bottom: 10px;
+  }
+  .car-catalog-container .car-catalog-image .car-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .car-catalog-container .car-catalog-image .mobile-controls {
+    display: flex;
+  }
+  .car-catalog-container .desktop-menu {
+    display: none;
+  }
+  .car-catalog-container .mobile-menu {
+    display: block;
+    margin-top: 10px;
+  }
 }
 
 /*# sourceMappingURL=car-catalog.css.map */

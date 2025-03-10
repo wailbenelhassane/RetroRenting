@@ -7,6 +7,7 @@ $catalog-image-width: 55%;
 $catalog-menu-width: 20%;
 $container-height: 500px;
 $font-size-base: 1.5rem;
+$mobile-breakpoint: 768px;
 
 @mixin center-flex($direction: row) {
   display: flex;
@@ -15,22 +16,50 @@ $font-size-base: 1.5rem;
   flex-direction: $direction;
 }
 
-
 .car-catalog-container {
   @include center-flex(row);
   width: 100%;
   height: 100%;
+  position: relative;
 
   .car-catalog-image {
     @include center-flex;
     width: $catalog-image-width;
     height: $container-height;
     cursor: pointer;
-    .car-image{
+    position: relative;
+
+    .car-image {
       max-width: 100%;
       max-height: 100%;
       object-fit: contain;
       display: block;
+    }
+
+    .mobile-controls {
+      display: none;
+      position: absolute;
+      width: 100%;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      justify-content: space-between;
+
+      button {
+        background-color: variables.$resalt-color;
+        color: variables.$text-color;
+        border: none;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        font-size: 20px;
+        cursor: pointer;
+        opacity: 0.8;
+
+        &:hover {
+          opacity: 1;
+        }
+      }
     }
   }
 
@@ -63,6 +92,56 @@ $font-size-base: 1.5rem;
         font-family: variables.$font-family;
         font-size: $font-size-base;
       }
+    }
+  }
+
+  .mobile-menu {
+    display: none;
+    width: 80%;
+    background-color: variables.$resalt-color;
+    text-align: center;
+    padding: 15px 0;
+
+    .mobile-catalog-link {
+      text-decoration: none;
+      color: variables.$text-color;
+      font-family: variables.$font-family;
+      font-size: $font-size-base;
+      font-weight: bold;
+    }
+  }
+}
+
+
+@media (max-width: $mobile-breakpoint) {
+  .car-catalog-container {
+    flex-direction: column;
+    height: auto;
+
+    .car-catalog-image {
+      width: 90%;
+      height: auto;
+      aspect-ratio: 16/9;
+      margin-bottom: 10px;
+
+      .car-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .mobile-controls {
+        display: flex;
+      }
+    }
+
+    .desktop-menu {
+      display: none;
+    }
+
+    .mobile-menu {
+      display: block;
+      margin-top: 10px;
     }
   }
 }
