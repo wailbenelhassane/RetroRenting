@@ -18,11 +18,15 @@
   background-color: #555;
   padding: 10px;
   border-radius: 5px;
+  width: 90%;
+  max-width: 1200px;
 }
 .booking-bar-container .booking-bar .booking-bar-form {
   display: flex;
   flex-direction: row;
   gap: 5vh;
+  width: 100%;
+  justify-content: space-around;
 }
 .booking-bar-container .booking-bar .booking-section {
   display: flex;
@@ -55,6 +59,23 @@
   font-family: "Roboto", sans-serif;
   margin-bottom: 1vh;
 }
+.booking-bar-container .booking-bar .booking-section .location-autocomplete {
+  position: relative;
+}
+.booking-bar-container .booking-bar .booking-section .location-autocomplete .suggestions-box {
+  position: absolute;
+  width: 100%;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  max-height: 150px;
+  overflow-y: auto;
+  z-index: 10;
+  display: none;
+}
+.booking-bar-container .booking-bar .booking-section .location-autocomplete .suggestions-box.active {
+  display: block;
+}
 .booking-bar-container .booking-bar .book-btn {
   background-color: #9a7006;
   font-weight: bold;
@@ -70,6 +91,43 @@
 }
 .booking-bar-container .booking-bar .book-btn:hover {
   background-color: #8B6508;
+}
+
+@media (max-width: 768px) {
+  .booking-bar-container {
+    margin-top: 5%;
+  }
+  .booking-bar-container .booking-bar {
+    width: 90%;
+    padding: 15px;
+  }
+  .booking-bar-container .booking-bar .booking-bar-form {
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+  .booking-bar-container .booking-bar .booking-section {
+    width: 100%;
+    align-items: center;
+  }
+  .booking-bar-container .booking-bar .booking-section input, .booking-bar-container .booking-bar .booking-section select {
+    width: 80vw;
+    height: 40px;
+  }
+  .booking-bar-container .booking-bar .booking-section .label-selector {
+    margin-bottom: 10px;
+  }
+  .booking-bar-container .booking-bar .booking-section .location-autocomplete {
+    width: 80vw;
+  }
+  .booking-bar-container .booking-bar .booking-section .location-autocomplete #location-selector {
+    width: 100%;
+  }
+  .booking-bar-container .booking-bar .book-btn {
+    margin-top: 10px;
+    width: 80vw;
+    height: 45px;
+  }
 }
 
 /*# sourceMappingURL=booking-bar.css.map */
