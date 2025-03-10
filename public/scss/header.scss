@@ -6,6 +6,8 @@ $font-size: 1.2rem;
 $margin-spacing: 5vh;
 $section-width: 20%;
 
+
+
 @mixin flex-center($direction: row) {
   display: flex;
   flex-direction: $direction;
@@ -70,5 +72,136 @@ $section-width: 20%;
     font-size: $font-size;
     font-weight: bold;
     color: variables.$text-color;
+  }
+}
+
+
+.mobile-nav-toggle {
+  display: none;
+  cursor: pointer;
+  z-index: 200;
+  margin-right: 20px;
+}
+
+.hamburger {
+  width: 30px;
+  height: 25px;
+  position: relative;
+
+  span {
+    display: block;
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background-color: variables.$text-color;
+    border-radius: 3px;
+    transition: all 0.3s ease-in-out;
+
+    &:nth-child(1) {
+      top: 0;
+    }
+
+    &:nth-child(2) {
+      top: 10px;
+    }
+
+    &:nth-child(3) {
+      top: 20px;
+    }
+  }
+
+  &.active {
+    span {
+      &:nth-child(1) {
+        transform: rotate(45deg);
+        top: 10px;
+      }
+
+      &:nth-child(2) {
+        opacity: 0;
+      }
+
+      &:nth-child(3) {
+        transform: rotate(-45deg);
+        top: 10px;
+      }
+    }
+  }
+}
+
+.mobile-nav {
+  display: none;
+  position: fixed;
+  top: $header-height;
+  left: 0;
+  width: 100%;
+  height: calc(100vh - #{$header-height});
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  z-index: 150;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease-in-out;
+
+  &.active {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.mobile-navigation-menu {
+  @include flex-center(column);
+  backdrop-filter: blur(10px);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+
+  .mobile-navigation-item {
+    margin: 15px 0;
+    width: 100%;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    a {
+      font-size: 1.5rem;
+      display: inline-block;
+    }
+  }
+
+  .auth-mobile {
+    margin-top: 30px;
+
+    span {
+      font-size: $font-size;
+      font-weight: bold;
+      color: variables.$text-color;
+    }
+  }
+}
+
+
+@media (max-width: variables.$mobile-breakpoint) {
+  .navigation-menu,
+  .auth-links {
+    display: none;
+  }
+
+  .logo-container {
+    width: auto;
+    flex-grow: 1;
+    justify-content: flex-start;
+    margin-left: 20px;
+  }
+
+  .mobile-nav-toggle {
+    display: block;
+  }
+
+  .mobile-nav {
+    display: block;
+  }
+
+  .main-nav {
+    justify-content: space-between;
   }
 }

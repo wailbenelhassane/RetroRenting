@@ -62,4 +62,117 @@
   color: #FFFFFF;
 }
 
+.mobile-nav-toggle {
+  display: none;
+  cursor: pointer;
+  z-index: 200;
+  margin-right: 20px;
+}
+
+.hamburger {
+  width: 30px;
+  height: 25px;
+  position: relative;
+}
+.hamburger span {
+  display: block;
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  background-color: #FFFFFF;
+  border-radius: 3px;
+  transition: all 0.3s ease-in-out;
+}
+.hamburger span:nth-child(1) {
+  top: 0;
+}
+.hamburger span:nth-child(2) {
+  top: 10px;
+}
+.hamburger span:nth-child(3) {
+  top: 20px;
+}
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg);
+  top: 10px;
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg);
+  top: 10px;
+}
+
+.mobile-nav {
+  display: none;
+  position: fixed;
+  top: 11vh;
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 11vh);
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  z-index: 150;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease-in-out;
+}
+.mobile-nav.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobile-navigation-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(10px);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+}
+.mobile-navigation-menu .mobile-navigation-item {
+  margin: 15px 0;
+  width: 100%;
+  text-align: center;
+  backdrop-filter: blur(10px);
+}
+.mobile-navigation-menu .mobile-navigation-item a {
+  font-size: 1.5rem;
+  display: inline-block;
+}
+.mobile-navigation-menu .auth-mobile {
+  margin-top: 30px;
+}
+.mobile-navigation-menu .auth-mobile span {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #FFFFFF;
+}
+
+@media (max-width: 768px) {
+  .navigation-menu,
+  .auth-links {
+    display: none;
+  }
+  .logo-container {
+    width: auto;
+    flex-grow: 1;
+    justify-content: flex-start;
+    margin-left: 20px;
+  }
+  .mobile-nav-toggle {
+    display: block;
+  }
+  .mobile-nav {
+    display: block;
+  }
+  .main-nav {
+    justify-content: space-between;
+  }
+}
+
 /*# sourceMappingURL=header.css.map */
