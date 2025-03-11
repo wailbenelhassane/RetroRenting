@@ -1,0 +1,38 @@
+@use 'variables';
+
+$margin: 0;
+$padding: 0;
+$box-sizing: border-box;
+$full-width: 100%;
+$full-height: 100%;
+$padding-top: 50px;
+
+@mixin reset {
+  margin: $margin;
+  padding: $padding;
+  box-sizing: $box-sizing;
+}
+
+* {
+  @include reset;
+}
+
+html,
+body {
+  display: flex;
+  flex-direction: column;
+  padding-top: $padding-top;
+  width: $full-width;
+  height: $full-height;
+  color: variables.$text-color;
+
+  .content {
+    display: flex;
+  }
+
+  .bar-car-details-booking {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+  }
+}

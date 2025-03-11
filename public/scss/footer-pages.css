@@ -1,0 +1,24 @@
+.back-button {
+  padding: 10px 20px;
+  color: black;
+  border: none;
+  cursor: pointer;
+}
+
+.content {
+  max-width: 100%;
+  margin: 0 auto;
+  font-family: "Roboto", sans-serif;
+  line-height: 1.6;
+}
+.content h1 {
+  text-align: center;
+}
+.content h2 {
+  color: #555;
+}
+.content p {
+  margin-bottom: 20px;
+}
+
+/*# sourceMappingURL=footer-pages.css.map */

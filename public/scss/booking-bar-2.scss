@@ -1,0 +1,89 @@
+@use 'variables';
+
+$font-size: 14px;
+$border-radius: 5px;
+$input-radius: 15px;
+$box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+
+@mixin input-style {
+  padding: 5px 10px;
+  border-radius: $input-radius;
+  font-size: $font-size;
+  width: 200px;
+  height: 35px;
+  box-shadow: $box-shadow;
+  border: 1px solid #ccc;
+  &:focus {
+    outline: none;
+  }
+}
+
+@mixin button-style($bg-color, $hover-color) {
+  background-color: $bg-color;
+  font-weight: bold;
+  color: variables.$text-color;
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+  border-radius: $border-radius;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: $hover-color;
+  }
+}
+
+.booking-bar-container {
+  width: 32vw;
+  height: 8vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2%;
+  gap: 20px;
+  font-family: variables.$font-family;
+
+  .booking-bar {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    background-color: variables.$gray;
+    padding: 10px;
+    border-radius: $border-radius;
+    gap: 30px;
+
+    .booking-section {
+      display: flex;
+      flex-direction: column;
+      color: variables.$text-color;
+      font-size: 14px;
+      font-weight: bold;
+
+      input, select {
+        @include input-style;
+      }
+
+      select {
+        cursor: pointer;
+      }
+
+      .label-selector {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 20px;
+        font-weight: bold;
+        font-family: variables.$font-family;
+        margin-bottom: 5px;
+      }
+    }
+
+    .book-btn {
+      @include button-style(variables.$resalt-color, variables.$resalt-color-darker);
+      margin-top: 20%;
+      height: 100%;
+    }
+  }
+}

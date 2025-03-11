@@ -1,0 +1,29 @@
+<section class="main-driver-form">
+  <div class="main-driver-form-container">
+    <div class="main-driver-header">
+      <h2>INTRODUCE MAIN DRIVER INFORMATION</h2>
+    </div>
+
+    <div class="input-container">
+      <form class="main-driver-form" action="/login" method="post">
+        <div class="name-group">
+          <input type="text" name="first-name" placeholder="Name" required />
+          <input type="text" name="last-name" placeholder="Surname" required />
+        </div>
+
+        <input type="email" name="email" placeholder="Email" required/>
+
+        <div class="phone-group">
+          <select id="country-phone-selector" required></select>
+          <input type="tel" name="phone" placeholder="Phone Number" required />
+        </div>
+
+        <select id="country-selector" required></select>
+
+        <div class="btn-container">
+          <button class="book-btn" type="submit">Pay now!</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

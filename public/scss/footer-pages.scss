@@ -1,0 +1,33 @@
+@use 'variables';
+
+$primary-color: black;
+$button-padding: 10px 20px;
+$paragraph-margin-bottom: 20px;
+$max-content-width: 100%;
+$line-height: 1.6;
+
+.back-button {
+  padding: $button-padding;
+  color: $primary-color;
+  border: none;
+  cursor: pointer;
+}
+
+.content {
+  max-width: $max-content-width;
+  margin: 0 auto;
+  font-family: variables.$font-family;
+  line-height: $line-height;
+
+  h1 {
+    text-align: center;
+  }
+
+  h2 {
+    color: variables.$gray;
+  }
+
+  p {
+    margin-bottom: $paragraph-margin-bottom;
+  }
+}

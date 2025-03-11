@@ -1,0 +1,65 @@
+@use 'variables';
+
+.bar-car-details-booking-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 800px;
+  margin: auto;
+}
+
+.toggle-buttons {
+  display: flex;
+  width: 100%;
+  border-radius: 8px;
+  margin-top: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.toggle-btn {
+  flex: 1;
+  padding: 15px;
+  background-color: #e0e0e0;
+  border: none;
+  font-size: 18px;
+  font-weight: bold;
+  color: variables.$gray;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.toggle-btn.active {
+  background-color: variables.$gray;
+  color: #fff;
+}
+
+.toggle-btn:not(.active):hover {
+  background-color: #d0d0d0;
+}
+
+.content-bar-car-details-booking {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  margin-top: 20px;
+}
+
+.content-bar {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+  visibility: hidden;
+  opacity: 0;
+  display: none;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+.content-bar.active {
+  visibility: visible;
+  opacity: 1;
+  display: block;
+}

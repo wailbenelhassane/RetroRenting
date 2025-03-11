@@ -1,0 +1,222 @@
+@use 'variables';
+$font-size: 14px;
+$border-radius: 5px;
+$input-radius: 15px;
+$box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+
+@mixin input-style {
+  padding: 5px 10px;
+  border-radius: $input-radius;
+  font-size: $font-size;
+  width: 15vw;
+  height: 3.5vh;
+  box-shadow: $box-shadow;
+  border: 1px solid #ccc;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+@mixin button-style($bg-color, $hover-color) {
+  background-color: $bg-color;
+  font-weight: bold;
+  color: variables.$text-color;
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+  border-radius: $border-radius;
+  font-size: $font-size;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: variables.$resalt-color-darker;
+  }
+}
+
+.booking-bar-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2%;
+  gap: 20px;
+  font-family: variables.$font-family;
+
+  .booking-bar-title {
+    text-align: center;
+    color: variables.$text-color;
+    font-weight: bold;
+    font-size: 2.3vh;
+  }
+
+  .booking-bar {
+    display: flex;
+    align-items: center;
+    background-color: variables.$gray;
+    padding: 10px;
+    border-radius: $border-radius;
+    width: 90%;
+    max-width: 1200px;
+
+    .booking-bar-form {
+      display: flex;
+      flex-direction: row;
+      gap: 2vw;
+      width: 100%;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .booking-section {
+      display: flex;
+      flex-direction: column;
+      color: variables.$text-color;
+      font-size: $font-size;
+      font-weight: bold;
+      flex: 1;
+
+      input, select {
+        @include input-style;
+        width: 100%;
+      }
+
+      select {
+        cursor: pointer;
+      }
+
+      .label-selector {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 20px;
+        font-weight: bold;
+        font-family: variables.$font-family;
+        margin-bottom: 1vh;
+      }
+
+      .location-autocomplete {
+        position: relative;
+        width: 100%;
+
+        .suggestions-box {
+          position: absolute;
+          width: 100%;
+          background-color: white;
+          border: 1px solid #ccc;
+          border-radius: $border-radius;
+          max-height: 150px;
+          overflow-y: auto;
+          z-index: 10;
+          display: none;
+
+          &.active {
+            display: block;
+          }
+        }
+      }
+    }
+
+    .booking-section:last-child {
+      flex: 0.5;
+      display: flex;
+      align-items: flex-end;
+
+      .book-btn {
+        @include button-style(variables.$resalt-color, variables.$resalt-color-darker);
+        width: 100%;
+        height: 3.5vh;
+        padding: 0 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+}
+
+@media (max-width: variables.$tablet-breakpoint) and (min-width: variables.$mobile-breakpoint + 1px) {
+  .booking-bar-container {
+    margin-top: 3%;
+
+    .booking-bar-title {
+      font-size: 2vh;
+    }
+
+    .booking-bar {
+      width: 95%;
+      padding: 12px;
+
+      .booking-bar-form {
+        gap: 1.5vw;
+      }
+
+      .booking-section {
+        input, select {
+          height: 35px;
+          font-size: 13px;
+        }
+
+        .label-selector {
+          font-size: 16px;
+          margin-bottom: 8px;
+        }
+      }
+
+      .booking-section:last-child {
+        .book-btn {
+          height: 35px;
+          font-size: 13px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: variables.$mobile-breakpoint) {
+  .booking-bar-container {
+    margin-top: 5%;
+
+    .booking-bar {
+      width: 90%;
+      padding: 15px;
+
+      .booking-bar-form {
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+      }
+
+      .booking-section {
+        width: 100%;
+        align-items: center;
+
+        input, select {
+          width: 80vw;
+          height: 40px;
+        }
+
+        .label-selector {
+          margin-bottom: 10px;
+        }
+
+        .location-autocomplete {
+          width: 80vw;
+
+          #location-selector {
+            width: 100%;
+          }
+        }
+      }
+
+      .booking-section:last-child {
+        width: 100%;
+
+        .book-btn {
+          margin-top: 10px;
+          width: 80vw;
+          height: 45px;
+        }
+      }
+    }
+  }
+}

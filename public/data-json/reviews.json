@@ -1,0 +1,20 @@
+[
+  {
+    "name": "James P.",
+    "review": "Quick, easy rental process with a great car. Highly satisfied!",
+    "rating": 5,
+    "image": "https://img.freepik.com/foto-gratis/feliz-hombre-joven-que-relaja-pais_1301-6990.jpg"
+  },
+  {
+    "name": "Emily R.",
+    "review": "Excellent service, very professional. Will rent again!",
+    "rating": 4,
+    "image": "https://img.freepik.com/foto-gratis/bonita-mujer-sonriente_23-2148159155.jpg"
+  },
+  {
+    "name": "Caleb D.",
+    "review": "Excellent service",
+    "rating": 2,
+    "image": "https://img.freepik.com/foto-gratis/bonita-mujer-sonriente_23-2148159155.jpg"
+  }
+]

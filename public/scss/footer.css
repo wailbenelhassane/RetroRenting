@@ -1,0 +1,38 @@
+.footer-nav {
+  background: rgba(30, 30, 30, 0.5);
+  backdrop-filter: blur(10px);
+  color: #FFFFFF;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 5vh;
+  margin-top: 4vh;
+  box-shadow: none;
+  width: 100%;
+}
+.footer-nav .footer-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+.footer-nav .footer-menu .footer-item {
+  display: inline;
+}
+.footer-nav .footer-menu .footer-item a {
+  text-decoration: none;
+  color: #FFFFFF;
+  font-family: "Roboto", sans-serif;
+}
+.footer-nav .footer-menu .footer-item:not(:last-child)::after {
+  content: " | ";
+  color: #FFFFFF;
+  padding: 0 8px;
+}
+.footer-nav .separator-bar {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+/*# sourceMappingURL=footer.css.map */

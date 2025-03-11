@@ -1,0 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  display: flex;
+  flex-direction: column;
+  padding-top: 50px;
+  width: 100%;
+  height: 100%;
+  color: #FFFFFF;
+}
+html .content,
+body .content {
+  display: flex;
+}
+html .bar-car-details-booking,
+body .bar-car-details-booking {
+  position: absolute;
+  width: 50%;
+  height: 50%;
+}
+
+/*# sourceMappingURL=car-reservation-information.css.map */
