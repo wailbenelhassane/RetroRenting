@@ -8,6 +8,7 @@ $catalog-menu-width: 20%;
 $container-height: 500px;
 $font-size-base: 1.5rem;
 $mobile-breakpoint: 768px;
+$tablet-breakpoint: 1024px;
 
 @mixin center-flex($direction: row) {
   display: flex;
@@ -112,6 +113,43 @@ $mobile-breakpoint: 768px;
   }
 }
 
+@media (max-width: $tablet-breakpoint) and (min-width: $mobile-breakpoint + 1px) {
+  .car-catalog-container {
+    justify-content: space-between;
+    padding: 0 20px;
+
+    .car-catalog-image {
+      width: 48%;
+      height: auto;
+      min-height: 400px;
+    }
+
+    .car-catalog-menu {
+      width: 48%;
+      height: auto;
+
+      .car-catalog-menu-item {
+        width: 80%;
+        height: 120px;
+        margin-left: 0;
+        margin-bottom: 10px;
+        transition: none;
+
+        &:hover {
+          margin-left: 0;
+          transition: none;
+        }
+
+        .car-catalog-menu-item-element {
+          margin-left: 0;
+          text-align: center;
+          width: 100%;
+          font-size: 1.3rem;
+        }
+      }
+    }
+  }
+}
 
 @media (max-width: $mobile-breakpoint) {
   .car-catalog-container {

@@ -92,6 +92,38 @@
   font-weight: bold;
 }
 
+@media (max-width: 1024px) and (min-width: 769px) {
+  .car-catalog-container {
+    justify-content: space-between;
+    padding: 0 20px;
+  }
+  .car-catalog-container .car-catalog-image {
+    width: 48%;
+    height: auto;
+    min-height: 400px;
+  }
+  .car-catalog-container .car-catalog-menu {
+    width: 48%;
+    height: auto;
+  }
+  .car-catalog-container .car-catalog-menu .car-catalog-menu-item {
+    width: 80%;
+    height: 120px;
+    margin-left: 0;
+    margin-bottom: 10px;
+    transition: none;
+  }
+  .car-catalog-container .car-catalog-menu .car-catalog-menu-item:hover {
+    margin-left: 0;
+    transition: none;
+  }
+  .car-catalog-container .car-catalog-menu .car-catalog-menu-item .car-catalog-menu-item-element {
+    margin-left: 0;
+    text-align: center;
+    width: 100%;
+    font-size: 1.3rem;
+  }
+}
 @media (max-width: 768px) {
   .car-catalog-container {
     flex-direction: column;
