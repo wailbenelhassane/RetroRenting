@@ -120,6 +120,54 @@ $box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
   }
 }
 
+@media (max-width: variables.$tablet-breakpoint) and (min-width: variables.$mobile-breakpoint + 1px) {
+  .booking-bar-container {
+    margin-top: 3%;
+
+    .booking-bar-title {
+      font-size: 2vh;
+    }
+
+    .booking-bar {
+      width: 95%;
+      padding: 12px;
+
+      .booking-bar-form {
+        display: flex;
+        flex-direction: row;
+        gap: 3vh; /* Reduced gap for tablet */
+        width: 100%;
+        justify-content: space-around;
+      }
+
+      .booking-section {
+        width: auto;
+
+        input, select {
+          width: 18vw;
+          height: 35px;
+          font-size: 13px;
+        }
+
+        .label-selector {
+          font-size: 16px;
+          margin-bottom: 8px;
+        }
+
+        .location-autocomplete {
+          width: 18vw;
+        }
+      }
+
+      .book-btn {
+        margin-top: 20%;
+        height: 100%;
+        font-size: 13px;
+      }
+    }
+  }
+}
+
 @media (max-width: variables.$mobile-breakpoint) {
   .booking-bar-container {
     margin-top: 5%;
