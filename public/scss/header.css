@@ -153,6 +153,42 @@
   color: #FFFFFF;
 }
 
+@media (max-width: 1024px) and (min-width: 769px) {
+  .main-nav {
+    justify-content: space-between;
+    padding: 0 10px;
+  }
+  .main-nav a {
+    margin: 0;
+    font-size: 1rem;
+  }
+  .logo-container {
+    width: 15%;
+    justify-content: center;
+  }
+  .logo-container img {
+    width: 7vh;
+    height: 7vh;
+  }
+  .navigation-menu {
+    width: 60%;
+    justify-content: space-around;
+  }
+  .navigation-menu .navigation-item {
+    margin: 0 1vh;
+  }
+  .auth-links {
+    width: 15%;
+    justify-content: center;
+  }
+  .auth-links a {
+    margin: 0 3px;
+  }
+  .auth-links span {
+    font-size: 0.9rem;
+    margin: 0 3px;
+  }
+}
 @media (max-width: 768px) {
   .navigation-menu,
   .auth-links {

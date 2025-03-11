@@ -6,8 +6,6 @@ $font-size: 1.2rem;
 $margin-spacing: 5vh;
 $section-width: 20%;
 
-
-
 @mixin flex-center($direction: row) {
   display: flex;
   flex-direction: $direction;
@@ -74,7 +72,6 @@ $section-width: 20%;
     color: variables.$text-color;
   }
 }
-
 
 .mobile-nav-toggle {
   display: none;
@@ -179,6 +176,50 @@ $section-width: 20%;
   }
 }
 
+@media (max-width: variables.$tablet-breakpoint) and (min-width: variables.$mobile-breakpoint + 1px) {
+  .main-nav {
+    justify-content: space-between;
+    padding: 0 10px;
+
+    a {
+      margin: 0;
+      font-size: 1rem;
+    }
+  }
+
+  .logo-container {
+    width: 15%;
+    justify-content: center;
+
+    img {
+      width: 7vh;
+      height: 7vh;
+    }
+  }
+
+  .navigation-menu {
+    width: 60%;
+    justify-content: space-around;
+
+    .navigation-item {
+      margin: 0 1vh;
+    }
+  }
+
+  .auth-links {
+    width: 15%;
+    justify-content: center;
+
+    a {
+      margin: 0 3px;
+    }
+
+    span {
+      font-size: 0.9rem;
+      margin: 0 3px;
+    }
+  }
+}
 
 @media (max-width: variables.$mobile-breakpoint) {
   .navigation-menu,
