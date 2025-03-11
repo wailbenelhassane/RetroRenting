@@ -134,7 +134,6 @@ $box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
   }
 }
 
-/* Estilos para tablet manteniendo la misma estructura que escritorio */
 @media (max-width: variables.$tablet-breakpoint) and (min-width: variables.$mobile-breakpoint + 1px) {
   .booking-bar-container {
     margin-top: 3%;
