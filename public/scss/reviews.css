@@ -1,4 +1,3 @@
-@charset "UTF-8";
 .container {
   width: 100%;
   display: flex;
@@ -22,21 +21,21 @@
   flex-direction: column;
   align-items: center;
   width: 25vw;
-  height: 40vh; /* Aumenta la altura de la carta */
+  height: 40vh;
   background-color: #9a7006;
   color: white;
   text-align: center;
-  padding: 5vh; /* Ajuste proporcional */
+  padding: 5vh;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .card p {
-  padding: 3vh; /* Ajuste proporcional */
+  padding: 3vh;
 }
 
 .profile-pic {
-  width: 6vw; /* Ajuste proporcional */
-  height: 12vh; /* Ajuste proporcional */
+  width: 6vw;
+  height: 12vh;
   border-radius: 50%;
   border: 3px solid white;
   object-fit: cover;
@@ -44,9 +43,19 @@
 
 .stars {
   color: gold;
-  font-size: 22px; /* Ajuste proporcional */
+  font-size: 22px;
 }
 
+@media (max-width: 1024px) and (min-width: 769px) {
+  .card {
+    width: 30vw;
+    height: 45vh;
+  }
+  .profile-pic {
+    width: 8vw;
+    height: 8vw;
+  }
+}
 @media (max-width: 768px) {
   .reviews {
     flex-wrap: nowrap;
@@ -66,7 +75,7 @@
   .card {
     min-width: 90vw;
     width: 90vw;
-    height: 50vh; /* Ajuste proporcional para móviles */
+    height: 50vh;
     margin: 0 5vw;
     flex-shrink: 0;
   }

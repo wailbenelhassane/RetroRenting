@@ -40,3 +40,10 @@
 .team-image.active {
  display:flex;
 }
+
+@media (max-width: variables.$tablet-breakpoint){
+  .team-carousel {
+    width: 80%;
+  }
+}
+
