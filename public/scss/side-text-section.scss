@@ -44,6 +44,19 @@ $padding-sides: 3vh;
   }
 }
 
+@media (max-width: variables.$tablet-breakpoint) and (min-width: variables.$mobile-breakpoint + 1px) {
+  .side-text-section-container {
+    .side-text-section-text {
+      width: 47%;
+      padding-left: 2vh;
+    }
+
+    .side-text-section-image {
+      width: 50%;
+      height: 45vh;
+    }
+  }
+}
 
 @media (max-width: variables.$mobile-breakpoint) {
   .side-text-section-container {

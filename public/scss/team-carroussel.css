@@ -39,4 +39,10 @@
   display: flex;
 }
 
+@media (max-width: 1024px) {
+  .team-carousel {
+    width: 80%;
+  }
+}
+
 /*# sourceMappingURL=team-carroussel.css.map */

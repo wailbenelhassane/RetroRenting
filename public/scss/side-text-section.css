@@ -32,6 +32,16 @@
   display: block;
 }
 
+@media (max-width: 1024px) and (min-width: 769px) {
+  .side-text-section-container .side-text-section-text {
+    width: 47%;
+    padding-left: 2vh;
+  }
+  .side-text-section-container .side-text-section-image {
+    width: 50%;
+    height: 45vh;
+  }
+}
 @media (max-width: 768px) {
   .side-text-section-container {
     flex-direction: column-reverse;

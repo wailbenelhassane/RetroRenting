@@ -49,6 +49,18 @@
   font-size: 22px;
 }
 
+@media (max-width: variables.$tablet-breakpoint) and (min-width: variables.$mobile-breakpoint+1) {
+  .card {
+    width: 30vw;
+    height: 45vh;
+  }
+
+  .profile-pic {
+    width: 8vw;
+    height: 8vw;
+  }
+}
+
 @media (max-width: 768px) {
   .reviews {
     flex-wrap: nowrap;
