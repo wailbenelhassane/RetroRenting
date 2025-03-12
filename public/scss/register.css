@@ -1,125 +1,65 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-}
+/*
+Error: Undefined variable: "$text-color".
+        on line 57 of .\register.scss
 
-body {
-  background: black;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  height: 100%;
-  overflow-y: hidden;
-}
+52:   }
+53: }
+54: 
+55: .register-container {
+56:   width: 50%;
+57:   color: $text-color;
+58:   @include flex-center(column);
+59:   margin-top: 5%;
+60: 
+61:   .register-logo {
+62:     img {
 
-.aside-image {
-  width: 50%;
-  position: relative;
-}
-.aside-image img {
-  width: 100%;
-  height: 101vh;
-  object-fit: cover;
-}
-
-.register-container {
-  width: 50%;
-  color: #FFFFFF;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  margin-top: 5%;
-}
-.register-container .register-logo img {
-  width: 10vw;
-  height: 20vh;
-}
-.register-container .register-header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  gap: 2vh;
-  margin-bottom: 1vh;
-}
-.register-container .register-header h1 {
-  font-size: 4rem;
-  font-family: "Roboto", sans-serif;
-}
-.register-container #back-link {
-  width: 100%;
-  text-align: left;
-  cursor: pointer;
-  font-size: 1.2rem;
-  color: #FFFFFF;
-  text-decoration: none;
-}
-.register-container .register-form {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-.register-container .register-form label {
-  margin-top: 1.5vh;
-  font-size: 1rem;
-  font-family: "Roboto", sans-serif;
-}
-.register-container .register-form input {
-  width: 45vh;
-  height: 4vh;
-  font-size: 1rem;
-  padding: 1vh 1vh;
-  border: 0.1vh solid #ccc;
-  border-radius: 3vh;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-  margin-top: 0.3vh;
-  margin-bottom: 0.3vh;
-}
-.register-container .register-form input:focus {
-  outline: none;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-  border: 0.1vh solid #ccc;
-}
-.register-container .register-form .name-group {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 5px;
-  height: 4vh;
-  width: 45vh;
-  margin-bottom: 0.3vh;
-  gap: 0.5vw;
-}
-.register-container .register-form button {
-  width: 10vw;
-  height: 5vh;
-  background-color: #9a7006;
-  font-size: 20px;
-  font-weight: bold;
-  color: #FFFFFF;
-  font-family: "Roboto", sans-serif;
-  border: none;
-  cursor: pointer;
-  border-radius: 1vh;
-  padding: 1vh 2vh;
-  margin-top: 2vh;
-}
-.register-container .register-form button:hover {
-  background-color: #8B6508;
-}
-.register-container #sign-in-link {
-  color: #FFFFFF;
-  font-size: 1.2rem;
-  font-family: "Roboto", sans-serif;
-  margin-top: 1vh;
-}
-.register-container #sign-in-link #sign-in-btn {
-  text-decoration: none;
-  color: #FFFFFF;
-  font-weight: bold;
-}
-
-/*# sourceMappingURL=register.css.map */
+Backtrace:
+.\register.scss:57
+C:/Ruby33-x64/lib/ruby/gems/3.3.0/gems/sass-3.7.4/lib/sass/script/tree/variable.rb:49:in `_perform'
+C:/Ruby33-x64/lib/ruby/gems/3.3.0/gems/sass-3.7.4/lib/sass/script/tree/node.rb:50:in `perform'
+C:/Ruby33-x64/lib/ruby/gems/3.3.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:398:in `visit_prop'
+C:/Ruby33-x64/lib/ruby/gems/3.3.0/gems/sass-3.7.4/lib/sass/tree/visitors/base.rb:36:in `visit'
+C:/Ruby33-x64/lib/ruby/gems/3.3.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
+C:/Ruby33-x64/lib/ruby/gems/3.3.0/gems/sass-3.7.4/lib/sass/stack.rb:79:in `block in with_base'
+C:/Ruby33-x64/lib/ruby/gems/3.3.0/gems/sass-3.7.4/lib/sass/stack.rb:135:in `with_frame'
+C:/Ruby33-x64/lib/ruby/gems/3.3.0/gems/sass-3.7.4/lib/sass/stack.rb:79:in `with_base'
+C:/Ruby33-x64/lib/ruby/gems/3.3.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:158:in `visit'
+C:/Ruby33-x64/lib/ruby/gems/3.3.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:440:in `block (2 levels) in visit_rule'
+C:/Ruby33-x64/lib/ruby/gems/3.3.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:440:in `map'
+C:/Ruby33-x64/lib/ruby/gems/3.3.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:440:in `block in visit_rule'
+C:/Ruby33-x64/lib/ruby/gems/3.3.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
+C:/Ruby33-x64/lib/ruby/gems/3.3.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:438:in `visit_rule'
+C:/Ruby33-x64/lib/ruby/gems/3.3.0/gems/sass-3.7.4/lib/sass/tree/visitors/base.rb:36:in `visit'
+C:/Ruby33-x64/lib/ruby/gems/3.3.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
+C:/Ruby33-x64/lib/ruby/gems/3.3.0/gems/sass-3.7.4/lib/sass/stack.rb:79:in `block in with_base'
+C:/Ruby33-x64/lib/ruby/gems/3.3.0/gems/sass-3.7.4/lib/sass/stack.rb:135:in `with_frame'
+C:/Ruby33-x64/lib/ruby/gems/3.3.0/gems/sass-3.7.4/lib/sass/stack.rb:79:in `with_base'
+C:/Ruby33-x64/lib/ruby/gems/3.3.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:158:in `visit'
+C:/Ruby33-x64/lib/ruby/gems/3.3.0/gems/sass-3.7.4/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
+C:/Ruby33-x64/lib/ruby/gems/3.3.0/gems/sass-3.7.4/lib/sass/tree/visitors/base.rb:52:in `map'
+C:/Ruby33-x64/lib/ruby/gems/3.3.0/gems/sass-3.7.4/lib/sass/tree/visitors/base.rb:52:in `visit_children'
+C:/Ruby33-x64/lib/ruby/gems/3.3.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:167:in `block in visit_children'
+C:/Ruby33-x64/lib/ruby/gems/3.3.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
+C:/Ruby33-x64/lib/ruby/gems/3.3.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:166:in `visit_children'
+C:/Ruby33-x64/lib/ruby/gems/3.3.0/gems/sass-3.7.4/lib/sass/tree/visitors/base.rb:36:in `block in visit'
+C:/Ruby33-x64/lib/ruby/gems/3.3.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:186:in `visit_root'
+C:/Ruby33-x64/lib/ruby/gems/3.3.0/gems/sass-3.7.4/lib/sass/tree/visitors/base.rb:36:in `visit'
+C:/Ruby33-x64/lib/ruby/gems/3.3.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:157:in `visit'
+C:/Ruby33-x64/lib/ruby/gems/3.3.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:10:in `visit'
+C:/Ruby33-x64/lib/ruby/gems/3.3.0/gems/sass-3.7.4/lib/sass/tree/root_node.rb:36:in `css_tree'
+C:/Ruby33-x64/lib/ruby/gems/3.3.0/gems/sass-3.7.4/lib/sass/tree/root_node.rb:29:in `render_with_sourcemap'
+C:/Ruby33-x64/lib/ruby/gems/3.3.0/gems/sass-3.7.4/lib/sass/engine.rb:389:in `_render_with_sourcemap'
+C:/Ruby33-x64/lib/ruby/gems/3.3.0/gems/sass-3.7.4/lib/sass/engine.rb:307:in `render_with_sourcemap'
+C:/Ruby33-x64/lib/ruby/gems/3.3.0/gems/sass-3.7.4/lib/sass/exec/sass_scss.rb:387:in `run'
+C:/Ruby33-x64/lib/ruby/gems/3.3.0/gems/sass-3.7.4/lib/sass/exec/sass_scss.rb:63:in `process_result'
+C:/Ruby33-x64/lib/ruby/gems/3.3.0/gems/sass-3.7.4/lib/sass/exec/base.rb:50:in `parse'
+C:/Ruby33-x64/lib/ruby/gems/3.3.0/gems/sass-3.7.4/lib/sass/exec/base.rb:18:in `parse!'
+C:/Ruby33-x64/lib/ruby/gems/3.3.0/gems/sass-3.7.4/bin/sass:13:in `<top (required)>'
+C:/Ruby33-x64/bin/sass:32:in `load'
+C:/Ruby33-x64/bin/sass:32:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: Undefined variable: \"$text-color\".\A         on line 57 of .\register.scss\A \A 52:   }\A 53: }\A 54: \A 55: .register-container {\A 56:   width: 50%;\A 57:   color: $text-color;\A 58:   @include flex-center(column);\A 59:   margin-top: 5%;\A 60: \A 61:   .register-logo {\A 62:     img {"; }
