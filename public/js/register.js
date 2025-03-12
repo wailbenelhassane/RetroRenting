@@ -23,23 +23,35 @@ function validateForm(){
         let name = document.getElementById("name");
         let surname = document.getElementById("surname");
 
-        if (!validateName(name)) {
+        let errors = [];
 
+        if (!validateName(name.value)) {
+            errors.push([name, "Wrong name format, correct format: no numbers, has to start with a capital letter and minimum two character"]);
+        }
+
+        if (!validateName(surname.value)) {
+            errors.push([surname, "Wrong name format, correct format: no numbers, has to start with a capital letter and minimum two character"]);
         }
 
         if (!validateEmail(email.value)){
-            console.log("Email is wrong!");
-            wrongField(email, "Wrong email format, correct format: example@domain.com");
+            errors.push([email, "Wrong email format, correct format: example@domain.com"]);
         }
 
         if (!validatePassword(password.value)){
-            console.log("Password is wrong!");
-            wrongField(password, "Wrong password format, correct format: minimum 8 characters!");
+            errors.push([password, "Wrong password format, correct format: minimum 8 characters!"]);
         }
+
         if (!validatePasswordConfirm(password.value, confirmPassword.value)){
-            console.log("Confirm Password is wrong!");
-            wrongField(confirmPassword, "Passwords mismatch!");
+            errors.push([confirmPassword, "Passwords mismatch!"]);
         }
+
+        showErrors(errors);
+
+        if (errors.length > 0) {
+            return;
+        }
+
+        event.target.submit();
     });
 }
 
@@ -48,37 +60,48 @@ function validateName(name) {
     return namePattern.test(name);
 }
 
-function validateSurname(surname) {
-    let surnamePattern = /^[A-ZÁÉÍÓÚÑ][a-záéíóúñ]+(?:\s[A-ZÁÉÍÓÚÑ][a-záéíóúñ]+)*$/;
-    return surnamePattern.test(surname);
-}
-
 function validateEmail(email) {
     let emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     return emailPattern.test(email);
 }
 
 function validatePassword(password){
-    let passwordPattern = /^(?=.*[A-Z])(?=.*\d).{8,}$/;
-    return passwordPattern.test(password);
+    return password.length >= 8;
 }
 
 function validatePasswordConfirm(password, passwordConfirm){
-    return passwordConfirm.equals(password);
+    return passwordConfirm === password;
 }
 
-function wrongField(input, message) {
-    let errorText = input.nextElementSibling;
-    if (errorText && errorText.classList.contains("error-message")) {
-        errorText.remove();
+function showErrors(errorList) {
+    let existingErrorContainer = document.getElementById("error-container");
+    if (existingErrorContainer) {
+        existingErrorContainer.remove();
     }
 
-    let errorMessage = document.createElement("div");
-    errorMessage.className = "error-message";
-    errorMessage.style.color = "red";
-    errorMessage.style.fontSize = "12px";
-    errorMessage.style.marginTop = "5px";
-    errorMessage.textContent = message;
+    if (errorList.length === 0) return;
 
-    input.parentNode.insertBefore(errorMessage, input.nextSibling);
+    let errorContainer = document.createElement("div");
+    errorContainer.id = "error-container";
+    errorContainer.style.color = "red";
+    errorContainer.style.fontSize = "14px";
+    errorContainer.style.fontFamily = "Roboto, sans serif";
+    errorContainer.style.marginTop = "15px";
+    errorContainer.style.padding = "10px";
+    errorContainer.style.border = "1px solid red";
+    errorContainer.style.borderRadius = "5px";
+
+    let errorListElement = document.createElement("ul");
+    errorListElement.style.paddingLeft = "20px";
+
+    errorList.forEach(error => {
+        let listItem = document.createElement("li");
+        listItem.textContent = error[1];
+        errorListElement.appendChild(listItem);
+    });
+
+    errorContainer.appendChild(errorListElement);
+
+    let form = document.getElementById("register-form");
+    form.appendChild(errorContainer);
 }

@@ -43,3 +43,27 @@ $padding-sides: 3vh;
     }
   }
 }
+
+
+@media (max-width: variables.$mobile-breakpoint) {
+  .side-text-section-container {
+    flex-direction: column-reverse;
+
+    .side-text-section-text {
+      width: 80%;
+      h2{
+        text-align: center;
+        margin-top: 20px;
+      }
+      p{
+        text-align: center;
+      }
+    }
+
+    .side-text-section-image {
+      @include flex-center(row);
+      width: 80%;
+      height: $image-height;
+    }
+  }
+}
