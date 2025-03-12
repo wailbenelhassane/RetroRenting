@@ -29,27 +29,27 @@ function validateForm(){
         let errors = [];
 
         if (!validateName(name.value)) {
-            errors.push(["Wrong name format, correct format: no numbers, has to start with a capital letter and minimum two character"]);
+            errors.push([name, "Wrong name format, correct format: no numbers, has to start with a capital letter and minimum two character"]);
         }
 
         if (!validateName(surname.value)) {
-            errors.push(["Wrong name format, correct format: no numbers, has to start with a capital letter and minimum two character"]);
+            errors.push([surname, "Wrong name format, correct format: no numbers, has to start with a capital letter and minimum two character"]);
         }
 
         if (!validateUsername(username.value)) {
-            errors.push(["Wrong username format, correct format: minimum 5 characters"])
+            errors.push([username, "Wrong username format, correct format: minimum 5 characters"])
         }
 
         if (!validateEmail(email.value)){
-            errors.push(["Wrong email format, correct format: example@domain.com"]);
+            errors.push([email, "Wrong email format, correct format: example@domain.com"]);
         }
 
         if (!validatePassword(password.value)){
-            errors.push(["Wrong password format, correct format: minimum 8 characters"]);
+            errors.push([password, "Wrong password format, correct format: minimum 8 characters"]);
         }
 
         if (!validatePasswordConfirm(password.value, confirmPassword.value)){
-            errors.push(["Passwords mismatch"]);
+            errors.push([confirmPassword, "Passwords mismatch"]);
         }
 
         showErrors(errors);
@@ -59,11 +59,11 @@ function validateForm(){
         }
 
         processRegistration({
-            name: name.value,
-            surname: surname.value,
-            username: username.value,
-            email: email.value,
-            password: password.value
+            name: name.value.trim(),
+            surname: surname.value.trim(),
+            username: username.value.trim(),
+            email: email.value.trim(),
+            password: password.value.trim()
         });
         document.getElementById("register-form").reset();
     });
@@ -100,11 +100,15 @@ function showErrors(errorList) {
     if (errorList.length === 0) return;
 
     let errorContainer = document.createElement("div");
+    errorContainer.id = "error-container";
+
     let errorListElement = document.createElement("ul");
 
     errorList.forEach(error => {
         let listItem = document.createElement("li");
-        listItem.textContent = error;
+        listItem.textContent = error[1];
+        error[0].value = "";
+        error[0].style.border = "2px solid red";
         errorListElement.appendChild(listItem);
     });
 
