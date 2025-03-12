@@ -2,16 +2,18 @@ import {includeHTML, fetchJSON, setImage, setMultipleImages} from "./main.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
     await includeHTML();
+    await loadImages();
+    validateForm();
+});
 
+async function loadImages() {
     const registerData = await fetchJSON("../public/data-json/registerContent.json");
     if (registerData) {
         setMultipleImages(registerData);
     } else {
         console.error("No register data found.")
     }
-
-    validateForm();
-});
+}
 
 function validateForm(){
     document.getElementById("register-form").addEventListener("submit", function(event) {
@@ -22,27 +24,32 @@ function validateForm(){
         let confirmPassword = document.getElementById("confirm-password");
         let name = document.getElementById("name");
         let surname = document.getElementById("surname");
+        let username = document.getElementById("username");
 
         let errors = [];
 
         if (!validateName(name.value)) {
-            errors.push([name, "Wrong name format, correct format: no numbers, has to start with a capital letter and minimum two character"]);
+            errors.push(["Wrong name format, correct format: no numbers, has to start with a capital letter and minimum two character"]);
         }
 
         if (!validateName(surname.value)) {
-            errors.push([surname, "Wrong name format, correct format: no numbers, has to start with a capital letter and minimum two character"]);
+            errors.push(["Wrong name format, correct format: no numbers, has to start with a capital letter and minimum two character"]);
+        }
+
+        if (!validateUsername(username.value)) {
+            errors.push(["Wrong username format, correct format: minimum 5 characters"])
         }
 
         if (!validateEmail(email.value)){
-            errors.push([email, "Wrong email format, correct format: example@domain.com"]);
+            errors.push(["Wrong email format, correct format: example@domain.com"]);
         }
 
         if (!validatePassword(password.value)){
-            errors.push([password, "Wrong password format, correct format: minimum 8 characters!"]);
+            errors.push(["Wrong password format, correct format: minimum 8 characters"]);
         }
 
         if (!validatePasswordConfirm(password.value, confirmPassword.value)){
-            errors.push([confirmPassword, "Passwords mismatch!"]);
+            errors.push(["Passwords mismatch"]);
         }
 
         showErrors(errors);
@@ -51,7 +58,14 @@ function validateForm(){
             return;
         }
 
-        event.target.submit();
+        processRegistration({
+            name: name.value,
+            surname: surname.value,
+            username: username.value,
+            email: email.value,
+            password: password.value
+        });
+        document.getElementById("register-form").reset();
     });
 }
 
@@ -73,6 +87,10 @@ function validatePasswordConfirm(password, passwordConfirm){
     return passwordConfirm === password;
 }
 
+function validateUsername(username) {
+    return username.length >= 5;
+}
+
 function showErrors(errorList) {
     let existingErrorContainer = document.getElementById("error-container");
     if (existingErrorContainer) {
@@ -82,21 +100,11 @@ function showErrors(errorList) {
     if (errorList.length === 0) return;
 
     let errorContainer = document.createElement("div");
-    errorContainer.id = "error-container";
-    errorContainer.style.color = "red";
-    errorContainer.style.fontSize = "14px";
-    errorContainer.style.fontFamily = "Roboto, sans serif";
-    errorContainer.style.marginTop = "15px";
-    errorContainer.style.padding = "10px";
-    errorContainer.style.border = "1px solid red";
-    errorContainer.style.borderRadius = "5px";
-
     let errorListElement = document.createElement("ul");
-    errorListElement.style.paddingLeft = "20px";
 
     errorList.forEach(error => {
         let listItem = document.createElement("li");
-        listItem.textContent = error[1];
+        listItem.textContent = error;
         errorListElement.appendChild(listItem);
     });
 
@@ -104,4 +112,10 @@ function showErrors(errorList) {
 
     let form = document.getElementById("register-form");
     form.appendChild(errorContainer);
+}
+
+function processRegistration(user){
+    localStorage.setItem("registeredUser", JSON.stringify({ user }));
+    console.log(user);
+    window.location.href = "../views/login.html";
 }
