@@ -252,10 +252,11 @@ body {
     text-align: left;
     cursor: pointer;
     font-size: $font-size-small;
-    color: variables.$text-color;
+    color: $text-color;
     text-decoration: none;
     margin-left: 8vw;
   }
+
   nav {
     width: 100%;
     text-align: left;
@@ -338,7 +339,7 @@ body {
     text-align: left;
     cursor: pointer;
     font-size: $font-size-small;
-    color: variables.$text-color;
+    color: $text-color;
     text-decoration: none;
     margin-bottom: 1vh;
     margin-left: 8vw;
