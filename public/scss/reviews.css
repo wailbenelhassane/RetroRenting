@@ -46,7 +46,10 @@
   font-size: 22px;
 }
 
-@media (max-width: 1024px) and (min-width: 769px) {
+@media (max-width: 1025px) and (min-width: 769px) {
+  .container {
+    font-size: 25px;
+  }
   .card {
     width: 30vw;
     height: 45vh;
@@ -57,6 +60,9 @@
   }
 }
 @media (max-width: 768px) {
+  .container {
+    font-size: 25px;
+  }
   .reviews {
     flex-wrap: nowrap;
     overflow: hidden;

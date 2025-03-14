@@ -1,11 +1,11 @@
-@use 'variables';
+@import 'variables';
 
 $margin: 0;
 $padding: 0;
 $box-sizing: border-box;
 $full-width: 100%;
 $full-height: 100%;
-$padding-top: 10vh;
+$padding-top: 6vh;
 
 @mixin reset {
   margin: $margin;
@@ -24,8 +24,9 @@ body {
   padding-top: $padding-top;
   width: $full-width;
   height: $full-height;
-  background: variables.$background-color;
-  color: variables.$text-color;
+  background: $background-color;
+  color: $text-color;
+  font-family: $font-family;
 
   .content {
     flex: 1;
@@ -40,12 +41,16 @@ body {
   justify-content: center;
   align-items: center;
   padding: 10px;
-  background-color: variables.$resalt-color;
-  color: variables.$text-color;
+  background-color: $resalt-color;
+  color: $text-color;
   width: 20%;
+  font-family: $font-family;
+  @media(max-width:$tablet-breakpoint) { font-size: 25px;}
 }
 
 .our-team-title {
   text-align: center;
   margin-top: 10vh;
+  font-family: $font-family;
+  @media(max-width:$tablet-breakpoint) { font-size: 35px;}
 }
