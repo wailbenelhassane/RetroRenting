@@ -24,7 +24,7 @@ export async function initAutocomplete(query){
     return data.features[0].text;
 }
 
-export function getBookingData() {
+function getBookingData() {
     const form = document.querySelector(".booking-bar-form");
 
     form.addEventListener("submit", async function (event) {
@@ -50,4 +50,60 @@ export function getBookingData() {
 
         window.location.href = "../views/car-reservation-confirm.html";
     });
+}
+
+export function validateForm(){
+    document.getElementById("booking-bar-form").addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        let pickUpDate = document.getElementById("pickup-date-selector");
+        let returnDate = document.getElementById("return-date-selector");
+
+        let errors = [];
+
+        if (!validateDate(pickUpDate.value, returnDate.value)) {
+            errors.push([returnDate, "Return date can not be before pick up date."]);
+        }
+
+        showErrors(errors);
+
+        if (errors.length > 0) {
+            return;
+        }
+
+        getBookingData();
+
+        document.getElementById("booking-bar-form").reset();
+    });
+}
+
+function validateDate(pickUpDate, returnDate) {
+    return new Date(pickUpDate) < new Date(returnDate)
+}
+
+function showErrors(errorList) {
+    let existingErrorContainer = document.getElementById("error-container");
+    if (existingErrorContainer) {
+        existingErrorContainer.remove();
+    }
+
+    if (errorList.length === 0) return;
+
+    let errorContainer = document.createElement("div");
+    errorContainer.id = "error-container";
+
+    let errorListElement = document.createElement("ul");
+
+    errorList.forEach(error => {
+        let listItem = document.createElement("li");
+        listItem.textContent = error[1];
+        error[0].value = "";
+        error[0].style.border = "2px solid red";
+        errorListElement.appendChild(listItem);
+    });
+
+    errorContainer.appendChild(errorListElement);
+
+    let container = document.getElementsByClassName("booking-bar-container");
+    container[0].appendChild(errorContainer);
 }
