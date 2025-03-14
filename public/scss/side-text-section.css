@@ -33,9 +33,14 @@
 }
 
 @media (max-width: 1024px) and (min-width: 769px) {
+  .side-text-section-container {
+    margin-top: 10px;
+  }
   .side-text-section-container .side-text-section-text {
     width: 47%;
     padding-left: 2vh;
+    font-size: 20px;
+    text-align: center;
   }
   .side-text-section-container .side-text-section-image {
     width: 50%;

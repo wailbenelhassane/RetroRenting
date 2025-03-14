@@ -46,9 +46,12 @@ $padding-sides: 3vh;
 
 @media (max-width: variables.$tablet-breakpoint) and (min-width: variables.$mobile-breakpoint + 1px) {
   .side-text-section-container {
+    margin-top: 10px;
     .side-text-section-text {
       width: 47%;
       padding-left: 2vh;
+      font-size: 20px;
+      text-align: center;
     }
 
     .side-text-section-image {
@@ -61,7 +64,6 @@ $padding-sides: 3vh;
 @media (max-width: variables.$mobile-breakpoint) {
   .side-text-section-container {
     flex-direction: column-reverse;
-
     .side-text-section-text {
       width: 80%;
       h2{
