@@ -5,7 +5,7 @@ $padding: 0;
 $box-sizing: border-box;
 $full-width: 100%;
 $full-height: 100%;
-$padding-top: 10vh;
+$padding-top: 6vh;
 
 @mixin reset {
   margin: $margin;
@@ -26,6 +26,7 @@ body {
   height: $full-height;
   background: $background-color;
   color: $text-color;
+  font-family: $font-family;
 
   .content {
     flex: 1;
@@ -43,9 +44,13 @@ body {
   background-color: $resalt-color;
   color: $text-color;
   width: 20%;
+  font-family: $font-family;
+  @media(max-width:$tablet-breakpoint) { font-size: 25px;}
 }
 
 .our-team-title {
   text-align: center;
   margin-top: 10vh;
+  font-family: $font-family;
+  @media(max-width:$tablet-breakpoint) { font-size: 35px;}
 }

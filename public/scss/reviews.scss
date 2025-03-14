@@ -50,6 +50,9 @@
 }
 
 @media (max-width: variables.$tablet-breakpoint) and (min-width: variables.$mobile-breakpoint+1) {
+  .container{
+    font-size: 25px;
+  }
   .card {
     width: 30vw;
     height: 45vh;
@@ -62,6 +65,10 @@
 }
 
 @media (max-width: 768px) {
+  .container{
+    font-size: 25px;
+  }
+
   .reviews {
     flex-wrap: nowrap;
     overflow: hidden;

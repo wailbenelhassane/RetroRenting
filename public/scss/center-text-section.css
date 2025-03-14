@@ -15,10 +15,17 @@
   width: 60%;
   height: auto;
   margin-top: 10vh;
+  font-family: "Roboto", sans-serif;
   margin-bottom: 10vh;
 }
 .center-text-section h2 {
   margin-bottom: 4vh;
+}
+
+@media (max-width: 1025px) {
+  .center-text-section-container {
+    font-size: 25px;
+  }
 }
 
 /*# sourceMappingURL=center-text-section.css.map */

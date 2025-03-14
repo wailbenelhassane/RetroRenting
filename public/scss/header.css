@@ -153,14 +153,14 @@
   color: #FFFFFF;
 }
 
-@media (max-width: 1024px) and (min-width: 769px) {
+@media (max-width: 1025px) and (min-width: 769px) {
   .main-nav {
     justify-content: space-between;
     padding: 0 10px;
   }
   .main-nav a {
     margin: 0;
-    font-size: 0.9rem;
+    font-size: 1rem;
   }
   .logo-container {
     width: 15%;
