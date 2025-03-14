@@ -1,4 +1,4 @@
-@use 'variables';
+@import 'variables';
 
 $margin: 0;
 $padding: 0;
@@ -24,8 +24,8 @@ body {
   padding-top: $padding-top;
   width: $full-width;
   height: $full-height;
-  background: variables.$background-color;
-  color: variables.$text-color;
+  background: $background-color;
+  color: $text-color;
 
   .content {
     flex: 1;
@@ -40,8 +40,8 @@ body {
   justify-content: center;
   align-items: center;
   padding: 10px;
-  background-color: variables.$resalt-color;
-  color: variables.$text-color;
+  background-color: $resalt-color;
+  color: $text-color;
   width: 20%;
 }
 
