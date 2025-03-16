@@ -72,8 +72,6 @@ export function validateForm(){
         }
 
         getBookingData();
-
-        document.getElementById("booking-bar-form").reset();
     });
 }
 
