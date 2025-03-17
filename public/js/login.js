@@ -84,25 +84,21 @@ function showErrors(errorList) {
 }
 
 function processLogin(user) {
-    let localStorageUser = getLocalStorageUser();
-    console.log(localStorageUser);
+    const localStorageUser = getLocalStorageUser().user;
     if (!processLoginUsername(user, localStorageUser) || !processLoginPassword(user, localStorageUser)) {
         showErrors(["User not found or password incorrect."]);
         return;
     }
 
-    console.log("Sesión iniciada");
+    localStorage.setItem("currentUser", JSON.stringify({ user }));
+    window.location.href = "../views/index.html";
 }
 
 function processLoginUsername(user, localStorageUser) {
-    console.log(user.username);
-    console.log(localStorageUser.username);
     return user.username === localStorageUser.username;
 }
 
 function processLoginPassword(user, localStorageUser){
-    console.log(user.password);
-    console.log(localStorageUser.password);
     return user.password === localStorageUser.password;
 }
 

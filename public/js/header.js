@@ -32,6 +32,7 @@ export async function loadHeaderContent() {
                 authContainer.innerHTML = '';
                headerData.authLinks.forEach((item, index) => {
                     const link = document.createElement('a');
+                    link.className = "auth-link";
                     link.href = item.url;
                     link.textContent = item.title;
                     authContainer.appendChild(link);
@@ -40,6 +41,7 @@ export async function loadHeaderContent() {
                     if (index < headerData.authLinks.length - 1) {
                         const span = document.createElement('span');
                         span.textContent = '/';
+                        span.className = 'auth-link';
                         authContainer.appendChild(span);
                     }
                 });
@@ -81,6 +83,7 @@ export async function loadHeaderContent() {
             }
         }
 
+        displayLoginSignUpOptions();
         setupMobileNavigation();
     } else {
         console.error("No navigation data found.");
@@ -113,5 +116,24 @@ function setupMobileNavigation() {
         });
     } else {
         console.warn("Mobile navigation elements not found in the DOM.");
+    }
+}
+
+function getUserLogin(){
+    let user = localStorage.getItem("currentUser");
+    return user ? JSON.parse(user) : null;
+}
+
+function displayLoginSignUpOptions(){
+    let user = getUserLogin().user;
+    if (user !== null) {
+        let authLinks = document.getElementsByClassName("auth-link");
+        Array.from(authLinks).forEach(link => {link.style.display = 'none';});
+        let welcomeMessage = document.createElement('p');
+        welcomeMessage.textContent = `Welcome ${user.username}`;
+        welcomeMessage.style.color = 'white';
+        welcomeMessage.style.fontFamily = 'Roboto, sans-serif';
+        welcomeMessage.style.fontSize = '1.2rem';
+        document.getElementsByClassName("auth-links")[0].appendChild(welcomeMessage);
     }
 }

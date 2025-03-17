@@ -71,12 +71,22 @@ export function validateForm(){
             return;
         }
 
+        if (getUserLogin().user === null){
+            document.getElementById("booking-bar-form").reset();
+            window.location.href = "../views/login.html";
+        }
+
         getBookingData();
     });
 }
 
 function validateDate(pickUpDate, returnDate) {
     return new Date(pickUpDate) < new Date(returnDate)
+}
+
+function getUserLogin(){
+    let user = localStorage.getItem("currentUser");
+    return user ? JSON.parse(user) : null;
 }
 
 function showErrors(errorList) {

@@ -120,6 +120,5 @@ function showErrors(errorList) {
 
 function processRegistration(user){
     localStorage.setItem("registeredUser", JSON.stringify({ user }));
-    console.log(user);
     window.location.href = "../views/login.html";
 }
