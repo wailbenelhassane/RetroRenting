@@ -1,9 +1,11 @@
 import { includeHTML } from "./main.js";
 import { loadHeaderContent } from "./header.js";
+import {loadFooterContent} from "./footer.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
     await includeHTML();
     await loadHeaderContent();
+    await loadFooterContent();
     loadCarData();
 });
 

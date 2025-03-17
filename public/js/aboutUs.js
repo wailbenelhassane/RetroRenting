@@ -4,6 +4,7 @@ import { getReviews } from './reviews.js';
 import { initTeamCarousel } from './teamCarroussel.js';
 import { loadTextSections } from "./centerTextSection.js";
 import { loadSideTextSections } from "./sideTextSection.js";
+import {loadFooterContent} from "./footer.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
   await includeHTML();
@@ -13,4 +14,5 @@ document.addEventListener("DOMContentLoaded", async () => {
   await getReviews();
   await loadTextSections();
   await loadSideTextSections();
+  await loadFooterContent();
 });
