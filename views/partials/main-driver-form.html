@@ -5,17 +5,17 @@
     </div>
 
     <div class="input-container">
-      <form class="main-driver-form" action="/login" method="post">
+      <form class="main-driver-form" id="main-driver-form" method="post">
         <div class="name-group">
-          <input type="text" name="first-name" placeholder="Name" required />
-          <input type="text" name="last-name" placeholder="Surname" required />
+          <input type="text" id="name-selector" placeholder="Name" required/>
+          <input type="text" id="surname-selector" placeholder="Surname" required/>
         </div>
 
-        <input type="email" name="email" placeholder="Email" required/>
+        <input type="text" id="email-selector" placeholder="Email" required/>
 
         <div class="phone-group">
           <select id="country-phone-selector" required></select>
-          <input type="tel" name="phone" placeholder="Phone Number" required />
+          <input type="tel" id="phone-selector" placeholder="Phone Number" required/>
         </div>
 
         <select id="country-selector" required></select>

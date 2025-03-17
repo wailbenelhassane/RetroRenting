@@ -5,11 +5,10 @@ $padding: 0;
 $box-sizing: border-box;
 $full-width: 100%;
 $full-height: 100%;
-$padding-top: 50px;
+$padding-top: 10vh;
 
 @mixin reset {
   margin: $margin;
-  padding: $padding;
   box-sizing: $box-sizing;
 }
 
@@ -24,15 +23,38 @@ body {
   padding-top: $padding-top;
   width: $full-width;
   height: $full-height;
+  background: variables.$background-color;
   color: variables.$text-color;
 
   .content {
-    display: flex;
+    flex: 1;
   }
 
-  .bar-car-details-booking {
-    position: absolute;
-    width: 50%;
-    height: 50%;
+  #error-container {
+    width: 30%;
+    justify-self: center;
+    display: flex;
+    justify-content: center;
+    color: red;
+    font-size: 14px;
+    font-family: variables.$font-family;
+    padding: 10px;
+    border: 1px solid red;
+    border-radius: 5px;
+
+    ul {
+      padding-left: 20px;
+    }
   }
+
+  :valid {
+    border-color: green;
+  }
+
+  :invalid {
+    border-color: red;
+  }
+
 }
+
+

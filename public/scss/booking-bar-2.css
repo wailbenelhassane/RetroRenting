@@ -18,6 +18,12 @@
   border-radius: 5px;
   gap: 30px;
 }
+.booking-bar-container .booking-bar .booking-bar-form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 0.8vw;
+}
 .booking-bar-container .booking-bar .booking-section {
   display: flex;
   flex-direction: column;
