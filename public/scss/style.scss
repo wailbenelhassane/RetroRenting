@@ -5,10 +5,11 @@ $padding: 0;
 $box-sizing: border-box;
 $full-width: 100%;
 $full-height: 100%;
-$padding-top: 10vh;
+$padding-top: 6vh;
 
 @mixin reset {
   margin: $margin;
+  padding: $padding;
   box-sizing: $box-sizing;
 }
 
@@ -25,11 +26,13 @@ body {
   height: $full-height;
   background: variables.$background-color;
   color: variables.$text-color;
+  font-family: variables.$font-family;
 
   .content {
     flex: 1;
   }
 }
+
 
 .center-align{display:flex; width:100%; justify-content: center; align-items: center;}
 
