@@ -71,7 +71,7 @@ export function validateForm(){
             return;
         }
 
-        if (getUserLogin().user === null){
+        if (getUserLogin() === null){
             document.getElementById("booking-bar-form").reset();
             window.location.href = "../views/login.html";
         }

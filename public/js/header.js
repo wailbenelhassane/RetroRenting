@@ -135,6 +135,29 @@ function displayLoginSignUpOptions(){
         welcomeMessage.style.color = 'white';
         welcomeMessage.style.fontFamily = 'Roboto, sans-serif';
         welcomeMessage.style.fontSize = '1.2rem';
-        document.getElementsByClassName("auth-links")[0].appendChild(welcomeMessage);
+
+        let logoutButton = document.createElement('button');
+        logoutButton.textContent = 'Logout';
+        logoutButton.style.backgroundColor = '#ff4d4d';
+        logoutButton.style.color = 'white';
+        logoutButton.style.border = 'none';
+        logoutButton.style.padding = '8px 12px';
+        logoutButton.style.cursor = 'pointer';
+        logoutButton.style.fontSize = '1rem';
+        logoutButton.style.borderRadius = '5px';
+        logoutButton.style.marginLeft = '10px';
+
+        logoutButton.addEventListener('click', () => {
+            localStorage.removeItem("currentUser");
+            window.location.reload();
+        });
+
+        let authLinksContainer = document.getElementsByClassName("auth-links")[0];
+        if (authLinksContainer) {
+            authLinksContainer.appendChild(welcomeMessage);
+            authLinksContainer.appendChild(logoutButton);
+        } else {
+            console.warn("Elemento con clase 'auth-links' no encontrado.");
+        }
     }
 }
