@@ -30,26 +30,25 @@ function getBookingData() {
     form.addEventListener("submit", async function (event) {
         event.preventDefault();
 
-        const carSelected = document.getElementById("car-selector").value;
-        const locationInput = document.getElementById("location-selector").value;
+        let carElementSelected = document.getElementById("car-selector");
+        const carSelected = carElementSelected.options[carElementSelected.selectedIndex].text;
+        const location = document.getElementById("location-selector").value;
         const pickupDate = document.getElementById("pickup-date-selector").value;
         const returnDate = document.getElementById("return-date-selector").value;
 
-        if (!carSelected || !locationInput || !pickupDate || !returnDate) {
-            alert("Please fill in all the fields.");
-            return;
-        }
-
         const formattedDate = `${pickupDate} - ${returnDate}`;
 
-        localStorage.setItem("bookingBar", JSON.stringify({
+        processBooking({
             "car": carSelected,
-            "location": locationInput,
-            "date": formattedDate
-        }));
-
-        window.location.href = "../views/car-reservation-confirm.html";
+            "location": location,
+            "formattedDate": formattedDate
+        })
     });
+}
+
+function processBooking(data) {
+    localStorage.setItem("bookingData", JSON.stringify(data));
+    window.location.href = "../views/car-reservation-confirm.html";
 }
 
 export function validateForm(){

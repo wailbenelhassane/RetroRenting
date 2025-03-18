@@ -91,7 +91,7 @@ function processLogin(user) {
     }
 
     localStorage.setItem("currentUser", JSON.stringify({ user }));
-    window.location.href = "../views/index.html";
+    window.location.href = document.referrer;
 }
 
 function processLoginUsername(user, localStorageUser) {

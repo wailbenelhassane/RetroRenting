@@ -69,10 +69,20 @@ export function validateForm(){
             return;
         }
 
+        if (getUserLogin() === null){
+            document.getElementById("booking-bar-form").reset();
+            window.location.href = "../views/login.html";
+        }
+
         alert("Booking done!");
 
         window.location.href = "../views/index.html";
     });
+}
+
+function getUserLogin(){
+    let user = localStorage.getItem("currentUser");
+    return user ? JSON.parse(user) : null;
 }
 
 function validateName(name) {
