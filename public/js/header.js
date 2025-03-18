@@ -125,8 +125,9 @@ function getUserLogin(){
 }
 
 function displayLoginSignUpOptions(){
-    let user = getUserLogin().user;
+    let user = getUserLogin();
     if (user !== null) {
+        user = user.user;
         let authLinks = document.getElementsByClassName("auth-link");
         Array.from(authLinks).forEach(link => {link.style.display = 'none';});
         let welcomeMessage = document.createElement('p');
