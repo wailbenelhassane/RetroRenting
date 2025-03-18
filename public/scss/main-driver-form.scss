@@ -149,7 +149,7 @@ footer {
     border-radius: $border-radius;
     height: 90%;
     width: 80%;
-    margin: 6vh auto;
+    margin: 3vh auto;
     box-shadow: $box-shadow;
   }
 
@@ -252,4 +252,127 @@ footer {
   footer {
     bottom: 0;
   }
+}
+@media (min-width: 480px) and (max-width: 1024px) {
+  @mixin flex-center($direction: row) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: $direction;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+  }
+
+  .main-driver-form-container {
+    background-color: variables.$dark-gray;
+    padding: 4vh;
+    border-radius: $border-radius;
+    height: 90%;
+    width: 60%;
+    margin: 6vh auto;
+    box-shadow: $box-shadow;
+  }
+
+  .main-driver-header {
+    text-align: center;
+    font-family: variables.$font-family;
+    margin-bottom: 5vh;
+
+    h2 {
+      font-size: $font-size-small;
+      color: variables.$text-color;
+    }
+  }
+
+  .input-container {
+    @include flex-center(column);
+    width: 100%;
+
+    .main-driver-form {
+      display: flex;
+      flex-direction: column;
+      gap: 3vh;
+
+      .name-group {
+        display: flex;
+        gap: 10px;
+        width: 100%;
+
+        input {
+          flex: 1;
+          padding: 10px;
+          border: 1px solid $input-border-color;
+          border-radius: $border-radius;
+          box-shadow: $box-shadow;
+          font-family: variables.$font-family;
+        }
+
+        input:focus {
+          outline: none;
+        }
+      }
+
+      input,
+      select {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid $input-border-color;
+        border-radius: $border-radius;
+        box-shadow: $box-shadow;
+        font-family: variables.$font-family;
+      }
+
+      .phone-group {
+        display: flex;
+        width: 100%;
+        gap: 5px;
+
+        select {
+          width: 30%;
+          background-size: cover;
+          border-radius: $border-radius;
+        }
+
+        select:focus {
+          outline: none;
+        }
+
+        input {
+          width: 70%;
+        }
+      }
+
+      button {
+        width: 125px;
+        height: 50px;
+        background-color: variables.$resalt-color;
+        font-size: 15px;
+        font-weight: bold;
+        color: variables.$text-color;
+        font-family: variables.$font-family;
+        border: none;
+        cursor: pointer;
+        border-radius: $button-radius;
+        padding: 10px 15px;
+        margin-top: 20px;
+      }
+
+      button:hover {
+        background-color: variables.$resalt-color-darker;
+      }
+
+      .btn-container {
+        display: flex;
+        justify-content: center;
+      }
+    }
+  }
+
+  footer {
+    bottom: 0;
+  }
+
 }

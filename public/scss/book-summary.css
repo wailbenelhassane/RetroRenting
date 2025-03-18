@@ -80,7 +80,7 @@
 @media (max-width: 480px) {
   .book-summary-container {
     background-color: #1F1F1F;
-    padding: 1vh;
+    padding: 1vh 0;
     border-radius: 1vh;
     min-width: 15vw;
     max-width: 80%;
@@ -88,7 +88,7 @@
     text-align: center;
   }
   .pay-now-button {
-    width: 26vw;
+    width: 100%;
     height: 5vh;
     background-color: #9a7006;
     font-size: 2vh;
@@ -104,15 +104,79 @@
   .pay-now-button:hover {
     background-color: #8B6508;
   }
+}
+@media (min-width: 480px) and (max-width: 1024px) {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  .book-summary-container {
+    background-color: #1F1F1F;
+    padding: 1vh 0;
+    border-radius: 1vh;
+    min-width: 15vw;
+    max-width: 55%;
+    margin: 3vh auto;
+    text-align: center;
+  }
+  .book-summary-header {
+    font-family: "Roboto", sans-serif;
+    margin-bottom: 3vh;
+  }
+  .book-summary-header h1 {
+    font-size: 1.2rem;
+    color: #FFFFFF;
+  }
+  .book-summary-details {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
   .book-summary-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
     font-family: "Roboto", sans-serif;
-    font-size: 0.85rem;
+    font-size: 1rem;
     color: #FFFFFF;
     padding: 1vh 0;
+  }
+  .book-summary-label {
+    font-weight: bold;
+  }
+  .car-selected,
+  .location-selected,
+  .date-selected {
+    flex-grow: 1;
+    color: #f0f0f0;
+    min-height: 2vh;
+    margin-top: 1vw;
+    text-align: left;
+    margin-left: 1vw;
+  }
+  .btn-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 3vh;
+  }
+  .pay-now-button {
+    width: 16vw;
+    height: 5vh;
+    background-color: #9a7006;
+    font-size: 2vh;
+    font-weight: bold;
+    color: #FFFFFF;
+    font-family: "Roboto", sans-serif;
+    border: none;
+    cursor: pointer;
+    border-radius: 1vh;
+    padding: 1vh 2vh;
+    transition: background-color 0.3s ease-in-out;
+  }
+  .pay-now-button:hover {
+    background-color: #8B6508;
   }
 }
 
