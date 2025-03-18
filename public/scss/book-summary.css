@@ -77,4 +77,43 @@
   background-color: #8B6508;
 }
 
+@media (max-width: 480px) {
+  .book-summary-container {
+    background-color: #1F1F1F;
+    padding: 1vh;
+    border-radius: 1vh;
+    min-width: 15vw;
+    max-width: 80%;
+    margin: 3vh auto;
+    text-align: center;
+  }
+  .pay-now-button {
+    width: 26vw;
+    height: 5vh;
+    background-color: #9a7006;
+    font-size: 2vh;
+    font-weight: bold;
+    color: #FFFFFF;
+    font-family: "Roboto", sans-serif;
+    border: none;
+    cursor: pointer;
+    border-radius: 1vh;
+    padding: 1vh 2vh;
+    transition: background-color 0.3s ease-in-out;
+  }
+  .pay-now-button:hover {
+    background-color: #8B6508;
+  }
+  .book-summary-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    font-family: "Roboto", sans-serif;
+    font-size: 0.85rem;
+    color: #FFFFFF;
+    padding: 1vh 0;
+  }
+}
+
 /*# sourceMappingURL=book-summary.css.map */

@@ -94,3 +94,43 @@ $font-size-small: 1.2rem;
     background-color: variables.$resalt-color-darker;
   }
 }
+
+@media (max-width: 480px){
+  .book-summary-container {
+    background-color: variables.$dark-gray;
+    padding: 1vh;
+    border-radius: $border-radius;
+    min-width: 15vw;
+    max-width: 80%;
+    margin: 3vh auto;
+    text-align: center;
+  }
+  .pay-now-button {
+    width: 26vw;
+    height: 5vh;
+    background-color: variables.$resalt-color;
+    font-size: 2vh;
+    font-weight: bold;
+    color: variables.$text-color;
+    font-family: variables.$font-family;
+    border: none;
+    cursor: pointer;
+    border-radius: $button-radius;
+    padding: 1vh 2vh;
+    transition: background-color 0.3s ease-in-out;
+
+    &:hover {
+      background-color: variables.$resalt-color-darker;
+    }
+  }
+  .book-summary-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    font-family: variables.$font-family;
+    font-size: 0.85rem;
+    color: variables.$text-color;
+    padding: 1vh 0;
+  }
+}

@@ -208,9 +208,10 @@ footer {
         gap: 5px;
 
         select {
-          width: 30%;
+          width: 37%;
           background-size: cover;
           border-radius: $border-radius;
+          padding: 0;
         }
 
         select:focus {

@@ -168,9 +168,10 @@ footer {
     gap: 5px;
   }
   .input-container .main-driver-form .phone-group select {
-    width: 30%;
+    width: 37%;
     background-size: cover;
     border-radius: 5px;
+    padding: 0;
   }
   .input-container .main-driver-form .phone-group select:focus {
     outline: none;
