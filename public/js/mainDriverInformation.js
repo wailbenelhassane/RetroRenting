@@ -108,6 +108,9 @@ function showErrors(errorList) {
 
     if (errorList.length === 0) return;
 
+    let errorContainerWrapper = document.createElement("div");
+    errorContainerWrapper.id = "error-container-wrapper";
+
     let errorContainer = document.createElement("div");
     errorContainer.id = "error-container";
 
@@ -122,7 +125,8 @@ function showErrors(errorList) {
     });
 
     errorContainer.appendChild(errorListElement);
+    errorContainerWrapper.appendChild(errorContainer);
 
     let container = document.getElementsByClassName("main-driver-form");
-    container[0].appendChild(errorContainer);
+    container[0].appendChild(errorContainerWrapper);
 }
