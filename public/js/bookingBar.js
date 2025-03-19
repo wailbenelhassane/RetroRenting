@@ -61,7 +61,7 @@ export function validateForm(){
         let errors = [];
 
         if (!validateDate(pickUpDate.value, returnDate.value)) {
-            errors.push([returnDate, "Return date can not be before pick up date."]);
+            errors.push([returnDate, "Return date cannot be before the pick-up date, and the booking date must be today or later."]);
         }
 
         showErrors(errors);
@@ -80,7 +80,11 @@ export function validateForm(){
 }
 
 function validateDate(pickUpDate, returnDate) {
-    return new Date(pickUpDate) < new Date(returnDate)
+    let datePickUp = new Date(pickUpDate);
+    let dateReturn = new Date(returnDate)
+
+    const today = new Date();
+    return (datePickUp < dateReturn) && (datePickUp > today) && (dateReturn > today)
 }
 
 function getUserLogin(){
