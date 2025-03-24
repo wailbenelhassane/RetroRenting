@@ -29,23 +29,23 @@ function validateForm(){
         let errors = [];
 
         if (!validateName(name.value)) {
-            errors.push([name, "Wrong name format, correct format: no numbers, has to start with a capital letter and minimum two character"]);
+            errors.push([name, "Wrong name format, correct format: no numbers, has to start with a capital letter and minimum two characters."]);
         }
 
         if (!validateName(surname.value)) {
-            errors.push([surname, "Wrong name format, correct format: no numbers, has to start with a capital letter and minimum two character"]);
+            errors.push([surname, "Wrong name format, correct format: no numbers, has to start with a capital letter and minimum two characters."]);
         }
 
         if (!validateUsername(username.value)) {
-            errors.push([username, "Wrong username format, correct format: minimum 5 characters"])
+            errors.push([username, "Wrong username format, correct format: minimum 5 characters."])
         }
 
         if (!validateEmail(email.value)){
-            errors.push([email, "Wrong email format, correct format: example@domain.com"]);
+            errors.push([email, "Wrong email format, correct format: example@domain.com."]);
         }
 
         if (!validatePassword(password.value)){
-            errors.push([password, "Wrong password format, correct format: minimum 8 characters"]);
+            errors.push([password, "Wrong password format, correct format: minimum 8 characters and minimum one capital letter."]);
         }
 
         if (!validatePasswordConfirm(password.value, confirmPassword.value)){
