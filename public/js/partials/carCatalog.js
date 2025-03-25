@@ -1,4 +1,4 @@
-import {fetchJSON, setImage} from "./main.js";
+import {fetchJSON, setImage} from "../main.js";
 
 export async function initCarCatalog() {
     const carImageSelector = ".car-image";

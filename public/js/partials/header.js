@@ -1,4 +1,4 @@
-import {fetchJSON} from "./main.js";
+import {fetchJSON} from "../main.js";
 
 export async function loadHeaderContent() {
     const headerData = await fetchJSON("../public/data-json/header.json");

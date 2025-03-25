@@ -1,4 +1,4 @@
-import {includeHTML, fetchJSON, setImage, setMultipleImages} from "./main.js";
+import {includeHTML, fetchJSON, setMultipleImages} from "./main.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
     await includeHTML();

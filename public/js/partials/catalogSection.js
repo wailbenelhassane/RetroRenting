@@ -1,4 +1,4 @@
-import { fetchJSON } from "./main.js";
+import { fetchJSON } from "../main.js";
 
 export async function loadCatalogSections() {
     const catalogContainer = document.querySelector("#catalog-container");
@@ -54,7 +54,7 @@ export async function loadCatalogSections() {
     document.querySelectorAll('.catalog-card-button').forEach(button => {
         button.addEventListener('click', (event) => {
             const carId = event.target.getAttribute('data-car-id');
-            window.location.href = `/RetroRenting/views/car-page.html?carId=${carId}`;
+            window.location.href = `../../../views/car-page.html`;
         });
     });
 }

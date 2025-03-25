@@ -1,10 +1,10 @@
 import { includeHTML } from "./main.js";
-import { loadHeaderContent } from "./header.js";
-import { loadCarViewer} from "./carViewer.js";
-import { loadCarDetails, loadDetailsBar } from "./carDetails.js";
-import { barCarDetails } from "./barCarDetailsBooking.js";
-import { validateForm } from "./bookingBar.js";
-import {loadFooterContent} from "./footer.js";
+import { loadHeaderContent } from "./partials/header.js";
+import { loadCarViewer} from "./partials/carViewer.js";
+import { loadCarDetails, loadDetailsBar } from "./partials/carDetails.js";
+import { barCarDetails } from "./partials/barCarDetailsBooking.js";
+import { validateForm } from "./partials/bookingBar.js";
+import {loadFooterContent} from "./partials/footer.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
     await includeHTML();
