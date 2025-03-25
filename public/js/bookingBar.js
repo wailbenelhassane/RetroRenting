@@ -1,4 +1,5 @@
 import { fetchJSON } from "./main.js";
+import { validateDate, showErrors } from "./utils/validationForm.js"
 
 export async function populateCarSelect() {
     const data = await fetchJSON("../public/data-json/bookingBar.json");
@@ -64,7 +65,7 @@ export function validateForm(){
             errors.push([returnDate, "Return date cannot be before the pick-up date, and the booking date must be today or later."]);
         }
 
-        showErrors(errors);
+        showErrors(errors, "booking-bar-container");
 
         if (errors.length > 0) {
             return;
@@ -79,42 +80,7 @@ export function validateForm(){
     });
 }
 
-function validateDate(pickUpDate, returnDate) {
-    let datePickUp = new Date(pickUpDate);
-    let dateReturn = new Date(returnDate)
-
-    const today = new Date();
-    return (datePickUp < dateReturn) && (datePickUp > today) && (dateReturn > today)
-}
-
 function getUserLogin(){
     let user = localStorage.getItem("currentUser");
     return user ? JSON.parse(user) : null;
-}
-
-function showErrors(errorList) {
-    let existingErrorContainer = document.getElementById("error-container");
-    if (existingErrorContainer) {
-        existingErrorContainer.remove();
-    }
-
-    if (errorList.length === 0) return;
-
-    let errorContainer = document.createElement("div");
-    errorContainer.id = "error-container";
-
-    let errorListElement = document.createElement("ul");
-
-    errorList.forEach(error => {
-        let listItem = document.createElement("li");
-        listItem.textContent = error[1];
-        error[0].value = "";
-        error[0].style.border = "2px solid red";
-        errorListElement.appendChild(listItem);
-    });
-
-    errorContainer.appendChild(errorListElement);
-
-    let container = document.getElementsByClassName("booking-bar-container");
-    container[0].appendChild(errorContainer);
 }

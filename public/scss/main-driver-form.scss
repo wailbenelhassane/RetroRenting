@@ -21,7 +21,31 @@ $font-size-small: 1.2rem;
   margin: 0;
 }
 
-.main-driver-form-container {
+#main-driver-wrapper{
+  #error-container {
+    color: red;
+    font-size: 14px;
+    font-family: variables.$font-family;
+    margin-top: 15px;
+    padding: 10px;
+    border: 1px solid red;
+    border-radius: 5px;
+
+    ul {
+      padding-left: 20px;
+    }
+  }
+
+  :valid {
+    border-color: green;
+  }
+
+  :invalid {
+    border-color: red;
+  }
+}
+
+#main-driver-form-container {
   background-color: variables.$dark-gray;
   padding: 4vh;
   border-radius: $border-radius;
