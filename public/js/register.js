@@ -80,7 +80,7 @@ function validateEmail(email) {
 }
 
 function validatePassword(password){
-    let passwordPattern = /^(?=.*[A-Z]).{8,}$;
+    let passwordPattern = /^(?=.*[A-Z]).{8,}$/;
     return passwordPattern.test(password);
 }
 
