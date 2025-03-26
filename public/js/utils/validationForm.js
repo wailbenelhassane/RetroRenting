@@ -34,6 +34,11 @@ export function validatePhone(phone) {
     return phonePattern.test(phone);
 }
 
+export function validateLocation(location) {
+    let phonePattern = /^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$/;
+    return phonePattern.test(location);
+}
+
 export function showErrors(errorList, classContainer) {
     let existingErrorContainer = document.getElementById("error-container");
     if (existingErrorContainer) {

@@ -1,5 +1,6 @@
 import { fetchJSON } from "./main.js";
 import { validateDate, showErrors } from "./utils/validationForm.js"
+import {getUserLogin} from "./services/authService.js";
 
 export async function populateCarSelect() {
     const data = await fetchJSON("../public/data-json/bookingBar.json");
@@ -65,7 +66,7 @@ export function validateForm(){
             errors.push([returnDate, "Return date cannot be before the pick-up date, and the booking date must be today or later."]);
         }
 
-        showErrors(errors, "booking-bar-container");
+        showErrors(errors, "booking-bar");
 
         if (errors.length > 0) {
             return;
@@ -78,9 +79,4 @@ export function validateForm(){
 
         getBookingData();
     });
-}
-
-function getUserLogin(){
-    let user = localStorage.getItem("currentUser");
-    return user ? JSON.parse(user) : null;
 }
