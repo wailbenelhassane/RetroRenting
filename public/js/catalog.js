@@ -1,7 +1,7 @@
 import { includeHTML } from "./main.js";
-import { loadHeaderContent } from "./partials/header.js";
-import { loadCatalogSections } from "./partials/catalogSection.js";
-import {loadFooterContent} from "./partials/footer.js";
+import { loadHeaderContent } from "./header.js";
+import { loadCatalogSections } from "./catalogSection.js";
+import {loadFooterContent} from "./footer.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
     await includeHTML();

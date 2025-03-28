@@ -1,8 +1,8 @@
 import { includeHTML } from "./main.js";
-import { loadHeaderContent } from "./partials/header.js";
-import { loadCountry, loadCountryPrefix } from "./partials/mainDriverInformation.js";
-import { validateForm } from "./partials/mainDriverInformation.js";
-import {loadFooterContent} from "./partials/footer.js";
+import { loadHeaderContent } from "./header.js";
+import { loadCountry, loadCountryPrefix } from "./mainDriverInformation.js";
+import { validateForm } from "./mainDriverInformation.js";
+import {loadFooterContent} from "./footer.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
     await includeHTML();

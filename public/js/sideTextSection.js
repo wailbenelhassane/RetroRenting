@@ -1,4 +1,4 @@
-import { fetchJSON } from "../main.js";
+import { fetchJSON } from "./main.js";
 
 export async function loadSideTextSections() {
     const data = await fetchJSON("../public/data-json/sideText.json");

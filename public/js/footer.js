@@ -1,4 +1,4 @@
-import {fetchJSON} from "../main.js";
+import {fetchJSON} from "./main.js";
 
 export async function loadFooterContent() {
     const footerData = await fetchJSON("../public/data-json/footer.json");

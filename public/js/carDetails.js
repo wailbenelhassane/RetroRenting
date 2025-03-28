@@ -1,4 +1,4 @@
-import { fetchJSON } from "../main.js";
+import { fetchJSON } from "./main.js";
 
 export async function loadCarDetails() {
     const carId = new URLSearchParams(window.location.search).get("carId");

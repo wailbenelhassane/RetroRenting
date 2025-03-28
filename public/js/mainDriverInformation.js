@@ -1,4 +1,4 @@
-import { fetchJSON } from "../main.js";
+import { fetchJSON } from "./main.js";
 
 export async function loadCountry() {
     const data = await fetchJSON("../public/data-json/countrySelector.json");
@@ -71,12 +71,12 @@ export function validateForm(){
 
         if (getUserLogin() === null){
             document.getElementById("booking-bar-form").reset();
-            window.location.href = "../../../views/login.html";
+            window.location.href = "../../views/login.html";
         }
 
         alert("Booking done!");
 
-        window.location.href = "../../../views/index.html";
+        window.location.href = "../../views/index.html";
     });
 }
 
