@@ -118,6 +118,27 @@ body {
   font-weight: bold;
 }
 
+#error-container {
+  color: red;
+  font-size: 14px;
+  font-family: "Roboto", sans-serif;
+  margin-top: 15px;
+  padding: 10px;
+  border: 1px solid red;
+  border-radius: 5px;
+}
+#error-container ul {
+  padding-left: 20px;
+}
+
+:valid {
+  border-color: green;
+}
+
+:invalid {
+  border-color: red;
+}
+
 @media (max-width: 1024px) {
   .login-container {
     width: 60%;

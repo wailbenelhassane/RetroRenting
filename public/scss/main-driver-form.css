@@ -3,7 +3,26 @@
   margin: 0;
 }
 
-.main-driver-form-container {
+#main-driver-wrapper #error-container {
+  color: red;
+  font-size: 14px;
+  font-family: "Roboto", sans-serif;
+  margin-top: 15px;
+  padding: 10px;
+  border: 1px solid red;
+  border-radius: 5px;
+}
+#main-driver-wrapper #error-container ul {
+  padding-left: 20px;
+}
+#main-driver-wrapper :valid {
+  border-color: green;
+}
+#main-driver-wrapper :invalid {
+  border-color: red;
+}
+
+#main-driver-form-container {
   background-color: #1F1F1F;
   padding: 4vh;
   border-radius: 5px;

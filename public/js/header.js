@@ -1,4 +1,5 @@
 import {fetchJSON} from "./main.js";
+import {getUserLogin} from "./services/authService.js";
 
 export async function loadHeaderContent() {
     const headerData = await fetchJSON("../public/data-json/header.json");
@@ -117,11 +118,6 @@ function setupMobileNavigation() {
     } else {
         console.warn("Mobile navigation elements not found in the DOM.");
     }
-}
-
-function getUserLogin(){
-    let user = localStorage.getItem("currentUser");
-    return user ? JSON.parse(user) : null;
 }
 
 function displayLoginSignUpOptions(){

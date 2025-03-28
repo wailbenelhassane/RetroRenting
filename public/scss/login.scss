@@ -144,6 +144,28 @@ body {
   }
 }
 
+#error-container {
+  color: red;
+  font-size: 14px;
+  font-family: variables.$font-family;
+  margin-top: 15px;
+  padding: 10px;
+  border: 1px solid red;
+  border-radius: 5px;
+
+  ul {
+    padding-left: 20px;
+  }
+}
+
+:valid {
+  border-color: green;
+}
+
+:invalid {
+  border-color: red;
+}
+
 @media (max-width: 1024px) {
   .login-container {
     width: 60%;
