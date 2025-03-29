@@ -179,7 +179,7 @@ RetroRenting es una plataforma para la gestión de alquileres con temática retr
 - **Organización de las Hojas de Estilo:**  
   Para la correcta gestión de las hojas de estilo se ha utilizado SASS.  
 
-- **Distribución del código JavaScript:**
+- **Distribución del código JavaScript:**  
 Para el código JavaScript, se ha optado por distribuir las funciones entre los diferentes componentes que las requieren, siendo invocadas finalmente desde la vista que incorpora dichos componentes.
 Con el objetivo de lograr una carga dinámica de los componentes a partir de un archivo JSON, permitiendo así una personalización máxima del contenido, se han implementado varias funciones básicas ubicadas en el archivo main.js, entre ellas fetchJSON y setMultiplesImages. La creación completa de cada componente HTML se ha llevado a cabo dentro de los scripts específicos de cada componente (por ejemplo, la carga y construcción del encabezado se encuentra en header.js).
 Además, para la validación de los formularios, se han incluido funciones responsables de validar individualmente cada campo, así como una función que recorre y valida todos los campos de un formulario, y otra que gestiona la visualización de los mensajes de error. Estas funciones están centralizadas en el archivo /utils/validationForm.js. Por otro lado, en el archivo /service/authservices.js se encuentran todas las funciones relacionadas con la gestión de la sesión, como iniciar y cerrar sesión, entre otras.
