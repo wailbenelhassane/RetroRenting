@@ -35,7 +35,10 @@ RetroRenting es una plataforma para la gestión de alquileres con temática retr
 ## Archivo PDF con Mockups y Storyboard
 - **Nombre del archivo:** `Sprint_1_figma_sketchup_no_color.pdf`  
 - **Nombre del archivo:** `Sprint_1_figma_sketchup_color.pdf`  
+- **Nombre del archivo:** `Sprint_2_figma_mobile.pdf`
+- **Nombre del archivo:** `Sprint_2_figma_tablet.pdf`  
 
+  
 ## Listado de páginas HTML y Mockup que implementan  
 ### 1. **Inicio (`index.html`)**
 - **Mockup Implementado:** [LandingPage] [LandingPage - Tablet] [Landing - Mobile]  
