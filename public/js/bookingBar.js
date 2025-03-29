@@ -1,5 +1,5 @@
 import { fetchJSON } from "./main.js";
-import { validateDate, showErrors } from "./utils/validationForm.js"
+import {validateDate, showErrors, cleanAllInputs, validateAllFieldsForm} from "./utils/validationForm.js"
 import {getUserLogin} from "./services/authService.js";
 
 export async function populateCarSelect() {
@@ -32,8 +32,23 @@ function getBookingData() {
     form.addEventListener("submit", async function (event) {
         event.preventDefault();
 
-        let carElementSelected = document.getElementById("car-selector");
-        const carSelected = carElementSelected.options[carElementSelected.selectedIndex].text;
+        const carElementSelected = document.getElementById("car-selector");
+        let carSelected;
+
+
+        if (carElementSelected && carElementSelected.options && carElementSelected.selectedIndex >= 0) {
+            carSelected = carElementSelected.options[carElementSelected.selectedIndex].text;
+        } else {
+            const carNameElement = document.querySelector(".car-name");
+
+            if (carNameElement) {
+                carSelected = carNameElement.textContent || carNameElement.innerText;
+            } else {
+                carSelected = "No car selected";
+                console.warn("No se encontró el selector de coches ni un elemento con clase car-name");
+            }
+        }
+
         const location = document.getElementById("location-selector").value;
         const pickupDate = document.getElementById("pickup-date-selector").value;
         const returnDate = document.getElementById("return-date-selector").value;
@@ -57,16 +72,11 @@ export function validateForm(){
     document.getElementById("booking-bar-form").addEventListener("submit", function(event) {
         event.preventDefault();
 
-        let pickUpDate = document.getElementById("pickup-date-selector");
-        let returnDate = document.getElementById("return-date-selector");
+        cleanAllInputs("booking-bar-form");
 
-        let errors = [];
+        const errors = validateAllFieldsForm();
 
-        if (!validateDate(pickUpDate.value, returnDate.value)) {
-            errors.push([returnDate, "Return date cannot be before the pick-up date, and the booking date must be today or later."]);
-        }
-
-        showErrors(errors, "booking-bar");
+        showErrors(errors, "booking-bar-container");
 
         if (errors.length > 0) {
             return;

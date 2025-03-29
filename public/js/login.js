@@ -1,5 +1,5 @@
 import {includeHTML, fetchJSON, setMultipleImages} from "./main.js";
-import {validateUsername, validatePassword, showErrors} from "./utils/validationForm.js";
+import {cleanAllInputs, showErrors, validateAllFieldsForm} from "./utils/validationForm.js";
 import {processLogin} from "./services/authService.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
@@ -21,24 +21,18 @@ function validateForm(){
     document.getElementById("login-form").addEventListener("submit", function(event) {
         event.preventDefault();
 
-        let password = document.getElementById("password");
-        let username = document.getElementById("username");
+        cleanAllInputs("login-form");
 
-        let errors = [];
-
-        if (!validateUsername(username.value)) {
-            errors.push([username, "Wrong username format, correct format: minimum 5 characters"])
-        }
-
-        if (!validatePassword(password.value)){
-            errors.push([password, "Wrong password format, correct format: minimum 8 characters!"]);
-        }
+        const errors = validateAllFieldsForm();
 
         showErrors(errors, "login-form");
 
         if (errors.length > 0) {
             return;
         }
+
+        let password = document.getElementById("password");
+        let username = document.getElementById("username");
 
         processLogin({username : username.value, password : password.value}, password);
     });

@@ -8,7 +8,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     await includeHTML();
     await loadHeaderContent();
     await loadCountry();
+    console.log("Holiiws")
     await loadCountryPrefix();
+    console.log("Holiiws")
     await validateForm();
     await loadFooterContent();
 });

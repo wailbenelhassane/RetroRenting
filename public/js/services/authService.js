@@ -13,7 +13,7 @@ export function processLogin(user, passwordInput) {
     }
 
     localStorage.setItem("currentUser", JSON.stringify({ user }));
-    window.location.href = document.referrer;
+    window.location.href = "../views/index.html";
 }
 
 export function processLoginUsername(user, localStorageUser) {
