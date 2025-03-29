@@ -163,11 +163,11 @@ RetroRenting es una plataforma para la gestión de alquileres con temática retr
       * Password: Más de ocho cáracteres y al menos una letra mayúscula.  
       * Confirm Password: Igual que el campo Password.  
 
-    -Login (login.js):  
+    - Login (login.js):
       * Username: Más de cinco cáracteres.  
       * Password: Más de ocho cáracteres y al menos una letra mayúscula.  
 
-    -Booking Bar (booking-bar.js):  
+    - Booking Bar (booking-bar.js):  
       * Location: Solo texto.  
       * Pick Up Date: No puede ser antes que el día actual.  
       * Return Date: No puedes ser antes que el día actual, ni el Pick Up Date.  
