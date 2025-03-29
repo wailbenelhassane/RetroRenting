@@ -1,4 +1,6 @@
 import { fetchJSON } from "./main.js";
+import {validateDate, showErrors, cleanAllInputs, validateAllFieldsForm} from "./utils/validationForm.js"
+import {getUserLogin} from "./services/authService.js";
 
 export async function populateCarSelect() {
     const data = await fetchJSON("../public/data-json/bookingBar.json");
@@ -30,8 +32,23 @@ function getBookingData() {
     form.addEventListener("submit", async function (event) {
         event.preventDefault();
 
-        let carElementSelected = document.getElementById("car-selector");
-        const carSelected = carElementSelected.options[carElementSelected.selectedIndex].text;
+        const carElementSelected = document.getElementById("car-selector");
+        let carSelected;
+
+
+        if (carElementSelected && carElementSelected.options && carElementSelected.selectedIndex >= 0) {
+            carSelected = carElementSelected.options[carElementSelected.selectedIndex].text;
+        } else {
+            const carNameElement = document.querySelector(".car-name");
+
+            if (carNameElement) {
+                carSelected = carNameElement.textContent || carNameElement.innerText;
+            } else {
+                carSelected = "No car selected";
+                console.warn("No se encontró el selector de coches ni un elemento con clase car-name");
+            }
+        }
+
         const location = document.getElementById("location-selector").value;
         const pickupDate = document.getElementById("pickup-date-selector").value;
         const returnDate = document.getElementById("return-date-selector").value;
@@ -48,23 +65,18 @@ function getBookingData() {
 
 function processBooking(data) {
     localStorage.setItem("bookingData", JSON.stringify(data));
-    window.location.href = "../views/car-reservation-confirm.html";
+    window.location.href = "../../views/car-reservation-confirm.html";
 }
 
 export function validateForm(){
     document.getElementById("booking-bar-form").addEventListener("submit", function(event) {
         event.preventDefault();
 
-        let pickUpDate = document.getElementById("pickup-date-selector");
-        let returnDate = document.getElementById("return-date-selector");
+        cleanAllInputs("booking-bar-form");
 
-        let errors = [];
+        const errors = validateAllFieldsForm();
 
-        if (!validateDate(pickUpDate.value, returnDate.value)) {
-            errors.push([returnDate, "Return date cannot be before the pick-up date, and the booking date must be today or later."]);
-        }
-
-        showErrors(errors);
+        showErrors(errors, "booking-bar-container");
 
         if (errors.length > 0) {
             return;
@@ -72,49 +84,9 @@ export function validateForm(){
 
         if (getUserLogin() === null){
             document.getElementById("booking-bar-form").reset();
-            window.location.href = "../views/login.html";
+            window.location.href = "../../views/login.html";
         }
 
         getBookingData();
     });
-}
-
-function validateDate(pickUpDate, returnDate) {
-    let datePickUp = new Date(pickUpDate);
-    let dateReturn = new Date(returnDate)
-
-    const today = new Date();
-    return (datePickUp < dateReturn) && (datePickUp > today) && (dateReturn > today)
-}
-
-function getUserLogin(){
-    let user = localStorage.getItem("currentUser");
-    return user ? JSON.parse(user) : null;
-}
-
-function showErrors(errorList) {
-    let existingErrorContainer = document.getElementById("error-container");
-    if (existingErrorContainer) {
-        existingErrorContainer.remove();
-    }
-
-    if (errorList.length === 0) return;
-
-    let errorContainer = document.createElement("div");
-    errorContainer.id = "error-container";
-
-    let errorListElement = document.createElement("ul");
-
-    errorList.forEach(error => {
-        let listItem = document.createElement("li");
-        listItem.textContent = error[1];
-        error[0].value = "";
-        error[0].style.border = "2px solid red";
-        errorListElement.appendChild(listItem);
-    });
-
-    errorContainer.appendChild(errorListElement);
-
-    let container = document.getElementsByClassName("booking-bar-container");
-    container[0].appendChild(errorContainer);
 }

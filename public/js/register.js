@@ -1,4 +1,6 @@
-import {includeHTML, fetchJSON, setImage, setMultipleImages} from "./main.js";
+import {includeHTML, fetchJSON, setMultipleImages} from "./main.js";
+import {showErrors, cleanAllInputs, validateAllFieldsForm} from "./utils/validationForm.js";
+import {processRegistration} from "./services/authService.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
     await includeHTML();
@@ -15,46 +17,28 @@ async function loadImages() {
     }
 }
 
-function validateForm(){
-    document.getElementById("register-form").addEventListener("submit", function(event) {
+function validateForm() {
+    document.getElementById("register-form").addEventListener("submit", function (event) {
         event.preventDefault();
+
+        cleanAllInputs("register-form");
+
+        const errors = validateAllFieldsForm();
+
+        showErrors(errors, "register-form");
+
+
+        if (errors.length > 0) {
+            return;
+        }
 
         let email = document.getElementById("email");
         let password = document.getElementById("password");
-        let confirmPassword = document.getElementById("confirm-password");
         let name = document.getElementById("name");
         let surname = document.getElementById("surname");
         let username = document.getElementById("username");
 
-        let errors = [];
-
-        if (!validateName(name.value)) {
-            errors.push([name, "Wrong name format, correct format: no numbers, has to start with a capital letter and minimum two characters."]);
-        }
-
-        if (!validateName(surname.value)) {
-            errors.push([surname, "Wrong name format, correct format: no numbers, has to start with a capital letter and minimum two characters."]);
-        }
-
-        if (!validateUsername(username.value)) {
-            errors.push([username, "Wrong username format, correct format: minimum 5 characters."])
-        }
-
-        if (!validateEmail(email.value)){
-            errors.push([email, "Wrong email format, correct format: example@domain.com."]);
-        }
-
-        if (!validatePassword(password.value)){
-            errors.push([password, "Wrong password format, correct format: minimum 8 characters and minimum one capital letter."]);
-        }
-
-        if (!validatePasswordConfirm(password.value, confirmPassword.value)){
-            errors.push([confirmPassword, "Passwords mismatch"]);
-        }
-
-        showErrors(errors);
-
-        if (errors.length > 0) {
+        if (!email || !password || !name || !surname || !username) {
             return;
         }
 
@@ -67,59 +51,4 @@ function validateForm(){
         });
         document.getElementById("register-form").reset();
     });
-}
-
-function validateName(name) {
-    let namePattern = /^[A-ZÁÉÍÓÚÑ][a-záéíóúñ]+(?:\s[A-ZÁÉÍÓÚÑ][a-záéíóúñ]+)*$/;
-    return namePattern.test(name);
-}
-
-function validateEmail(email) {
-    let emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    return emailPattern.test(email);
-}
-
-function validatePassword(password){
-    let passwordPattern = /^(?=.*[A-Z]).{8,}$/;
-    return passwordPattern.test(password);
-}
-
-function validatePasswordConfirm(password, passwordConfirm){
-    return passwordConfirm === password;
-}
-
-function validateUsername(username) {
-    return username.length >= 5;
-}
-
-function showErrors(errorList) {
-    let existingErrorContainer = document.getElementById("error-container");
-    if (existingErrorContainer) {
-        existingErrorContainer.remove();
-    }
-
-    if (errorList.length === 0) return;
-
-    let errorContainer = document.createElement("div");
-    errorContainer.id = "error-container";
-
-    let errorListElement = document.createElement("ul");
-
-    errorList.forEach(error => {
-        let listItem = document.createElement("li");
-        listItem.textContent = error[1];
-        error[0].value = "";
-        error[0].style.border = "2px solid red";
-        errorListElement.appendChild(listItem);
-    });
-
-    errorContainer.appendChild(errorListElement);
-
-    let form = document.getElementById("register-form");
-    form.appendChild(errorContainer);
-}
-
-function processRegistration(user){
-    localStorage.setItem("registeredUser", JSON.stringify({ user }));
-    window.location.href = "../views/login.html";
 }

@@ -1,4 +1,5 @@
 import {fetchJSON} from "./main.js";
+import {getUserLogin} from "./services/authService.js";
 
 export async function loadHeaderContent() {
     const headerData = await fetchJSON("../public/data-json/header.json");
@@ -83,8 +84,8 @@ export async function loadHeaderContent() {
             }
         }
 
-        displayLoginSignUpOptions();
         setupMobileNavigation();
+        displayLoginSignUpOptions()
     } else {
         console.error("No navigation data found.");
     }
@@ -119,17 +120,21 @@ function setupMobileNavigation() {
     }
 }
 
-function getUserLogin(){
-    let user = localStorage.getItem("currentUser");
-    return user ? JSON.parse(user) : null;
-}
-
-function displayLoginSignUpOptions(){
+function displayLoginSignUpOptions() {
     let user = getUserLogin();
     if (user !== null) {
         user = user.user;
+
         let authLinks = document.getElementsByClassName("auth-link");
-        Array.from(authLinks).forEach(link => {link.style.display = 'none';});
+        Array.from(authLinks).forEach(link => {
+            link.style.display = 'none';
+        });
+
+        let authMobile = document.getElementsByClassName("auth-mobile");
+        Array.from(authMobile).forEach(link => {
+            link.style.display = 'none';
+        })
+
         let welcomeMessage = document.createElement('p');
         welcomeMessage.textContent = `Welcome ${user.username}`;
         welcomeMessage.style.color = 'white';
@@ -152,12 +157,33 @@ function displayLoginSignUpOptions(){
             window.location.reload();
         });
 
-        let authLinksContainer = document.getElementsByClassName("auth-links")[0];
+        let authLinksContainer = document.querySelector(".auth-links");
         if (authLinksContainer) {
-            authLinksContainer.appendChild(welcomeMessage);
-            authLinksContainer.appendChild(logoutButton);
+            authLinksContainer.appendChild(welcomeMessage.cloneNode(true));
+            authLinksContainer.appendChild(logoutButton.cloneNode(true));
         } else {
             console.warn("Elemento con clase 'auth-links' no encontrado.");
+        }
+
+        let mobileMenu = document.querySelector(".mobile-navigation-menu");
+        if (mobileMenu) {
+            let welcomeLi = document.createElement('li');
+            welcomeLi.className = 'mobile-navigation-item';
+            let welcomeText = document.createElement('p');
+            welcomeText.textContent = `Welcome ${user.username}`;
+            welcomeText.style.color = 'white';
+            welcomeText.style.fontFamily = 'Roboto, sans-serif';
+            welcomeText.style.fontSize = '1.2rem';
+
+            let logoutBtn = logoutButton.cloneNode(true);
+            logoutBtn.addEventListener('click', () => {
+                localStorage.removeItem("currentUser");
+                window.location.reload();
+            });
+
+            welcomeLi.appendChild(welcomeText);
+            welcomeLi.appendChild(logoutBtn);
+            mobileMenu.insertBefore(welcomeLi, mobileMenu.firstChild);
         }
     }
 }

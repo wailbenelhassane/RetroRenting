@@ -134,6 +134,27 @@ $box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
   }
 }
 
+#error-container {
+  color: red;
+  font-size: 14px;
+  font-family: variables.$font-family;
+  padding: 10px;
+  border: 1px solid red;
+  border-radius: 5px;
+
+  ul {
+    padding-left: 20px;
+  }
+}
+
+:valid {
+  border-color: green;
+}
+
+:invalid {
+  border-color: red;
+}
+
 @media (max-width: variables.$tablet-breakpoint) and (min-width: variables.$mobile-breakpoint + 1px) {
   .booking-bar-container {
     margin-top: 3%;
@@ -170,27 +191,6 @@ $box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
       }
     }
   }
-}
-
-#error-container {
-  color: red;
-  font-size: 14px;
-  font-family: variables.$font-family;
-  padding: 10px;
-  border: 1px solid red;
-  border-radius: 5px;
-
-  ul {
-    padding-left: 20px;
-  }
-}
-
-:valid {
-  border-color: green;
-}
-
-:invalid {
-  border-color: red;
 }
 
 @media (max-width: variables.$mobile-breakpoint) {

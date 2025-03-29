@@ -38,7 +38,7 @@
 }
 
 .team-image.active {
- display:flex;
+  display:flex;
 }
 
 @media (max-width: variables.$tablet-breakpoint){
@@ -46,4 +46,3 @@
     width: 80%;
   }
 }
-

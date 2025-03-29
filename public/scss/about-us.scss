@@ -45,12 +45,12 @@ body {
   color: $text-color;
   width: 20%;
   font-family: $font-family;
-  @media(max-width:$tablet-breakpoint) { font-size: 25px;}
+  @media(max-width:$tablet-breakpoint) { font-size: 1.125rem;}
 }
 
 .our-team-title {
   text-align: center;
   margin-top: 10vh;
   font-family: $font-family;
-  @media(max-width:$tablet-breakpoint) { font-size: 35px;}
+  @media(max-width:$tablet-breakpoint) { font-size: 1.75rem;}
 }
