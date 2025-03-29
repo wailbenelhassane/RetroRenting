@@ -38,42 +38,42 @@ RetroRenting es una plataforma para la gestión de alquileres con temática retr
 
 ## Listado de páginas HTML y Mockup que implementan  
 ### 1. **Inicio (`index.html`)**
-- **Mockup Implementado:** [LandingPage]  
+- **Mockup Implementado:** [LandingPage] [LandingPage - Tablet] [Landing - Mobile]  
 
 ---
 
 ### 2. **Cátalogo (`catalog.html`)**
-- **Mockup Implementado:** [Catalog]  
+- **Mockup Implementado:** [Catalog] [Catalog - Tablet] [Catalog - Mobile]  
   
 ---
 
 ### 3. **Sobre nosotros (`about-us.html`)**
-- **Mockup Implementado:** [About Us]  
+- **Mockup Implementado:** [About Us] [About Us - Tablet] [About Us - Mobile]  
   
 ---
 
 ### 4. **Login (`login.html`)**
-- **Mockup Implementado:** [Login]  
+- **Mockup Implementado:** [Login] [Login - Tablet] [Login - Mobile]  
   
 ---
 
 ### 5. **Register (`register.html`)**
-- **Mockup Implementado:** [Register]  
+- **Mockup Implementado:** [Register] [Register - Tablet] [Register - Mobile]  
   
 ---
 
 ### 6. **Página del coche (`car-page.html`)**
-- **Mockup Implementado:** [Car Page]  
+- **Mockup Implementado:** [Car Page] [Car Page - Tablet] [Car Page - Mobile]  
   
 ---
 
 ### 7. **Datos de la reserva (`car-reservation-information.html`)**
-- **Mockup Implementado:** [Car Reservation Information]  
+- **Mockup Implementado:** [Car Reservation Information] [Car Reservation Information - Tablet] [Car Reservation Information - Mobile]  
   
 ---
 
 ### 8. **Confirmación de la reserva (`car-reservation-confirmation.html`)**
-- **Mockup Implementado:** [Car Reservation Confirmation]  
+- **Mockup Implementado:** [Car Reservation Confirmation] [Car Reservation Confirmation - Tablet] [Car Reservation Confirmation - Mobile]  
   
 ---
 
@@ -125,17 +125,51 @@ RetroRenting es una plataforma para la gestión de alquileres con temática retr
 - **Template Integrado en:** bar-car-details-booking.html  
 
 ### 16. **Bar Car Details Booking (`bar-car-details-booking.html`)**
-- **Template Integrado en:** car-page.html  
-  
+- **Template Integrado en:** car-page.html
+
 ## Otros Aspectos a Considerar en la Evaluación
 
 - **Implementaciones con JavaScript:**  
   Se han desarrollado tareas interactivas y funcionalidades clave utilizando JavaScript:  
-    - Script encargado de cargar los templeates de HTML con su archivo CSS correspondiente.
-    - Script encargado de cargar las imágenes mediante un JSON.
-    - Script encargado de cargar contenido de información mediante un JSON.
+    - Script encargado de cargar los templates de HTML con su archivo CSS correspondiente.
     - Script encargado de realizar sugerencias en la barra de localización (booking-bar.html) -> implementación mediante console.log().
-    - Script encargado de realizar un carrusel de imágenes.  
+    - Script encargado de realizar un carrusel de imágenes.
+
+- **Se ha desarrollado la carga dinámica de componentes mediante la inyección de JSON:**
+    - Header.
+    - Footer.
+    - Car Catalog.
+    - Booking Bar.
+    - Reviews.
+    - Car Reservation Confirm.
+    - Car Viewer.
+    - Car Details.
+    - Login.
+    - Register.
+    - Side Text.
+    - Center Text.
+    - Country Selector.
+  
+- **Se ha desarrollado la validación de los siguientes formularios: (/public/js/utils/validationForm.js)**
+    - Register (register.js):  
+      * Name: Mínimo dos cáracteres y primera letra mayúscula.  
+      * Surname: : Mínimo dos cáracteres y primera letra mayúscula.  
+      * Email: Formato email: nombre@dominio.com.  
+      * Username: Más de cinco cáracteres.  
+      * Password: Más de ocho cáracteres y al menos una letra mayúscula.  
+      * Confirm Password: Igual que el campo Password.  
+
+    -Login (login.js):  
+      * Username: Más de cinco cáracteres.  
+      * Password: Más de ocho cáracteres y al menos una letra mayúscula.  
+
+    -Booking Bar (booking-bar.js):  
+      * Location: Solo texto.  
+      * Pick Up Date: No puede ser antes que el día actual.  
+      * Return Date: No puedes ser antes que el día actual, ni el Pick Up Date.  
+
+    - Main Driver Information (mainDriverInformation.js): 
+  
 
 - **Organización de las Hojas de Estilo:**  
   Para la correcta gestión de las hojas de estilo se ha utilizado SASS.  

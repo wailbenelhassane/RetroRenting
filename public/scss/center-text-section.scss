@@ -24,7 +24,7 @@
   }
 }
 
-@media (max-width: 1025px) {
+@media (max-width: $tablet-breakpoint) {
   .center-text-section-container {
     font-size: 25px;
   }

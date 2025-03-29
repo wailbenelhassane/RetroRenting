@@ -178,7 +178,7 @@ body {
 
 @media (max-width: 480px) {
   .aside-image {
-    display: none; // Oculta la imagen en móvil
+    display: none;
   }
 
   .register-container {
@@ -204,16 +204,16 @@ body {
   }
 
   .register-header {
-    text-align: center; // Centra los textos
+    text-align: center;
     width: 100%;
     h1 {
-      font-size: 2.5rem; // Reduce el tamaño del título en móviles
+      font-size: 2.5rem;
     }
   }
 
   .register-form {
-    width: 100%; // Usa todo el ancho disponible
-    padding: 0 5vw; // Agrega espaciado lateral
+    width: 100%;
+    padding: 0 5vw;
   }
 
   .register-form input {
@@ -229,7 +229,7 @@ body {
   }
 
   #sign-in-link {
-    text-align: center; // Centra el texto de inicio de sesión
+    text-align: center;
     margin-top: 2vh;
   }
 
@@ -283,7 +283,7 @@ body {
   }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: $tablet-breakpoint) {
   .aside-image {
     width: 100%;
   }
@@ -311,16 +311,16 @@ body {
   }
 
   .register-header {
-    text-align: center; // Centra los textos
+    text-align: center;
     width: 100%;
     h1 {
-      font-size: 2.5rem; // Reduce el tamaño del título en móviles
+      font-size: 2.5rem;
     }
   }
 
   .register-form {
-    width: 100%; // Usa todo el ancho disponible
-    padding: 0 5vw; // Agrega espaciado lateral
+    width: 100%;
+    padding: 0 5vw;
   }
 
   .register-form input {
@@ -336,7 +336,7 @@ body {
   }
 
   #sign-in-link {
-    text-align: center; // Centra el texto de inicio de sesión
+    text-align: center;
     margin-top: 2vh;
   }
 

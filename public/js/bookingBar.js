@@ -65,7 +65,7 @@ function getBookingData() {
 
 function processBooking(data) {
     localStorage.setItem("bookingData", JSON.stringify(data));
-    window.location.href = "../views/car-reservation-confirm.html";
+    window.location.href = "../../views/car-reservation-confirm.html";
 }
 
 export function validateForm(){
@@ -84,7 +84,7 @@ export function validateForm(){
 
         if (getUserLogin() === null){
             document.getElementById("booking-bar-form").reset();
-            window.location.href = "../views/login.html";
+            window.location.href = "../../views/login.html";
         }
 
         getBookingData();

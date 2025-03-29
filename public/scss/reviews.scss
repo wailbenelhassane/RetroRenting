@@ -64,7 +64,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: $mobile-breakpoint) {
   .container{
     font-size: 25px;
   }
