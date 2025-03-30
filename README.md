@@ -143,8 +143,7 @@ RetroRenting es una plataforma para la gestión de alquileres con temática retr
     - Footer.
     - Car Catalog.
     - Booking Bar.
-    - Reviews.
-    - Car Reservation Confirm.
+    - Reviews.  
     - Car Viewer.
     - Car Details.
     - Login.
