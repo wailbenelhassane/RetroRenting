@@ -37,9 +37,9 @@
     margin-top: 10px;
   }
   .side-text-section-container .side-text-section-text {
-    width: 48%;
+    width: 47%;
     padding-left: 2vh;
-    font-size: 25px;
+    font-size: 1.125rem;
     text-align: center;
   }
   .side-text-section-container .side-text-section-image {
@@ -52,7 +52,7 @@
     flex-direction: column-reverse;
   }
   .side-text-section-container .side-text-section-text {
-    font-size: 25px;
+    font-size: 1.125rem;
     width: 80%;
   }
   .side-text-section-container .side-text-section-text h2 {

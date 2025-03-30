@@ -40,7 +40,7 @@ body .content {
 }
 @media (max-width: 1025px) {
   .general-button {
-    font-size: 25px;
+    font-size: 1.125rem;
   }
 }
 
@@ -51,7 +51,7 @@ body .content {
 }
 @media (max-width: 1025px) {
   .our-team-title {
-    font-size: 35px;
+    font-size: 1.75rem;
   }
 }
 

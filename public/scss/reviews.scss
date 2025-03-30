@@ -46,12 +46,12 @@
 
 .stars {
   color: gold;
-  font-size: 22px;
+  font-size: 1.375rem;
 }
 
 @media (max-width: variables.$tablet-breakpoint) and (min-width: variables.$mobile-breakpoint+1) {
   .container{
-    font-size: 25px;
+    font-size: 1.125rem;
   }
   .card {
     width: 30vw;
@@ -64,9 +64,9 @@
   }
 }
 
-@media (max-width: $mobile-breakpoint) {
+@media (max-width: variables.$mobile-breakpoint) {
   .container{
-    font-size: 25px;
+    font-size: 1.125rem;
   }
 
   .reviews {

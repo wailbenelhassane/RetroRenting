@@ -35,7 +35,10 @@ RetroRenting es una plataforma para la gestión de alquileres con temática retr
 ## Archivo PDF con Mockups y Storyboard
 - **Nombre del archivo:** `Sprint_1_figma_sketchup_no_color.pdf`  
 - **Nombre del archivo:** `Sprint_1_figma_sketchup_color.pdf`  
+- **Nombre del archivo:** `Sprint_2_figma_mobile.pdf`
+- **Nombre del archivo:** `Sprint_2_figma_tablet.pdf`  
 
+  
 ## Listado de páginas HTML y Mockup que implementan  
 ### 1. **Inicio (`index.html`)**
 - **Mockup Implementado:** [LandingPage] [LandingPage - Tablet] [Landing - Mobile]  
@@ -148,7 +151,8 @@ RetroRenting es una plataforma para la gestión de alquileres con temática retr
     - Register.
     - Side Text.
     - Center Text.
-    - Country Selector.
+    - Country Selector.  
+    - Además de cargar dinámicamente todas las imágenes.
   
 - **Se ha desarrollado la validación de los siguientes formularios: (/public/js/utils/validationForm.js)**
     - Register (register.js):  
@@ -159,23 +163,32 @@ RetroRenting es una plataforma para la gestión de alquileres con temática retr
       * Password: Más de ocho cáracteres y al menos una letra mayúscula.  
       * Confirm Password: Igual que el campo Password.  
 
-    -Login (login.js):  
+    - Login (login.js):
       * Username: Más de cinco cáracteres.  
       * Password: Más de ocho cáracteres y al menos una letra mayúscula.  
 
-    -Booking Bar (booking-bar.js):  
+    - Booking Bar (booking-bar.js):  
       * Location: Solo texto.  
       * Pick Up Date: No puede ser antes que el día actual.  
       * Return Date: No puedes ser antes que el día actual, ni el Pick Up Date.  
 
-    - Main Driver Information (mainDriverInformation.js): 
+    - Main Driver Information (mainDriverInformation.js):
+      * Name: Mínimo dos cáracteres y primera letra mayúscula.  
+      * Surname: : Mínimo dos cáracteres y primera letra mayúscula.  
+      * Email: Formato email: nombre@dominio.com.  
+      * Phone: Sólo números con longitud de minimo nueve y máximo quince dígitos.
   
 
 - **Organización de las Hojas de Estilo:**  
   Para la correcta gestión de las hojas de estilo se ha utilizado SASS.  
 
-- **Buenas Prácticas y Convención de Código:**  
-  Se ha mantenido una estructura coherente para facilitar la comprensión y futuras mejoras.
+- **Distribución del código JavaScript:**  
+Para el código JavaScript, se ha optado por distribuir las funciones entre los diferentes componentes que las requieren, siendo invocadas finalmente desde la vista que incorpora dichos componentes.
+Con el objetivo de lograr una carga dinámica de los componentes a partir de un archivo JSON, permitiendo así una personalización máxima del contenido, se han implementado varias funciones básicas ubicadas en el archivo main.js, entre ellas fetchJSON y setMultiplesImages. La creación completa de cada componente HTML se ha llevado a cabo dentro de los scripts específicos de cada componente (por ejemplo, la carga y construcción del encabezado se encuentra en header.js).
+Además, para la validación de los formularios, se han incluido funciones responsables de validar individualmente cada campo, así como una función que recorre y valida todos los campos de un formulario, y otra que gestiona la visualización de los mensajes de error. Estas funciones están centralizadas en el archivo /utils/validationForm.js. Por otro lado, en el archivo /service/authservices.js se encuentran todas las funciones relacionadas con la gestión de la sesión, como iniciar y cerrar sesión, entre otras.
+
+      
+  
   
 - **Elección del estilo:**  
   Para la realización del diseño y de la consecuente implementación hemos decidido elegir una gama de colores elegante y seria, puesto que se ha buscado evocar la seriedad y elegancia que los coches retro transmiten.  
