@@ -45,18 +45,18 @@ export const fieldsConfig = [
         ]
     },
     {
-        id: "location-selector",
+        id: "location",
         validator: validateLocation,
         errorMessage: "Wrong location format, correct format: no numbers or special symbols.",
-        getValue: () => document.getElementById("location-selector")?.value,
+        getValue: () => document.getElementById("location")?.value,
     },
     {
-        id: ["pickup-date-selector", "return-date-selector"],
+        id: ["pickup-date", "return-date"],
         validator: validateDate,
         errorMessage: "The pick-up date must be before return date and both must be in the future.",
         getValue: () => [
-            document.getElementById("pickup-date-selector")?.value,
-            document.getElementById("return-date-selector")?.value
+            document.getElementById("pickup-date")?.value,
+            document.getElementById("return-date")?.value
         ]
     }
 ];
