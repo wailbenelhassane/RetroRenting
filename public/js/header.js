@@ -123,7 +123,6 @@ function setupMobileNavigation() {
 function displayLoginSignUpOptions() {
     let user = getUserLogin();
     if (user !== null) {
-        user = user.user;
 
         let authLinks = document.getElementsByClassName("auth-link");
         Array.from(authLinks).forEach(link => {
