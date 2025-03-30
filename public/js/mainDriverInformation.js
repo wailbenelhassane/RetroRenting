@@ -52,13 +52,13 @@ export function validateForm(){
         }
 
         if (getUserLogin() === null){
-            document.getElementById("booking-bar-form").reset();
-            window.location.href = "../../views/login.html";
+            document.getElementById("main-driver-form").reset();
+            window.location.href = "../views/login.html";
         }
 
         alert("Booking done!");
 
-        window.location.href = "../../views/index.html";
+        window.location.href = "../views/index.html";
     });
 }
 
