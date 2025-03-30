@@ -1,5 +1,6 @@
 import { fetchJSON } from "./main.js";
 import { showErrors, cleanAllInputs, validateAllFieldsForm } from "./utils/validationForm.js";
+import { getUserLogin } from "./services/authService.js";
 
 export async function loadCountry() {
     const data = await fetchJSON("../public/data-json/countrySelector.json");
@@ -54,15 +55,11 @@ export function validateForm(){
         if (getUserLogin() === null){
             document.getElementById("main-driver-form").reset();
             window.location.href = "../views/login.html";
+            return;
         }
 
         alert("Booking done!");
 
         window.location.href = "../views/index.html";
     });
-}
-
-function getUserLogin(){
-    let user = localStorage.getItem("currentUser");
-    return user ? JSON.parse(user) : null;
 }
