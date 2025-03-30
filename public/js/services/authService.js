@@ -33,3 +33,8 @@ export function getUserLogin(){
     let user = localStorage.getItem("currentUser");
     return user ? JSON.parse(user) : null;
 }
+
+export function logout() {
+    localStorage.removeItem("currentUser");
+    window.location.reload();
+}

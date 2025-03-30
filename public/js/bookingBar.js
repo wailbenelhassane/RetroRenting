@@ -1,5 +1,5 @@
 import { fetchJSON } from "./main.js";
-import {validateDate, showErrors, cleanAllInputs, validateAllFieldsForm} from "./utils/validationForm.js"
+import {showErrors, cleanAllInputs, validateAllFieldsForm} from "./utils/validationForm.js"
 import {getUserLogin} from "./services/authService.js";
 
 export async function populateCarSelect() {
@@ -49,9 +49,9 @@ function getBookingData() {
             }
         }
 
-        const location = document.getElementById("location-selector").value;
-        const pickupDate = document.getElementById("pickup-date-selector").value;
-        const returnDate = document.getElementById("return-date-selector").value;
+        const location = document.getElementById("location").value;
+        const pickupDate = document.getElementById("pickup-date").value;
+        const returnDate = document.getElementById("return-date").value;
 
         const formattedDate = `${pickupDate} - ${returnDate}`;
 
@@ -64,8 +64,8 @@ function getBookingData() {
 }
 
 function processBooking(data) {
-    localStorage.setItem("bookingData", JSON.stringify(data));
-    window.location.href = "../../views/car-reservation-confirm.html";
+    localStorage.setItem("bookingData", JSON.stringify(data)); 
+    window.location.href = "../views/car-reservation-confirm.html";
 }
 
 export function validateForm(){
@@ -76,7 +76,7 @@ export function validateForm(){
 
         const errors = validateAllFieldsForm();
 
-        showErrors(errors, "booking-bar-container");
+        showErrors(errors, "error-section");
 
         if (errors.length > 0) {
             return;
@@ -84,7 +84,7 @@ export function validateForm(){
 
         if (getUserLogin() === null){
             document.getElementById("booking-bar-form").reset();
-            window.location.href = "../../views/login.html";
+            window.location.href = "../views/login.html";
         }
 
         getBookingData();

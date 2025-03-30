@@ -1,12 +1,5 @@
 import { fetchJSON } from "./main.js";
-import {
-    validateName,
-    validateEmail,
-    validatePhone,
-    showErrors,
-    cleanAllInputs,
-    validateAllFieldsForm
-} from "./utils/validationForm.js";
+import { showErrors, cleanAllInputs, validateAllFieldsForm } from "./utils/validationForm.js";
 
 export async function loadCountry() {
     const data = await fetchJSON("../public/data-json/countrySelector.json");

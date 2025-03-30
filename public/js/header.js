@@ -1,5 +1,5 @@
-import {fetchJSON} from "./main.js";
-import {getUserLogin} from "./services/authService.js";
+import { fetchJSON } from "./main.js";
+import {getUserLogin, logout} from "./services/authService.js";
 
 export async function loadHeaderContent() {
     const headerData = await fetchJSON("../public/data-json/header.json");
@@ -133,7 +133,7 @@ function displayLoginSignUpOptions() {
         let authMobile = document.getElementsByClassName("auth-mobile");
         Array.from(authMobile).forEach(link => {
             link.style.display = 'none';
-        })
+        });
 
         let welcomeMessage = document.createElement('p');
         welcomeMessage.textContent = `Welcome ${user.username}`;
@@ -153,16 +153,13 @@ function displayLoginSignUpOptions() {
         logoutButton.style.marginLeft = '10px';
 
         logoutButton.addEventListener('click', () => {
-            localStorage.removeItem("currentUser");
-            window.location.reload();
+            logout();
         });
 
         let authLinksContainer = document.querySelector(".auth-links");
         if (authLinksContainer) {
-            authLinksContainer.appendChild(welcomeMessage.cloneNode(true));
-            authLinksContainer.appendChild(logoutButton.cloneNode(true));
-        } else {
-            console.warn("Elemento con clase 'auth-links' no encontrado.");
+            authLinksContainer.appendChild(welcomeMessage);
+            authLinksContainer.appendChild(logoutButton);
         }
 
         let mobileMenu = document.querySelector(".mobile-navigation-menu");

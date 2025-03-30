@@ -1,6 +1,6 @@
-import {includeHTML, fetchJSON, setMultipleImages} from "./main.js";
-import {showErrors, cleanAllInputs, validateAllFieldsForm} from "./utils/validationForm.js";
-import {processRegistration} from "./services/authService.js";
+import { includeHTML, fetchJSON, setMultipleImages } from "./main.js";
+import { showErrors, cleanAllInputs, validateAllFieldsForm } from "./utils/validationForm.js";
+import { processRegistration } from "./services/authService.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
     await includeHTML();

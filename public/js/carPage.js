@@ -4,7 +4,7 @@ import { loadCarViewer} from "./carViewer.js";
 import { loadCarDetails, loadDetailsBar } from "./carDetails.js";
 import { barCarDetails } from "./barCarDetailsBooking.js";
 import { validateForm } from "./bookingBar.js";
-import {loadFooterContent} from "./footer.js";
+import { loadFooterContent } from "./footer.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
     await includeHTML();
