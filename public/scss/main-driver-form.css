@@ -126,7 +126,7 @@ footer {
     box-sizing: border-box;
     margin: 0;
   }
-  .main-driver-form-container {
+  #main-driver-form-container {
     background-color: #1F1F1F;
     padding: 4vh;
     border-radius: 5px;
@@ -223,12 +223,12 @@ footer {
     bottom: 0;
   }
 }
-@media (min-width: 480px) and (max-width: 1024px) {
+@media (min-width: 480px) and (max-width: 1025px) {
   * {
     box-sizing: border-box;
     margin: 0;
   }
-  .main-driver-form-container {
+  #main-driver-form-container {
     background-color: #1F1F1F;
     padding: 4vh;
     border-radius: 5px;

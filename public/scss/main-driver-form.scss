@@ -167,7 +167,7 @@ footer {
     margin: 0;
   }
 
-  .main-driver-form-container {
+  #main-driver-form-container {
     background-color: variables.$dark-gray;
     padding: 4vh;
     border-radius: $border-radius;
@@ -277,7 +277,7 @@ footer {
     bottom: 0;
   }
 }
-@media (min-width: 480px) and (max-width: $tablet-breakpoint) {
+@media (min-width: 480px) and (max-width: variables.$tablet-breakpoint) {
   @mixin flex-center($direction: row) {
     display: flex;
     justify-content: center;
@@ -290,7 +290,7 @@ footer {
     margin: 0;
   }
 
-  .main-driver-form-container {
+  #main-driver-form-container {
     background-color: variables.$dark-gray;
     padding: 4vh;
     border-radius: $border-radius;
