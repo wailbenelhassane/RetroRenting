@@ -1,0 +1,42 @@
+<nav class="main-nav" aria-label="Main Navigation">
+  <div class="logo-container">
+    <a routerLink=" ">
+      <img class="logo-image" [src]="headerData?.logo?.src" [alt]="headerData?.logo?.alt"/>
+    </a>
+  </div>
+
+  <ul class="navigation-menu">
+    <li class="navigation-item" *ngFor="let item of headerData?.mainMenu">
+      <a [href]="item.url">{{item.title}}</a>
+    </li>
+  </ul>
+
+  <div class="auth-links">
+    <ng-container *ngFor="let item of headerData?.authLinks; let i = index">
+      <a class="auth-link" [href]="item.url">{{item.title}}</a>
+      <span class="auth-link" *ngIf="i < headerData?.authLinks.length - 1">/</span>
+    </ng-container>
+  </div>
+
+  <div class="mobile-nav-toggle">
+    <div class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+
+  <div class="mobile-nav">
+    <ul class="mobile-navigation-menu">
+      <li class="mobile-navigation-item auth-mobile">
+        <ng-container *ngFor="let item of headerData?.authLinks; let i = index">
+          <a [href]="item.url">{{item.title}}</a>
+          <span *ngIf="i < headerData?.authLinks.length - 1">/</span>
+        </ng-container>
+      </li>
+      <li class="mobile-navigation-item" *ngFor="let item of headerData?.mainMenu">
+        <a [href]="item.url">{{item.title}}</a>
+      </li>
+    </ul>
+  </div>
+</nav>

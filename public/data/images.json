@@ -1,0 +1,83 @@
+{
+  "images": {
+    "70": {
+      "chevrolet-camaro-70": {
+        "principal": "/RetroRenting/public/img/cars/70/chevrolet-camaro-70/full-frontal.jpg",
+        "secondary": [
+          "/RetroRenting/public/img/cars/70/chevrolet-camaro-70/full-back.jpg",
+          "/RetroRenting/public/img/cars/70/chevrolet-camaro-70/rotated-frontal.jpg",
+          "/RetroRenting/public/img/cars/70/chevrolet-camaro-70/side-profile.jpg"
+        ]
+      },
+      "ford-mustang-70": {
+        "principal": "/RetroRenting/public/img/cars/70/ford-mustang-70/full-frontal.jpg",
+        "secondary": [
+          "/RetroRenting/public/img/cars/70/ford-mustang-70/full-back.jpg",
+          "/RetroRenting/public/img/cars/70/ford-mustang-70/rotated-frontal.jpg",
+          "/RetroRenting/public/img/cars/70/ford-mustang-70/side-profile.jpg"
+        ]
+      },
+      "jaguar-e-type-70": {
+        "principal": "/RetroRenting/public/img/cars/70/jaguar-e-type-70/full-frontal.jpg",
+        "secondary": [
+          "/RetroRenting/public/img/cars/70/jaguar-e-type-70/full-back.jpg",
+          "/RetroRenting/public/img/cars/70/jaguar-e-type-70/rotated-frontal.jpg",
+          "/RetroRenting/public/img/cars/70/jaguar-e-type-70/side-profile.jpg"
+        ]
+      }
+    },
+    "80": {
+      "bmw-sedan-series-6-80": {
+        "principal": "/RetroRenting/public/img/cars/80/bmw-sedan-series-6-80/full-frontal.jpg",
+        "secondary": [
+          "/RetroRenting/public/img/cars/80/bmw-sedan-series-6-80/full-back.jpg",
+          "/RetroRenting/public/img/cars/80/bmw-sedan-series-6-80/rotated-frontal.jpg",
+          "/RetroRenting/public/img/cars/80/bmw-sedan-series-6-80/side-profile.jpg"
+        ]
+      },
+      "mercedes-benz-500-80": {
+        "principal": "/RetroRenting/public/img/cars/80/mercedes-benz-500-sec/full-frontal.jpg",
+        "secondary": [
+          "/RetroRenting/public/img/cars/80/mercedes-benz-500-sec/full-back.jpg",
+          "/RetroRenting/public/img/cars/80/mercedes-benz-500-sec/rotated-frontal.jpg",
+          "/RetroRenting/public/img/cars/80/mercedes-benz-500-sec/side-profile.jpg"
+        ]
+      },
+      "spider-veloce-2dr-80": {
+        "principal": "/RetroRenting/public/img/cars/80/spider-veloce-2DR-80/full-frontal.jpg",
+        "secondary": [
+          "/RetroRenting/public/img/cars/80/spider-veloce-2DR-80/full-back.jpg",
+          "/RetroRenting/public/img/cars/80/spider-veloce-2DR-80/rotated-frontal.jpg",
+          "/RetroRenting/public/img/cars/80/spider-veloce-2DR-80/side-profile.jpg"
+        ]
+      }
+    },
+    "90": {
+      "acura-nsx2dr-90": {
+        "principal": "/RetroRenting/public/img/cars/90/acura-nsx2dr-90/full-frontal.jpg",
+        "secondary": [
+          "/RetroRenting/public/img/cars/90/acura-nsx2dr-90/full-back.jpg",
+          "/RetroRenting/public/img/cars/90/acura-nsx2dr-90/rotated-frontal.jpg",
+          "/RetroRenting/public/img/cars/90/acura-nsx2dr-90/side-profile.jpg"
+        ]
+      },
+      "ferrari-mondial-90": {
+        "principal": "/RetroRenting/public/img/cars/90/ferrari-mondial-90/full-frontal.jpg",
+        "secondary": [
+          "/RetroRenting/public/img/cars/90/ferrari-mondial-90/full-back.jpg",
+          "/RetroRenting/public/img/cars/90/ferrari-mondial-90/rotated-frontal.jpg",
+          "/RetroRenting/public/img/cars/90/ferrari-mondial-90/side-profile.jpg"
+        ]
+      },
+      "porsche-911-speedster-90": {
+        "principal": "/RetroRenting/public/img/cars/90/porsche-911-speedster-90/full-frontal.jpg",
+        "secondary": [
+          "/RetroRenting/public/img/cars/90/porsche-911-speedster-90/full-back.jpg",
+          "/RetroRenting/public/img/cars/90/porsche-911-speedster-90/rotated-frontal.jpg",
+          "/RetroRenting/public/img/cars/90/porsche-911-speedster-90/side-profile.jpg"
+        ]
+      }
+    }
+  }
+}
+
