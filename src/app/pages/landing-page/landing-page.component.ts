@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {HeaderComponent} from '../../components/header/header.component';
 import {CarCatalogComponent} from '../../components/car-catalog/car-catalog.component';
 import {BookingBarComponent} from '../../components/booking-bar/booking-bar.component';
+import {FooterComponent} from '../../components/footer/footer.component';
 
 
 @Component({
@@ -10,7 +11,8 @@ import {BookingBarComponent} from '../../components/booking-bar/booking-bar.comp
   imports: [
     HeaderComponent,
     CarCatalogComponent,
-    BookingBarComponent
+    BookingBarComponent,
+    FooterComponent
   ],
   templateUrl: './landing-page.component.html',
   styleUrls: ['./landing-page.component.scss']
