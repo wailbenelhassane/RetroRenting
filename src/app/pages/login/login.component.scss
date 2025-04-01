@@ -1,0 +1,213 @@
+.aside-image {
+  float: left;
+  width: 50%;
+}
+.aside-image img {
+  width: 100%;
+  height: 101vh;
+  object-fit: cover;
+}
+
+.login-container {
+  width: 50%;
+  color: #FFFFFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 5%;
+}
+.login-container .login-logo img {
+  width: 10vw;
+  height: 20vh;
+}
+.login-container .login-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1vh;
+  margin-bottom: 1vh;
+}
+.login-container .login-header h1 {
+  font-size: 4rem;
+  font-family: "Roboto", sans-serif;
+}
+.login-container #back-link {
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: #FFFFFF;
+  text-decoration: none;
+  margin-bottom: 1vh;
+}
+.login-container .login-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.login-container .login-form label {
+  margin-top: 1vh;
+  font-size: 1rem;
+  font-family: "Roboto", sans-serif;
+}
+.login-container .login-form input {
+  width: 35.14vw;
+  height: 6.2vh;
+  font-size: 1rem;
+  padding: 1vh 2vh;
+  border: 1px solid #ccc;
+  border-radius: 3vh;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  margin-top: 1vh;
+  margin-bottom: 2vh;
+}
+.login-container .login-form input:focus {
+  outline: none;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  border: 1px solid #ccc;
+}
+.login-container .login-form button {
+  width: 15vw;
+  height: 7vh;
+  background-color: #9a7006;
+  font-size: 20px;
+  font-weight: bold;
+  color: #FFFFFF;
+  font-family: "Roboto", sans-serif;
+  border: none;
+  cursor: pointer;
+  border-radius: 1vh;
+  padding: 10px 15px;
+  margin-top: 2vh;
+  margin-bottom: 3vh;
+}
+.login-container .login-form button:hover {
+  background-color: #8B6508;
+}
+.login-container .login-links {
+  color: #FFFFFF;
+  font-size: 1.2rem;
+  font-family: "Roboto", sans-serif;
+  margin-top: 2vh;
+}
+.login-container .login-links #sign-up-btn {
+  text-decoration: none;
+  color: #FFFFFF;
+  font-weight: bold;
+}
+.login-container .login-links #reemail-btn {
+  text-decoration: none;
+  color: #FFFFFF;
+  font-weight: bold;
+}
+
+#error-container {
+  color: red;
+  font-size: 14px;
+  font-family: "Roboto", sans-serif;
+  margin-top: 15px;
+  padding: 10px;
+  border: 1px solid red;
+  border-radius: 5px;
+}
+#error-container ul {
+  padding-left: 20px;
+}
+
+:valid {
+  border-color: green;
+}
+
+:invalid {
+  border-color: red;
+}
+
+@media (max-width: 1024px) {
+  .login-container {
+    width: 60%;
+  }
+  .login-container .login-header h1 {
+    font-size: 3rem;
+  }
+  .login-container .login-logo img {
+    width: 20vw;
+    height: 18vh;
+  }
+  .login-container #back-link {
+    text-align: left;
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: #FFFFFF;
+    text-decoration: none;
+    margin-bottom: 1vh;
+    margin-left: 8vw;
+  }
+  .login-container nav {
+    width: 100%;
+    text-align: left;
+  }
+  .aside-image {
+    width: 50%;
+    margin-left: 0%;
+  }
+  .login-form input {
+    width: 45vw;
+    height: 7vh;
+  }
+  .login-form button {
+    width: 20vw;
+    height: 6vh;
+    font-size: 18px;
+  }
+}
+@media (max-width: 480px) {
+  .login-container {
+    width: 90%;
+    margin-top: 20%;
+  }
+  .aside-image {
+    display: none;
+  }
+  .login-logo img {
+    width: 20vw;
+    height: 15vh;
+  }
+  .login-header h1 {
+    font-size: 2rem;
+  }
+  .login-container {
+    width: 100%;
+  }
+  .login-container .login-form button {
+    width: 40vw;
+    height: 9vh;
+    font-size: 16px;
+  }
+  .login-container .login-form input {
+    width: 80vw;
+    height: 8vh;
+    font-size: 0.9rem;
+    text-align: center;
+  }
+  .login-container #back-link {
+    text-align: left;
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: #FFFFFF;
+    text-decoration: none;
+    margin-bottom: 1vh;
+    margin-left: 5vw;
+  }
+  .login-container nav {
+    width: 100%;
+    text-align: left;
+  }
+  .login-links {
+    font-size: 0.8rem;
+  }
+}
+
+/*# sourceMappingURL=login.css.map */
