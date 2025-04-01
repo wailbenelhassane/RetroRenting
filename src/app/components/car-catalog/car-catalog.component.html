@@ -1,10 +1,12 @@
 <section class="car-catalog-container">
   <div class="car-catalog-image" (click)="onImageClick($event)">
-    <img class="car-image" [src]="currentImage.src" [alt]="currentImage.altText" />
+    <img class="car-image"
+         [src]="(currentImage$ | async)?.src"
+         [alt]="(currentImage$ | async)?.altText" />
 
     <div class="mobile-controls">
-      <button class="prev-btn" aria-label="Previous car" (click)="prevImage()"> &lt; </button>
-      <button class="next-btn" aria-label="Next car" (click)="nextImage()"> &gt; </button>
+      <button class="prev-btn" aria-label="Previous car" (click)="prevImage()"> < </button>
+      <button class="next-btn" aria-label="Next car" (click)="nextImage()"> > </button>
     </div>
   </div>
 
@@ -19,9 +21,11 @@
   </ul>
 
   <div class="mobile-menu">
-    <a class="mobile-catalog-link"
-       [href]="'/RetroRenting/views/catalog.html#' + decades[currentDecadeIndex]">
-      {{decades[currentDecadeIndex]}}'s Catalog
-    </a>
+    <ng-container *ngIf="currentDecadeIndex$ | async as index">
+      <a class="mobile-catalog-link"
+         [href]="'/RetroRenting/views/catalog.html#' + decades[index]">
+        {{decades[index]}}'s Catalog
+      </a>
+    </ng-container>
   </div>
 </section>

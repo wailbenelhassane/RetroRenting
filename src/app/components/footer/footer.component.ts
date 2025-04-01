@@ -8,6 +8,7 @@ import {NgForOf} from '@angular/common';
   imports: [
     NgForOf
   ],
+  standalone: true,
   styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent implements OnInit {

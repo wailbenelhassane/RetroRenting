@@ -7,8 +7,7 @@ $catalog-image-width: 55%;
 $catalog-menu-width: 20%;
 $container-height: 500px;
 $font-size-base: 1.5rem;
-$mobile-breakpoint: 768px;
-$tablet-breakpoint: 1024px;
+
 
 @mixin center-flex($direction: row) {
   display: flex;
@@ -19,7 +18,6 @@ $tablet-breakpoint: 1024px;
 
 .car-catalog-container {
   @include center-flex(row);
-  margin-top: 4vh;
   width: 100%;
   height: 100%;
   position: relative;
@@ -114,7 +112,7 @@ $tablet-breakpoint: 1024px;
   }
 }
 
-@media (max-width: variables.$mobile-breakpoint$tablet-breakpoint) and (min-width: variables.$tablet-breakpoint + 1px) {
+@media (max-width: variables.$mobile-breakpoint) and (min-width: variables.$tablet-breakpoint) {
   .car-catalog-container {
     justify-content: space-between;
     padding: 0 20px;
