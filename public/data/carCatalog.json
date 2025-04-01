@@ -1,25 +1,13 @@
 {
-  "catalogImages": [
-    {
-      "decade": "70s",
-      "image": {
-        "src": "/RetroRenting/public/img/70s-car.jpg",
-        "altText": "Classic car from the 70s"
-      }
+  "images": {
+    "70": {
+      "image": "/assets/images/cars/70/ford-mustang-70/full-frontal-removebg.png"
     },
-    {
-      "decade": "80s",
-      "image": {
-        "src": "/RetroRenting/public/img/80s-car.jpg",
-        "altText": "Retro car from the 80s"
-      }
+    "80": {
+      "image": "/assets/images/cars/80/spider-veloce-2DR-80/full-frontal-removebg.png"
     },
-    {
-      "decade": "90s",
-      "image": {
-        "src": "/RetroRenting/public/img/90s-car.jpg",
-        "altText": "Sport car from the 90s"
-      }
+    "90": {
+      "image": "/assets/images/cars/90/porsche-911-speedster-90/full-frontal-removebg.png"
     }
-  ]
+  }
 }
