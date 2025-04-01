@@ -1,0 +1,42 @@
+<section class="booking-bar-container" id="booking-bar-container">
+  <div class="booking-bar-title">
+    <h1>Book now!</h1>
+  </div>
+
+  <div class="booking-bar" id="booking-bar">
+    <form class="booking-bar-form" id="booking-bar-form" [formGroup]="bookingForm" (ngSubmit)="onSubmit()">
+      <div class="booking-section">
+        <p class="label-selector">Choose a car!</p>
+        <select id="car-selector" formControlName="car" required>
+          @for (car of cars; track car.value) {
+            <option [value]="car.value">{{ car.name }}</option>
+          }
+        </select>
+      </div>
+
+      <div class="booking-section">
+        <p class="label-selector">Choose a location!</p>
+        <div class="location-autocomplete">
+          <input id="location" type="text" formControlName="location" autocomplete="off" placeholder="Enter a location" required>
+          <div class="suggestions-box" id="suggestions-box"></div>
+        </div>
+      </div>
+
+      <div class="booking-section">
+        <p class="label-selector">Pick up date!</p>
+        <input id="pickup-date" type="date" formControlName="pickupDate" required>
+      </div>
+
+      <div class="booking-section">
+        <p class="label-selector">Return date!</p>
+        <input id="return-date" type="date" formControlName="returnDate" required>
+      </div>
+
+      <div class="booking-section">
+        <button class="book-btn" type="submit">Book now!</button>
+      </div>
+    </form>
+  </div>
+
+  <div id="error-section"></div>
+</section>

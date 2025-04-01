@@ -1,0 +1,21 @@
+{
+  "footerMenu": [
+    {
+      "title": "Policy",
+      "url": "../views/footer-pages/privacy-policy.html"
+    },
+    {
+      "title": "Terms",
+      "url": "../views/footer-pages/terms-and-conditions.html"
+    },
+    {
+      "title": "Ad Choices",
+      "url": "../views/footer-pages/ad-choices.html"
+    },
+    {
+      "title": "Accessibility",
+      "url": "../views/footer-pages/accessibility.html"
+    }
+
+  ]
+}

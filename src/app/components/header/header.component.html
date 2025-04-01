@@ -1,0 +1,50 @@
+<nav class="main-nav" aria-label="Main Navigation">
+  <div class="logo-container">
+    <a routerLink=" ">
+      <ng-container *ngIf="headerData$ | async as header">
+        <img class="logo-image" [src]="header?.logo?.src" [alt]="header?.logo?.alt"/>
+      </ng-container>
+    </a>
+  </div>
+
+  <ul class="navigation-menu">
+    <ng-container *ngIf="headerData$ | async as header">
+      <li class="navigation-item" *ngFor="let item of header?.mainMenu">
+        <a [href]="item.url">{{item.title}}</a>
+      </li>
+    </ng-container>
+  </ul>
+
+  <div class="auth-links">
+    <ng-container *ngIf="headerData$ | async as header">
+      <ng-container *ngFor="let item of header?.authLinks; let i = index">
+        <a class="auth-link" [href]="item.url">{{item.title}}</a>
+        <span class="auth-link" *ngIf="i < header?.authLinks.length - 1">/</span>
+      </ng-container>
+    </ng-container>
+  </div>
+
+  <div class="mobile-nav-toggle">
+    <div class="hamburger" (click)="toggleMobileMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+
+  <div class="mobile-nav">
+    <ul class="mobile-navigation-menu">
+      <ng-container *ngIf="headerData$ | async as header">
+        <li class="mobile-navigation-item auth-mobile">
+          <ng-container *ngFor="let item of header?.authLinks; let i = index">
+            <a [href]="item.url">{{item.title}}</a>
+            <span *ngIf="i < header?.authLinks.length - 1">/</span>
+          </ng-container>
+        </li>
+        <li class="mobile-navigation-item" *ngFor="let item of header?.mainMenu">
+          <a [href]="item.url">{{item.title}}</a>
+        </li>
+      </ng-container>
+    </ul>
+  </div>
+</nav>

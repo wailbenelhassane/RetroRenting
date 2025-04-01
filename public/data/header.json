@@ -1,0 +1,30 @@
+{
+  "logo": {
+    "src": "/assets/images/logo.png",
+    "alt": "RetroRenting Logo"
+  },
+  "mainMenu": [
+    {
+      "title": "Home",
+      "url": "/RetroRenting/views/index.html"
+    },
+    {
+      "title": "Catalog",
+      "url": "/RetroRenting/views/catalog.html"
+    },
+    {
+      "title": "About Us",
+      "url": "/RetroRenting/views/about-us.html"
+    }
+  ],
+  "authLinks": [
+    {
+      "title": "Login",
+      "url": "/RetroRenting/views/login.html"
+    },
+    {
+      "title": "Sign up",
+      "url": "/RetroRenting/views/register.html"
+    }
+  ]
+}

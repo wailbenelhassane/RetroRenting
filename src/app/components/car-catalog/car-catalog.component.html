@@ -1,0 +1,31 @@
+<section class="car-catalog-container">
+  <div class="car-catalog-image" (click)="onImageClick($event)">
+    <img class="car-image"
+         [src]="(currentImage$ | async)?.src"
+         [alt]="(currentImage$ | async)?.altText" />
+
+    <div class="mobile-controls">
+      <button class="prev-btn" aria-label="Previous car" (click)="prevImage()"> < </button>
+      <button class="next-btn" aria-label="Next car" (click)="nextImage()"> > </button>
+    </div>
+  </div>
+
+  <ul class="car-catalog-menu desktop-menu">
+    <li class="car-catalog-menu-item" *ngFor="let decade of decades"
+        (mouseenter)="onMouseEnter(decade)">
+      <a class="car-catalog-menu-item-element"
+         [href]="'/RetroRenting/views/catalog.html#' + decade">
+        {{decade}}'s Catalog
+      </a>
+    </li>
+  </ul>
+
+  <div class="mobile-menu">
+    <ng-container *ngIf="currentDecadeIndex$ | async as index">
+      <a class="mobile-catalog-link"
+         [href]="'/RetroRenting/views/catalog.html#' + decades[index]">
+        {{decades[index]}}'s Catalog
+      </a>
+    </ng-container>
+  </div>
+</section>

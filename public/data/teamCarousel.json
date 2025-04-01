@@ -1,0 +1,16 @@
+{
+  "teamImages": [
+    {
+      "src": "/RetroRenting/public/img/our-team/our-team-1.jpg",
+      "alt": "Descripción de la imagen 1"
+    },
+    {
+      "src": "/RetroRenting/public/img/our-team/our-team-2.jpg",
+      "alt": "Descripción de la imagen 2"
+    },
+    {
+      "src": "/RetroRenting/public/img/our-team/our-team-3.jpg",
+      "alt": "Descripción de la imagen 3"
+    }
+  ]
+}
