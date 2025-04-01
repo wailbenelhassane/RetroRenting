@@ -6,7 +6,6 @@ $padding: 0;
 $box-sizing: border-box;
 $full-width: 100%;
 $full-height: 100%;
-$padding-top: 6vh;
 
 @mixin reset {
   margin: $margin;
@@ -22,7 +21,6 @@ html,
 body {
   display: flex;
   flex-direction: column;
-  padding-top: $padding-top;
   width: $full-width;
   height: $full-height;
   background: variables.$background-color;

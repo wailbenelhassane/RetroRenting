@@ -20,11 +20,11 @@
   "authLinks": [
     {
       "title": "Login",
-      "url": "/RetroRenting/views/login.html"
+      "url": "login"
     },
     {
       "title": "Sign up",
-      "url": "/RetroRenting/views/register.html"
+      "url": "register"
     }
   ]
 }
