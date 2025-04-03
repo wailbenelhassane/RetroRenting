@@ -6,25 +6,25 @@
   "mainMenu": [
     {
       "title": "Home",
-      "url": "/RetroRenting/views/index.html"
+      "url": "/index"
     },
     {
       "title": "Catalog",
-      "url": "/RetroRenting/views/catalog.html"
+      "url": "/catalog"
     },
     {
       "title": "About Us",
-      "url": "/RetroRenting/views/about-us.html"
+      "url": "/about-us"
     }
   ],
   "authLinks": [
     {
       "title": "Login",
-      "url": "/RetroRenting/views/login.html"
+      "url": "/login"
     },
     {
       "title": "Sign up",
-      "url": "/RetroRenting/views/register.html"
+      "url": "/sign-up"
     }
   ]
 }

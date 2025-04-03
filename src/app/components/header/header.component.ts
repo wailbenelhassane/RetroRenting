@@ -33,8 +33,4 @@ export class HeaderComponent implements AfterViewInit, OnDestroy {
       this.resizeCleanup();
     }
   }
-
-  toggleMobileMenu() {
-    this.headerService.toggleMobileMenu();
-  }
 }
