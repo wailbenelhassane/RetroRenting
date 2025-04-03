@@ -192,14 +192,7 @@
   .catalog-section {
     margin-bottom: 10vh;
     position: relative;
-
-    &:not(.active-section) {
-      display: none;
-    }
-
-    &.active-section {
-      display: block;
-    }
+    display: block;
   }
 
   .catalog-title {
