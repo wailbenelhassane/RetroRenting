@@ -19,7 +19,7 @@ $font-size-base: 1.5rem;
 .car-catalog-container {
   @include center-flex(row);
   width: 100%;
-  height: 100%;
+  height: auto;
   position: relative;
 
   .car-catalog-image {
