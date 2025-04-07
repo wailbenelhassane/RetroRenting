@@ -13,7 +13,6 @@
   justify-content: center;
   flex-wrap: wrap;
   gap: 3vh;
-  max-width: 100vw;
   width: 100%;
   margin: 5vh auto;
   position: relative;
@@ -89,8 +88,8 @@
   }
 
   .card {
-    min-width: 90vw;
-    width: 90vw;
+    min-width: 90%;
+    width: 90%;
     height: 50vh;
     margin: 0 5vw;
     flex-shrink: 0;
