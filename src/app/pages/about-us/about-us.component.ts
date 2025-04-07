@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 import {ReviewsComponent} from '../../components/reviews/reviews.component';
+import {OurTeamComponent} from '../../components/our-team/our-team.component';
 
 @Component({
   selector: 'app-about-us',
   imports: [
-    ReviewsComponent
+    ReviewsComponent,
+    OurTeamComponent
   ],
   templateUrl: './about-us.component.html',
   standalone: true,

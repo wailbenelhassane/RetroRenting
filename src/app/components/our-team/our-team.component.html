@@ -1,0 +1,7 @@
+<div class="team-carousel-container">
+  <div class="team-carousel">
+    <div class="team-image" *ngFor="let image of ourTeamService.teamImages; let i = index" [ngClass]="{'active': i === ourTeamService.currentIndex}">
+      <img [src]="image.src" [alt]="image.alt">
+    </div>
+  </div>
+</div>

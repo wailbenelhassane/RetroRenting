@@ -1,16 +1,16 @@
 {
   "teamImages": [
     {
-      "src": "/RetroRenting/public/img/our-team/our-team-1.jpg",
-      "alt": "Descripción de la imagen 1"
+      "src": "assets/images/our-team/our-team-1.jpg",
+      "alt": "First Image Description"
     },
     {
-      "src": "/RetroRenting/public/img/our-team/our-team-2.jpg",
-      "alt": "Descripción de la imagen 2"
+      "src": "assets/images/our-team/our-team-2.jpg",
+      "alt": "Second Image Description"
     },
     {
-      "src": "/RetroRenting/public/img/our-team/our-team-3.jpg",
-      "alt": "Descripción de la imagen 3"
+      "src": "assets/images/our-team/our-team-3.jpg",
+      "alt": "Third Image Description"
     }
   ]
 }
