@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
-import {AsyncPipe, isPlatformBrowser, NgIf} from '@angular/common';
+import { AsyncPipe, isPlatformBrowser, NgIf } from '@angular/common';
 import { CarCatalogService } from '../../services/car-catalog.service';
 import { NgForOf } from '@angular/common';
 import { Observable } from 'rxjs';
@@ -12,7 +12,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./car-catalog.component.scss']
 })
 export class CarCatalogComponent implements OnInit {
-  decades = ['70', '80', '90'];
+  decades$!: Observable<string[]>;
   currentImage$!: Observable<{ src: string; altText: string }>;
   currentDecadeIndex$!: Observable<number>;
 
@@ -20,6 +20,7 @@ export class CarCatalogComponent implements OnInit {
     private carCatalogService: CarCatalogService,
     @Inject(PLATFORM_ID) private platformId: Object
   ) {
+    this.decades$ = this.carCatalogService.getDecades();
     this.currentImage$ = this.carCatalogService.getCurrentImage();
     this.currentDecadeIndex$ = this.carCatalogService.getCurrentDecadeIndex();
   }
@@ -54,7 +55,7 @@ export class CarCatalogComponent implements OnInit {
   }
 
   handleResize() {
-    if (isPlatformBrowser(this.platformId) && window.innerWidth <= 768) {
+    if (isPlatformBrowser(this.platformId)) {
       this.carCatalogService.updateViewForResize();
     }
   }

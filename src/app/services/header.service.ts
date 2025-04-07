@@ -52,7 +52,11 @@ export class HeaderService {
       };
       window.addEventListener('resize', resizeListener);
 
-      return () => window.removeEventListener('resize', resizeListener);
+      return () => {
+        window.removeEventListener('resize', resizeListener);
+        hamburger.removeEventListener('click', toggleMenu);
+        mobileLinks.forEach(link => link.removeEventListener('click', toggleMenu));
+      };
     }
     return () => {};
   }

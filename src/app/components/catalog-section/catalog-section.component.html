@@ -1,0 +1,17 @@
+<section class="catalog-section" *ngFor="let decade of catalogData$ | async; let i = index" [id]="[70, 80, 90][i]">
+  <div class="catalog-title">{{ decade.title }}</div>
+  <div class="catalog-card-container">
+    <div class="catalog-card" *ngFor="let card of decade.catalogCards">
+      <div class="catalog-card-image">
+        <img [src]="card.image.src" [alt]="card.image.altText">
+        <p>{{ card.title }}</p>
+      </div>
+      <div class="catalog-card-info">
+        <p *ngFor="let infoText of card.info">{{ infoText }}</p>
+        <div>
+          <button class="catalog-card-button" [attr.data-car-id]="card.id" (click)="onCardButtonClick(card.id)">See more</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

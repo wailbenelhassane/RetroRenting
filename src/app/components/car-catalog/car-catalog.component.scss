@@ -19,7 +19,7 @@ $font-size-base: 1.5rem;
 .car-catalog-container {
   @include center-flex(row);
   width: 100%;
-  height: 100%;
+  height: auto;
   position: relative;
 
   .car-catalog-image {
@@ -101,6 +101,7 @@ $font-size-base: 1.5rem;
     background-color: variables.$resalt-color;
     text-align: center;
     padding: 15px 0;
+    margin-top: 10px;
 
     .mobile-catalog-link {
       text-decoration: none;

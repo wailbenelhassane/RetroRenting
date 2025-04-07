@@ -11,7 +11,7 @@
   </div>
 
   <ul class="car-catalog-menu desktop-menu">
-    <li class="car-catalog-menu-item" *ngFor="let decade of decades"
+    <li class="car-catalog-menu-item" *ngFor="let decade of decades$ | async"
         (mouseenter)="onMouseEnter(decade)">
       <a class="car-catalog-menu-item-element"
          [href]="'/RetroRenting/views/catalog.html#' + decade">
@@ -21,10 +21,10 @@
   </ul>
 
   <div class="mobile-menu">
-    <ng-container *ngIf="currentDecadeIndex$ | async as index">
+    <ng-container *ngIf="(decades$ | async) as decades">
       <a class="mobile-catalog-link"
-         [href]="'/RetroRenting/views/catalog.html#' + decades[index]">
-        {{decades[index]}}'s Catalog
+         [href]="'/RetroRenting/views/catalog.html#' + decades[(currentDecadeIndex$ | async) || 0]">
+        {{decades[(currentDecadeIndex$ | async) || 0]}}'s Catalog
       </a>
     </ng-container>
   </div>

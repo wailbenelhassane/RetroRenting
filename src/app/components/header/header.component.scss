@@ -221,6 +221,12 @@ $section-width: 20%;
   }
 }
 
+.header-spacer {
+  height: $header-height;
+  width: 100%;
+  display: block;
+}
+
 @media (max-width: variables.$mobile-breakpoint) {
   .navigation-menu,
   .auth-links {

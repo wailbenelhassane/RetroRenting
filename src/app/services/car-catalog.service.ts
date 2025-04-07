@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, BehaviorSubject } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CarCatalogService {
   private jsonUrl = '/data/carCatalog.json';
-  private decades = ['70', '80', '90'];
+  private decades = new BehaviorSubject<string[]>([]);
   private currentDecadeIndex = new BehaviorSubject<number>(0);
   private imagesSubject = new BehaviorSubject<{ [key: string]: string }>({});
   private currentImageSubject = new BehaviorSubject<{ src: string; altText: string }>({ src: '', altText: '' });
@@ -17,6 +17,9 @@ export class CarCatalogService {
     this.loadCarData();
   }
 
+  getDecades(): Observable<string[]> {
+    return this.decades.asObservable();
+  }
 
   getCurrentImage(): Observable<{ src: string; altText: string }> {
     return this.currentImageSubject.asObservable();
@@ -30,13 +33,19 @@ export class CarCatalogService {
     this.http.get(this.jsonUrl).subscribe({
       next: (carData: any) => {
         if (carData && carData.images) {
-          const images = {
-            '70': this.getCarImage(carData, '70'),
-            '80': this.getCarImage(carData, '80'),
-            '90': this.getCarImage(carData, '90')
-          };
+          const decadeList = Object.keys(carData.images);
+          this.decades.next(decadeList);
+
+          const images: { [key: string]: string } = {};
+          decadeList.forEach(decade => {
+            images[decade] = this.getCarImage(carData, decade);
+          });
+
           this.imagesSubject.next(images);
-          this.updateView(this.decades[this.currentDecadeIndex.value]);
+
+          if (decadeList.length > 0) {
+            this.updateView(decadeList[0]);
+          }
         }
       },
       error: (error) => console.error('Error loading car data:', error)
@@ -48,7 +57,6 @@ export class CarCatalogService {
     return cars[0] as string;
   }
 
-
   private updateView(decade: string) {
     const images = this.imagesSubject.value;
     this.currentImageSubject.next({
@@ -57,25 +65,33 @@ export class CarCatalogService {
     });
   }
 
-
   prevImage() {
-    const newIndex = (this.currentDecadeIndex.value - 1 + this.decades.length) % this.decades.length;
+    const decadeList = this.decades.value;
+    const newIndex = (this.currentDecadeIndex.value - 1 + decadeList.length) % decadeList.length;
     this.currentDecadeIndex.next(newIndex);
-    this.updateView(this.decades[newIndex]);
+    this.updateView(decadeList[newIndex]);
   }
 
   nextImage() {
-    const newIndex = (this.currentDecadeIndex.value + 1) % this.decades.length;
+    const decadeList = this.decades.value;
+    const newIndex = (this.currentDecadeIndex.value + 1) % decadeList.length;
     this.currentDecadeIndex.next(newIndex);
-    this.updateView(this.decades[newIndex]);
+    this.updateView(decadeList[newIndex]);
   }
 
-
   onMouseEnter(decade: string) {
+    const decadeList = this.decades.value;
+    const index = decadeList.indexOf(decade);
+    if (index !== -1) {
+      this.currentDecadeIndex.next(index);
+    }
     this.updateView(decade);
   }
 
   updateViewForResize() {
-    this.updateView(this.decades[this.currentDecadeIndex.value]);
+    const decadeList = this.decades.value;
+    if (decadeList.length > 0) {
+      this.updateView(decadeList[this.currentDecadeIndex.value]);
+    }
   }
 }
