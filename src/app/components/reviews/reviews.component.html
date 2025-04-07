@@ -1,0 +1,23 @@
+<section class="container">
+  <h1 align="center">Reviews</h1>
+  <section class="reviews">
+    <div class="carousel-container" *ngIf="reviewsService.isMobile">
+      <div class="carousel-track">
+        <div class="card" *ngFor="let review of reviewsService.reviewsData">
+          <img [src]="review.image" alt="Profile Picture" class="profile-pic">
+          <h3>{{ review.name }}</h3>
+          <p>"{{ review.review }}"</p>
+          <div class="stars">{{ reviewsService.getStars(review.rating) }}</div>
+        </div>
+      </div>
+    </div>
+    <ng-container *ngIf="!reviewsService.isMobile">
+      <div class="card" *ngFor="let review of reviewsService.reviewsData">
+        <img [src]="review.image" alt="Profile Picture" class="profile-pic">
+        <h3>{{ review.name }}</h3>
+        <p>"{{ review.review }}"</p>
+        <div class="stars">{{ reviewsService.getStars(review.rating) }}</div>
+      </div>
+    </ng-container>
+  </section>
+</section>
