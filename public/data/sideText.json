@@ -1,16 +1,16 @@
 {
   "sections": {
     "whoAreWe": {
-      "title": "Who are we?",
-      "content": "Lorem Ipsum is simply dummy text of the printing and typesetting industry...",
-      "src": "../public/img/who-are-we.jpg",
-      "alt": "Image representing who we are"
+      "title": "Who Are We?",
+      "content": "At RetroRenting, we bring the charm of the past into the present with our exclusive collection of vintage and retro cars for rent. We’re passionate about classic automobiles and committed to delivering an exceptional experience that blends nostalgia, style, and reliability. Whether you're celebrating a wedding, organizing a themed event, planning a film production, or simply looking to enjoy a unique driving experience, RetroRenting is your go-to destination. Our dedicated team ensures that every car is perfectly maintained and every customer receives a personalized, unforgettable journey into the golden age of motoring.",
+      "src": "/assets/images/who-are-we.jpg",
+      "alt": "Vintage car representing RetroRenting's brand identity"
     },
     "ourService": {
       "title": "Our Service",
-      "content": "Our service is to provide the best service...",
-      "src": "../public/img/our-service.jpg",
-      "alt": "Image representing Our Service"
+      "content": "RetroRenting offers a premium selection of classic and retro vehicles available for rent across a wide range of occasions. From elegant weddings and professional photo shoots to weekend drives and promotional events, our cars provide a stylish and authentic touch. We offer flexible rental plans, optional chauffeur services, and delivery to your location. Each vehicle is carefully restored and maintained to preserve its historical essence while ensuring maximum safety and comfort. Rediscover the beauty of classic motoring and make your event truly memorable with RetroRenting.",
+      "src": "/assets/images/our-service.jpg",
+      "alt": "RetroRenting vintage car available for hire"
     }
   }
 }
