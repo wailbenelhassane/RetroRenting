@@ -3,6 +3,8 @@ import {ReviewsComponent} from '../../components/reviews/reviews.component';
 import {OurTeamComponent} from '../../components/our-team/our-team.component';
 import {SideTextSectionComponent} from '../../components/side-text-section/side-text-section.component';
 import {CenterTextSectionComponent} from '../../components/center-text-section/center-text-section.component';
+import {HeaderComponent} from '../../components/header/header.component';
+import {FooterComponent} from '../../components/footer/footer.component';
 
 @Component({
   selector: 'app-about-us',
@@ -10,7 +12,9 @@ import {CenterTextSectionComponent} from '../../components/center-text-section/c
     ReviewsComponent,
     OurTeamComponent,
     SideTextSectionComponent,
-    CenterTextSectionComponent
+    CenterTextSectionComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   templateUrl: './about-us.component.html',
   standalone: true,
