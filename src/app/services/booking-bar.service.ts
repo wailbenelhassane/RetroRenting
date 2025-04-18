@@ -245,7 +245,14 @@ export class BookingBarService {
     };
 
     this.saveBookingData(bookingData);
-    this.router.navigate(['']);
+    this.router.navigate(['/car-reservation-confirmation'], {
+      queryParams: {
+        car_selected: carSelected,
+        location: location,
+        pickup_date: pickupDate,
+        return_date: returnDate
+      }
+    });
   }
 
   getCarNameByValue(cars: Car[], carValue: string): string {
