@@ -1,45 +1,53 @@
-import { Injectable, PLATFORM_ID, Inject } from '@angular/core';
+import { Injectable, Inject, OnDestroy, PLATFORM_ID, NgZone } from '@angular/core';
+import { Firestore, collection, getDocs, QuerySnapshot, DocumentData } from '@angular/fire/firestore';
 import { HttpClient } from '@angular/common/http';
-import { lastValueFrom } from 'rxjs';
 import { Router } from '@angular/router';
 import { FormGroup } from '@angular/forms';
 import { isPlatformBrowser } from '@angular/common';
-
-export interface Car {
-  value: string;
-  name: string;
-}
-
-export interface BookingData {
-  car: string;
-  location: string;
-  formattedDate: string;
-}
-
-interface BookingBarData {
-  cars: Car[];
-}
+import { Observable, from, catchError, of, takeUntil, map, lastValueFrom } from 'rxjs';
+import { Subject } from 'rxjs';
+import { Car, BookingData } from '../models/booking-bar.model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class BookingBarService {
+export class BookingBarService implements OnDestroy {
   private readonly MAPBOX_API_KEY = 'pk.eyJ1IjoiZGV4YXJveiIsImEiOiJjbTdqcHFlb2UwNWEzMmpzYnhhNnl5aWhmIn0.vbHSNRoIW5vppCg59RDAFQ';
+  private destroy$ = new Subject<void>();
+  private locationInputListeners: Array<() => void> = [];
+  private documentClickListener: (() => void) | null = null;
 
   constructor(
+    private firestore: Firestore,
     private http: HttpClient,
     private router: Router,
+    private ngZone: NgZone,
     @Inject(PLATFORM_ID) private platformId: Object
   ) {}
 
-  async getCars(): Promise<Car[]> {
-    try {
-      const data = await lastValueFrom(this.http.get<BookingBarData>('/data/bookingBar.json'));
-      return data.cars || [];
-    } catch (error) {
-      console.error("Error loading cars data:", error);
-      return [];
-    }
+  getCars(): Observable<Car[]> {
+    return new Observable<Car[]>(observer => {
+      this.ngZone.run(() => {
+        const bookingBarCollection = collection(this.firestore, 'booking-bar');
+        getDocs(bookingBarCollection).then((querySnapshot: QuerySnapshot<DocumentData>) => {
+          if (querySnapshot && !querySnapshot.empty) {
+            const cars = querySnapshot.docs.map(doc => doc.data() as Car);
+            observer.next(cars);
+            observer.complete();
+          } else {
+            console.warn('No booking bar data found in Firestore');
+            observer.next([]);
+            observer.complete();
+          }
+        }).catch((error: any) => {
+          console.error('Error loading booking bar data from Firestore:', error);
+          observer.next([]);
+          observer.complete();
+        });
+      });
+    }).pipe(
+      takeUntil(this.destroy$)
+    );
   }
 
   async getLocationSuggestion(query: string): Promise<string> {
@@ -48,7 +56,7 @@ export class BookingBarService {
       const response = await lastValueFrom(this.http.get<any>(url));
       return response.features[0]?.text || '';
     } catch (error) {
-      console.error("Error fetching location suggestions:", error);
+      console.error('Error fetching location suggestions:', error);
       return '';
     }
   }
@@ -61,6 +69,7 @@ export class BookingBarService {
         if (isPlatformBrowser(this.platformId)) {
           const carSelector = document.getElementById('car-selector') as HTMLSelectElement;
           if (carSelector) {
+            carSelector.innerHTML = '';
             cars.forEach(car => {
               const option = document.createElement('option');
               option.value = car.value;
@@ -83,7 +92,7 @@ export class BookingBarService {
 
     if (!locationInput || !suggestionsBox) return;
 
-    locationInput.addEventListener('input', async (event) => {
+    const handleInput = async (event: Event) => {
       const query = (event.target as HTMLInputElement).value;
       if (query.length > 2) {
         try {
@@ -97,20 +106,30 @@ export class BookingBarService {
             div.style.padding = '8px 10px';
             div.style.cursor = 'pointer';
 
-            div.addEventListener('click', () => {
+            const handleClick = () => {
               locationInput.value = text;
               bookingForm.get('location')?.setValue(text);
               suggestionsBox.innerHTML = '';
               suggestionsBox.classList.remove('active');
-            });
+            };
 
-            div.addEventListener('mouseover', () => {
+            const handleMouseOver = () => {
               div.style.backgroundColor = '#f0f0f0';
-            });
+            };
 
-            div.addEventListener('mouseout', () => {
+            const handleMouseOut = () => {
               div.style.backgroundColor = 'white';
-            });
+            };
+
+            div.addEventListener('click', handleClick);
+            div.addEventListener('mouseover', handleMouseOver);
+            div.addEventListener('mouseout', handleMouseOut);
+
+            this.locationInputListeners.push(
+              () => div.removeEventListener('click', handleClick),
+              () => div.removeEventListener('mouseover', handleMouseOver),
+              () => div.removeEventListener('mouseout', handleMouseOut)
+            );
 
             suggestionsBox.appendChild(div);
           });
@@ -125,13 +144,19 @@ export class BookingBarService {
         suggestionsBox.innerHTML = '';
         suggestionsBox.classList.remove('active');
       }
-    });
+    };
 
-    document.addEventListener('click', (event) => {
+    const handleDocumentClick = (event: Event) => {
       if (!locationInput.contains(event.target as Node) && !suggestionsBox.contains(event.target as Node)) {
         suggestionsBox.classList.remove('active');
       }
-    });
+    };
+
+    locationInput.addEventListener('input', handleInput);
+    document.addEventListener('click', handleDocumentClick);
+
+    this.locationInputListeners.push(() => locationInput.removeEventListener('input', handleInput));
+    this.documentClickListener = () => document.removeEventListener('click', handleDocumentClick);
   }
 
   processForm(bookingForm: FormGroup, cars: Car[]): void {
@@ -238,7 +263,7 @@ export class BookingBarService {
     const returnDate = bookingForm.get('returnDate')?.value;
     const formattedDate = `${pickupDate} - ${returnDate}`;
 
-    const bookingData = {
+    const bookingData: BookingData = {
       car: carSelected,
       location: location,
       formattedDate: formattedDate
@@ -257,10 +282,21 @@ export class BookingBarService {
 
   getCarNameByValue(cars: Car[], carValue: string): string {
     const selectedCar = cars.find(car => car.value === carValue);
-    return selectedCar ? selectedCar.name : "No car selected";
+    return selectedCar ? selectedCar.name : 'No car selected';
   }
 
   saveBookingData(bookingData: BookingData): void {
-    localStorage.setItem("bookingData", JSON.stringify(bookingData));
+    if (isPlatformBrowser(this.platformId)) {
+      localStorage.setItem('bookingData', JSON.stringify(bookingData));
+    }
+  }
+
+  ngOnDestroy() {
+    this.locationInputListeners.forEach(cleanup => cleanup());
+    if (this.documentClickListener) {
+      this.documentClickListener();
+    }
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 }

@@ -1,6 +1,6 @@
-import { Injectable, inject, OnDestroy } from '@angular/core';
+import { Injectable, OnDestroy, PLATFORM_ID, Inject, NgZone } from '@angular/core';
 import { Firestore, collection, getDocs, QuerySnapshot, DocumentData } from '@angular/fire/firestore';
-import { BehaviorSubject, Observable, from, catchError, of, takeUntil } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Subject } from 'rxjs';
 import { isPlatformBrowser } from '@angular/common';
 import { CarCatalog } from '../models/car-catalog.model';
@@ -9,14 +9,19 @@ import { CarCatalog } from '../models/car-catalog.model';
   providedIn: 'root'
 })
 export class CarCatalogService implements OnDestroy {
-  private firestore: Firestore = inject(Firestore);
+  private firestore: Firestore;
   private decades = new BehaviorSubject<string[]>([]);
   private currentDecadeIndex = new BehaviorSubject<number>(0);
   private imagesSubject = new BehaviorSubject<{ [key: string]: string }>({});
   private currentImageSubject = new BehaviorSubject<{ src: string; altText: string }>({ src: '', altText: '' });
   private destroy$ = new Subject<void>();
 
-  constructor() {
+  constructor(
+    firestore: Firestore,
+    private ngZone: NgZone,
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) {
+    this.firestore = firestore;
     this.loadCarData();
   }
 
@@ -33,35 +38,36 @@ export class CarCatalogService implements OnDestroy {
   }
 
   private loadCarData() {
-    const catalogCollection = collection(this.firestore, 'carCatalog');
-    from(getDocs(catalogCollection)).pipe(
-      catchError(error => {
-        console.error('Error loading car catalog data from Firestore:', error);
-        return of(null);
-      }),
-      takeUntil(this.destroy$)
-    ).subscribe((querySnapshot: QuerySnapshot<DocumentData> | null) => {
-      if (querySnapshot && !querySnapshot.empty) {
-        const carData = querySnapshot.docs[0].data() as CarCatalog;
-        const decadeList = Object.keys(carData);
-        this.decades.next(decadeList);
+    this.ngZone.run(() => {
+      const catalogCollection = collection(this.firestore, 'carCatalog');
+      getDocs(catalogCollection).then((querySnapshot: QuerySnapshot<DocumentData>) => {
+        if (querySnapshot && !querySnapshot.empty) {
+          const carData = querySnapshot.docs[0].data() as CarCatalog;
+          const decadeList = Object.keys(carData);
+          this.decades.next(decadeList);
 
-        const images: { [key: string]: string } = {};
-        decadeList.forEach(decade => {
-          images[decade] = carData[decade].image;
-        });
+          const images: { [key: string]: string } = {};
+          decadeList.forEach(decade => {
+            images[decade] = carData[decade].image;
+          });
 
-        this.imagesSubject.next(images);
+          this.imagesSubject.next(images);
 
-        if (decadeList.length > 0) {
-          this.updateView(decadeList[0]);
+          if (decadeList.length > 0) {
+            this.updateView(decadeList[0]);
+          }
+        } else {
+          console.warn('No car catalog data found in Firestore');
+          this.decades.next([]);
+          this.imagesSubject.next({});
+          this.currentImageSubject.next({ src: '', altText: '' });
         }
-      } else {
-        console.warn('No car catalog data found in Firestore');
+      }).catch((error: any) => {
+        console.error('Error loading car catalog data from Firestore:', error);
         this.decades.next([]);
         this.imagesSubject.next({});
         this.currentImageSubject.next({ src: '', altText: '' });
-      }
+      });
     });
   }
 
