@@ -1,6 +1,6 @@
-<div class="center-text-section-container" [attr.data-section]="sectionKey" *ngIf="sectionData[sectionKey]">
+<section class="center-text-section-container" [attr.data-section]="sectionKey" *ngIf="sectionData[sectionKey] && sectionKey">
   <div class="center-text-section">
-    <h2>{{ sectionData[sectionKey]?.title }}</h2>
-    <p>{{ sectionData[sectionKey]?.content }}</p>
+    <h2>{{ sectionData[sectionKey].title }}</h2>
+    <p>{{ sectionData[sectionKey].content }}</p>
   </div>
-</div>
+</section>

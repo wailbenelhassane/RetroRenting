@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CenterTextSectionService } from '../../services/center-text-section.service';
-import { CenterTextData } from '../../models/center-text-section-model';
+import { CenterTextData } from '../../models/center-text-section.model';
 import { Subscription } from 'rxjs';
 
 @Component({

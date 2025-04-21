@@ -2,7 +2,7 @@ import { Injectable, OnDestroy, NgZone } from '@angular/core';
 import { Firestore, collection, getDocs, QuerySnapshot, DocumentData } from '@angular/fire/firestore';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Subject } from 'rxjs';
-import { CenterTextData } from '../models/center-text-section-model';
+import { CenterTextData } from '../models/center-text-section.model';
 
 @Injectable({
   providedIn: 'root'
