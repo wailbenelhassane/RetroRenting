@@ -1,27 +1,39 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable, BehaviorSubject, catchError, of } from 'rxjs';
+import { Injectable, inject, OnDestroy } from '@angular/core';
+import { Firestore, collection, getDocs, QuerySnapshot, DocumentData } from '@angular/fire/firestore';
+import { BehaviorSubject, Observable, from, catchError, of, takeUntil } from 'rxjs';
+import { Subject } from 'rxjs';
 import { isPlatformBrowser } from '@angular/common';
+import { Header } from '../models/header.model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class HeaderService {
-  private headerDataSubject = new BehaviorSubject<any>(null);
-  headerData$ = this.headerDataSubject.asObservable();
+export class HeaderService implements OnDestroy {
+  private firestore: Firestore = inject(Firestore);
+  private headerDataSubject = new BehaviorSubject<Header | null>(null);
+  headerData$: Observable<Header | null> = this.headerDataSubject.asObservable();
+  private destroy$ = new Subject<void>();
 
-  constructor(private http: HttpClient) {
+  constructor() {
     this.loadHeaderContent();
   }
 
   private loadHeaderContent() {
-    this.http.get('/data/header.json').pipe(
+    const headerCollection = collection(this.firestore, 'header');
+    from(getDocs(headerCollection)).pipe(
       catchError(error => {
-        console.error('Error loading header data:', error);
+        console.error('Error loading header data from Firestore:', error);
         return of(null);
-      })
-    ).subscribe(data => {
-      this.headerDataSubject.next(data);
+      }),
+      takeUntil(this.destroy$)
+    ).subscribe((querySnapshot: QuerySnapshot<DocumentData> | null) => {
+      if (querySnapshot && !querySnapshot.empty) {
+        const headerData = querySnapshot.docs[0].data() as Header;
+        this.headerDataSubject.next(headerData);
+      } else {
+        console.warn('No header data found in Firestore');
+        this.headerDataSubject.next(null);
+      }
     });
   }
 
@@ -68,5 +80,10 @@ export class HeaderService {
       hamburger.classList.toggle('active');
       mobileNav.classList.toggle('active');
     }
+  }
+
+  ngOnDestroy() {
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 }

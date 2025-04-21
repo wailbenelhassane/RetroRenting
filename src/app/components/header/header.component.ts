@@ -1,8 +1,10 @@
-import { Component, AfterViewInit, OnDestroy, PLATFORM_ID, Inject } from '@angular/core';
+import { Component, AfterViewInit, OnDestroy, Inject, PLATFORM_ID } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderService } from '../../services/header.service';
 import { isPlatformBrowser } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { Observable } from 'rxjs';
+import { Header } from '../../models/header.model';
 
 @Component({
   selector: 'app-header',
@@ -12,8 +14,8 @@ import { RouterLink } from '@angular/router';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements AfterViewInit, OnDestroy {
-  headerData$!: import('rxjs').Observable<any>;
-  private resizeCleanup!: () => void;
+  headerData$: Observable<Header | null>;
+  private resizeCleanup?: () => void;
 
   constructor(
     private headerService: HeaderService,
