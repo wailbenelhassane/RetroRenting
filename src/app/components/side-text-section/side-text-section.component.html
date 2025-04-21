@@ -1,9 +1,9 @@
-<section class="side-text-section-container" [attr.data-section]="sectionKey" *ngIf="sectionData[sectionKey]">
+<section class="side-text-section-container" [attr.data-section]="sectionKey" *ngIf="sectionData[sectionKey] && sectionKey">
   <div class="side-text-section-text">
-    <h2>{{ sectionData[sectionKey]?.title }}</h2>
-    <p>{{ sectionData[sectionKey]?.content }}</p>
+    <h2>{{ sectionData[sectionKey].title }}</h2>
+    <p>{{ sectionData[sectionKey].content }}</p>
   </div>
   <div class="side-text-section-image">
-    <img [src]="sectionData[sectionKey]?.src" [alt]="sectionData[sectionKey]?.alt">
+    <img [src]="sectionData[sectionKey].src" [alt]="sectionData[sectionKey].alt">
   </div>
 </section>
