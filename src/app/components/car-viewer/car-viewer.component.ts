@@ -1,11 +1,16 @@
 // car-viewer.component.ts
 import { Component, OnInit } from '@angular/core';
 import {CarData, CarViewerService} from '../../services/car-viewer.service';
+import {NgOptimizedImage} from '@angular/common';
+import {async} from 'rxjs';
 
 @Component({
   selector: 'app-car-viewer',
   templateUrl: './car-viewer.component.html',
   standalone: true,
+  imports: [
+    NgOptimizedImage
+  ],
   styleUrls: ['./car-viewer.component.scss']
 })
 export class CarViewerComponent implements OnInit {
@@ -25,9 +30,8 @@ export class CarViewerComponent implements OnInit {
   private loadImages(): void {
     this.carViewerService.getCarImages().subscribe({
       next: (data: { images: { [decade: string]: { [carName: string]: CarData } } }) => {
-        console.log('Datos cargados del JSON:', data); // Verifica los datos aquí
         this.carImages = data.images;
-        this.selectCar('70', 'chevrolet-camaro-70'); // Auto por defecto
+        this.selectCar('70', 'chevrolet-camaro-70');
       },
       error: (err: any) => {
         console.error('Error loading images:', err);
@@ -41,4 +45,7 @@ export class CarViewerComponent implements OnInit {
     this.allImages = [this.selectedCar.principal, ...this.selectedCar.secondary];
     this.currentIndex = 0; // Reiniciar el índice al cambiar de auto
   }
+
+
+  protected readonly async = async;
 }

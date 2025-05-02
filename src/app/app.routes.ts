@@ -10,7 +10,7 @@ export const routes: Routes = [
   { path: 'catalog', component: CatalogComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'car-page', component: CarPageComponent}
+  { path: 'car-page', component: CarPageComponent},
   { path: '**', redirectTo: 'index' }
 
 ];

@@ -2,11 +2,11 @@
   "images": {
     "70": {
       "chevrolet-camaro-70": {
-        "principal": "/RetroRenting/public/img/cars/70/chevrolet-camaro-70/full-frontal.jpg",
+        "principal": "/assets/images/cars/70/chevrolet-camaro-70/full-frontal.jpg",
         "secondary": [
-          "/RetroRenting/public/img/cars/70/chevrolet-camaro-70/full-back.jpg",
-          "/RetroRenting/public/img/cars/70/chevrolet-camaro-70/rotated-frontal.jpg",
-          "/RetroRenting/public/img/cars/70/chevrolet-camaro-70/side-profile.jpg"
+          "/assets/images/cars/70/chevrolet-camaro-70/full-back.jpg",
+          "/assets/images/cars/70/chevrolet-camaro-70/rotated-frontal.jpg",
+          "/assets/images/cars/70/chevrolet-camaro-70/side-profile.jpg"
         ]
       },
       "ford-mustang-70": {
