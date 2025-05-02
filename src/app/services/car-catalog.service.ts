@@ -1,19 +1,27 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable, BehaviorSubject } from 'rxjs';
-import { map, tap } from 'rxjs/operators';
+import { Injectable, OnDestroy, PLATFORM_ID, Inject, NgZone } from '@angular/core';
+import { Firestore, collection, getDocs, QuerySnapshot, DocumentData } from '@angular/fire/firestore';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { Subject } from 'rxjs';
+import { isPlatformBrowser } from '@angular/common';
+import { CarCatalog } from '../models/car-catalog.model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CarCatalogService {
-  private jsonUrl = '/data/carCatalog.json';
+export class CarCatalogService implements OnDestroy {
+  private firestore: Firestore;
   private decades = new BehaviorSubject<string[]>([]);
   private currentDecadeIndex = new BehaviorSubject<number>(0);
   private imagesSubject = new BehaviorSubject<{ [key: string]: string }>({});
   private currentImageSubject = new BehaviorSubject<{ src: string; altText: string }>({ src: '', altText: '' });
+  private destroy$ = new Subject<void>();
 
-  constructor(private http: HttpClient) {
+  constructor(
+    firestore: Firestore,
+    private ngZone: NgZone,
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) {
+    this.firestore = firestore;
     this.loadCarData();
   }
 
@@ -30,15 +38,17 @@ export class CarCatalogService {
   }
 
   private loadCarData() {
-    this.http.get(this.jsonUrl).subscribe({
-      next: (carData: any) => {
-        if (carData && carData.images) {
-          const decadeList = Object.keys(carData.images);
+    this.ngZone.run(() => {
+      const catalogCollection = collection(this.firestore, 'carCatalog');
+      getDocs(catalogCollection).then((querySnapshot: QuerySnapshot<DocumentData>) => {
+        if (querySnapshot && !querySnapshot.empty) {
+          const carData = querySnapshot.docs[0].data() as CarCatalog;
+          const decadeList = Object.keys(carData);
           this.decades.next(decadeList);
 
           const images: { [key: string]: string } = {};
           decadeList.forEach(decade => {
-            images[decade] = this.getCarImage(carData, decade);
+            images[decade] = carData[decade].image;
           });
 
           this.imagesSubject.next(images);
@@ -46,21 +56,25 @@ export class CarCatalogService {
           if (decadeList.length > 0) {
             this.updateView(decadeList[0]);
           }
+        } else {
+          console.warn('No car catalog data found in Firestore');
+          this.decades.next([]);
+          this.imagesSubject.next({});
+          this.currentImageSubject.next({ src: '', altText: '' });
         }
-      },
-      error: (error) => console.error('Error loading car data:', error)
+      }).catch((error: any) => {
+        console.error('Error loading car catalog data from Firestore:', error);
+        this.decades.next([]);
+        this.imagesSubject.next({});
+        this.currentImageSubject.next({ src: '', altText: '' });
+      });
     });
-  }
-
-  private getCarImage(carData: any, decade: string): string {
-    const cars = Object.values(carData.images[decade]);
-    return cars[0] as string;
   }
 
   private updateView(decade: string) {
     const images = this.imagesSubject.value;
     this.currentImageSubject.next({
-      src: images[decade],
+      src: images[decade] || '',
       altText: `Car image from ${decade}s`
     });
   }
@@ -93,5 +107,10 @@ export class CarCatalogService {
     if (decadeList.length > 0) {
       this.updateView(decadeList[this.currentDecadeIndex.value]);
     }
+  }
+
+  ngOnDestroy() {
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 }

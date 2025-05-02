@@ -5,8 +5,8 @@
          [alt]="(currentImage$ | async)?.altText" />
 
     <div class="mobile-controls">
-      <button class="prev-btn" aria-label="Previous car" (click)="prevImage()"> < </button>
-      <button class="next-btn" aria-label="Next car" (click)="nextImage()"> > </button>
+      <button class="prev-btn" aria-label="Previous car" (click)="prevImage()">&lt;</button>
+      <button class="next-btn" aria-label="Next car" (click)="nextImage()">&gt;</button>
     </div>
   </div>
 
@@ -14,8 +14,8 @@
     <li class="car-catalog-menu-item" *ngFor="let decade of decades$ | async"
         (mouseenter)="onMouseEnter(decade)">
       <a class="car-catalog-menu-item-element"
-         [href]="'/RetroRenting/views/catalog.html#' + decade">
-        {{decade}}'s Catalog
+         [href]="'/catalog#' + decade">
+        {{ decade }}'s Catalog
       </a>
     </li>
   </ul>
@@ -23,8 +23,9 @@
   <div class="mobile-menu">
     <ng-container *ngIf="(decades$ | async) as decades">
       <a class="mobile-catalog-link"
-         [href]="'/RetroRenting/views/catalog.html#' + decades[(currentDecadeIndex$ | async) || 0]">
-        {{decades[(currentDecadeIndex$ | async) || 0]}}'s Catalog
+         [href]="'/catalog#' + decades[(currentDecadeIndex$ | async) || 0]"
+         *ngIf="decades.length > 0">
+        {{ decades[(currentDecadeIndex$ | async) || 0] }}'s Catalog
       </a>
     </ng-container>
   </div>

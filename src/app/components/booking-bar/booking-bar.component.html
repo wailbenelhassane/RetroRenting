@@ -8,9 +8,7 @@
       <div class="booking-section">
         <p class="label-selector">Choose a car!</p>
         <select id="car-selector" formControlName="car" required>
-          @for (car of cars; track car.value) {
-            <option [value]="car.value">{{ car.name }}</option>
-          }
+          <option *ngFor="let car of cars" [value]="car.value">{{ car.name }}</option>
         </select>
       </div>
 

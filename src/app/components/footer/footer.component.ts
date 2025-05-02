@@ -1,24 +1,37 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FooterService } from '../../services/footer.service';
-import {NgForOf} from '@angular/common';
+import { FooterItem } from '../../models/footer.model';
+import { CommonModule } from '@angular/common';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
-  imports: [
-    NgForOf
-  ],
   standalone: true,
+  imports: [CommonModule],
   styleUrls: ['./footer.component.scss']
 })
-export class FooterComponent implements OnInit {
-  footerMenu: any[] = [];
+export class FooterComponent implements OnInit, OnDestroy {
+  footerMenu: FooterItem[] = [];
+  private subscription: Subscription = new Subscription();
 
   constructor(private footerService: FooterService) {}
 
   ngOnInit() {
-    this.footerService.getFooterData().subscribe(data => {
-      this.footerMenu = data.footerMenu;
-    });
+    this.subscription.add(
+      this.footerService.getFooterData().subscribe({
+        next: (data: FooterItem[]) => {
+          this.footerMenu = data;
+        },
+        error: (error: any) => {
+          console.error('Error loading footer data:', error);
+          this.footerMenu = [];
+        }
+      })
+    );
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 }
