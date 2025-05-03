@@ -1,43 +1,45 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { Injectable, OnDestroy, NgZone, Renderer2, RendererFactory2 } from '@angular/core';
+import { Firestore, collection, getDocs, QuerySnapshot, DocumentData } from '@angular/fire/firestore';
+import { Subject } from 'rxjs';
+import { TeamImage } from '../models/team-image.model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class OurTeamService {
-  private teamUrl = '/data/teamCarousel.json';
+export class OurTeamService implements OnDestroy {
+  teamImages: TeamImage[] = [];
   currentIndex = 0;
-  teamImages: { src: string, alt: string }[] = [];
   private intervalTime = 4000;
   private autoSlide: any;
+  private renderer: Renderer2;
+  private destroy$ = new Subject<void>();
+  private mouseEnterListener: (() => void) | null = null;
+  private mouseLeaveListener: (() => void) | null = null;
 
-  constructor(private http: HttpClient) {}
-
-  getTeamImages(): Observable<any> {
-    return this.http.get<any>(this.teamUrl).pipe(
-      catchError(error => {
-        console.error("Error al obtener las imágenes del carrusel:", error);
-        return throwError(error);
-      })
-    );
+  constructor(
+    private firestore: Firestore,
+    private ngZone: NgZone,
+    rendererFactory: RendererFactory2
+  ) {
+    this.renderer = rendererFactory.createRenderer(null, null);
   }
 
   loadTeamImages() {
-    this.getTeamImages().subscribe({
-      next: (data) => {
-        if (data && data.teamImages) {
-          this.teamImages = data.teamImages;
+    this.ngZone.run(() => {
+      const teamCollection = collection(this.firestore, 'teamCarousel');
+      getDocs(teamCollection).then((querySnapshot: QuerySnapshot<DocumentData>) => {
+        if (querySnapshot && !querySnapshot.empty) {
+          this.teamImages = querySnapshot.docs.map(doc => doc.data() as TeamImage);
           this.showSlide(this.currentIndex);
           this.startAutoSlide();
         } else {
-          console.error("No se pudieron cargar las imágenes del carrusel.");
+          console.warn('No team images found in Firestore');
+          this.teamImages = [];
         }
-      },
-      error: (error) => {
-        console.error(error);
-      }
+      }).catch((error: any) => {
+        console.error('Error loading team images from Firestore:', error);
+        this.teamImages = [];
+      });
     });
   }
 
@@ -55,25 +57,48 @@ export class OurTeamService {
   }
 
   startAutoSlide() {
+    if (this.autoSlide) {
+      clearInterval(this.autoSlide);
+    }
     this.autoSlide = setInterval(() => {
       this.moveSlide(1);
     }, this.intervalTime);
   }
 
   stopAutoSlide() {
-    clearInterval(this.autoSlide);
+    if (this.autoSlide) {
+      clearInterval(this.autoSlide);
+      this.autoSlide = null;
+    }
   }
 
   initCarousel() {
-    const carouselContainer = document.querySelector('.team-carousel');
+    const carouselContainer = document.querySelector('.team-carousel') as HTMLElement;
     if (carouselContainer) {
-      carouselContainer.addEventListener('mouseenter', () => {
+      this.mouseEnterListener = this.renderer.listen(carouselContainer, 'mouseenter', () => {
         this.stopAutoSlide();
       });
-
-      carouselContainer.addEventListener('mouseleave', () => {
+      this.mouseLeaveListener = this.renderer.listen(carouselContainer, 'mouseleave', () => {
         this.startAutoSlide();
       });
     }
+  }
+
+  cleanupCarouselEvents() {
+    if (this.mouseEnterListener) {
+      this.mouseEnterListener();
+      this.mouseEnterListener = null;
+    }
+    if (this.mouseLeaveListener) {
+      this.mouseLeaveListener();
+      this.mouseLeaveListener = null;
+    }
+  }
+
+  ngOnDestroy() {
+    this.stopAutoSlide();
+    this.cleanupCarouselEvents();
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 }
