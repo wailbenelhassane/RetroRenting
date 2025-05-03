@@ -15,26 +15,19 @@ import {ActivatedRoute} from '@angular/router';
   styleUrls: ['./car-viewer.component.scss']
 })
 export class CarViewerComponent implements OnInit {
-  carImages: { [decade: string]: { [carName: string]: CarData } } = {};
   selectedCar: CarData | null = null;
   selectedCarName: string = '';
   allImages: string[] = [];
   currentIndex: number = 0;
-  private id: string | undefined;
-  private nombre: string | undefined;
 
-  constructor(private carViewerService: CarViewerService, private route: ActivatedRoute) {}
+  constructor(private carViewerService: CarViewerService, private route: ActivatedRoute) {
+  }
 
   ngOnInit(): void {
     const urlParams = new URLSearchParams(window.location.search);
     const carId = urlParams.get('carId');
     if (carId) {
       const partes = carId.split('-');
-      this.id = partes.pop();
-      this.nombre = partes.join('-');
-
-      console.log('Nombre:', this.nombre);
-      console.log('ID:', this.id);
     }
     this.loadImages();
   }
@@ -70,7 +63,6 @@ export class CarViewerComponent implements OnInit {
     if (this.selectedCar) {
       this.selectedCar.principal = this.allImages[0];
     }
-
     this.currentIndex = 0;
   }
 }
