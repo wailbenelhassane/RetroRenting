@@ -1,6 +1,7 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { ReviewsService } from '../../services/reviews.service';
-import {CommonModule} from '@angular/common';
+import { Renderer2, RendererFactory2 } from '@angular/core';
 
 @Component({
   selector: 'app-reviews',
@@ -9,15 +10,34 @@ import {CommonModule} from '@angular/common';
   imports: [CommonModule],
   styleUrls: ['./reviews.component.scss']
 })
-export class ReviewsComponent implements OnInit, AfterViewInit {
-  constructor(public reviewsService: ReviewsService) {}
+export class ReviewsComponent implements OnInit, AfterViewInit, OnDestroy {
+  private renderer: Renderer2;
+  private resizeListener: (() => void) | null = null;
+
+  constructor(
+    public reviewsService: ReviewsService,
+    rendererFactory: RendererFactory2
+  ) {
+    this.renderer = rendererFactory.createRenderer(null, null);
+  }
 
   ngOnInit() {
     this.reviewsService.loadReviews();
-    window.addEventListener('resize', () => this.reviewsService.handleResize());
+    this.resizeListener = this.renderer.listen('window', 'resize', () => {
+      this.reviewsService.handleResize();
+    });
   }
 
   ngAfterViewInit() {
     this.reviewsService.initTouchEvents();
+  }
+
+  ngOnDestroy() {
+    if (this.resizeListener) {
+      this.resizeListener();
+      this.resizeListener = null;
+    }
+    this.reviewsService.cleanupTouchEvents();
+    this.reviewsService.stopAutoplay();
   }
 }
