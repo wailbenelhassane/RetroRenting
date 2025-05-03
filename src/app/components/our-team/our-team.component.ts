@@ -1,22 +1,33 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
-import{CommonModule} from '@angular/common';
+import { Component, OnInit, AfterViewInit, OnDestroy, Inject, PLATFORM_ID } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { OurTeamService } from '../../services/our-team.service';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-our-team',
   templateUrl: './our-team.component.html',
-  imports: [CommonModule],
   standalone: true,
+  imports: [CommonModule],
   styleUrls: ['./our-team.component.scss']
 })
-export class OurTeamComponent implements OnInit, AfterViewInit {
-  constructor(public ourTeamService: OurTeamService) {}
+export class OurTeamComponent implements OnInit, AfterViewInit, OnDestroy {
+  constructor(
+    public ourTeamService: OurTeamService,
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) {}
 
   ngOnInit() {
     this.ourTeamService.loadTeamImages();
   }
 
   ngAfterViewInit() {
-    this.ourTeamService.initCarousel();
+    if (isPlatformBrowser(this.platformId)) {
+      this.ourTeamService.initCarousel();
+    }
+  }
+
+  ngOnDestroy() {
+    this.ourTeamService.stopAutoSlide();
+    this.ourTeamService.cleanupCarouselEvents();
   }
 }

@@ -1,20 +1,20 @@
-import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { AsyncPipe } from '@angular/common';
+import { Component, OnInit, OnDestroy, Inject, PLATFORM_ID } from '@angular/core';
+import { CommonModule, AsyncPipe } from '@angular/common';
+import { Observable, Subject } from 'rxjs';
 import { CatalogSectionService } from '../../services/catalog-section.service';
 import { CatalogSection } from '../../models/catalog-section.model';
 import { isPlatformBrowser } from '@angular/common';
-import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-catalog-section',
   templateUrl: './catalog-section.component.html',
-  styleUrls: ['./catalog-section.component.scss'],
   standalone: true,
-  imports: [CommonModule, AsyncPipe]
+  imports: [CommonModule, AsyncPipe],
+  styleUrls: ['./catalog-section.component.scss']
 })
-export class CatalogSectionComponent implements OnInit {
+export class CatalogSectionComponent implements OnInit, OnDestroy {
   catalogData$!: Observable<CatalogSection[]>;
+  private destroy$ = new Subject<void>();
 
   constructor(
     private catalogSectionService: CatalogSectionService,
@@ -31,5 +31,10 @@ export class CatalogSectionComponent implements OnInit {
 
   onCardButtonClick(carId: string) {
     this.catalogSectionService.navigateToCarPage(carId);
+  }
+
+  ngOnDestroy() {
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 }

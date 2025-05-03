@@ -1,15 +1,13 @@
+export interface CatalogImage {
+  src: string;
+  altText: string;
+}
+
 export interface CatalogCard {
   id: string;
-  title: string;
-  image: {
-    src: string;
-    altText: string;
-  };
+  image: CatalogImage;
   info: string[];
-  button: {
-    text: string;
-    link: string;
-  };
+  title: string;
 }
 
 export interface CatalogSection {
