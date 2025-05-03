@@ -1,6 +1,7 @@
-import { Injectable, OnDestroy, NgZone, Renderer2, RendererFactory2 } from '@angular/core';
+import { Injectable, OnDestroy, NgZone, Renderer2, RendererFactory2, Inject, PLATFORM_ID } from '@angular/core';
 import { Firestore, collection, getDocs, QuerySnapshot, DocumentData } from '@angular/fire/firestore';
 import { Subject } from 'rxjs';
+import { isPlatformBrowser } from '@angular/common';
 import { Review } from '../models/review.model';
 
 @Injectable({
@@ -9,7 +10,7 @@ import { Review } from '../models/review.model';
 export class ReviewsService implements OnDestroy {
   reviewsData: Review[] = [];
   currentIndex = 0;
-  isMobile = window.innerWidth <= 768;
+  isMobile: boolean = false;
   private autoplayInterval: any;
   private renderer: Renderer2;
   private destroy$ = new Subject<void>();
@@ -20,9 +21,13 @@ export class ReviewsService implements OnDestroy {
   constructor(
     private firestore: Firestore,
     private ngZone: NgZone,
-    rendererFactory: RendererFactory2
+    rendererFactory: RendererFactory2,
+    @Inject(PLATFORM_ID) private platformId: Object
   ) {
     this.renderer = rendererFactory.createRenderer(null, null);
+    if (isPlatformBrowser(this.platformId)) {
+      this.isMobile = window.innerWidth <= 768;
+    }
   }
 
   loadReviews() {
@@ -31,7 +36,7 @@ export class ReviewsService implements OnDestroy {
       getDocs(reviewsCollection).then((querySnapshot: QuerySnapshot<DocumentData>) => {
         if (querySnapshot && !querySnapshot.empty) {
           this.reviewsData = querySnapshot.docs.map(doc => doc.data() as Review);
-          if (this.isMobile) {
+          if (this.isMobile && isPlatformBrowser(this.platformId)) {
             this.startAutoplay();
           }
           this.updateCarousel();
@@ -51,7 +56,7 @@ export class ReviewsService implements OnDestroy {
   }
 
   updateCarousel() {
-    if (this.isMobile) {
+    if (this.isMobile && isPlatformBrowser(this.platformId)) {
       const carouselTrack = document.querySelector('.carousel-track') as HTMLElement;
       if (carouselTrack) {
         this.renderer.setStyle(carouselTrack, 'transform', `translateX(-${this.currentIndex * 100}%)`);
@@ -70,6 +75,7 @@ export class ReviewsService implements OnDestroy {
   }
 
   startAutoplay() {
+    if (!isPlatformBrowser(this.platformId)) return;
     if (this.autoplayInterval) {
       clearInterval(this.autoplayInterval);
     }
@@ -86,6 +92,7 @@ export class ReviewsService implements OnDestroy {
   }
 
   handleResize() {
+    if (!isPlatformBrowser(this.platformId)) return;
     const wasNotMobile = !this.isMobile;
     this.isMobile = window.innerWidth <= 768;
 
@@ -100,7 +107,7 @@ export class ReviewsService implements OnDestroy {
   }
 
   initTouchEvents() {
-    if (!this.isMobile) return;
+    if (!this.isMobile || !isPlatformBrowser(this.platformId)) return;
 
     const element = document.querySelector('.carousel-track') as HTMLElement;
     if (!element) return;

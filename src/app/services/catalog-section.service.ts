@@ -1,8 +1,9 @@
-import { Injectable, OnDestroy, NgZone, Inject, PLATFORM_ID } from '@angular/core';
+import { Injectable, OnDestroy, NgZone, Inject, PLATFORM_ID, Renderer2, RendererFactory2 } from '@angular/core';
 import { Firestore, collection, getDocs, QuerySnapshot, DocumentData } from '@angular/fire/firestore';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Subject } from 'rxjs';
 import { isPlatformBrowser } from '@angular/common';
+import { Router } from '@angular/router';
 import { CatalogSection } from '../models/catalog-section.model';
 
 @Injectable({
@@ -12,12 +13,16 @@ export class CatalogSectionService implements OnDestroy {
   private catalogDataSubject = new BehaviorSubject<CatalogSection[]>([]);
   catalogData$ = this.catalogDataSubject.asObservable();
   private destroy$ = new Subject<void>();
+  private renderer: Renderer2;
 
   constructor(
     private firestore: Firestore,
     private ngZone: NgZone,
-    @Inject(PLATFORM_ID) private platformId: Object
+    private router: Router,
+    @Inject(PLATFORM_ID) private platformId: Object,
+    rendererFactory: RendererFactory2
   ) {
+    this.renderer = rendererFactory.createRenderer(null, null);
     this.loadCatalogSections();
   }
 
@@ -41,7 +46,7 @@ export class CatalogSectionService implements OnDestroy {
 
   navigateToCarPage(carId: string) {
     if (isPlatformBrowser(this.platformId)) {
-      window.location.href = `/car-page?carId=${carId}`;
+      this.router.navigate(['/car-page'], { queryParams: { carId } });
     }
   }
 
@@ -50,7 +55,10 @@ export class CatalogSectionService implements OnDestroy {
       setTimeout(() => {
         const targetElement = document.getElementById(targetId);
         if (targetElement) {
-          targetElement.scrollIntoView({ behavior: 'smooth' });
+          this.renderer.setProperty(window, 'scrollTo', {
+            top: targetElement.getBoundingClientRect().top + window.pageYOffset,
+            behavior: 'smooth'
+          });
         }
       }, 300);
     }

@@ -1,6 +1,7 @@
-import { Injectable, OnDestroy, NgZone, Renderer2, RendererFactory2 } from '@angular/core';
+import { Injectable, OnDestroy, NgZone, Renderer2, RendererFactory2, Inject, PLATFORM_ID } from '@angular/core';
 import { Firestore, collection, getDocs, QuerySnapshot, DocumentData } from '@angular/fire/firestore';
 import { Subject } from 'rxjs';
+import { isPlatformBrowser } from '@angular/common';
 import { TeamImage } from '../models/team-image.model';
 
 @Injectable({
@@ -19,7 +20,8 @@ export class OurTeamService implements OnDestroy {
   constructor(
     private firestore: Firestore,
     private ngZone: NgZone,
-    rendererFactory: RendererFactory2
+    rendererFactory: RendererFactory2,
+    @Inject(PLATFORM_ID) private platformId: Object
   ) {
     this.renderer = rendererFactory.createRenderer(null, null);
   }
@@ -31,7 +33,9 @@ export class OurTeamService implements OnDestroy {
         if (querySnapshot && !querySnapshot.empty) {
           this.teamImages = querySnapshot.docs.map(doc => doc.data() as TeamImage);
           this.showSlide(this.currentIndex);
-          this.startAutoSlide();
+          if (isPlatformBrowser(this.platformId)) {
+            this.startAutoSlide();
+          }
         } else {
           console.warn('No team images found in Firestore');
           this.teamImages = [];
@@ -57,6 +61,7 @@ export class OurTeamService implements OnDestroy {
   }
 
   startAutoSlide() {
+    if (!isPlatformBrowser(this.platformId)) return;
     if (this.autoSlide) {
       clearInterval(this.autoSlide);
     }
@@ -73,6 +78,7 @@ export class OurTeamService implements OnDestroy {
   }
 
   initCarousel() {
+    if (!isPlatformBrowser(this.platformId)) return;
     const carouselContainer = document.querySelector('.team-carousel') as HTMLElement;
     if (carouselContainer) {
       this.mouseEnterListener = this.renderer.listen(carouselContainer, 'mouseenter', () => {

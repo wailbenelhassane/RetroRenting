@@ -1,6 +1,7 @@
-import { Component, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, AfterViewInit, OnDestroy, Inject, PLATFORM_ID } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { OurTeamService } from '../../services/our-team.service';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-our-team',
@@ -10,14 +11,19 @@ import { OurTeamService } from '../../services/our-team.service';
   styleUrls: ['./our-team.component.scss']
 })
 export class OurTeamComponent implements OnInit, AfterViewInit, OnDestroy {
-  constructor(public ourTeamService: OurTeamService) {}
+  constructor(
+    public ourTeamService: OurTeamService,
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) {}
 
   ngOnInit() {
     this.ourTeamService.loadTeamImages();
   }
 
   ngAfterViewInit() {
-    this.ourTeamService.initCarousel();
+    if (isPlatformBrowser(this.platformId)) {
+      this.ourTeamService.initCarousel();
+    }
   }
 
   ngOnDestroy() {

@@ -1,7 +1,8 @@
-import { Component, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, AfterViewInit, OnDestroy, Inject, PLATFORM_ID } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReviewsService } from '../../services/reviews.service';
 import { Renderer2, RendererFactory2 } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-reviews',
@@ -16,20 +17,25 @@ export class ReviewsComponent implements OnInit, AfterViewInit, OnDestroy {
 
   constructor(
     public reviewsService: ReviewsService,
-    rendererFactory: RendererFactory2
+    rendererFactory: RendererFactory2,
+    @Inject(PLATFORM_ID) private platformId: Object
   ) {
     this.renderer = rendererFactory.createRenderer(null, null);
   }
 
   ngOnInit() {
     this.reviewsService.loadReviews();
-    this.resizeListener = this.renderer.listen('window', 'resize', () => {
-      this.reviewsService.handleResize();
-    });
+    if (isPlatformBrowser(this.platformId)) {
+      this.resizeListener = this.renderer.listen('window', 'resize', () => {
+        this.reviewsService.handleResize();
+      });
+    }
   }
 
   ngAfterViewInit() {
-    this.reviewsService.initTouchEvents();
+    if (isPlatformBrowser(this.platformId)) {
+      this.reviewsService.initTouchEvents();
+    }
   }
 
   ngOnDestroy() {
