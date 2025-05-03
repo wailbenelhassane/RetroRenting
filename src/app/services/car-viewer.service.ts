@@ -1,10 +1,8 @@
-// car-viewer.service.ts
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import {Firestore, doc, getDoc, docData, setDoc} from '@angular/fire/firestore';
 import { Observable, of } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { catchError, map } from 'rxjs/operators';
 
-// car-images.interface.ts
 export interface CarImages {
   images: {
     [decade: string]: {
@@ -19,19 +17,33 @@ export interface CarData {
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-
-
 export class CarViewerService {
-  constructor(private http: HttpClient) {}
+  constructor(private firestore: Firestore) {}
 
-  getCarImages(): Observable<CarImages> {
-    return this.http.get<CarImages>('/data/images.json').pipe(
+  getCarData(carName: string): Observable<CarData | null> {
+    const datasetDocRef = doc(this.firestore, 'carImages/dataset');
+
+    return docData(datasetDocRef).pipe(
+      map((doc: any) => {
+        const images = doc.images || {};
+
+        // Buscar el coche en todas las décadas
+        for (const decade in images) {
+          const carsInDecade = images[decade];
+          if (carsInDecade[carName]) {
+            return carsInDecade[carName] as CarData;
+          }
+        }
+
+        return null; // No se encontró el coche
+      }),
       catchError(error => {
-        console.error('Error fetching car images:', error);
-        return of({ images: {} }); // Retorna un objeto vacío en caso de error
+        console.error('Error fetching car data:', error);
+        return of(null);
       })
     );
   }
+
 }

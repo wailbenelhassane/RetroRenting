@@ -6,6 +6,7 @@ import {
 } from '../../components/bar-car-details-booking/bar-car-details-booking.component';
 import {CarViewerComponent} from '../../components/car-viewer/car-viewer.component';
 import {ActivatedRoute} from '@angular/router';
+import {BookingBarComponent} from '../../components/booking-bar/booking-bar.component';
 
 @Component({
   selector: 'app-car-page',
@@ -16,6 +17,7 @@ import {ActivatedRoute} from '@angular/router';
     CarViewerComponent
   ],
   templateUrl: './car-page.component.html',
+  standalone: true,
   styleUrl: './car-page.component.scss'
 })
 
@@ -32,7 +34,7 @@ export class CarPageComponent {
 
   get formattedCarName(): string {
     const parts = this.carId.split('-');
-    parts.pop(); // Elimina la última parte (normalmente el año)
+    parts.pop();
     return parts
       .map(word => word.charAt(0).toUpperCase() + word.slice(1))
       .join(' ');
