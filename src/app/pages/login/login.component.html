@@ -1,11 +1,11 @@
 <aside class="aside-image">
-  <img class="background-aside-image" [ngSrc]="imageURL" alt="Loading Image." width="1024" height="768">
+  <img class="background-aside-image" [ngSrc]="asideImgUrl" alt="Loading Image." width="1024" height="768">
 </aside>
 
 <main class="login-container">
   <header class="login-header">
     <div class="login-logo">
-      <img class="logo-image" [ngSrc]="logoURL" alt="Loading Image." width="1024" height="768">
+      <img class="logo-image" [ngSrc]="logoUrl" alt="Loading Image." width="1024" height="768">
     </div>
     <h1>Sign in!</h1>
   </header>
@@ -15,15 +15,22 @@
   </nav>
 
   <section class="login-form-container">
-    <form class="login-form" id="login-form" method="post">
-      <input type="text" id="username" name="username" autocomplete="off" placeholder="Username" required>
-      <input type="password" id="password" name="password" autocomplete="current-password" placeholder="Password" required>
-      <button class="login-btn" type="submit">Sign in</button>
+    <form class="login-form" id="login-form" method="post" (ngSubmit)="onSubmit()" #form="ngForm" novalidate>
+      <input type="email" name="email" [(ngModel)]="email" placeholder="Email" required #emailRef="ngModel">
+      <div class="error-message" *ngIf="emailRef.invalid && emailRef.touched">Email requerido</div>
+
+      <input type="password" name="password" [(ngModel)]="password" placeholder="Password" required minlength="6" #passwordRef="ngModel">
+      <div class="error-message" *ngIf="passwordRef.invalid && passwordRef.touched">Password requerido (mínimo 6 caracteres)</div>
+
+      <button class="login-btn" type="submit" [disabled]="form.invalid">Sign in</button>
+      <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+
     </form>
+
   </section>
 
   <footer class="login-links">
-    <p id="sign-up-link">Don´t have an account? <a href="register.html" id="sign-up-btn">Sign up</a></p>
+    <p id="sign-up-link">Don´t have an account? <a href="../register" id="sign-up-btn">Sign up</a></p>
     <p id="reemail-link">Forget your password? <a href="" id="reemail-btn">Send email</a></p>
   </footer>
 </main>

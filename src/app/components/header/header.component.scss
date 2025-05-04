@@ -209,6 +209,7 @@ $section-width: 20%;
   .auth-links {
     width: 15%;
     justify-content: center;
+    margin-right: 3vh;
 
     a {
       margin: 0 3px;
@@ -251,4 +252,5 @@ $section-width: 20%;
   .main-nav {
     justify-content: space-between;
   }
+
 }

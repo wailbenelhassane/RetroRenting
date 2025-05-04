@@ -5,9 +5,11 @@ import { routes } from './app.routes';
 import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
 import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
+import { Auth, getAuth, provideAuth } from '@angular/fire/auth';
+import { FIREBASE_OPTIONS } from '@angular/fire/compat';
 
 const firebaseConfig = {
-  apiKey: "",
+  apiKey: "AIzaSyBpqrwIu8R59vzvHdAVbopJ1qApKxXK3Us",
   authDomain: "retrorenting-acd8d.firebaseapp.com",
   databaseURL: "https://retrorenting-acd8d-default-rtdb.europe-west1.firebasedatabase.app",
   projectId: "retrorenting-acd8d",
@@ -23,6 +25,8 @@ export const appConfig: ApplicationConfig = {
     provideClientHydration(withEventReplay()),
     provideHttpClient(withFetch()),
     provideFirebaseApp(() => initializeApp(firebaseConfig)),
-    provideFirestore(() => getFirestore())
+    provideFirestore(() => getFirestore()),
+    provideAuth(() => getAuth()),
+    { provide: FIREBASE_OPTIONS, useValue: firebaseConfig }
   ]
 };

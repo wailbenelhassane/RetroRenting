@@ -1,10 +1,11 @@
-import { Component, AfterViewInit, OnDestroy, Inject, PLATFORM_ID } from '@angular/core';
+import {Component, AfterViewInit, OnDestroy, Inject, PLATFORM_ID, OnInit} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderService } from '../../services/header.service';
 import { isPlatformBrowser } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Header } from '../../models/header.model';
+import {AuthService} from '../../services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -13,15 +14,31 @@ import { Header } from '../../models/header.model';
   imports: [CommonModule, RouterLink],
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements AfterViewInit, OnDestroy {
+export class HeaderComponent implements AfterViewInit, OnDestroy, OnInit {
   headerData$: Observable<Header | null>;
+  currentUserName: string | null = null;
   private resizeCleanup?: () => void;
 
   constructor(
     private headerService: HeaderService,
-    @Inject(PLATFORM_ID) private platformId: Object
+    @Inject(PLATFORM_ID) private platformId: Object,
+    private authService: AuthService
   ) {
     this.headerData$ = this.headerService.headerData$;
+  }
+
+  ngOnInit(): void {
+    this.authService.currentUser$.subscribe(user => {
+      if (user) {
+        this.currentUserName = user.username;
+      } else {
+        this.currentUserName = null;
+      }
+    });
+  }
+
+  logout() {
+    this.authService.logout();
   }
 
   ngAfterViewInit() {

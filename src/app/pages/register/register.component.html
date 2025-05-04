@@ -1,11 +1,11 @@
 <aside class="aside-image">
-  <img class="background-aside-image" [ngSrc]="imageURL" alt="Loading Image." width="1024" height="768">
+  <img class="background-aside-image" [ngSrc]="asideImgUrl" alt="Loading Image." width="1024" height="768">
 </aside>
 
 <main class="register-container">
   <header class="register-header">
     <div class="register-logo">
-      <img class="logo-image" [ngSrc]="logoURL" alt="Loading Image." width="1024" height="768">
+      <img class="logo-image" [ngSrc]="logoUrl" alt="Loading Image." width="1024" height="768">
     </div>
     <h1>Sign up!</h1>
   </header>
@@ -15,20 +15,71 @@
   </nav>
 
   <section class="register-form-container">
-    <form class="register-form" id="register-form" method="post">
+    <form class="register-form" #form="ngForm" (ngSubmit)="onSubmit()" novalidate>
+
       <div class="name-group">
-        <input type="text" id="name" name="first-name" autocomplete="off" placeholder="First Name" required>
-        <input type="text" id="surname" name="last-name" autocomplete="current-password"  placeholder="Last Name" required>
+        <div>
+          <input type="text" id="name" name="firstName" [(ngModel)]="firstName" placeholder="First Name"
+                 required minlength="2" #firstNameRef="ngModel">
+          <div class="error" *ngIf="firstNameRef.errors?.['required'] && firstNameRef.touched">
+            First name is required.
+          </div>
+          <div class="error" *ngIf="firstNameRef.errors?.['minlength'] && firstNameRef.touched">
+            First name must be at least 2 characters.
+          </div>
+        </div>
+
+        <div>
+          <input type="text" id="surname" name="lastName" [(ngModel)]="lastName" placeholder="Last Name"
+                 required minlength="2" #lastNameRef="ngModel">
+          <div class="error" *ngIf="lastNameRef.errors?.['required'] && lastNameRef.touched">
+            Last name is required.
+          </div>
+          <div class="error" *ngIf="lastNameRef.errors?.['minlength'] && lastNameRef.touched">
+            Last name must be at least 2 characters.
+          </div>
+        </div>
       </div>
-      <input type="text" id="email" name="email" placeholder="Email" required>
-      <input type="text" id="username" name="username" placeholder="Username" required>
-      <input type="password" id="password" name="password" placeholder="Password" required>
-      <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm password" required>
-      <button class="register-btn" type="submit">Sign up</button>
+
+      <div>
+        <input type="email" id="email" name="email" placeholder="Email" [(ngModel)]="email"
+               required pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+               #emailRef="ngModel">
+        <div class="error" *ngIf="emailRef.errors?.['required'] && emailRef.touched">
+          Email is required.
+        </div>
+        <div class="error" *ngIf="emailRef.errors?.['pattern'] && emailRef.touched">
+          Email must be in a valid format (example&#64;domain.com).
+        </div>
+      </div>
+
+      <div>
+        <input type="text" id="username" name="username" placeholder="Username" [(ngModel)]="username" required #usernameRef="ngModel">
+        <div class="error" *ngIf="usernameRef.invalid && usernameRef.touched">Username is required.</div>
+      </div>
+
+      <div>
+        <input type="password" id="password" name="password" placeholder="Password" [(ngModel)]="password" required minlength="6" #passwordRef="ngModel">
+        <div class="error" *ngIf="passwordRef.invalid && passwordRef.touched">
+          Password must be at least 6 characters.
+        </div>
+      </div>
+
+      <div>
+        <input type="password" id="confirm-password" name="confirmPassword" placeholder="Confirm password" [(ngModel)]="confirmPassword" required #confirmPasswordRef="ngModel">
+        <div class="error" *ngIf="confirmPasswordRef.invalid && confirmPasswordRef.touched">
+          Please confirm your password.
+        </div>
+        <div class="error" *ngIf="confirmPassword !== password && confirmPasswordRef.touched">
+          Passwords do not match.
+        </div>
+      </div>
+
+      <button class="register-btn" type="submit" [disabled]="form.invalid">Sign up</button>
     </form>
   </section>
 
   <footer>
-    <p id="sign-in-link">Already have an account? <a href="login.html" id="sign-in-btn">Sign in</a></p>
+    <p id="sign-in-link">Already have an account? <a href="../login" id="sign-in-btn">Sign in</a></p>
   </footer>
 </main>

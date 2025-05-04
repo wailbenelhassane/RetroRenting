@@ -1,74 +1,70 @@
-import { Component, Input } from '@angular/core';
-import { NgOptimizedImage } from '@angular/common';
-//import { includeHTML, fetchJSON, setMultipleImages } from "./main.js";
-//import { cleanAllInputs, showErrors, validateAllFieldsForm } from "./utils/validationForm.js";
-//import { processLogin } from "./services/authService.js";
+import {Component, OnInit} from '@angular/core';
+import {NgIf, NgOptimizedImage} from '@angular/common';
+import {doc, Firestore, getDoc} from '@angular/fire/firestore';
+import {FormsModule} from '@angular/forms';
+import {AuthService} from '../../services/auth.service';
+import {Router} from '@angular/router';
 
-// Interfaces
-interface LoginCredentials {
-  username: string;
-  password: string;
-}
-
-interface LoginData {
-  [key: string]: any;
-}
 
 @Component({
   selector: 'app-login',
   imports: [
-    NgOptimizedImage
+    NgOptimizedImage,
+    FormsModule,
+    NgIf
   ],
   templateUrl: './login.component.html',
+  standalone: true,
   styleUrl: './login.component.scss'
 })
-export class LoginComponent {
-  @Input() imageURL: string = 'assets/images/login.jpg';
-  @Input() logoURL: string = 'assets/images/logo.png';
+export class LoginComponent implements OnInit {
 
-  /*constructor() {
-    this.initializeComponent();
-  }
+  email: string = '';
+  password: string = '';
+  errorMessage: string = '';
 
-  private async initializeComponent(): Promise<void> {
-    await includeHTML();
-    await this.loadImages();
-    this.validateForm();
-  }
+  constructor(private firestore: Firestore, private authService: AuthService, private router: Router) {}
 
-  private async loadImages(): Promise<void> {
-    const loginData: LoginData | null = await fetchJSON<LoginData>("../public/data-json/loginContent.json");
-    if (loginData) {
-      setMultipleImages(loginData);
-    } else {
-      console.error("No login data found.");
+  logoUrl: string = '';
+  asideImgUrl: string = '';
+
+  async ngOnInit(): Promise<void> {
+    const ref = doc(this.firestore, 'loginContent/iSjxwh8cCQzLXQFUda78');
+
+    try {
+      const docSnap = await getDoc(ref);
+      if (docSnap.exists()) {
+        const data = docSnap.data();
+        this.logoUrl = data['src'];
+      } else {
+        console.warn('Documento no encontrado');
+      }
+    } catch (error) {
+      console.error('Error al obtener el logo:', error);
+    }
+    const refAsideImg = doc(this.firestore, 'loginContent/glrZ1OoJyc0FIhFDkdSW');
+    try {
+      const docSnap = await getDoc(refAsideImg);
+      if (docSnap.exists()) {
+        const data = docSnap.data();
+        this.asideImgUrl = data['src']
+      } else {
+        console.warn('Documento no encontrado');
+      }
+    } catch (error) {
+      console.error('Error al obtener imagen:', error);
     }
   }
 
-  private validateForm(): void {
-    const loginForm = document.getElementById("login-form") as HTMLFormElement;
-
-    loginForm.addEventListener("submit", (event: Event): void => {
-      event.preventDefault();
-
-      cleanAllInputs("login-form");
-
-      const errors: string[] = validateAllFieldsForm();
-      showErrors(errors, "login-form");
-
-      if (errors.length > 0) {
-        return;
-      }
-
-      const password = document.getElementById("password") as HTMLInputElement;
-      const username = document.getElementById("username") as HTMLInputElement;
-
-      const credentials: LoginCredentials = {
-        username: username.value,
-        password: password.value
-      };
-
-      processLogin(credentials, password);
-    });
-  }*/
+  onSubmit() {
+    this.authService.login(this.email, this.password)
+      .then(() => {
+        this.errorMessage = '';
+        this.router.navigate(['/']);
+      })
+      .catch(err => {
+        console.error('Login failed:', this.errorMessage);
+        this.errorMessage = 'Invalid email or password';
+      });
+  }
 }

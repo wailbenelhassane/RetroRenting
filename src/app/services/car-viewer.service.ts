@@ -29,7 +29,6 @@ export class CarViewerService {
       map((doc: any) => {
         const images = doc.images || {};
 
-        // Buscar el coche en todas las décadas
         for (const decade in images) {
           const carsInDecade = images[decade];
           if (carsInDecade[carName]) {
@@ -37,7 +36,7 @@ export class CarViewerService {
           }
         }
 
-        return null; // No se encontró el coche
+        return null;
       }),
       catchError(error => {
         console.error('Error fetching car data:', error);

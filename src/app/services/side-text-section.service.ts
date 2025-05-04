@@ -24,7 +24,6 @@ export class SideTextSectionService implements OnDestroy {
       const sideTextCollection = collection(this.firestore, 'sideText');
       getDocs(sideTextCollection).then((querySnapshot: QuerySnapshot<DocumentData>) => {
         if (querySnapshot && !querySnapshot.empty) {
-          // Asumimos que el primer documento contiene todas las secciones
           const sideTextData = querySnapshot.docs[0].data() as SideTextData;
           this.sectionDataSubject.next(sideTextData);
         } else {

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {CarData, CarViewerService} from '../../services/car-viewer.service';
-import {NgForOf, NgOptimizedImage} from '@angular/common';
-import {async} from 'rxjs';
+import {NgForOf} from '@angular/common';
 import {ActivatedRoute} from '@angular/router';
 
 @Component({

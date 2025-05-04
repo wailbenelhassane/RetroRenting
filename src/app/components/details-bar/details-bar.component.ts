@@ -21,7 +21,7 @@ export class DetailsBarComponent implements OnInit {
     const urlParams = new URLSearchParams(window.location.search);
     const carId = urlParams.get('carId');
     if (carId) {
-      const partes = carId.split('-');
+      carId.split('-');
       try {
         this.selectedCar = await this.barDetailsService.getInfo(carId);
       } catch (error) {
