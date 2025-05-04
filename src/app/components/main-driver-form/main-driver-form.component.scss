@@ -21,30 +21,6 @@ $font-size-small: 1.2rem;
   margin: 0;
 }
 
-#main-driver-wrapper{
-  #error-container {
-    color: red;
-    font-size: 14px;
-    font-family: variables.$font-family;
-    margin-top: 15px;
-    padding: 10px;
-    border: 1px solid red;
-    border-radius: 5px;
-
-    ul {
-      padding-left: 20px;
-    }
-  }
-
-  :valid {
-    border-color: green;
-  }
-
-  :invalid {
-    border-color: red;
-  }
-}
-
 #main-driver-form-container {
   background-color: variables.$dark-gray;
   padding: 4vh;
@@ -148,6 +124,27 @@ $font-size-small: 1.2rem;
       justify-content: center;
     }
   }
+}
+
+.error-list {
+  color: red;
+  font-size: 0.8rem;
+  font-family: variables.$font-family;
+  border: 1px solid red;
+  border-radius: 5px;
+  padding: 4px;
+  margin-top: 1vh;
+  list-style-type: none;
+}
+
+input.invalid,
+select.invalid {
+  border: 2px solid #e53935;
+  background-color: #fff6f6;
+}
+
+:invalid {
+  border-color: red;
 }
 
 footer {
@@ -398,5 +395,4 @@ footer {
   footer {
     bottom: 0;
   }
-
 }
