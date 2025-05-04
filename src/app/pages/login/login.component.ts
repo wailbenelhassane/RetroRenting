@@ -1,7 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgForOf, NgIf, NgOptimizedImage } from '@angular/common';
 import { FormBuilder, ReactiveFormsModule, Validators, FormGroup } from '@angular/forms';
-import { RouterLink } from '@angular/router';
 import { LoginService } from '../../services/login.service';
 import {doc, Firestore, getDoc} from '@angular/fire/firestore';
 import {AuthService} from '../../services/auth.service';
@@ -12,7 +11,6 @@ import {AuthService} from '../../services/auth.service';
   imports: [
     NgOptimizedImage,
     ReactiveFormsModule,
-    RouterLink,
     NgIf,
     NgForOf
   ],
