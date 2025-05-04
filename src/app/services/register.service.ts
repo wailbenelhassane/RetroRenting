@@ -2,7 +2,6 @@ import {Injectable} from '@angular/core';
 import {FormGroup} from '@angular/forms';
 import {Auth, createUserWithEmailAndPassword, UserCredential} from '@angular/fire/auth';
 import {doc, Firestore, setDoc} from '@angular/fire/firestore';
-import {Router} from '@angular/router';
 import {FormValidationService} from './utils/form-validation.service';
 
 @Injectable({
@@ -11,7 +10,6 @@ import {FormValidationService} from './utils/form-validation.service';
 export class RegisterService {
 
   constructor(private auth: Auth,
-              private router: Router,
               private firestore: Firestore,
               private validationService: FormValidationService) { }
 
@@ -23,7 +21,6 @@ export class RegisterService {
         const user = userCredential.user;
 
         try {
-          console.log('UID:', user.uid);
           const userRef = doc(this.firestore, 'users', user.uid);
           await setDoc(userRef, {
             firstName: registerForm.value.name,

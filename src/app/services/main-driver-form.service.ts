@@ -1,15 +1,19 @@
-import {Injectable, NgZone} from '@angular/core';
+import {Injectable, NgZone, OnInit} from '@angular/core';
 import {Observable} from 'rxjs';
 import {collection, DocumentData, Firestore, getDocs, QuerySnapshot} from '@angular/fire/firestore';
 import {Country} from '../models/main-driver-form.model';
 import {FormGroup} from '@angular/forms';
 import {FormValidationService} from './utils/form-validation.service';
+import {BookingsService} from './booking-firebase.service';
+import {getAuth} from '@angular/fire/auth';
+import {Booking} from '../models/booking.model';
 
 @Injectable({ providedIn: 'root' })
-  export class MainDriverFormService {
+  export class MainDriverFormService{
     constructor(
       private firestore: Firestore,
       private validationService: FormValidationService,
+      private bookingService: BookingsService,
       private ngZone: NgZone
     ) {}
 
@@ -64,14 +68,48 @@ import {FormValidationService} from './utils/form-validation.service';
       });
     }
 
-    proccessForm(mainDriverForm: FormGroup): string[] {
-      const errors = this.validationService.validate(mainDriverForm.value, this.getMainDriverValidationSchema());
+  proccessForm(mainDriverForm: FormGroup): string[] {
+    const errors = this.validationService.validate(mainDriverForm.value, this.getMainDriverValidationSchema());
 
-      if (errors.length === 0) {
-        console.log("Booking done!");
+    if (errors.length === 0) {
+      const auth = getAuth();
+      const user = auth.currentUser;
+
+      if (user) {
+        const bookingInfoRaw = localStorage.getItem('bookingData');
+        if (!bookingInfoRaw) {
+          console.error('No booking data found in localStorage');
+          return ['bookingDataMissing'];
+        }
+
+        const bookingInfo = JSON.parse(bookingInfoRaw);
+
+        const bookingData: Booking = {
+          userId: user.uid,
+          booking: {
+            car: bookingInfo.car,
+            location: bookingInfo.location,
+            pickupDate: bookingInfo.formattedDate.split(' - ')[0],
+            returnDate: bookingInfo.formattedDate.split(' - ')[1]
+          },
+          driver: {
+            name: mainDriverForm.value.name,
+            surname: mainDriverForm.value.surname,
+            email: mainDriverForm.value.email,
+            phone: mainDriverForm.value.phone,
+            country: mainDriverForm.value.country
+          }
+        };
+
+        this.bookingService.add(bookingData);
+      } else {
+        console.error('No user is currently logged in');
+        return ['notLoggedIn'];
       }
-      return errors;
     }
+
+    return errors;
+  }
 
     private getMainDriverValidationSchema(): Record<string, string[]> {
       return {

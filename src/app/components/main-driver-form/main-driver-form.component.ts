@@ -4,7 +4,8 @@ import {NgForOf, NgIf} from '@angular/common';
 import {MainDriverFormService} from '../../services/main-driver-form.service';
 import {Subscription} from 'rxjs';
 import {Country} from '../../models/main-driver-form.model';
-import {FormValidationService} from '../../services/utils/form-validation.service'; // Asegúrate de tenerlo
+import {FormValidationService} from '../../services/utils/form-validation.service';
+import {Router} from '@angular/router'; // Asegúrate de tenerlo
 
 @Component({
   selector: 'app-main-driver-form',
@@ -23,6 +24,7 @@ export class MainDriverFormComponent implements OnInit, OnDestroy {
   constructor(
     private formBuilder: FormBuilder,
     public validationService: FormValidationService,
+    private router: Router,
     public mainDriverService: MainDriverFormService
   ) {
     this.driverForm = this.formBuilder.group({
@@ -70,6 +72,10 @@ export class MainDriverFormComponent implements OnInit, OnDestroy {
 
   onSubmit(): void {
     this.formErrors = this.mainDriverService.proccessForm(this.driverForm);
+
+    if (this.formErrors.length === 0) {
+      this.router.navigate(['/']);
+    }
   }
 
   ngOnDestroy(): void {

@@ -18,7 +18,9 @@ export class AuthService {
   private currentUserSubject = new BehaviorSubject<any>(null);
   currentUser$ = this.currentUserSubject.asObservable();
 
-  constructor(private afAuth: AngularFireAuth, private firestore: Firestore, private auth: Auth) {
+  constructor(private afAuth: AngularFireAuth,
+              private firestore: Firestore,
+              private auth: Auth) {
     this.afAuth.authState.subscribe(async user => {
       if (user) {
         const userDocRef = doc(this.firestore, `users/${user.uid}`);
@@ -45,5 +47,4 @@ export class AuthService {
   logout(): Promise<void> {
     return signOut(this.auth);
   }
-
 }

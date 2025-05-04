@@ -1,10 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { NgForOf, NgIf, NgOptimizedImage } from '@angular/common';
-import { FormBuilder, ReactiveFormsModule, Validators, FormGroup } from '@angular/forms';
+import {Component, OnInit} from '@angular/core';
+import {NgForOf, NgIf, NgOptimizedImage} from '@angular/common';
+import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import {Router, RouterLink} from '@angular/router';
-import { RegisterService } from '../../services/register.service';
-import {doc, Firestore, getDoc, setDoc} from '@angular/fire/firestore';
-import {AuthService} from '../../services/auth.service';
+import {RegisterService} from '../../services/register.service';
 import {LoginService} from '../../services/login.service';
 import {FormValidationService} from '../../services/utils/form-validation.service';
 
