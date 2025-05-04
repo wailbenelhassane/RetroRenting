@@ -17,7 +17,7 @@ export class LoginService {
     const errors = this.validationService.validate(loginForm.value, this.getLoginValidationSchema());
 
     if (errors.length === 0) {
-      this.login(loginForm.value.username, loginForm.value.password);
+      this.login(loginForm.value.email, loginForm.value.password);
     }
     return errors;
   }

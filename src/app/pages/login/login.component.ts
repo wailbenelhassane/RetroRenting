@@ -19,8 +19,8 @@ import {FormValidationService} from '../../services/utils/form-validation.servic
   standalone: true,
 })
 export class LoginComponent implements OnInit{
-  logoUrl: string = '';
-  asideImgUrl: string = '';
+  logoUrl: string = 'test';
+  asideImgUrl: string = 'test';
   formErrors: string[] = [];
 
   loginForm: FormGroup;
