@@ -34,6 +34,7 @@ export class FormValidationService {
 
   private messages: Record<string, string> = {
     name: 'Please enter your name.',
+    car: 'Please enter a car.',
     location: 'Please enter your location.',
     surname: 'Please enter your surname.',
     email: 'Please enter your email.',

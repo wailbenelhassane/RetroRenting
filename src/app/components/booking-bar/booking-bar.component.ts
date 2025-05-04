@@ -1,7 +1,6 @@
-import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
-import { Component, OnInit, AfterViewInit, OnDestroy, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, OnInit, OnDestroy, Inject, PLATFORM_ID } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { isPlatformBrowser, NgForOf, CommonModule} from '@angular/common';
+import { NgForOf, CommonModule} from '@angular/common';
 import { BookingBarService } from '../../services/booking-bar.service';
 import { Car } from '../../models/booking-bar.model';
 import { Subscription } from 'rxjs';
@@ -18,7 +17,7 @@ import {FormValidationService} from '../../services/utils/form-validation.servic
   ],
   styleUrls: ['./booking-bar.component.scss']
 })
-export class BookingBarComponent implements OnInit, AfterViewInit, OnDestroy {
+export class BookingBarComponent implements OnInit, OnDestroy {
   bookingForm: FormGroup;
   cars: Car[] = [];
   formErrors: string[] = [];
@@ -44,12 +43,6 @@ export class BookingBarComponent implements OnInit, AfterViewInit, OnDestroy {
     this.loadCars();
   }
 
-  ngAfterViewInit(): void {
-    if (isPlatformBrowser(this.platformId)) {
-      this.bookingBarService.setupLocationAutocomplete(this.bookingForm);
-    }
-  }
-
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
   }
@@ -59,7 +52,6 @@ export class BookingBarComponent implements OnInit, AfterViewInit, OnDestroy {
       this.bookingBarService.getCars().subscribe({
         next: (cars: Car[]) => {
           this.cars = cars;
-          this.bookingBarService.populateCarSelect(cars, this.bookingForm);
         },
         error: (error: any) => {
           console.error('Error loading cars:', error);
