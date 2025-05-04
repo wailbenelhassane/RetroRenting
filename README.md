@@ -232,14 +232,20 @@ Cada documento incluye:
 
 ---
 
-###  booking
-Contiene los datos del booking.  
-Cada documento incluye:
-- name: Nombre del usuario (ej. "Pepe").
-- surname: Apellido del usuario (ej. "González").
-- email: Email del usuario (ej. "pepe@gmail.com").
-- username: Nombre de usuario (ej. "pepe123").
+### 📄 bookings
 
+Contiene los datos de las reservas realizadas por los usuarios.  
+Cada documento incluye:
+
+- **booking.car**: Modelo del coche reservado (ej. `"BMW Sedan Series 6"`).  
+- **booking.location**: Lugar de recogida (ej. `"Las Palmas"`).  
+- **booking.pickupDate**: Fecha de recogida (ej. `"2025-06-01"`).  
+- **booking.returnDate**: Fecha de devolución (ej. `"2025-06-05"`).  
+- **driver.name**: Nombre del conductor (ej. `"Pepe"`).  
+- **driver.surname**: Apellido del conductor (ej. `"González"`).  
+- **driver.email**: Email de contacto (ej. `"pepe@gmail.com"`).  
+- **driver.phone**: Teléfono del conductor (ej. `"654321987"`).  
+- **driver.country**: País del conductor (ej. `"ES"`).
 ---
 
 ###  countrySelector
