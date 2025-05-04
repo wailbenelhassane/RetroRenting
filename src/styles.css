@@ -14,9 +14,16 @@ body {
   background: #000000;
   color: #FFFFFF;
   font-family: "Roboto", sans-serif;
+  margin: 0;
 }
-html .content,
-body .content {
+
+app-root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content {
   flex: 1;
 }
 

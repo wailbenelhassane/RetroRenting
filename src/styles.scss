@@ -26,12 +26,18 @@ body {
   background: variables.$background-color;
   color: variables.$text-color;
   font-family: variables.$font-family;
-
-  .content {
-    flex: 1;
-  }
+  margin: 0;
 }
 
+app-root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content {
+  flex: 1;
+}
 
 .center-align{display:flex; width:100%; justify-content: center; align-items: center; margin-top:4vh;}
 

@@ -1,7 +1,7 @@
 import {AfterViewInit, Component, Inject, OnDestroy, OnInit, PLATFORM_ID} from '@angular/core';
 import {CommonModule, isPlatformBrowser} from '@angular/common';
 import {HeaderService} from '../../services/header.service';
-import {RouterLink} from '@angular/router';
+import {Router, RouterLink} from '@angular/router';
 import {Observable} from 'rxjs';
 import {Header} from '../../models/header.model';
 import {AuthService} from '../../services/auth/auth.service';
@@ -21,7 +21,8 @@ export class HeaderComponent implements AfterViewInit, OnDestroy, OnInit {
   constructor(
     private headerService: HeaderService,
     @Inject(PLATFORM_ID) private platformId: Object,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ) {
     this.headerData$ = this.headerService.headerData$;
   }
@@ -50,5 +51,10 @@ export class HeaderComponent implements AfterViewInit, OnDestroy, OnInit {
     if (this.resizeCleanup && isPlatformBrowser(this.platformId)) {
       this.resizeCleanup();
     }
+  }
+
+  sendHistory(event: Event) {
+    event.preventDefault();
+    this.router.navigate(['/my-bookings'], { queryParams: { forceReload: true } });
   }
 }

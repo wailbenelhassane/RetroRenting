@@ -17,7 +17,7 @@
 
   <div class="auth-links">
     <ng-container *ngIf="currentUserName; else showAuthLinks">
-      <span class="welcome-msg">Welcome, {{ currentUserName }}</span>
+      <span class="welcome-msg">Welcome, <a (click)="sendHistory($event)">{{ currentUserName }}</a></span>
       <span class="separator">/</span>
       <a class="auth-link" href="#" (click)="logout(); $event.preventDefault()">Logout</a>
     </ng-container>
@@ -47,7 +47,7 @@
       <ng-container *ngIf="headerData$ | async as header">
         <li class="mobile-navigation-item auth-mobile">
           <ng-container *ngIf="currentUserName; else showAuthLinksMobile">
-            <span class="welcome-msg">Welcome, {{ currentUserName }}</span>
+            <span class="welcome-msg">Welcome, <a (click)="sendHistory($event)"> {{ currentUserName }}</a></span>
             <a class="auth-link" href="#" (click)="logout(); $event.preventDefault()">Logout</a>
           </ng-container>
 
