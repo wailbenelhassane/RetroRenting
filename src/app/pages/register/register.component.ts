@@ -6,6 +6,7 @@ import { RegisterService } from '../../services/register.service';
 import {doc, Firestore, getDoc, setDoc} from '@angular/fire/firestore';
 import {AuthService} from '../../services/auth.service';
 import {LoginService} from '../../services/login.service';
+import {FormValidationService} from '../../services/utils/form-validation.service';
 
 @Component({
   selector: 'app-register',
@@ -28,6 +29,7 @@ export class RegisterComponent implements OnInit{
   constructor(
     private formBuilder: FormBuilder,
     public registerService: RegisterService,
+    public validationService: FormValidationService,
     private router: Router,
     private loginService: LoginService,
   ) {

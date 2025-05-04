@@ -53,7 +53,7 @@
 
         <ul *ngIf="formErrors.length > 0" class="error-list">
           <li *ngFor="let error of formErrors">
-            {{ mainDriverService.getErrorMessage(error) }}
+            {{ validationService.getErrorMessage(error) }}
           </li>
         </ul>
       </form>

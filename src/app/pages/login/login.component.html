@@ -31,11 +31,11 @@
           (ngSubmit)="onSubmit()">
 
       <input type="text"
-             id="username"
-             name="username"
-             formControlName="username"
+             id="email"
+             name="email"
+             formControlName="email"
              autocomplete="off"
-             placeholder="email"
+             placeholder="Email"
              required>
 
       <input type="password"
@@ -55,7 +55,7 @@
   <div *ngIf="formErrors.length > 0" class="error-list">
     <ul>
       <li *ngFor="let error of formErrors">
-        {{ loginService.getLoginErrorMessage(error) }}
+        {{ validationService.getErrorMessage(error) }}
       </li>
     </ul>
   </div>

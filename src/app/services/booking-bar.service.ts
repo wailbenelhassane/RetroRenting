@@ -7,6 +7,7 @@ import { isPlatformBrowser } from '@angular/common';
 import { Observable, from, catchError, of, takeUntil, map, lastValueFrom } from 'rxjs';
 import { Subject } from 'rxjs';
 import { Car, BookingData } from '../models/booking-bar.model';
+import {FormValidationService} from './utils/form-validation.service';
 
 @Injectable({
   providedIn: 'root'
@@ -22,6 +23,7 @@ export class BookingBarService implements OnDestroy {
     private http: HttpClient,
     private router: Router,
     private ngZone: NgZone,
+    private validationService: FormValidationService,
     @Inject(PLATFORM_ID) private platformId: Object
   ) {}
 
@@ -159,32 +161,8 @@ export class BookingBarService implements OnDestroy {
     this.documentClickListener = () => document.removeEventListener('click', handleDocumentClick);
   }
 
-  cleanAllInputs(): void {
-    if (!isPlatformBrowser(this.platformId)) return;
-
-    const inputs = document.querySelectorAll('#booking-bar-form input, #booking-bar-form select');
-    inputs.forEach(input => {
-      (input as HTMLElement).style.borderColor = '';
-    });
-  }
-
-  validateFields(form: any): string[] {
-    const errors: string[] = [];
-
-    if (!this.isValidCar(form.car)) errors.push('car');
-    if (!this.isValidLocation(form.location)) errors.push('location');
-    if (form.location && !this.isLocationFormatValid(form.location)) errors.push('locationInvalid');
-    if (!this.isValidDate(form.pickupDate)) errors.push('pickupDate');
-    if (!this.isValidDate(form.returnDate)) errors.push('returnDate');
-    if (this.isPastDate(form.pickupDate)) errors.push('pickupDatePast');
-    if (this.isPastDate(form.returnDate)) errors.push('returnDatePast');
-    if (this.isReturnBeforePickup(form.pickupDate, form.returnDate)) errors.push('returnBeforePickup');
-
-    return errors;
-  }
-
   processForm(bookingForm: FormGroup, cars: Car[]): string[] {
-    const errors = this.validateFields(bookingForm.value);
+    const errors = this.validationService.validate(bookingForm.value, this.getBookingBarValidationSchema());
     if (errors.length > 0) return errors;
 
     this.processBooking(bookingForm, cars);
@@ -236,46 +214,12 @@ export class BookingBarService implements OnDestroy {
     this.destroy$.complete();
   }
 
-  getErrorMessage(code: string): string {
-    const messages: Record<string, string> = {
-      car: 'Please select a car.',
-      location: 'Please enter a location.',
-      locationInvalid: 'Location cannot contain numbers or special characters.',
-      pickupDate: 'Please select a pickup date.',
-      returnDate: 'Please select a return date.',
-      pickupDatePast: 'Pickup date cannot be in the past.',
-      returnDatePast: 'Return date cannot be in the past.',
-      returnBeforePickup: 'Return date must be after pickup date.'
+  private getBookingBarValidationSchema(): Record<string, string[]> {
+    return {
+      car: ['required'],
+      location: ['required', 'location'],
+      pickupDate: ['required', 'isDate', 'notPast'],
+      returnDate: ['required', 'isDate', 'notPast', 'afterPickup']
     };
-    return messages[code] || 'Unknown error';
-  }
-
-  private isValidCar(value: string): boolean {
-    return typeof value === 'string' && value.trim().length > 0;
-  }
-
-  private isValidLocation(value: string): boolean {
-    return typeof value === 'string' && value.trim().length > 0;
-  }
-
-  private isLocationFormatValid(value: string): boolean {
-    return /^[a-zA-Z\s]+$/.test(value);
-  }
-
-  private isValidDate(value: string): boolean {
-    return !!value && !isNaN(Date.parse(value));
-  }
-
-  private isPastDate(value: string): boolean {
-    if (!this.isValidDate(value)) return false;
-    const date = new Date(value);
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
-    return date < today;
-  }
-
-  private isReturnBeforePickup(pickup: string, dropoff: string): boolean {
-    if (!this.isValidDate(pickup) || !this.isValidDate(dropoff)) return false;
-    return new Date(dropoff) < new Date(pickup);
   }
 }

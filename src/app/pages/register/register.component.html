@@ -76,7 +76,7 @@
   <div *ngIf="formErrors.length > 0" class="error-list">
     <ul>
       <li *ngFor="let error of formErrors">
-        {{ registerService.getErrorMessage(error) }}
+        {{ validationService.getErrorMessage(error) }}
       </li>
     </ul>
   </div>

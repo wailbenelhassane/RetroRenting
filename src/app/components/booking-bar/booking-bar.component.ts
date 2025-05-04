@@ -5,6 +5,7 @@ import { isPlatformBrowser, NgForOf, CommonModule} from '@angular/common';
 import { BookingBarService } from '../../services/booking-bar.service';
 import { Car } from '../../models/booking-bar.model';
 import { Subscription } from 'rxjs';
+import {FormValidationService} from '../../services/utils/form-validation.service';
 
 @Component({
   selector: 'app-booking-bar',
@@ -27,6 +28,7 @@ export class BookingBarComponent implements OnInit, AfterViewInit, OnDestroy {
 
   constructor(
       private formBuilder: FormBuilder,
+      public validationService: FormValidationService,
       protected bookingBarService: BookingBarService,
       @Inject(PLATFORM_ID) private platformId: Object
   ) {

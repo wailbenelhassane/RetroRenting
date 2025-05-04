@@ -3,7 +3,8 @@ import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angula
 import { NgIf, NgForOf } from '@angular/common';
 import { MainDriverFormService } from '../../services/main-driver-form.service';
 import { Subscription } from 'rxjs';
-import { Country } from '../../models/main-driver-form.model'; // Asegúrate de tenerlo
+import { Country } from '../../models/main-driver-form.model';
+import {FormValidationService} from '../../services/utils/form-validation.service'; // Asegúrate de tenerlo
 
 @Component({
   selector: 'app-main-driver-form',
@@ -21,6 +22,7 @@ export class MainDriverFormComponent implements OnInit, OnDestroy {
 
   constructor(
     private formBuilder: FormBuilder,
+    public validationService: FormValidationService,
     public mainDriverService: MainDriverFormService
   ) {
     this.driverForm = this.formBuilder.group({
@@ -67,7 +69,7 @@ export class MainDriverFormComponent implements OnInit, OnDestroy {
   }
 
   onSubmit(): void {
-    this.formErrors = this.mainDriverService.validateFields(this.driverForm.value);
+    this.formErrors = this.mainDriverService.proccessForm(this.driverForm);
   }
 
   ngOnDestroy(): void {

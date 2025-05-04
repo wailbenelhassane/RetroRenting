@@ -3,6 +3,7 @@ import { NgForOf, NgIf, NgOptimizedImage } from '@angular/common';
 import { FormBuilder, ReactiveFormsModule, Validators, FormGroup } from '@angular/forms';
 import { LoginService } from '../../services/login.service';
 import {Router} from '@angular/router';
+import {FormValidationService} from '../../services/utils/form-validation.service';
 
 
 @Component({
@@ -27,10 +28,11 @@ export class LoginComponent implements OnInit{
   constructor(
       private formBuilder: FormBuilder,
       public loginService: LoginService,
+      public validationService: FormValidationService,
       private router: Router,
   ) {
     this.loginForm = this.formBuilder.group({
-      username: ['', [Validators.required]],
+      email: ['', [Validators.required]],
       password: ['', [Validators.required]]
     });
   }
