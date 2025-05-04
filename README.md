@@ -33,103 +33,94 @@ RetroRenting es una plataforma para la gestión de alquileres con temática retr
   Procesamiento seguro de pagos en línea.
   
 ## Listado de páginas HTML y Mockup que implementan  
-### 1. **Inicio (`index.html`)**
+### 1. **Inicio (`landing-page.component.html`)**
 - **Mockup Implementado:** [LandingPage] [LandingPage - Tablet] [Landing - Mobile]  
-
+- Página de inicio, permite realizar una reserva de cualquier coche.
 ---
 
-### 2. **Cátalogo (`catalog.html`)**
+### 2. **Cátalogo (`catalog.component.html`)**
 - **Mockup Implementado:** [Catalog] [Catalog - Tablet] [Catalog - Mobile]  
-  
+- Muestra todos los coches y su información.
 ---
 
-### 3. **Sobre nosotros (`about-us.html`)**
+### 3. **Sobre nosotros (`about-us.component.html`)**
 - **Mockup Implementado:** [About Us] [About Us - Tablet] [About Us - Mobile]  
-  
+- Muestra información acerca del equipo.
 ---
 
-### 4. **Login (`login.html`)**
+### 4. **Login (`login.component.html`)**
 - **Mockup Implementado:** [Login] [Login - Tablet] [Login - Mobile]  
-  
+- Permite a un usuario iniciar sesión, para ello es requisito tener cuenta registrada.
 ---
 
-### 5. **Register (`register.html`)**
+### 5. **Register (`register.component.html`)**
 - **Mockup Implementado:** [Register] [Register - Tablet] [Register - Mobile]  
-  
+- Permite al usuario registrarse en la página, esto es requisito para realizar una reserva.
 ---
 
-### 6. **Página del coche (`car-page.html`)**
+### 6. **Página del coche (`car-page.component.html`)**
 - **Mockup Implementado:** [Car Page] [Car Page - Tablet] [Car Page - Mobile]  
-  
+- Permite tanto ver los detalles del coche seleccionado como realizar una reserva del mismo.
 ---
 
-### 7. **Datos de la reserva (`car-reservation-information.html`)**
+### 7. **Datos de la reserva (`car-reservation-information.component.html`)**
 - **Mockup Implementado:** [Car Reservation Information] [Car Reservation Information - Tablet] [Car Reservation Information - Mobile]  
-  
+- Formulario en el que el usuario rellena sus datos de contacto para la reserva
 ---
 
-### 8. **Confirmación de la reserva (`car-reservation-confirmation.html`)**
+### 8. **Confirmación de la reserva (`car-reservation-confirmation.component.html`)**
 - **Mockup Implementado:** [Car Reservation Confirmation] [Car Reservation Confirmation - Tablet] [Car Reservation Confirmation - Mobile]  
-  
+- Muestra los datos acerca de la reserva realizada.
 ---
 
 ## Archivos Templates Identificados
 - **Templates de la Interfaz:**
-### 1. **Header (`header.html`)**
+### 1. **Header (`header.component.html`)**
 - **Template Integrado en:** index.html, catalog.html, car-reservation-information.html, car-reservation-confirm.html, about-us.html, car-page.html.
   
-### 2. **Footer (`footer.html`)**
+### 2. **Footer (`footer.component.html`)**
 - **Template Integrado en:** index.html, catalog.html, car-reservation-information.html, car-reservation-confirm.html, about-us.html, car-page.html  
 
-### 3. **Car Catalog (`car-catalog.html`)**
+### 3. **Car Catalog (`car-catalog.component.html`)**
 - **Template Integrado en:** index.html  
 
-### 4. **Booking bar (`booking-bar.html`)**
+### 4. **Booking bar (`booking-bar.component.html`)**
 - **Template Integrado en:** index.html  
 
-### 5. **Catalog Section (`catalog-section.html`)**
+### 5. **Catalog Section (`catalog-section.component.html`)**
 - **Template Integrado en:** catalog.html  
   
-### 6. **Reviews (`reviews.html`)**
+### 6. **Reviews (`reviews.component.html`)**
 - **Template Integrado en:** about-us.html
   
- ### 7. **Team Carrousel (`team-carrousel.html`)**
+### 7. **Side Text Section (`side-text-section.component.html`)**
 - **Template Integrado en:** about-us.html
   
-### 8. **Side Text Section (`side-text-section.html`)**
+### 8. **Center Text Section (`center-text-section.component.html`)**
 - **Template Integrado en:** about-us.html
   
-### 9. **Center Text Section (`center-text-section.html`)**
-- **Template Integrado en:** about-us.html
-  
-### 10. **Car Viewer (`car-viewer.html`)**
+### 9. **Car Viewer (`car-viewer.component.html`)**
 - **Template Integrado en:** car-page.html  
 
-### 11. **Process Booking (`process-booking.html`)**
+### 10. **Process Booking (`process-booking.component.html`)**
 - **Template Integrado en:** car-reservation-information.html  
 
-### 12. **Main Driver Form (`main-driver-form.html`)**
+### 11. **Main Driver Form (`main-driver-form.component.html`)**
 - **Template Integrado en:** car-reservation-information.html  
 
-### 13. **Process Booking 2 (`process-booking-2.html`)**
+### 12. **Process Booking 2 (`process-booking-bar.component.html`)**
 - **Template Integrado en:** car-reservation-confirmation.html  
 
-### 14. **Booking Bar 2 (`booking-bar-2.html`)**
+### 13. **Booking Bar 2 (`booking-bar-details.component.html`)**
 - **Template Integrado en:** bar-car-details-booking.html  
 
-### 15. **Car Details Bar (`car-details-bar.html`)**
+### 14. **Car Details Bar (`car-details-bar.component.html`)**
 - **Template Integrado en:** bar-car-details-booking.html  
 
-### 16. **Bar Car Details Booking (`bar-car-details-booking.html`)**
+### 15. **Bar Car Details Booking (`bar-car-details-booking.component.html`)**
 - **Template Integrado en:** car-page.html
 
 ## Otros Aspectos a Considerar en la Evaluación
-
-- **Implementaciones con Componentes Angular:**  
-  Se han desarrollado tareas interactivas y funcionalidades clave utilizando Angular:  
-    - Script encargado de cargar los templates de HTML con su archivo CSS correspondiente.
-    - Script encargado de realizar sugerencias en la barra de localización (booking-bar.html) -> implementación mediante console.log().
-    - Script encargado de realizar un carrusel de imágenes.
 
 - **Se ha desarrollado la carga dinámica de componentes mediante la inyección desde Firebase:**
     - Header.
@@ -176,7 +167,7 @@ RetroRenting es una plataforma para la gestión de alquileres con temática retr
 
 - **Distribución del código:**  
 Para la distribución del código se ha optado por distribuirlo usando la isguiente estructura:
-  - components: Donde se almacaenan todos los componentes pertinentes.  
+  - components: Donde se almacenan todos los componentes pertinentes.  
   - pages: Donde se almacenan las vistas que incorporan los componentes mencionados anteriormente.  
   - services: Donde se almacenan los servicios para cada uno de los componentes, conteniendo así la lógica del componente y su carga dinámica.  
   - models: Donde se almacenan los modelos de los componentes y estructuras utilizadas en nuestro proyecto, comentadas en la siguiente sección.
