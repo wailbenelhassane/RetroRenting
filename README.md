@@ -164,7 +164,46 @@ RetroRenting es una plataforma para la gestión de alquileres con temática retr
 
 - **Estructura:**  
 
-<pre> ``` RetroRenting-sprint-3/ ├── public/ # Recursos estáticos accesibles públicamente │ ├── src/ # Código fuente del proyecto │ ├── app/ # Módulo principal de la aplicación Angular │ │ ├── components/ # Componentes reutilizables de la aplicación │ │ │ ├── bar-car-details-booking/ │ │ │ ├── book-summary/ │ │ │ ├── booking-bar/ │ │ │ ├── car-catalog/ │ │ │ ├── car-viewer/ │ │ │ ├── catalog-section/ │ │ │ ├── center-text-section/ │ │ │ ├── details-bar/ │ │ │ ├── footer/ │ │ │ ├── header/ │ │ │ ├── main-driver-form/ │ │ │ ├── our-team/ │ │ │ ├── process-booking-bar/ │ │ │ ├── reviews/ │ │ │ └── side-text-section/ │ │ │ │ │ ├── guards/ # Guardas de rutas │ │ ├── models/ # Modelos de datos para la aplicación │ │ ├── pages/ # Páginas principales de la aplicación │ │ │ ├── about-us/ │ │ │ ├── car-page/ │ │ │ ├── car-reservation-confirmation/ │ │ │ ├── car-reservation-information/ │ │ │ ├── catalog/ │ │ │ ├── footer-pages/ # Páginas legales y políticas │ │ │ │ ├── accesibility/ │ │ │ │ ├── ad-choices/ │ │ │ │ ├── privacy-policy/ │ │ │ │ └── terms-conditions/ │ │ │ ├── history-booking/ │ │ │ ├── landing-page/ │ │ │ ├── login/ │ │ │ └── register/ │ │ │ │ │ ├── services/ # Servicios de lógica y conexión con Firebase │ │ │ ├── auth/ │ │ │ ├── firebase/ │ │ │ └── utils/ │ │ │ │ │ └── app.module.ts # Módulo principal de Angular │ ├── environments/ # Configuración de entorno (dev/prod) ├── index.html # Archivo HTML principal ├── main.ts # Punto de entrada de la aplicación Angular └── styles.scss # Estilos globales del proyecto ``` </pre>
+### 📁 Estructura del proyecto
+
+```
+RetroRenting-sprint-3/
+├── public/
+│   └── ...                          # Recursos estáticos públicos
+├── src/
+│   ├── app/
+│   │   ├── components/
+│   │   │   ├── bar-car-details-booking/
+│   │   │   ├── book-summary/
+│   │   │   ├── booking-bar/
+│   │   │   ├── car-catalog/
+│   │   │   │   ├── car-viewer/
+│   │   │   │   ├── catalog-section/
+│   │   │   │   ├── center-text-section/
+│   │   │   │   ├── details-bar/
+│   │   │   │   └── footer/
+│   │   │   ├── header/
+│   │   │   ├── main-driver-form/
+│   │   │   └── ...
+│   │   ├── guards/
+│   │   ├── models/
+│   │   ├── pages/
+│   │   │   ├── about-us/
+│   │   │   ├── car-page/
+│   │   │   ├── footer-pages/
+│   │   │   │   ├── privacy-policy/
+│   │   │   │   └── ...
+│   │   │   └── ...
+│   │   ├── services/
+│   │   │   ├── auth/
+│   │   │   └── firebase/
+│   │   └── app.module.ts
+│   ├── environments/
+│   ├── index.html
+│   ├── main.ts
+│   └── styles.scss
+```
+
 
 ## Almacenamiento de Datos en Firebase – RetroRenting
 
