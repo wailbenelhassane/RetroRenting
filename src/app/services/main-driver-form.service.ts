@@ -1,7 +1,67 @@
-import { Injectable } from '@angular/core';
+import {Injectable, NgZone} from '@angular/core';
+import {Observable} from 'rxjs';
+import {collection, DocumentData, Firestore, getDocs, QuerySnapshot} from '@angular/fire/firestore';
+import {Country} from '../models/main-driver-form.model';
 
 @Injectable({ providedIn: 'root' })
 export class MainDriverFormService {
+  constructor(
+    private firestore: Firestore,
+    private ngZone: NgZone
+  ) {}
+
+  getAllCountries(): Observable<Country[]> {
+    return new Observable<Country[]>(observer => {
+      this.ngZone.run(() => {
+        const countryCollection = collection(this.firestore, 'countrySelector');
+        getDocs(countryCollection).then((snapshot: QuerySnapshot<DocumentData>) => {
+          const countries = snapshot.docs.map(doc => doc.data() as Country);
+          observer.next(countries);
+          observer.complete();
+        }).catch(error => {
+          console.error('Error loading country data:', error);
+          observer.next([]);
+          observer.complete();
+        });
+      });
+    });
+  }
+
+  getCountryPrefixes(): Observable<string[]> {
+    return new Observable<string[]>(observer => {
+      this.ngZone.run(() => {
+        const countryCollection = collection(this.firestore, 'countrySelector');
+        getDocs(countryCollection).then((snapshot: QuerySnapshot<DocumentData>) => {
+          const prefixes = snapshot.docs.map(doc => (doc.data() as Country).prefix);
+          observer.next(prefixes);
+          observer.complete();
+        }).catch(error => {
+          console.error('Error loading prefixes:', error);
+          observer.next([]);
+          observer.complete();
+        });
+      });
+    });
+  }
+
+  getCountryNames(): Observable<string[]> {
+    return new Observable<string[]>(observer => {
+      this.ngZone.run(() => {
+        const countryCollection = collection(this.firestore, 'countrySelector');
+        getDocs(countryCollection).then((snapshot: QuerySnapshot<DocumentData>) => {
+          const names = snapshot.docs.map(doc => (doc.data() as Country).name);
+          observer.next(names);
+          observer.complete();
+        }).catch(error => {
+          console.error('Error loading country names:', error);
+          observer.next([]);
+          observer.complete();
+        });
+      });
+    });
+  }
+
+
   validateFields(form: any): string[] {
     const errors: string[] = [];
 
@@ -35,7 +95,7 @@ export class MainDriverFormService {
       invalidName: 'Wrong name format: must start with a capital letter and only letters.',
       invalidSurName: 'Wrong surname format: must start with a capital letter and only letters.',
       invalidEmail: 'Wrong email format, correct format: example@domain.com.',
-      invalidPhone: 'Phone must be 10–15 digits, only numbers.'
+      invalidPhone: 'Phone must be 9–15 digits, only numbers.'
     };
     return messages[code] || 'Unknown error';
   }
@@ -45,7 +105,7 @@ export class MainDriverFormService {
   }
 
   private isValidName(value: string): boolean {
-    return /^[A-Z][a-zA-Z]{1,}$/.test(value?.trim());
+    return /^[A-ZÁÉÍÓÚÑ][a-záéíóúñÁÉÍÓÚÑ]*(?: [A-ZÁÉÍÓÚÑ][a-záéíóúñÁÉÍÓÚÑ]*)*$/.test(value?.trim());
   }
 
   private isValidEmail(value: string): boolean {
@@ -53,6 +113,6 @@ export class MainDriverFormService {
   }
 
   private isValidPhone(value: string): boolean {
-    return /^\d{10,15}$/.test(value);
+    return /^(\d\s?){9,15}$/.test(value.trim());
   }
 }

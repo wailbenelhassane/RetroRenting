@@ -11,12 +11,12 @@
 
         <div class="name-group">
           <input type="text"
-                 placeholder="Name"
+                 placeholder="First Name"
                  formControlName="name"
                  [class.invalid]="formErrors.includes('name') || formErrors.includes('invalidName')">
 
           <input type="text"
-                 placeholder="Surname"
+                 placeholder="Last Name"
                  formControlName="surname"
                  [class.invalid]="formErrors.includes('surname') || formErrors.includes('invalidSurName')">
         </div>
@@ -29,11 +29,9 @@
         <div class="phone-group">
           <select formControlName="prefix"
                   [class.invalid]="formErrors.includes('prefix')">
-
-            <option value="">Select Prefix</option>
-            <option value="+1">+1</option>
-            <option value="+34">+34</option>
-            <option value="+44">+44</option>
+            <option *ngFor="let country of countries"
+                    [value]="country.value">
+              {{ country.prefix }}
           </select>
 
           <input type="tel"
@@ -44,10 +42,9 @@
 
         <select formControlName="country"
                 [class.invalid]="formErrors.includes('country')">
-          <option value="">Select Country</option>
-          <option value="ES">Spain</option>
-          <option value="US">USA</option>
-          <option value="FR">France</option>
+          <option *ngFor="let country of countries"
+                  [value]="country.value">
+            {{ country.name }}
         </select>
 
         <div class="btn-container">

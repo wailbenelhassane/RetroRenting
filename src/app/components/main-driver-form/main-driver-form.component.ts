@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { NgIf, NgForOf } from '@angular/common';
 import { MainDriverFormService } from '../../services/main-driver-form.service';
+import { Subscription } from 'rxjs';
+import { Country } from '../../models/main-driver-form.model'; // Asegúrate de tenerlo
 
 @Component({
   selector: 'app-main-driver-form',
@@ -10,9 +12,12 @@ import { MainDriverFormService } from '../../services/main-driver-form.service';
   templateUrl: './main-driver-form.component.html',
   styleUrl: './main-driver-form.component.scss'
 })
-export class MainDriverFormComponent {
+export class MainDriverFormComponent implements OnInit, OnDestroy {
   formErrors: string[] = [];
+  prefixes: string[] = [];
+  countries: Country[] = [];
   driverForm: FormGroup;
+  private subscription: Subscription = new Subscription();
 
   constructor(
     private formBuilder: FormBuilder,
@@ -28,7 +33,44 @@ export class MainDriverFormComponent {
     });
   }
 
+  ngOnInit(): void {
+    this.loadPrefixes();
+    this.loadCountries();
+  }
+
+  loadPrefixes(): void {
+    this.subscription.add(
+      this.mainDriverService.getCountryPrefixes().subscribe({
+        next: (prefixes: string[]) => {
+          this.prefixes = prefixes;
+        },
+        error: (error: any) => {
+          console.error('Error loading prefixes:', error);
+          this.prefixes = [];
+        }
+      })
+    );
+  }
+
+  loadCountries(): void {
+    this.subscription.add(
+      this.mainDriverService.getAllCountries().subscribe({
+        next: (countries: Country[]) => {
+          this.countries = countries;
+        },
+        error: (error: any) => {
+          console.error('Error loading countries:', error);
+          this.countries = [];
+        }
+      })
+    );
+  }
+
   onSubmit(): void {
     this.formErrors = this.mainDriverService.validateFields(this.driverForm.value);
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 }

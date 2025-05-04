@@ -74,6 +74,6 @@ export class BookingBarComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   onSubmit(): void {
-    this.bookingBarService.processForm(this.bookingForm, this.cars);
+    this.formErrors = this.bookingBarService.processForm(this.bookingForm, this.cars);
   }
 }

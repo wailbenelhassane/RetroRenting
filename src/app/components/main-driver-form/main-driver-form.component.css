@@ -60,6 +60,9 @@
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
   font-family: "Roboto", sans-serif;
 }
+.input-container .main-driver-form input:focus, .input-container .main-driver-form select:focus {
+  outline: none;
+}
 .input-container .main-driver-form .phone-group {
   display: flex;
   width: 100%;
