@@ -1,6 +1,6 @@
 <aside class="aside-image">
   <img class="background-aside-image"
-       [ngSrc]="imageURL"
+       [ngSrc]="asideImgUrl"
        alt="Loading Image."
        width="1024"
        height="768">
@@ -10,7 +10,7 @@
   <header class="login-header">
     <div class="login-logo">
       <img class="logo-image"
-           [ngSrc]="logoURL"
+           [ngSrc]="logoUrl"
            alt="Loading Image."
            width="1024"
            height="768">
@@ -35,7 +35,7 @@
              name="username"
              formControlName="username"
              autocomplete="off"
-             placeholder="Username"
+             placeholder="email"
              required>
 
       <input type="password"

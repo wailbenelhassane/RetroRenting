@@ -234,7 +234,6 @@ export class BookingBarService implements OnDestroy {
     }
     this.destroy$.next();
     this.destroy$.complete();
-    localStorage.setItem('bookingData', JSON.stringify(bookingData));
   }
 
   getErrorMessage(code: string): string {
