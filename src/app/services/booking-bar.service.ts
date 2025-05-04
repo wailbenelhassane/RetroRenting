@@ -1,12 +1,10 @@
-import { Injectable, Inject, OnDestroy, PLATFORM_ID, NgZone } from '@angular/core';
-import { Firestore, collection, getDocs, QuerySnapshot, DocumentData } from '@angular/fire/firestore';
-import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
-import { FormGroup } from '@angular/forms';
-import { isPlatformBrowser } from '@angular/common';
-import { Observable, from, catchError, of, takeUntil, map, lastValueFrom } from 'rxjs';
-import { Subject } from 'rxjs';
-import { Car, BookingData } from '../models/booking-bar.model';
+import {Inject, Injectable, NgZone, OnDestroy, PLATFORM_ID} from '@angular/core';
+import {collection, DocumentData, Firestore, getDocs, QuerySnapshot} from '@angular/fire/firestore';
+import {Router} from '@angular/router';
+import {FormGroup} from '@angular/forms';
+import {isPlatformBrowser} from '@angular/common';
+import {Observable, Subject, takeUntil} from 'rxjs';
+import {BookingData, Car} from '../models/booking-bar.model';
 import {FormValidationService} from './utils/form-validation.service';
 
 @Injectable({
@@ -19,7 +17,6 @@ export class BookingBarService implements OnDestroy {
 
   constructor(
     private firestore: Firestore,
-    private http: HttpClient,
     private router: Router,
     private ngZone: NgZone,
     private validationService: FormValidationService,

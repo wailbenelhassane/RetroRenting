@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {HeaderComponent} from "../../components/header/header.component";
 import {FooterComponent} from '../../components/footer/footer.component';
 import {
@@ -6,7 +6,6 @@ import {
 } from '../../components/bar-car-details-booking/bar-car-details-booking.component';
 import {CarViewerComponent} from '../../components/car-viewer/car-viewer.component';
 import {ActivatedRoute} from '@angular/router';
-import {BookingBarComponent} from '../../components/booking-bar/booking-bar.component';
 
 @Component({
   selector: 'app-car-page',

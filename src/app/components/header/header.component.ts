@@ -1,10 +1,9 @@
-import {Component, AfterViewInit, OnDestroy, Inject, PLATFORM_ID, OnInit} from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { HeaderService } from '../../services/header.service';
-import { isPlatformBrowser } from '@angular/common';
-import { RouterLink } from '@angular/router';
-import { Observable } from 'rxjs';
-import { Header } from '../../models/header.model';
+import {AfterViewInit, Component, Inject, OnDestroy, OnInit, PLATFORM_ID} from '@angular/core';
+import {CommonModule, isPlatformBrowser} from '@angular/common';
+import {HeaderService} from '../../services/header.service';
+import {RouterLink} from '@angular/router';
+import {Observable} from 'rxjs';
+import {Header} from '../../models/header.model';
 import {AuthService} from '../../services/auth.service';
 
 @Component({

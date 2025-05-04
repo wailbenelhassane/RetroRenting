@@ -1,5 +1,11 @@
-import { Injectable } from '@angular/core';
-import { Auth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, UserCredential } from '@angular/fire/auth';
+import {Injectable} from '@angular/core';
+import {
+  Auth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signOut,
+  UserCredential
+} from '@angular/fire/auth';
 import {AngularFireAuth} from '@angular/fire/compat/auth';
 import {doc, Firestore, getDoc} from '@angular/fire/firestore';
 import {BehaviorSubject} from 'rxjs';

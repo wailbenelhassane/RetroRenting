@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {CarData, CarViewerService} from '../../services/car-viewer.service';
 import {NgForOf} from '@angular/common';
 import {ActivatedRoute} from '@angular/router';

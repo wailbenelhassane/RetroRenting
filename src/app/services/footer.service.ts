@@ -1,8 +1,7 @@
-import { Injectable, OnDestroy, NgZone } from '@angular/core';
-import { Firestore, collection, getDocs, QuerySnapshot, DocumentData } from '@angular/fire/firestore';
-import { Observable } from 'rxjs';
-import { Subject } from 'rxjs';
-import { FooterItem } from '../models/footer.model';
+import {Injectable, NgZone, OnDestroy} from '@angular/core';
+import {collection, DocumentData, Firestore, getDocs, QuerySnapshot} from '@angular/fire/firestore';
+import {Observable, Subject} from 'rxjs';
+import {FooterItem} from '../models/footer.model';
 
 @Injectable({
   providedIn: 'root'

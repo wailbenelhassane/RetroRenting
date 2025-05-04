@@ -1,9 +1,9 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
-import { NgIf, NgForOf } from '@angular/common';
-import { MainDriverFormService } from '../../services/main-driver-form.service';
-import { Subscription } from 'rxjs';
-import { Country } from '../../models/main-driver-form.model';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
+import {NgForOf, NgIf} from '@angular/common';
+import {MainDriverFormService} from '../../services/main-driver-form.service';
+import {Subscription} from 'rxjs';
+import {Country} from '../../models/main-driver-form.model';
 import {FormValidationService} from '../../services/utils/form-validation.service'; // Asegúrate de tenerlo
 
 @Component({

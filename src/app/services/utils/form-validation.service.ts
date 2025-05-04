@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 
 type ValidatorFn = (value: any, form?: any) => boolean;
 

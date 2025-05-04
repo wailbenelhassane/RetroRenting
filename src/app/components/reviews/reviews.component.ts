@@ -1,8 +1,15 @@
-import { Component, OnInit, AfterViewInit, OnDestroy, Inject, PLATFORM_ID } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { ReviewsService } from '../../services/reviews.service';
-import { Renderer2, RendererFactory2 } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
+import {
+  AfterViewInit,
+  Component,
+  Inject,
+  OnDestroy,
+  OnInit,
+  PLATFORM_ID,
+  Renderer2,
+  RendererFactory2
+} from '@angular/core';
+import {CommonModule, isPlatformBrowser} from '@angular/common';
+import {ReviewsService} from '../../services/reviews.service';
 
 @Component({
   selector: 'app-reviews',

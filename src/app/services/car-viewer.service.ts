@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
-import {Firestore, doc, getDoc, docData, setDoc} from '@angular/fire/firestore';
-import { Observable, of } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
+import {Injectable} from '@angular/core';
+import {doc, docData, Firestore} from '@angular/fire/firestore';
+import {Observable, of} from 'rxjs';
+import {catchError, map} from 'rxjs/operators';
 
 export interface CarImages {
   images: {

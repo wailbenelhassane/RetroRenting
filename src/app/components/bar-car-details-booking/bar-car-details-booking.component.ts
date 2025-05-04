@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {BookingBarComponent} from '../booking-bar/booking-bar.component';
 import {NgIf} from '@angular/common';
 import {DetailsBarComponent} from '../details-bar/details-bar.component';

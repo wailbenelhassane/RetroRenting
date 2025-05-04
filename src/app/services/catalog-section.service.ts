@@ -1,10 +1,9 @@
-import { Injectable, OnDestroy, NgZone, Inject, PLATFORM_ID, Renderer2, RendererFactory2 } from '@angular/core';
-import { Firestore, collection, getDocs, QuerySnapshot, DocumentData } from '@angular/fire/firestore';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { Subject } from 'rxjs';
-import { isPlatformBrowser } from '@angular/common';
-import { Router } from '@angular/router';
-import { CatalogSection } from '../models/catalog-section.model';
+import {Inject, Injectable, NgZone, OnDestroy, PLATFORM_ID, Renderer2, RendererFactory2} from '@angular/core';
+import {collection, DocumentData, Firestore, getDocs, QuerySnapshot} from '@angular/fire/firestore';
+import {BehaviorSubject, Subject} from 'rxjs';
+import {isPlatformBrowser} from '@angular/common';
+import {Router} from '@angular/router';
+import {CatalogSection} from '../models/catalog-section.model';
 
 @Injectable({
   providedIn: 'root'

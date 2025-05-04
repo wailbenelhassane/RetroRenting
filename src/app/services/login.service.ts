@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import {Injectable} from '@angular/core';
+import {FormGroup} from '@angular/forms';
 import {doc, Firestore, getDoc} from '@angular/fire/firestore';
 import {UserCredential} from '@angular/fire/auth';
 import {AuthService} from './auth.service';

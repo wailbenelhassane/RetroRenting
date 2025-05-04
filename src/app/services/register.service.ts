@@ -1,8 +1,7 @@
-import { Injectable } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import {Injectable} from '@angular/core';
+import {FormGroup} from '@angular/forms';
 import {Auth, createUserWithEmailAndPassword, UserCredential} from '@angular/fire/auth';
 import {doc, Firestore, setDoc} from '@angular/fire/firestore';
-import {AuthService} from './auth.service';
 import {Router} from '@angular/router';
 import {FormValidationService} from './utils/form-validation.service';
 

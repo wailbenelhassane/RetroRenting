@@ -1,7 +1,6 @@
-import { Component, OnInit, AfterViewInit, OnDestroy, Inject, PLATFORM_ID } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { OurTeamService } from '../../services/our-team.service';
-import { isPlatformBrowser } from '@angular/common';
+import {AfterViewInit, Component, Inject, OnDestroy, OnInit, PLATFORM_ID} from '@angular/core';
+import {CommonModule, isPlatformBrowser} from '@angular/common';
+import {OurTeamService} from '../../services/our-team.service';
 
 @Component({
   selector: 'app-our-team',

@@ -1,8 +1,8 @@
-import { Injectable, OnDestroy, NgZone, Renderer2, RendererFactory2, Inject, PLATFORM_ID } from '@angular/core';
-import { Firestore, collection, getDocs, QuerySnapshot, DocumentData } from '@angular/fire/firestore';
-import { Subject } from 'rxjs';
-import { isPlatformBrowser } from '@angular/common';
-import { Review } from '../models/review.model';
+import {Inject, Injectable, NgZone, OnDestroy, PLATFORM_ID, Renderer2, RendererFactory2} from '@angular/core';
+import {collection, DocumentData, Firestore, getDocs, QuerySnapshot} from '@angular/fire/firestore';
+import {Subject} from 'rxjs';
+import {isPlatformBrowser} from '@angular/common';
+import {Review} from '../models/review.model';
 
 @Injectable({
   providedIn: 'root'

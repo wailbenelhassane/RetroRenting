@@ -1,9 +1,9 @@
-import { Component, OnInit, OnDestroy, Inject, PLATFORM_ID } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { NgForOf, CommonModule} from '@angular/common';
-import { BookingBarService } from '../../services/booking-bar.service';
-import { Car } from '../../models/booking-bar.model';
-import { Subscription } from 'rxjs';
+import {Component, Inject, OnDestroy, OnInit, PLATFORM_ID} from '@angular/core';
+import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
+import {CommonModule, NgForOf} from '@angular/common';
+import {BookingBarService} from '../../services/booking-bar.service';
+import {Car} from '../../models/booking-bar.model';
+import {Subscription} from 'rxjs';
 import {FormValidationService} from '../../services/utils/form-validation.service';
 
 @Component({

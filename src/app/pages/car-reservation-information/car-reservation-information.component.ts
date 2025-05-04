@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {HeaderComponent} from '../../components/header/header.component';
 import {ProcessBookingBarComponent} from '../../components/process-booking-bar/process-booking-bar.component';
 import {MainDriverFormComponent} from '../../components/main-driver-form/main-driver-form.component';

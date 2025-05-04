@@ -1,8 +1,8 @@
-import { Component, OnInit, OnDestroy, Input } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { SideTextSectionService } from '../../services/side-text-section.service';
-import { SideTextData } from '../../models/side-text-section.model';
-import { Subscription } from 'rxjs';
+import {Component, Input, OnDestroy, OnInit} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {SideTextSectionService} from '../../services/side-text-section.service';
+import {SideTextData} from '../../models/side-text-section.model';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-side-text-section',

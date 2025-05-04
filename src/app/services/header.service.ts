@@ -1,9 +1,8 @@
-import { Injectable, inject, OnDestroy } from '@angular/core';
-import { Firestore, collection, getDocs, QuerySnapshot, DocumentData } from '@angular/fire/firestore';
-import { BehaviorSubject, Observable, from, catchError, of, takeUntil } from 'rxjs';
-import { Subject } from 'rxjs';
-import { isPlatformBrowser } from '@angular/common';
-import { Header } from '../models/header.model';
+import {inject, Injectable, OnDestroy} from '@angular/core';
+import {collection, DocumentData, Firestore, getDocs, QuerySnapshot} from '@angular/fire/firestore';
+import {BehaviorSubject, catchError, from, Observable, of, Subject, takeUntil} from 'rxjs';
+import {isPlatformBrowser} from '@angular/common';
+import {Header} from '../models/header.model';
 
 @Injectable({
   providedIn: 'root'

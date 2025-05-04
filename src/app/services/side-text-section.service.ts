@@ -1,8 +1,7 @@
-import { Injectable, OnDestroy, NgZone } from '@angular/core';
-import { Firestore, collection, getDocs, QuerySnapshot, DocumentData } from '@angular/fire/firestore';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { Subject } from 'rxjs';
-import { SideTextData } from '../models/side-text-section.model';
+import {Injectable, NgZone, OnDestroy} from '@angular/core';
+import {collection, DocumentData, Firestore, getDocs, QuerySnapshot} from '@angular/fire/firestore';
+import {BehaviorSubject, Observable, Subject} from 'rxjs';
+import {SideTextData} from '../models/side-text-section.model';
 
 @Injectable({
   providedIn: 'root'

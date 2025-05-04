@@ -1,8 +1,7 @@
-import { Component, OnInit, OnDestroy, Inject, PLATFORM_ID } from '@angular/core';
-import { AsyncPipe, isPlatformBrowser, NgIf } from '@angular/common';
-import { NgFor } from '@angular/common';
-import { Observable } from 'rxjs';
-import { CarCatalogService } from '../../services/car-catalog.service';
+import {Component, Inject, OnDestroy, OnInit, PLATFORM_ID} from '@angular/core';
+import {AsyncPipe, isPlatformBrowser, NgFor, NgIf} from '@angular/common';
+import {Observable} from 'rxjs';
+import {CarCatalogService} from '../../services/car-catalog.service';
 
 @Component({
   selector: 'app-car-catalog',

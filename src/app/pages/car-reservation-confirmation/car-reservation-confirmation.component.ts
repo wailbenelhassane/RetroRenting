@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { ProcessBookingBarComponent } from '../../components/process-booking-bar/process-booking-bar.component';
-import { BookSummaryComponent } from '../../components/book-summary/book-summary.component';
-import { HeaderComponent } from '../../components/header/header.component';
-import { FooterComponent } from '../../components/footer/footer.component';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {ProcessBookingBarComponent} from '../../components/process-booking-bar/process-booking-bar.component';
+import {BookSummaryComponent} from '../../components/book-summary/book-summary.component';
+import {HeaderComponent} from '../../components/header/header.component';
+import {FooterComponent} from '../../components/footer/footer.component';
 
 @Component({
   selector: 'app-car-reservation-confirmation',

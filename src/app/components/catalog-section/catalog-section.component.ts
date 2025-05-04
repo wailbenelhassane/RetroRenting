@@ -1,9 +1,8 @@
-import { Component, OnInit, OnDestroy, Inject, PLATFORM_ID } from '@angular/core';
-import { CommonModule, AsyncPipe } from '@angular/common';
-import { Observable, Subject } from 'rxjs';
-import { CatalogSectionService } from '../../services/catalog-section.service';
-import { CatalogSection } from '../../models/catalog-section.model';
-import { isPlatformBrowser } from '@angular/common';
+import {Component, Inject, OnDestroy, OnInit, PLATFORM_ID} from '@angular/core';
+import {AsyncPipe, CommonModule, isPlatformBrowser} from '@angular/common';
+import {Observable, Subject} from 'rxjs';
+import {CatalogSectionService} from '../../services/catalog-section.service';
+import {CatalogSection} from '../../models/catalog-section.model';
 
 @Component({
   selector: 'app-catalog-section',

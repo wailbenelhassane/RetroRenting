@@ -1,9 +1,7 @@
-import { Injectable, OnDestroy, PLATFORM_ID, Inject, NgZone } from '@angular/core';
-import { Firestore, collection, getDocs, QuerySnapshot, DocumentData } from '@angular/fire/firestore';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { Subject } from 'rxjs';
-import { isPlatformBrowser } from '@angular/common';
-import { CarCatalog } from '../models/car-catalog.model';
+import {Inject, Injectable, NgZone, OnDestroy, PLATFORM_ID} from '@angular/core';
+import {collection, DocumentData, Firestore, getDocs, QuerySnapshot} from '@angular/fire/firestore';
+import {BehaviorSubject, Observable, Subject} from 'rxjs';
+import {CarCatalog} from '../models/car-catalog.model';
 
 @Injectable({
   providedIn: 'root'

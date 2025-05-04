@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { BarDetailsService } from '../../services/bar-details.service';
-import { NgForOf } from '@angular/common';
+import {Component, OnInit} from '@angular/core';
+import {BarDetailsService} from '../../services/bar-details.service';
+import {NgForOf} from '@angular/common';
 
 @Component({
   selector: 'app-details-bar',

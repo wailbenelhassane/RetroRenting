@@ -1,8 +1,8 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { FooterService } from '../../services/footer.service';
-import { FooterItem } from '../../models/footer.model';
-import { CommonModule } from '@angular/common';
-import { Subscription } from 'rxjs';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {FooterService} from '../../services/footer.service';
+import {FooterItem} from '../../models/footer.model';
+import {CommonModule} from '@angular/common';
+import {Subscription} from 'rxjs';
 import {RouterLink} from '@angular/router';
 
 @Component({
