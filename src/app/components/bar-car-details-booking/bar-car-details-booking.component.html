@@ -1,0 +1,33 @@
+<section class="bar-car-details-booking-container">
+  <div class="toggle-buttons">
+    <button
+      class="toggle-btn"
+      [class.active]="activeSection === 'car-details'"
+      (click)="showSection('car-details')">
+      Car Details
+    </button>
+    <button
+      class="toggle-btn"
+      [class.active]="activeSection === 'book-now'"
+      (click)="showSection('book-now')">
+      Book Now
+    </button>
+  </div>
+
+  <div class="content-bar-car-details-booking">
+    <div
+      class="content-bar"
+      [class.active]="activeSection === 'car-details'"
+      *ngIf="activeSection === 'car-details'">
+      <app-details-bar></app-details-bar>
+      <div data-include="partials/car-details-bar.html"></div>
+    </div>
+
+    <div
+      class="content-bar"
+      [class.active]="activeSection === 'book-now'"
+      *ngIf="activeSection === 'book-now'">
+      <app-booking-bar></app-booking-bar>
+    </div>
+  </div>
+</section>

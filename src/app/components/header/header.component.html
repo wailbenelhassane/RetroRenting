@@ -1,28 +1,38 @@
 <nav class="main-nav" aria-label="Main Navigation">
   <div class="logo-container">
-    <a routerLink=" ">
+    <a routerLink="/">
       <ng-container *ngIf="headerData$ | async as header">
-        <img class="logo-image" [src]="header?.logo?.src" [alt]="header?.logo?.alt"/>
+        <img class="logo-image" [src]="header.logo.src" [alt]="header.logo.alt"/>
       </ng-container>
     </a>
   </div>
 
   <ul class="navigation-menu">
     <ng-container *ngIf="headerData$ | async as header">
-      <li class="navigation-item" *ngFor="let item of header?.mainMenu">
-        <a [routerLink]="item.url">{{item.title}}</a>
+      <li class="navigation-item" *ngFor="let item of header.mainMenu | keyvalue">
+        <a [routerLink]="item.value.url">{{ item.value.title }}</a>
       </li>
     </ng-container>
   </ul>
 
   <div class="auth-links">
-    <ng-container *ngIf="headerData$ | async as header">
-      <ng-container *ngFor="let item of header?.authLinks; let i = index">
-        <a class="auth-link" [routerLink]="item.url">{{item.title}}</a>
-        <span class="auth-link" *ngIf="i < header?.authLinks.length - 1">/</span>
-      </ng-container>
+    <ng-container *ngIf="currentUserName; else showAuthLinks">
+      <span class="welcome-msg">Welcome, {{ currentUserName }}</span>
+      <span class="separator">/</span>
+      <a class="auth-link" href="#" (click)="logout(); $event.preventDefault()">Logout</a>
     </ng-container>
+
+    <ng-template #showAuthLinks>
+      <ng-container *ngIf="headerData$ | async as header">
+        <ng-container *ngFor="let link of header.authLinks | keyvalue; let i = index">
+          <a class="auth-link" [routerLink]="link.value.url">{{ link.value.title }}</a>
+          <span class="auth-link" *ngIf="i < (header.authLinks | keyvalue).length - 1">/</span>
+        </ng-container>
+      </ng-container>
+    </ng-template>
   </div>
+
+
 
   <div class="mobile-nav-toggle">
     <div class="hamburger">
@@ -36,16 +46,25 @@
     <ul class="mobile-navigation-menu">
       <ng-container *ngIf="headerData$ | async as header">
         <li class="mobile-navigation-item auth-mobile">
-          <ng-container *ngFor="let item of header?.authLinks; let i = index">
-            <a [routerLink]="item.url">{{item.title}}</a>
-            <span *ngIf="i < header?.authLinks.length - 1">/</span>
+          <ng-container *ngIf="currentUserName; else showAuthLinksMobile">
+            <span class="welcome-msg">Welcome, {{ currentUserName }}</span>
+            <a class="auth-link" href="#" (click)="logout(); $event.preventDefault()">Logout</a>
           </ng-container>
+
+          <ng-template #showAuthLinksMobile>
+            <ng-container *ngFor="let link of header.authLinks | keyvalue; let i = index">
+              <a [routerLink]="link.value.url">{{ link.value.title }}</a>
+              <span *ngIf="i < (header.authLinks | keyvalue).length - 1">/</span>
+            </ng-container>
+          </ng-template>
         </li>
-        <li class="mobile-navigation-item" *ngFor="let item of header?.mainMenu">
-          <a [routerLink]="item.url">{{item.title}}</a>
+
+        <li class="mobile-navigation-item" *ngFor="let item of header.mainMenu | keyvalue">
+          <a [routerLink]="item.value.url">{{ item.value.title }}</a>
         </li>
       </ng-container>
     </ul>
+
   </div>
 </nav>
 

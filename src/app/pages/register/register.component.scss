@@ -11,6 +11,12 @@
   float: left;
 }
 
+.error {
+  color: red;
+  font-size: 0.85em;
+  margin-top: 4px;
+}
+
 .register-container {
   width: 50%;
   color: #FFFFFF;
@@ -82,7 +88,7 @@
   margin-top: 1.3vh;
 }
 .register-container .register-form .name-group input {
-  width: 50%;
+  width: 100%;
 }
 .register-container .register-form button {
   width: 10vw;

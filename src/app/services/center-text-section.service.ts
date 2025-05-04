@@ -1,45 +1,48 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { Injectable, OnDestroy, NgZone } from '@angular/core';
+import { Firestore, collection, getDocs, QuerySnapshot, DocumentData } from '@angular/fire/firestore';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { Subject } from 'rxjs';
+import { CenterTextData } from '../models/center-text-section.model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CenterTextSectionService {
-  private jsonUrl = '/data/centerText.json';
-  private sectionDataSubject = new BehaviorSubject<{ [key: string]: { title: string, content: string } }>({});
+export class CenterTextSectionService implements OnDestroy {
+  private sectionDataSubject = new BehaviorSubject<CenterTextData>({});
   sectionData$ = this.sectionDataSubject.asObservable();
+  private destroy$ = new Subject<void>();
 
-  constructor(private http: HttpClient) {
+  constructor(
+    private firestore: Firestore,
+    private ngZone: NgZone
+  ) {
     this.loadData();
   }
 
-  private getData(): Observable<any> {
-    return this.http.get<any>(this.jsonUrl).pipe(
-      catchError(error => {
-        console.error("Error loading center text section data:", error);
-        return throwError(error);
-      })
-    );
-  }
-
   private loadData() {
-    this.getData().subscribe({
-      next: (data) => {
-        if (data && data.sections) {
-          this.sectionDataSubject.next(data.sections);
+    this.ngZone.run(() => {
+      const centerTextCollection = collection(this.firestore, 'centerText');
+      getDocs(centerTextCollection).then((querySnapshot: QuerySnapshot<DocumentData>) => {
+        if (querySnapshot && !querySnapshot.empty) {
+          const centerTextData = querySnapshot.docs[0].data() as CenterTextData;
+          this.sectionDataSubject.next(centerTextData);
         } else {
-          console.error("No sections found in the JSON data");
+          console.warn('No center text data found in Firestore');
+          this.sectionDataSubject.next({});
         }
-      },
-      error: (error) => {
-        console.error(error);
-      }
+      }).catch((error: any) => {
+        console.error('Error loading center text data from Firestore:', error);
+        this.sectionDataSubject.next({});
+      });
     });
   }
 
-  getSectionData(): Observable<{ [key: string]: { title: string, content: string } }> {
+  getSectionData(): Observable<CenterTextData> {
     return this.sectionData$;
+  }
+
+  ngOnDestroy() {
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 }

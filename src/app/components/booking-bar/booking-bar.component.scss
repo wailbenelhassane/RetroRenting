@@ -9,7 +9,7 @@ $box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
   border-radius: $input-radius;
   font-size: $font-size;
   width: 15vw;
-  height: 3.5vh;
+  height: 5vh;
   box-shadow: $box-shadow;
   border: 1px solid #ccc;
 
@@ -55,7 +55,7 @@ $box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
     background-color: variables.$gray;
     padding: 10px;
     border-radius: $border-radius;
-    width: 90%;
+    width: 100%;
     max-width: 1200px;
 
     .booking-bar-form {
@@ -124,7 +124,7 @@ $box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
       .book-btn {
         @include button-style(variables.$resalt-color, variables.$resalt-color-darker);
         width: 100%;
-        height: 3.5vh;
+        height: 5vh;
         padding: 0 15px;
         display: flex;
         align-items: center;

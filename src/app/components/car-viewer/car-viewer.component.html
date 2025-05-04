@@ -1,0 +1,13 @@
+<section class="car-viewer-container">
+  <div class="principal-image">
+    <img [src]="allImages[0]" alt="Imagen Principal" id="main-image" />
+  </div>
+  <div class="secondary-image-section">
+    <div
+      class="secondary-image"
+      *ngFor="let img of allImages.slice(1); let i = index"
+      (click)="swapWithMain(i + 1)">
+    <img [src]="img" alt="Imagen Secundaria" class="secondary-img" />
+  </div>
+  </div>
+</section>

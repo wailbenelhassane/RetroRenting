@@ -15,3 +15,6 @@
     </div>
   </div>
 </section>
+<div class="catalog-section" *ngIf="(catalogData$ | async)?.length === 0">
+  <p>No catalog sections available</p>
+</div>

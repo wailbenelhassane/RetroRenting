@@ -1,20 +1,20 @@
-import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, OnInit, OnDestroy, Inject, PLATFORM_ID } from '@angular/core';
 import { AsyncPipe, isPlatformBrowser, NgIf } from '@angular/common';
-import { CarCatalogService } from '../../services/car-catalog.service';
-import { NgForOf } from '@angular/common';
+import { NgFor } from '@angular/common';
 import { Observable } from 'rxjs';
+import { CarCatalogService } from '../../services/car-catalog.service';
 
 @Component({
   selector: 'app-car-catalog',
   templateUrl: './car-catalog.component.html',
   standalone: true,
-  imports: [NgForOf, AsyncPipe, NgIf],
+  imports: [NgFor, AsyncPipe, NgIf],
   styleUrls: ['./car-catalog.component.scss']
 })
-export class CarCatalogComponent implements OnInit {
-  decades$!: Observable<string[]>;
-  currentImage$!: Observable<{ src: string; altText: string }>;
-  currentDecadeIndex$!: Observable<number>;
+export class CarCatalogComponent implements OnInit, OnDestroy {
+  decades$: Observable<string[]>;
+  currentImage$: Observable<{ src: string; altText: string }>;
+  currentDecadeIndex$: Observable<number>;
 
   constructor(
     private carCatalogService: CarCatalogService,
@@ -28,6 +28,12 @@ export class CarCatalogComponent implements OnInit {
   ngOnInit() {
     if (isPlatformBrowser(this.platformId)) {
       window.addEventListener('resize', this.handleResize.bind(this));
+    }
+  }
+
+  ngOnDestroy() {
+    if (isPlatformBrowser(this.platformId)) {
+      window.removeEventListener('resize', this.handleResize.bind(this));
     }
   }
 

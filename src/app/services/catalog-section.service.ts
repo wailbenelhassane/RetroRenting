@@ -1,50 +1,71 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Injectable, OnDestroy, NgZone, Inject, PLATFORM_ID, Renderer2, RendererFactory2 } from '@angular/core';
+import { Firestore, collection, getDocs, QuerySnapshot, DocumentData } from '@angular/fire/firestore';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { tap, catchError } from 'rxjs/operators';
-import { of } from 'rxjs';
+import { Subject } from 'rxjs';
+import { isPlatformBrowser } from '@angular/common';
+import { Router } from '@angular/router';
+import { CatalogSection } from '../models/catalog-section.model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CatalogSectionService {
-  private catalogDataSubject = new BehaviorSubject<any[]>([]);
+export class CatalogSectionService implements OnDestroy {
+  private catalogDataSubject = new BehaviorSubject<CatalogSection[]>([]);
   catalogData$ = this.catalogDataSubject.asObservable();
+  private destroy$ = new Subject<void>();
+  private renderer: Renderer2;
 
-  constructor(private http: HttpClient) {
+  constructor(
+    private firestore: Firestore,
+    private ngZone: NgZone,
+    private router: Router,
+    @Inject(PLATFORM_ID) private platformId: Object,
+    rendererFactory: RendererFactory2
+  ) {
+    this.renderer = rendererFactory.createRenderer(null, null);
     this.loadCatalogSections();
   }
 
   private loadCatalogSections() {
-    this.http.get<any>('/data/catalogSection.json').pipe(
-      tap(data => {
-        if (data && data.decades) {
-          this.catalogDataSubject.next(data.decades);
+    this.ngZone.run(() => {
+      const catalogCollection = collection(this.firestore, 'catalogSection');
+      getDocs(catalogCollection).then((querySnapshot: QuerySnapshot<DocumentData>) => {
+        if (querySnapshot && !querySnapshot.empty) {
+          const catalogSections = querySnapshot.docs.map(doc => doc.data() as CatalogSection);
+          this.catalogDataSubject.next(catalogSections);
         } else {
-          console.error('No se pudo cargar el JSON de las secciones.');
+          console.warn('No catalog section data found in Firestore');
+          this.catalogDataSubject.next([]);
         }
-      }),
-      catchError(error => {
-        console.error('Error fetching catalog data:', error);
-        return of([]);
-      })
-    ).subscribe();
+      }).catch((error: any) => {
+        console.error('Error loading catalog section data from Firestore:', error);
+        this.catalogDataSubject.next([]);
+      });
+    });
   }
 
   navigateToCarPage(carId: string) {
-    if (typeof window !== 'undefined') {
-      window.location.href = `/car-page?carId=${carId}`;
+    if (isPlatformBrowser(this.platformId)) {
+      this.router.navigate(['/car-page'], { queryParams: { carId } });
     }
   }
 
   scrollToSection(targetId: string) {
-    if (typeof window !== 'undefined') {
+    if (isPlatformBrowser(this.platformId)) {
       setTimeout(() => {
         const targetElement = document.getElementById(targetId);
         if (targetElement) {
-          targetElement.scrollIntoView({ behavior: 'smooth' });
+          this.renderer.setProperty(window, 'scrollTo', {
+            top: targetElement.getBoundingClientRect().top + window.pageYOffset,
+            behavior: 'smooth'
+          });
         }
       }, 300);
     }
+  }
+
+  ngOnDestroy() {
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 }
