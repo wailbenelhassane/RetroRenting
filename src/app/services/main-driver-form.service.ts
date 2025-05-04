@@ -4,7 +4,7 @@ import {collection, DocumentData, Firestore, getDocs, QuerySnapshot} from '@angu
 import {Country} from '../models/main-driver-form.model';
 import {FormGroup} from '@angular/forms';
 import {FormValidationService} from './utils/form-validation.service';
-import {BookingsService} from './booking-firebase.service';
+import {BookingsService} from './firebase/booking-firebase.service';
 import {getAuth} from '@angular/fire/auth';
 import {Booking} from '../models/booking.model';
 
@@ -100,6 +100,8 @@ import {Booking} from '../models/booking.model';
             country: mainDriverForm.value.country
           }
         };
+
+        console.log(bookingData);
 
         this.bookingService.add(bookingData);
       } else {

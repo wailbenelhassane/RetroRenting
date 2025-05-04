@@ -29,7 +29,7 @@ export abstract class FirebaseService<T extends { id?: string }> {
   }
 
   get(id: string){
-    const docRef = doc(this.firestore, `${this.collectionName}/${id}}`);
+    const docRef = doc(this.firestore, `${this.collectionName}/${id}`);
     return docData(docRef, { idField: 'id' }) as Observable<T>;
   }
 

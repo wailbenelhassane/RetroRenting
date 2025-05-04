@@ -56,5 +56,4 @@ export class RegisterComponent implements OnInit{
       await this.router.navigate(['/']);
     }
   }
-
 }

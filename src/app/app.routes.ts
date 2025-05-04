@@ -12,6 +12,7 @@ import {PrivacyPolicyComponent} from './pages/footer-pages/privacy-policy/privac
 import {AdChoicesComponent} from './pages/footer-pages/ad-choices/ad-choices.component';
 import {TermsConditionsComponent} from './pages/footer-pages/terms-conditions/terms-conditions.component';
 import {AuthGuard} from './guards/auth.guard';
+import {HistoryBookingComponent} from './components/history-booking/history-booking.component';
 
 export const routes: Routes = [
   { path: 'index', component: LandingPageComponent },
@@ -26,6 +27,7 @@ export const routes: Routes = [
     canActivate: [AuthGuard],
     component: CarReservationInformationComponent },
   { path: 'car-page', component: CarPageComponent},
+  { path: 'my-bookings', component: HistoryBookingComponent },
   { path: 'accessibility', component: AccessibilityComponent },
   { path: 'privacy-policy', component: PrivacyPolicyComponent },
   { path: 'ad-choices', component: AdChoicesComponent },
