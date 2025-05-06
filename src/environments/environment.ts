@@ -1,11 +1,13 @@
 
 export const environment = {
   production: false,
-  firebaseConfig: { projectId: "panelon-fb7af",
-    appId: "1:539993197273:web:bd60dd54cfcc9f2c38ccc8",
-    storageBucket: "panelon-fb7af.firebasestorage.app",
-    apiKey: "AIzaSyCQqzf1Ue3v0WtdWNQ9GkP-TTta4eoW8hI",
-    authDomain: "panelon-fb7af.firebaseapp.com",
-    messagingSenderId: "539993197273"
+  firebaseConfig: {
+    apiKey: "AIzaSyBpqrwIu8R59vzvHdAVbopJ1qApKxXK3Us",
+    authDomain: "retrorenting-acd8d.firebaseapp.com",
+    databaseURL: "https://retrorenting-acd8d-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "retrorenting-acd8d",
+    storageBucket: "retrorenting-acd8d.firebasestorage.app",
+    messagingSenderId: "144755494629",
+    appId: "1:144755494629:web:4cf9bf2246eeabbfd8ce0c"
   }
 }
