@@ -13,6 +13,7 @@ import {FooterComponent} from '../../components/footer/footer.component';
     FooterComponent
   ],
   templateUrl: './car-reservation-information.component.html',
+  standalone: true,
   styleUrl: './car-reservation-information.component.scss'
 })
 export class CarReservationInformationComponent {
