@@ -1,0 +1,342 @@
+.aside-image {
+  width: 50%;
+  position: relative;
+}
+
+.aside-image img {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  float: left;
+}
+
+.error {
+  color: red;
+  font-size: 0.85em;
+  margin-top: 4px;
+}
+
+.register-container {
+  width: 50%;
+  color: #FFFFFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.register-container .register-logo img {
+  width: 10vw;
+  height: 20vh;
+}
+
+.register-container .register-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 2vh;
+  margin-bottom: 1vh;
+}
+
+.register-container .register-header h1 {
+  font-size: 4rem;
+  font-family: "Roboto", sans-serif;
+}
+
+.register-container #back-link {
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+.register-container .register-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.register-container .register-form label {
+  margin-top: 1.5vh;
+  font-size: 1rem;
+  font-family: "Roboto", sans-serif;
+}
+
+.register-container .register-form input {
+  width: 45vh;
+  height: 5vh;
+  font-size: 1rem;
+  padding: 1vh 1vh;
+  border: 0.1vh solid #ccc;
+  border-radius: 3vh;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  margin-top: 1.3vh;
+  margin-bottom: 0.3vh;
+}
+
+.register-container .register-form input:focus {
+  outline: none;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  border: 0.1vh solid #ccc;
+}
+
+.register-container .register-form .name-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 4vh;
+  width: 45vh;
+  margin-bottom: 1.3vh;
+  gap: 0.5vw;
+  margin-top: 1.3vh;
+}
+
+.register-container .register-form .name-group input {
+  width: 100%;
+}
+
+.register-container .register-form button {
+  width: 10vw;
+  height: 5vh;
+  background-color: #9a7006;
+  font-size: 20px;
+  font-weight: bold;
+  color: #FFFFFF;
+  font-family: "Roboto", sans-serif;
+  border: none;
+  cursor: pointer;
+  border-radius: 1vh;
+  padding: 1vh 2vh;
+  margin-top: 2vh;
+}
+
+.register-container .register-form button:hover {
+  background-color: #8B6508;
+}
+
+.register-container #sign-in-link {
+  color: #FFFFFF;
+  font-size: 1.2rem;
+  font-family: "Roboto", sans-serif;
+  margin-top: 1vh;
+}
+
+.register-container #sign-in-link #sign-in-btn {
+  text-decoration: none;
+  color: #FFFFFF;
+  font-weight: bold;
+}
+
+.error-list {
+  color: red;
+  font-size: 0.8rem;
+  font-family: "Roboto", sans-serif;
+  border: 1px solid red;
+  border-radius: 5px;
+  padding: 4px;
+  margin-top: 1vh;
+}
+.error-list ul {
+  list-style-type: none;
+}
+
+input.invalid,
+select.invalid {
+  border: 2px solid #e53935;
+  background-color: #fff6f6;
+}
+
+:invalid {
+  border-color: red;
+}
+
+@media (max-width: 480px) {
+  .aside-image {
+    display: none;
+  }
+  .register-container {
+    width: 100% !important;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 2vh;
+  }
+  .register-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2vh;
+  }
+  .register-logo .logo-image {
+    width: 30vw !important;
+    height: auto !important;
+  }
+  .register-header {
+    text-align: center;
+    width: 100%;
+  }
+  .register-header h1 {
+    font-size: 2.5rem;
+  }
+  .register-form {
+    width: 100%;
+    padding: 0 5vw;
+  }
+  .register-form input {
+    width: 90% !important;
+    height: 5vh !important;
+    font-size: 1rem !important;
+  }
+  .register-form button {
+    width: 40vw !important;
+    height: 6vh !important;
+    font-size: 1.2rem !important;
+  }
+  #sign-in-link {
+    text-align: center;
+    margin-top: 2vh;
+  }
+  .register-form-container {
+    width: 100%;
+  }
+  .register-container .register-form .name-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 4vh;
+    width: 41vh;
+    margin-bottom: 3vh;
+    gap: 0.5vw;
+  }
+  #back-link {
+    text-align: left;
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: #FFFFFF;
+    text-decoration: none;
+    margin-left: 8vw;
+  }
+  nav {
+    width: 100%;
+    text-align: left;
+  }
+  #error-container {
+    color: red;
+    font-size: 14px;
+    font-family: "Roboto", sans-serif;
+    padding: 10px;
+    border: 1px solid red;
+    border-radius: 5px;
+  }
+  #error-container ul {
+    padding-left: 20px;
+  }
+  :valid {
+    border-color: green;
+  }
+  :invalid {
+    border-color: red;
+  }
+}
+@media (max-width: 1024px) {
+  .aside-image {
+    width: 40%;
+  }
+  .register-container {
+    width: 60%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .register-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2vh;
+  }
+  .register-logo .logo-image {
+    width: 20vw !important;
+    height: auto !important;
+  }
+  .register-header {
+    text-align: center;
+    width: 100%;
+  }
+  .register-header h1 {
+    font-size: 2.5rem;
+  }
+  .register-form {
+    width: 100%;
+    padding: 0 5vw;
+  }
+  .register-form input {
+    width: 90% !important;
+    height: 5vh !important;
+    font-size: 1rem !important;
+  }
+  .register-form button {
+    width: 40vw !important;
+    height: 6vh !important;
+    font-size: 1.2rem !important;
+  }
+  #sign-in-link {
+    text-align: center;
+    margin-top: 2vh;
+  }
+  .register-form-container {
+    width: 100%;
+  }
+  .register-container .register-form .name-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    height: 15vh;
+    width: 100%;
+    margin-bottom: 0.1vh;
+    gap: 0.3vw;
+  }
+  #back-link {
+    text-align: left;
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: #FFFFFF;
+    text-decoration: none;
+    margin-bottom: 1vh;
+    margin-left: 8vw;
+  }
+  nav {
+    width: 100%;
+    text-align: left;
+  }
+  #error-container {
+    color: red;
+    font-size: 14px;
+    font-family: "Roboto", sans-serif;
+    padding: 10px;
+    border: 1px solid red;
+    border-radius: 5px;
+  }
+  #error-container ul {
+    padding-left: 20px;
+  }
+  :valid {
+    border-color: green;
+  }
+  :invalid {
+    border-color: red;
+  }
+}
+
+
+/*# sourceMappingURL=register.component.css.map */

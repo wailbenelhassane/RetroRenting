@@ -1,0 +1,89 @@
+<aside class="aside-image">
+  <img class="background-aside-image"
+       [ngSrc]="asideImgUrl"
+       alt="Background image"
+       width="1024"
+       height="768">
+</aside>
+
+<main class="register-container">
+  <header class="register-header">
+    <div class="register-logo">
+      <img class="logo-image"
+           [ngSrc]="logoUrl"
+           alt="Logo"
+           width="1024"
+           height="768">
+    </div>
+    <h1>Sign up!</h1>
+  </header>
+
+  <nav aria-label="Go back">
+    <a id="back-link"
+       href="#"
+       onclick="history.back(); return false"> &larr; Go back</a>
+  </nav>
+
+  <section class="register-form-container">
+    <form class="register-form"
+          [formGroup]="registerForm"
+          (ngSubmit)="onSubmit()">
+
+      <div class="name-group">
+        <input type="text"
+               id="name"
+               formControlName="name"
+               placeholder="First Name"
+               [class.invalid]="formErrors.includes('name') || formErrors.includes('nameInvalid')"
+               autocomplete="off">
+
+        <input type="text"
+               id="surname"
+               formControlName="surname"
+               placeholder="Last Name"
+               [class.invalid]="formErrors.includes('surname') || formErrors.includes('surnameInvalid')"
+               autocomplete="off">
+      </div>
+
+      <input type="email"
+             id="email"
+             formControlName="email"
+             placeholder="Email"
+             [class.invalid]="formErrors.includes('email') || formErrors.includes('emailInvalid')">
+
+      <input type="text"
+             id="username"
+             formControlName="username"
+             placeholder="Username"
+             [class.invalid]="formErrors.includes('username') || formErrors.includes('usernameInvalid')">
+
+      <input type="password"
+             id="password"
+             formControlName="password"
+             placeholder="Password"
+             [class.invalid]="formErrors.includes('password') || formErrors.includes('passwordInvalid')">
+
+      <input type="password"
+             id="confirm-password"
+             formControlName="confirmPassword"
+             placeholder="Confirm password"
+             [class.invalid]="formErrors.includes('confirmPassword') || formErrors.includes('confirmPasswordInvalid')">
+
+      <button class="register-btn" type="submit">Sign up</button>
+    </form>
+  </section>
+
+  <div *ngIf="formErrors.length > 0" class="error-list">
+    <ul>
+      <li *ngFor="let error of formErrors">
+        {{ validationService.getErrorMessage(error) }}
+      </li>
+    </ul>
+  </div>
+
+  <footer>
+    <p id="sign-in-link">Already have an account?
+      <a routerLink="/login" id="sign-in-btn">Sign in</a>
+    </p>
+  </footer>
+</main>

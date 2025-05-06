@@ -1,0 +1,67 @@
+<aside class="aside-image">
+  <img class="background-aside-image"
+       [ngSrc]="asideImgUrl"
+       alt="Loading Image."
+       width="1024"
+       height="768">
+</aside>
+
+<main class="login-container">
+  <header class="login-header">
+    <div class="login-logo">
+      <img class="logo-image"
+           [ngSrc]="logoUrl"
+           alt="Loading Image."
+           width="1024"
+           height="768">
+    </div>
+    <h1>Sign in!</h1>
+  </header>
+
+  <nav aria-label="Go back">
+    <a id="back-link"
+       href="#"
+       onclick="history.back(); return false"> &larr; Go back</a>
+  </nav>
+
+  <section class="login-form-container">
+    <form class="login-form"
+          id="login-form"
+          [formGroup]="loginForm"
+          (ngSubmit)="onSubmit()">
+
+      <input type="text"
+             id="email"
+             name="email"
+             formControlName="email"
+             autocomplete="off"
+             placeholder="Email"
+             required>
+
+      <input type="password"
+             id="password"
+             name="password"
+             formControlName="password"
+             autocomplete="current-password"
+             placeholder="Password"
+             required>
+
+      <button class="login-btn"
+              type="submit">Sign in
+      </button>
+    </form>
+  </section>
+
+  <div *ngIf="formErrors.length > 0" class="error-list">
+    <ul>
+      <li *ngFor="let error of formErrors">
+        {{ validationService.getErrorMessage(error) }}
+      </li>
+    </ul>
+  </div>
+
+  <footer class="login-links">
+    <p id="sign-up-link">Don´t have an account? <a href="register.html" id="sign-up-btn">Sign up</a></p>
+    <p id="reemail-link">Forget your password? <a href="" id="reemail-btn">Send email</a></p>
+  </footer>
+</main>
