@@ -35,3 +35,64 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import '@ionic/angular/css/palettes/dark.system.css';
+
+@use './theme/variables';
+
+$margin: 0;
+$padding: 0;
+$box-sizing: border-box;
+$full-width: 100%;
+$full-height: 100%;
+
+@mixin reset {
+  margin: $margin;
+  padding: $padding;
+  box-sizing: $box-sizing;
+}
+
+* {
+  @include reset;
+}
+
+html,
+body {
+  display: flex;
+  flex-direction: column;
+  width: $full-width;
+  height: $full-height;
+  background: variables.$background-color;
+  color: variables.$text-color;
+  font-family: variables.$font-family;
+  margin: 0;
+}
+
+app-root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content {
+  flex: 1;
+}
+
+.center-align{display:flex; width:100%; justify-content: center; align-items: center; margin-top:4vh;}
+
+.general-button{
+  display:flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  background-color: variables.$resalt-color;
+  color: variables.$text-color;
+  width: 10%;
+}
+
+.car-name{
+  display:flex;
+  margin: 4%;
+  font-size: 3rem;
+  font-weight: bold;
+  color: variables.$text-color;
+}
