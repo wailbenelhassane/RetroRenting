@@ -16,6 +16,7 @@ import {ActivatedRoute} from '@angular/router';
     HeaderComponent,
     FooterComponent
   ],
+  standalone: true,
   styleUrls: ['./history-booking.component.scss']
 })
 export class HistoryBookingComponent implements OnInit {
