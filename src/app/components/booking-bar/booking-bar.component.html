@@ -1,0 +1,78 @@
+<section class="booking-bar-container" id="booking-bar-container">
+    <div class="booking-bar-title">
+        <h1>Book now!</h1>
+    </div>
+
+    <div class="booking-bar" id="booking-bar">
+        <form class="booking-bar-form"
+              id="booking-bar-form"
+              [formGroup]="bookingForm"
+              (ngSubmit)="onSubmit()">
+
+            <div class="booking-section">
+                <p class="label-selector">Choose a car!</p>
+                <select id="car-selector"
+                        formControlName="car"
+                        [class.invalid]="formErrors?.includes('car')"
+                        required>
+                    <option *ngFor="let car of cars"
+                            [value]="car.value">
+                        {{ car.name }}
+                    </option>
+                </select>
+            </div>
+
+            <div class="booking-section">
+                <p class="label-selector">Choose a location!</p>
+                <div class="location-autocomplete">
+                    <input id="location"
+                           type="text"
+                           formControlName="location"
+                           autocomplete="off"
+                           placeholder="Enter a location"
+                           [class.invalid]="formErrors?.includes('location') || formErrors?.includes('locationInvalid')"
+                           required>
+
+                    <div class="suggestions-box" *ngIf="showSuggestions">
+                        <div *ngFor="let suggestion of locationSuggestions"
+                             (click)="onSuggestionSelect(suggestion)"
+                             class="suggestion-item">
+                            {{ suggestion }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="booking-section">
+                <p class="label-selector">Pick up date!</p>
+                <input id="pickup-date"
+                       type="date"
+                       formControlName="pickupDate"
+                       [class.invalid]="formErrors?.includes('pickupDate') || formErrors?.includes('pickupDatePast')"
+                       required>
+            </div>
+
+            <div class="booking-section">
+                <p class="label-selector">Return date!</p>
+                <input id="return-date"
+                       type="date"
+                       formControlName="returnDate"
+                       [class.invalid]="formErrors?.includes('returnDate') || formErrors?.includes('returnBeforePickup') || formErrors?.includes('returnDatePast')"
+                       required>
+            </div>
+
+            <div class="booking-section">
+                <button class="book-btn" type="submit">Book now!</button>
+            </div>
+        </form>
+    </div>
+
+  <div *ngIf="formErrors.length > 0" class="error-list">
+    <ul>
+      <li *ngFor="let error of formErrors">
+        {{ validationService.getErrorMessage(error) }}
+      </li>
+    </ul>
+  </div>
+
+</section>

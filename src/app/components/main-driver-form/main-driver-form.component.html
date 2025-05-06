@@ -1,0 +1,63 @@
+<section id="main-driver-wrapper">
+  <div id="main-driver-form-container">
+    <div class="main-driver-header">
+      <h2>INTRODUCE MAIN DRIVER INFORMATION</h2>
+    </div>
+
+    <div class="input-container">
+      <form [formGroup]="driverForm"
+            (ngSubmit)="onSubmit()"
+            class="main-driver-form">
+
+        <div class="name-group">
+          <input type="text"
+                 placeholder="First Name"
+                 formControlName="name"
+                 [class.invalid]="formErrors.includes('name') || formErrors.includes('invalidName')">
+
+          <input type="text"
+                 placeholder="Last Name"
+                 formControlName="surname"
+                 [class.invalid]="formErrors.includes('surname') || formErrors.includes('invalidSurName')">
+        </div>
+
+        <input type="email"
+               placeholder="Email"
+               formControlName="email"
+               [class.invalid]="formErrors.includes('email') || formErrors.includes('invalidEmail')">
+
+        <div class="phone-group">
+          <select formControlName="prefix"
+                  [class.invalid]="formErrors.includes('prefix')">
+            <option *ngFor="let country of countries"
+                    [value]="country.value">
+              {{ country.prefix }}
+          </select>
+
+          <input type="tel"
+                 placeholder="Phone Number"
+                 formControlName="phone"
+                 [class.invalid]="formErrors.includes('phone') || formErrors.includes('invalidPhone')">
+        </div>
+
+        <select formControlName="country"
+                [class.invalid]="formErrors.includes('country')">
+          <option *ngFor="let country of countries"
+                  [value]="country.value">
+            {{ country.name }}
+        </select>
+
+        <div class="btn-container">
+          <button class="book-btn" type="submit">Pay now!</button>
+        </div>
+
+        <ul *ngIf="formErrors.length > 0" class="error-list">
+          <li *ngFor="let error of formErrors">
+            {{ validationService.getErrorMessage(error) }}
+          </li>
+        </ul>
+      </form>
+    </div>
+
+  </div>
+</section>

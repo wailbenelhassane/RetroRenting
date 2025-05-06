@@ -1,0 +1,97 @@
+.bar-car-details-booking-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 800px;
+  margin: auto;
+  padding: 0 15px;
+}
+
+.toggle-buttons {
+  display: flex;
+  width: 100%;
+  border-radius: 8px;
+  margin-top: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.toggle-btn {
+  flex: 1;
+  padding: 15px;
+  background-color: #555;
+  border: none;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.toggle-btn.active {
+  background-color: #e0e0e0;
+  color: #555;
+}
+
+.content-bar-car-details-booking {
+  position: relative;
+  width: 100%;
+  min-height: 200px;
+  height: auto;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.content-bar {
+  position: relative;
+  width: 100%;
+  height: auto;
+  min-height: 400px;
+  visibility: hidden;
+  opacity: 0;
+  display: none;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+.content-bar.active {
+  visibility: visible;
+  opacity: 1;
+  display: block;
+}
+
+@media (max-width: 1025px) and (min-width: 769px) {
+  .toggle-btn {
+    font-size: 16px;
+    padding: 12px;
+  }
+  .content-bar-car-details-booking {
+    min-height: 350px;
+  }
+  .content-bar {
+    min-height: 350px;
+  }
+}
+@media (max-width: 768px) {
+  .toggle-btn {
+    font-size: 14px;
+    padding: 10px;
+  }
+  .content-bar-car-details-booking {
+    min-height: 300px;
+    margin-bottom: 50px;
+  }
+  .content-bar {
+    min-height: 300px;
+  }
+  #error-container {
+    position: relative;
+    width: 100%;
+    margin-top: 15px;
+    z-index: 1;
+  }
+}
+
+
+/*# sourceMappingURL=bar-car-details-booking.component.css.map */

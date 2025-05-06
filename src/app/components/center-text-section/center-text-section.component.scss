@@ -1,0 +1,31 @@
+@use "../../../variables";
+
+.center-text-section-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 4%;
+}
+
+.center-text-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 60%;
+  height: auto;
+  margin-top: 10vh;
+  font-family: variables.$font-family;
+  margin-bottom: 10vh;
+  h2 {
+    margin-bottom: 4vh;
+  }
+}
+
+@media (max-width: variables.$tablet-breakpoint) {
+  .center-text-section-container {
+    font-size: 1.125rem;
+  }
+}
