@@ -8,7 +8,6 @@ $catalog-menu-width: 20%;
 $container-height: 500px;
 $font-size-base: 1.5rem;
 
-
 @mixin center-flex($direction: row) {
   display: flex;
   justify-content: center;
@@ -45,15 +44,13 @@ $font-size-base: 1.5rem;
       transform: translateY(-50%);
       justify-content: space-between;
 
-      button {
-        background-color: variables.$resalt-color;
-        color: variables.$text-color;
-        border: none;
+      ion-button {
+        --background: #{variables.$resalt-color};
+        --color: #{variables.$text-color};
+        --border-radius: 50%;
         width: 40px;
         height: 40px;
-        border-radius: 50%;
         font-size: 20px;
-        cursor: pointer;
         opacity: 0.8;
 
         &:hover {
@@ -68,6 +65,7 @@ $font-size-base: 1.5rem;
     width: $catalog-menu-width;
     height: $container-height;
     list-style: none;
+    --background: transparent;
 
     .car-catalog-menu-item {
       display: flex;
@@ -79,6 +77,8 @@ $font-size-base: 1.5rem;
       backdrop-filter: blur(10px);
       color: variables.$text-color;
       cursor: pointer;
+      --background: transparent;
+      --border: none;
 
       &:hover {
         margin-left: -80px;

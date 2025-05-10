@@ -3,6 +3,7 @@ import {HeaderComponent} from '../../components/header/header.component';
 import {CarCatalogComponent} from '../../components/car-catalog/car-catalog.component';
 import {BookingBarComponent} from '../../components/booking-bar/booking-bar.component';
 import {FooterComponent} from '../../components/footer/footer.component';
+import {IonContent} from "@ionic/angular/standalone";
 
 
 @Component({
@@ -12,7 +13,8 @@ import {FooterComponent} from '../../components/footer/footer.component';
     HeaderComponent,
     CarCatalogComponent,
     BookingBarComponent,
-    FooterComponent
+    FooterComponent,
+    IonContent
   ],
   templateUrl: './landing-page.component.html',
   styleUrls: ['./landing-page.component.scss']

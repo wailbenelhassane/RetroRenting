@@ -1,32 +1,33 @@
-<section class="car-catalog-container">
-  <div class="car-catalog-image" (click)="onImageClick($event)">
-    <img class="car-image"
-         [src]="(currentImage$ | async)?.src"
-         [alt]="(currentImage$ | async)?.altText" />
 
-    <div class="mobile-controls">
-      <button class="prev-btn" aria-label="Previous car" (click)="prevImage()">&lt;</button>
-      <button class="next-btn" aria-label="Next car" (click)="nextImage()">&gt;</button>
+  <section class="car-catalog-container">
+    <div class="car-catalog-image" (click)="onImageClick($event)">
+      <img class="car-image"
+           [src]="(currentImage$ | async)?.src"
+           [alt]="(currentImage$ | async)?.altText" />
+
+      <div class="mobile-controls">
+        <ion-button class="prev-btn" aria-label="Previous car" fill="solid" (click)="prevImage()"><</ion-button>
+        <ion-button class="next-btn" aria-label="Next car" fill="solid" (click)="nextImage()">></ion-button>
+      </div>
     </div>
-  </div>
 
-  <ul class="car-catalog-menu desktop-menu">
-    <li class="car-catalog-menu-item" *ngFor="let decade of decades$ | async"
-        (mouseenter)="onMouseEnter(decade)">
-      <a class="car-catalog-menu-item-element"
-         [href]="'/catalog#' + decade">
-        {{ decade }}'s Catalog
-      </a>
-    </li>
-  </ul>
+    <ion-list class="car-catalog-menu desktop-menu">
+      <ion-item class="car-catalog-menu-item" *ngFor="let decade of decades$ | async"
+                (mouseenter)="onMouseEnter(decade)">
+        <a class="car-catalog-menu-item-element"
+           [href]="'/catalog#' + decade">
+          {{ decade }}'s Catalog
+        </a>
+      </ion-item>
+    </ion-list>
 
-  <div class="mobile-menu">
-    <ng-container *ngIf="(decades$ | async) as decades">
-      <a class="mobile-catalog-link"
-         [href]="'/catalog#' + decades[(currentDecadeIndex$ | async) || 0]"
-         *ngIf="decades.length > 0">
-        {{ decades[(currentDecadeIndex$ | async) || 0] }}'s Catalog
-      </a>
-    </ng-container>
-  </div>
-</section>
+    <div class="mobile-menu">
+      <ng-container *ngIf="(decades$ | async) as decades">
+        <a class="mobile-catalog-link"
+           [href]="'/catalog#' + decades[(currentDecadeIndex$ | async) || 0]"
+           *ngIf="decades.length > 0">
+          {{ decades[(currentDecadeIndex$ | async) || 0] }}'s Catalog
+        </a>
+      </ng-container>
+    </div>
+  </section>

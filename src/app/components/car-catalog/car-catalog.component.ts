@@ -2,12 +2,13 @@ import {Component, Inject, OnDestroy, OnInit, PLATFORM_ID} from '@angular/core';
 import {AsyncPipe, isPlatformBrowser, NgFor, NgIf} from '@angular/common';
 import {Observable} from 'rxjs';
 import {CarCatalogService} from '../../services/car-catalog.service';
+import {IonButton, IonItem, IonList} from "@ionic/angular/standalone";
 
 @Component({
   selector: 'app-car-catalog',
   templateUrl: './car-catalog.component.html',
   standalone: true,
-  imports: [NgFor, AsyncPipe, NgIf],
+  imports: [NgFor, AsyncPipe, NgIf, IonButton, IonList, IonItem],
   styleUrls: ['./car-catalog.component.scss']
 })
 export class CarCatalogComponent implements OnInit, OnDestroy {
