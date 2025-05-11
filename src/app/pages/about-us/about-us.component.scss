@@ -3,17 +3,14 @@
 
 .center-align{display:flex; width:100%; justify-content: center; align-items: center;}
 
-.general-button{
-  display:flex;
-  text-align: center;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
-  background-color: variables.$resalt-color;
-  color: variables.$text-color;
-  width: 20%;
-  font-family: variables.$font-family;
-  @media(max-width:variables.$tablet-breakpoint) { font-size: 1.3rem;   width: 40%;}
+.general-button {
+  --background: #{variables.$resalt-color};
+  --color: #{variables.$text-color};
+  --border-radius: 5px;
+  font-family: #{variables.$font-family};
+  font-weight: bold;
+  text-transform: none;
+  --background-hover: #{variables.$resalt-color-darker};
 }
 
 .our-team-title {

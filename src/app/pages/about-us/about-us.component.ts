@@ -7,6 +7,7 @@ import {SideTextSectionComponent} from '../../components/side-text-section/side-
 import {CenterTextSectionComponent} from '../../components/center-text-section/center-text-section.component';
 import {HeaderComponent} from '../../components/header/header.component';
 import {FooterComponent} from '../../components/footer/footer.component';
+import {IonButton, IonContent} from "@ionic/angular/standalone";
 
 @Component({
   selector: 'app-about-us',
@@ -17,7 +18,9 @@ import {FooterComponent} from '../../components/footer/footer.component';
     SideTextSectionComponent,
     CenterTextSectionComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    IonContent,
+    IonButton
   ],
   templateUrl: './about-us.component.html',
   styleUrl: './about-us.component.scss'
