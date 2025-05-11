@@ -81,12 +81,13 @@ app-root {
 
 .general-button{
   display:flex;
-  text-align: center;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
-  background-color: variables.$resalt-color;
-  color: variables.$text-color;
+  --background: #{variables.$resalt-color};
+  --color: #{variables.$text-color};
+  --border-radius: 5px;
+  font-family: #{variables.$font-family};
+  font-weight: bold;
+  text-transform: none;
+  --background-hover: #{variables.$resalt-color-darker};
   width: 10%;
 }
 
@@ -97,3 +98,13 @@ app-root {
   font-weight: bold;
   color: variables.$text-color;
 }
+
+ion-content::part(scroll) {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+ion-content::part(scroll)::-webkit-scrollbar {
+  display: none;
+}
+
