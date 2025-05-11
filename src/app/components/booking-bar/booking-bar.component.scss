@@ -20,19 +20,14 @@ $box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 @mixin button-style($bg-color, $hover-color) {
-  background-color: $bg-color;
+  --background: #{$bg-color};
+  --color: #{variables.$text-color};
   font-weight: bold;
-  color: variables.$text-color;
   padding: 10px 15px;
   border: none;
-  cursor: pointer;
   border-radius: $border-radius;
   font-size: $font-size;
-  transition: background-color 0.3s ease;
-
-  &:hover {
-    background-color: variables.$resalt-color-darker;
-  }
+  --background-hover: #{variables.$resalt-color-darker};
 }
 
 .booking-bar-container {
@@ -76,13 +71,16 @@ $box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
       font-weight: bold;
       flex: 1;
 
-      input, select {
+      ion-select, ion-input {
         @include input-style;
         width: 100%;
+        --padding-start: 10px;
+        --padding-end: 10px;
       }
 
-      select {
+      ion-select {
         cursor: pointer;
+
       }
 
       .label-selector {
@@ -122,18 +120,26 @@ $box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
       display: flex;
       align-items: flex-end;
 
-      .book-btn {
-        @include button-style(variables.$resalt-color, variables.$resalt-color-darker);
-        width: 100%;
-        height: 5vh;
-        padding: 0 15px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
     }
   }
 }
+
+ion-button.book-btn {
+  --background: #{variables.$resalt-color};
+  --background-hover: #{variables.$resalt-color-darker};
+  --color: #{variables.$text-color};
+  font-weight: bold;
+  font-size: $font-size;
+  border-radius: $border-radius;
+  padding: 10px 15px;
+  width: 100%;
+  height: 5vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
 
 .error-list {
   color: red;
@@ -144,19 +150,17 @@ $box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
   padding: 4px;
   margin-top: 1vh;
 
-  ul {
-    list-style-type: none;
+  ion-list {
+    --background: transparent;
   }
 }
 
-input.invalid,
-select.invalid {
-  border: 2px solid #e53935;
-  background-color: #fff6f6;
-}
-
-:invalid {
-  border-color: red;
+ion-input.invalid,
+ion-select.invalid {
+  --border-color: #e53935;
+  --highlight-color-invalid: #e53935;
+  --background: transparent;
+  --box-shadow: none;
 }
 
 @media (max-width: variables.$tablet-breakpoint) and (min-width: variables.$mobile-breakpoint + 1px) {
@@ -176,7 +180,7 @@ select.invalid {
       }
 
       .booking-section {
-        input, select {
+        ion-input, ion-select {
           height: 35px;
           font-size: 13px;
         }
@@ -215,7 +219,7 @@ select.invalid {
         width: 100%;
         align-items: center;
 
-        input, select {
+        ion-input, ion-select {
           width: 80vw;
           height: 40px;
         }
@@ -226,10 +230,6 @@ select.invalid {
 
         .location-autocomplete {
           width: 80vw;
-
-          #location-selector {
-            width: 100%;
-          }
         }
       }
 

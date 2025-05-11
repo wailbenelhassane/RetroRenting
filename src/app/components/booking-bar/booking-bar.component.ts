@@ -1,10 +1,11 @@
-import {Component, Inject, OnDestroy, OnInit, PLATFORM_ID} from '@angular/core';
-import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
-import {CommonModule, NgForOf} from '@angular/common';
-import {BookingBarService} from '../../services/booking-bar.service';
-import {Car} from '../../models/booking-bar.model';
-import {Subscription} from 'rxjs';
-import {FormValidationService} from '../../services/utils/form-validation.service';
+import { Component, Inject, OnDestroy, OnInit, PLATFORM_ID } from '@angular/core';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { CommonModule, NgForOf } from '@angular/common';
+import { BookingBarService } from '../../services/booking-bar.service';
+import { Car } from '../../models/booking-bar.model';
+import { Subscription } from 'rxjs';
+import { FormValidationService } from '../../services/utils/form-validation.service';
+import { IonicModule } from '@ionic/angular';
 
 @Component({
   selector: 'app-booking-bar',
@@ -13,7 +14,8 @@ import {FormValidationService} from '../../services/utils/form-validation.servic
   imports: [
     ReactiveFormsModule,
     CommonModule,
-    NgForOf
+    NgForOf,
+    IonicModule
   ],
   styleUrls: ['./booking-bar.component.scss']
 })
@@ -26,10 +28,10 @@ export class BookingBarComponent implements OnInit, OnDestroy {
   private subscription: Subscription = new Subscription();
 
   constructor(
-      private formBuilder: FormBuilder,
-      public validationService: FormValidationService,
-      protected bookingBarService: BookingBarService,
-      @Inject(PLATFORM_ID) private platformId: Object
+    private formBuilder: FormBuilder,
+    public validationService: FormValidationService,
+    protected bookingBarService: BookingBarService,
+    @Inject(PLATFORM_ID) private platformId: Object
   ) {
     this.bookingForm = this.formBuilder.group({
       car: ['', Validators.required],
