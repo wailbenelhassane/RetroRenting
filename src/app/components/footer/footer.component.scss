@@ -1,13 +1,10 @@
 @use "../../../theme/variables";
 
-
 $footer-height: 5vh;
 $margin-top: 4vh;
 $separator-margin: 10px;
 
 .footer-nav {
-  background: rgba(30, 30, 30, 0.5);
-  backdrop-filter: blur(10px);
   color: variables.$text-color;
   text-align: center;
   display: flex;
@@ -17,27 +14,40 @@ $separator-margin: 10px;
   margin-top: $margin-top;
   box-shadow: none;
   width: 100%;
+  padding: 0 15px;
 
   .footer-menu {
     list-style: none;
     padding: 0;
     margin: 0;
     display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
 
-    .footer-item {
-      display: inline;
+  ion-list.footer-menu {
+    --background: transparent !important;
+    background: transparent !important;
+  }
 
-      a {
-        text-decoration: none;
-        color: variables.$text-color;
-        font-family: variables.$font-family;
-      }
-    }
+  ion-item.footer-item {
+    --background: transparent !important;
+    background: transparent !important;
+    --ion-item-background: transparent !important;
+    --inner-border-width: 0;
+  }
 
-    .footer-item:not(:last-child)::after {
-      content: " | ";
+
+  .footer-item {
+    display: inline-flex;
+    margin: 0 15px;
+    font-size: 1rem;
+
+    a {
+      text-decoration: none;
       color: variables.$text-color;
-      padding: 0 8px;
+      font-family: variables.$font-family;
+      font-weight: bold;
     }
   }
 
@@ -45,4 +55,22 @@ $separator-margin: 10px;
     margin-left: $separator-margin;
     margin-right: $separator-margin;
   }
+}
+
+
+@media (max-width: 768px) {
+  .footer-nav {
+    height: auto;
+    padding: 10px;
+  }
+
+  .footer-menu {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-item {
+    margin: 10px 0;
+  }
+
 }

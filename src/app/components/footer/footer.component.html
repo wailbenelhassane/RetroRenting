@@ -1,10 +1,12 @@
-<nav class="footer-nav" aria-label="Footer Navigation">
-  <ul class="footer-menu">
-    <li class="footer-item" *ngFor="let item of footerMenu">
-      <a [routerLink]="item.url">{{ item.title }}</a>
-    </li>
-    <li class="footer-item" *ngIf="!footerMenu.length">
-      <span>No footer links available</span>
-    </li>
-  </ul>
-</nav>
+<ion-footer>
+  <nav class="footer-nav" aria-label="Footer Navigation">
+    <ion-list class="footer-menu">
+      <ion-item class="footer-item" *ngFor="let item of footerMenu" lines="none">
+        <a [routerLink]="item.url">{{ item.title }}</a>
+      </ion-item>
+      <ion-item class="footer-item" *ngIf="!footerMenu.length" lines="none">
+        <span>No footer links available</span>
+      </ion-item>
+    </ion-list>
+  </nav>
+</ion-footer>
