@@ -10,12 +10,13 @@ import {
 } from '@angular/core';
 import {CommonModule, isPlatformBrowser} from '@angular/common';
 import {ReviewsService} from '../../services/reviews.service';
+import {IonCard} from "@ionic/angular/standalone";
 
 @Component({
   selector: 'app-reviews',
   templateUrl: './reviews.component.html',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, IonCard],
   styleUrls: ['./reviews.component.scss']
 })
 export class ReviewsComponent implements OnInit, AfterViewInit, OnDestroy {

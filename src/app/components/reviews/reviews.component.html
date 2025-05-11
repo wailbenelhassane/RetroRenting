@@ -1,26 +1,26 @@
-<section class="container">
-  <h1 align="center">Reviews</h1>
-  <section class="reviews">
-    <div class="carousel-container" *ngIf="reviewsService.isMobile && reviewsService.reviewsData.length > 0">
-      <div class="carousel-track">
-        <div class="card" *ngFor="let review of reviewsService.reviewsData">
+ <section class="container">
+    <h1 align="center">Reviews</h1>
+    <section class="reviews">
+      <div class="carousel-container" *ngIf="reviewsService.isMobile && reviewsService.reviewsData.length > 0">
+        <div class="carousel-track">
+          <ion-card class="card" *ngFor="let review of reviewsService.reviewsData">
+            <img [src]="review.image" [alt]="'Profile picture of ' + review.name" class="profile-pic">
+            <h3>{{ review.name }}</h3>
+            <p>"{{ review.review }}"</p>
+            <div class="stars">{{ reviewsService.getStars(review.rating) }}</div>
+          </ion-card>
+        </div>
+      </div>
+      <ng-container *ngIf="!reviewsService.isMobile && reviewsService.reviewsData.length > 0">
+        <ion-card class="card" *ngFor="let review of reviewsService.reviewsData">
           <img [src]="review.image" [alt]="'Profile picture of ' + review.name" class="profile-pic">
           <h3>{{ review.name }}</h3>
           <p>"{{ review.review }}"</p>
           <div class="stars">{{ reviewsService.getStars(review.rating) }}</div>
-        </div>
+        </ion-card>
+      </ng-container>
+      <div class="no-reviews" *ngIf="reviewsService.reviewsData.length === 0">
+        <p>No reviews available</p>
       </div>
-    </div>
-    <ng-container *ngIf="!reviewsService.isMobile && reviewsService.reviewsData.length > 0">
-      <div class="card" *ngFor="let review of reviewsService.reviewsData">
-        <img [src]="review.image" [alt]="'Profile picture of ' + review.name" class="profile-pic">
-        <h3>{{ review.name }}</h3>
-        <p>"{{ review.review }}"</p>
-        <div class="stars">{{ reviewsService.getStars(review.rating) }}</div>
-      </div>
-    </ng-container>
-    <div class="no-reviews" *ngIf="reviewsService.reviewsData.length === 0">
-      <p>No reviews available</p>
-    </div>
+    </section>
   </section>
-</section>
