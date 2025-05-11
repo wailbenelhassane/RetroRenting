@@ -3,7 +3,6 @@ import {BookingsService} from '../../services/firebase/booking-firebase.service'
 import {Booking} from '../../models/booking.model';
 import {NgForOf, NgIf} from '@angular/common';
 import {HeaderComponent} from '../../components/header/header.component';
-import {FooterComponent} from '../../components/footer/footer.component';
 import {AngularFireAuth} from '@angular/fire/compat/auth';
 import {ActivatedRoute} from '@angular/router';
 
@@ -14,7 +13,6 @@ import {ActivatedRoute} from '@angular/router';
     NgForOf,
     NgIf,
     HeaderComponent,
-    FooterComponent
   ],
   standalone: true,
   styleUrls: ['./history-booking.component.scss']

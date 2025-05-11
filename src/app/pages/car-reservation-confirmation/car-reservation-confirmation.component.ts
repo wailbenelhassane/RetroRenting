@@ -3,7 +3,7 @@ import {ActivatedRoute} from '@angular/router';
 import {ProcessBookingBarComponent} from '../../components/process-booking-bar/process-booking-bar.component';
 import {BookSummaryComponent} from '../../components/book-summary/book-summary.component';
 import {HeaderComponent} from '../../components/header/header.component';
-import {FooterComponent} from '../../components/footer/footer.component';
+
 
 @Component({
   selector: 'app-car-reservation-confirmation',
@@ -12,7 +12,6 @@ import {FooterComponent} from '../../components/footer/footer.component';
     ProcessBookingBarComponent,
     BookSummaryComponent,
     HeaderComponent,
-    FooterComponent
   ],
   templateUrl: './car-reservation-confirmation.component.html',
   styleUrls: ['./car-reservation-confirmation.component.scss']
