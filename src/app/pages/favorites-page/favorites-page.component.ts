@@ -6,12 +6,13 @@ import { FavoriteCarService } from '../../services/favorite-car.service';
 import { CatalogSectionService } from '../../services/catalog-section.service';
 import { HeaderComponent } from '../../components/header/header.component';
 import { Auth, authState } from '@angular/fire/auth';
+import {IonButton, IonCard, IonContent} from "@ionic/angular/standalone";
 
 @Component({
   selector: 'app-favorites-page',
   templateUrl: './favorites-page.component.html',
   standalone: true,
-  imports: [CommonModule, AsyncPipe, HeaderComponent,],
+  imports: [CommonModule, AsyncPipe, HeaderComponent, IonContent, IonCard, IonButton,],
   styleUrls: ['./favorites-page.component.scss']
 })
 export class FavoritesPageComponent implements OnInit {
