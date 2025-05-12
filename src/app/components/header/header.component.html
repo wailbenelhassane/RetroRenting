@@ -1,103 +1,105 @@
-<nav class="main-nav" aria-label="Main Navigation">
-  <div class="nav-content">
-    <div class="logo-container">
-      <a routerLink="/">
+<ion-header>
+  <nav class="main-nav" aria-label="Main Navigation">
+    <div class="nav-content">
+      <div class="logo-container">
+        <a routerLink="/">
+          <ng-container *ngIf="headerData$ | async as header">
+            <img class="logo-image" [src]="header.logo.src" [alt]="header.logo.alt" />
+          </ng-container>
+        </a>
+      </div>
+
+      <ion-button class="mobile-nav-toggle" fill="clear" (click)="toggleMobileMenu()" *ngIf="isMobile">
+        <div class="hamburger" [ngClass]="{ 'active': mobileMenuOpen }">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </ion-button>
+
+      <ion-list class="navigation-menu">
         <ng-container *ngIf="headerData$ | async as header">
-          <img class="logo-image" [src]="header.logo.src" [alt]="header.logo.alt" />
+          <ion-item class="navigation-item" *ngFor="let item of header.mainMenu | keyvalue" lines="none">
+            <a [routerLink]="item.value.url">{{ item.value.title }}</a>
+          </ion-item>
         </ng-container>
-      </a>
+      </ion-list>
+
+      <div class="auth-links">
+        <ng-container *ngIf="currentUser; else showAuthLinks">
+          <div class="profile-container" (click)="toggleDropdown()" #profileMenu>
+            <div class="profile-content">
+              <img
+                class="profile-image"
+                [src]="currentUser.profileImage || 'assets/default-user-icon.png'"
+                alt="Profile"
+              />
+              <svg
+                class="dropdown-icon"
+                width="10"
+                height="6"
+                viewBox="0 0 10 6"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M1 1L5 5L9 1"
+                  stroke="white"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+            <div class="dropdown-menu" [ngClass]="{ 'dropdown-visible': showDropdown }">
+              <a routerLink="/my-bookings" class="dropdown-item">Booking History</a>
+              <a routerLink="/favorites" class="dropdown-item">Favorites</a>
+              <a (click)="logout()" class="dropdown-item logout">Logout</a>
+            </div>
+          </div>
+        </ng-container>
+
+        <ng-template #showAuthLinks>
+          <ng-container *ngIf="headerData$ | async as header">
+            <a class="auth-link" routerLink="/login">Login</a>
+            <span class="separator">/</span>
+            <a class="auth-link" routerLink="/register">Sign Up</a>
+          </ng-container>
+        </ng-template>
+      </div>
     </div>
 
-    <button class="mobile-nav-toggle" (click)="toggleMobileMenu()" *ngIf="isMobile">
-      <div class="hamburger" [ngClass]="{ 'active': mobileMenuOpen }">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-    </button>
-
-    <ul class="navigation-menu">
-      <ng-container *ngIf="headerData$ | async as header">
-        <li class="navigation-item" *ngFor="let item of header.mainMenu | keyvalue">
-          <a [routerLink]="item.value.url">{{ item.value.title }}</a>
-        </li>
-      </ng-container>
-    </ul>
-
-    <div class="auth-links">
-      <ng-container *ngIf="currentUser; else showAuthLinks">
-        <div class="profile-container" (click)="toggleDropdown()" #profileMenu>
-          <div class="profile-content">
-            <img
-              class="profile-image"
-              [src]="currentUser.profileImage || 'assets/default-user-icon.png'"
-              alt="Profile"
-            />
-            <svg
-              class="dropdown-icon"
-              width="10"
-              height="6"
-              viewBox="0 0 10 6"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M1 1L5 5L9 1"
-                stroke="white"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-          </div>
-          <div class="dropdown-menu" [ngClass]="{ 'dropdown-visible': showDropdown }">
-            <a routerLink="/my-bookings" class="dropdown-item">Booking History</a>
-            <a routerLink="/favorites" class="dropdown-item">Favorites</a>
-            <a (click)="logout()" class="dropdown-item logout">Logout</a>
-          </div>
+    <div class="mobile-nav" [ngClass]="{ 'mobile-menu-open': mobileMenuOpen }" *ngIf="isMobile">
+      <ng-container *ngIf="currentUser">
+        <div class="mobile-user-profile">
+          <img
+            class="profile-image"
+            [src]="currentUser.profileImage || 'assets/default-user-icon.png'"
+            alt="Profile"
+          />
+          <div class="username-text">{{ currentUser.username }}</div>
+          <a routerLink="/my-bookings" class="dropdown-item">Booking History</a>
+          <a routerLink="/favorites" class="dropdown-item">Favorites</a>
+          <a (click)="logout()" class="dropdown-item logout">Logout</a>
         </div>
       </ng-container>
 
-      <ng-template #showAuthLinks>
-        <ng-container *ngIf="headerData$ | async as header">
-          <a class="auth-link" routerLink="/login">Login</a>
-          <span class="separator">/</span>
-          <a class="auth-link" routerLink="/register">Sign Up</a>
+      <ion-list class="mobile-navigation-menu">
+        <ng-container *ngIf="!currentUser">
+          <ion-item class="mobile-navigation-item" lines="none">
+            <a routerLink="/login">Login</a>
+          </ion-item>
+          <ion-item class="mobile-navigation-item" lines="none">
+            <a routerLink="/register">Sign Up</a>
+          </ion-item>
         </ng-container>
-      </ng-template>
+        <ng-container *ngIf="headerData$ | async as header">
+          <ion-item class="mobile-navigation-item" *ngFor="let item of header.mainMenu | keyvalue" lines="none">
+            <a [routerLink]="item.value.url">{{ item.value.title }}</a>
+          </ion-item>
+        </ng-container>
+      </ion-list>
     </div>
-  </div>
-
-  <div class="mobile-nav" [ngClass]="{ 'mobile-menu-open': mobileMenuOpen }" *ngIf="isMobile">
-    <ng-container *ngIf="currentUser">
-      <div class="mobile-user-profile">
-        <img
-          class="profile-image"
-          [src]="currentUser.profileImage || 'assets/default-user-icon.png'"
-          alt="Profile"
-        />
-        <div class="username-text">{{ currentUser.username }}</div>
-        <a routerLink="/my-bookings" class="dropdown-item">Booking History</a>
-        <a routerLink="/favorites" class="dropdown-item">Favorites</a>
-        <a (click)="logout()" class="dropdown-item logout">Logout</a>
-      </div>
-    </ng-container>
-
-    <ul class="mobile-navigation-menu">
-      <ng-container *ngIf="!currentUser">
-        <li class="mobile-navigation-item">
-          <a routerLink="/login">Login</a>
-        </li>
-        <li class="mobile-navigation-item">
-          <a routerLink="/register">Sign Up</a>
-        </li>
-      </ng-container>
-      <ng-container *ngIf="headerData$ | async as header">
-        <li class="mobile-navigation-item" *ngFor="let item of header.mainMenu | keyvalue">
-          <a [routerLink]="item.value.url">{{ item.value.title }}</a>
-        </li>
-      </ng-container>
-    </ul>
-  </div>
-</nav>
+  </nav>
+</ion-header>
 <div class="header-spacer"></div>

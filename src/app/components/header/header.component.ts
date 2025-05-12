@@ -16,12 +16,13 @@ import { Observable } from 'rxjs';
 import { Header } from '../../models/header.model';
 import { AuthService } from '../../services/auth/auth.service';
 import { User } from '../../models/user.model';
+import {IonButton, IonHeader, IonItem, IonList} from "@ionic/angular/standalone";
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink, IonHeader, IonButton, IonList, IonItem],
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements AfterViewInit, OnDestroy, OnInit {

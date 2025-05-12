@@ -15,7 +15,6 @@ $section-width: 20%;
 
 .main-nav {
   @include flex-center(row);
-  background: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(10px);
   width: 100%;
   height: $header-height;
@@ -46,6 +45,11 @@ $section-width: 20%;
   }
 }
 
+ion-list {
+  --background: transparent !important;
+  background: transparent !important;
+}
+
 .logo-container {
   display: flex;
   align-items: flex-start;
@@ -63,9 +67,12 @@ $section-width: 20%;
   list-style: none;
   padding: 0;
   margin: 0;
+  --background: transparent;
 
   .navigation-item {
     margin: 0 $margin-spacing;
+    --background: transparent;
+    --border: none;
   }
 }
 
@@ -147,6 +154,8 @@ $section-width: 20%;
   z-index: 200;
   background: none;
   border: none;
+  --background: transparent;
+  --border: none;
 }
 
 .hamburger {
@@ -259,11 +268,14 @@ $section-width: 20%;
   padding: 0;
   margin: 0;
   height: 100%;
+  --background: transparent;
 
   .mobile-navigation-item {
     margin: 15px 0;
     width: 100%;
     text-align: center;
+    --background: transparent;
+    --border: none;
 
     a {
       font-size: 1.5rem;
