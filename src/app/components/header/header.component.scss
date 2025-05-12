@@ -1,6 +1,5 @@
 @use "../../../theme/variables";
 
-
 $header-height: 11vh;
 $logo-size: 12vh;
 $font-size: 1.2rem;
@@ -24,6 +23,14 @@ $section-width: 20%;
   top: 0;
   z-index: 100;
 
+  .nav-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 20px;
+  }
+
   a {
     cursor: pointer;
     color: variables.$text-color;
@@ -32,13 +39,16 @@ $section-width: 20%;
     text-decoration: none;
     font-weight: bold;
     font-family: variables.$font-family;
+
+    &:hover {
+      color: lighten(variables.$text-color, 10%);
+    }
   }
 }
 
 .logo-container {
   display: flex;
   align-items: flex-start;
-  left: 0;
   width: $section-width;
 
   img {
@@ -63,14 +73,71 @@ $section-width: 20%;
   @include flex-center(row);
   width: $section-width;
 
-  a {
-    margin: 5px;
-  }
-
-  span {
+  .separator {
     font-size: $font-size;
     font-weight: bold;
     color: variables.$text-color;
+    margin: 0 5px;
+  }
+
+  .profile-container {
+    position: relative;
+    cursor: pointer;
+  }
+
+  .profile-content {
+    @include flex-center(row);
+    gap: 5px;
+  }
+
+  .profile-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .dropdown-icon {
+    transition: transform 0.2s ease;
+  }
+
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: -100%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    margin-top: 10px;
+    z-index: 101;
+    min-width: 150px;
+
+    &.dropdown-visible {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+  }
+
+  .dropdown-item {
+    display: block;
+    padding: 10px 15px;
+    font-size: 1rem;
+    text-decoration: none;
+    color: variables.$text-color;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    &.logout {
+      color: #ff4d4d;
+    }
   }
 }
 
@@ -78,7 +145,8 @@ $section-width: 20%;
   display: none;
   cursor: pointer;
   z-index: 200;
-  margin-right: 20px;
+  background: none;
+  border: none;
 }
 
 .hamburger {
@@ -141,15 +209,52 @@ $section-width: 20%;
   visibility: hidden;
   transition: all 0.3s ease-in-out;
 
-  &.active {
+  &.mobile-menu-open {
+    display: block;
     opacity: 1;
     visibility: visible;
+  }
+
+  .mobile-user-profile {
+    @include flex-center(column);
+    padding: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+
+    .profile-image {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 10px;
+    }
+
+    .username-text {
+      color: variables.$text-color;
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .dropdown-item {
+      display: block;
+      padding: 10px;
+      font-size: 1rem;
+      color: variables.$text-color;
+      text-decoration: none;
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+
+      &.logout {
+        color: #ff4d4d;
+      }
+    }
   }
 }
 
 .mobile-navigation-menu {
   @include flex-center(column);
-  backdrop-filter: blur(10px);
   list-style: none;
   padding: 0;
   margin: 0;
@@ -159,28 +264,26 @@ $section-width: 20%;
     margin: 15px 0;
     width: 100%;
     text-align: center;
-    backdrop-filter: blur(10px);
+
     a {
       font-size: 1.5rem;
       display: inline-block;
-    }
-  }
-
-  .auth-mobile {
-    margin-top: 30px;
-
-    span {
-      font-size: $font-size;
-      font-weight: bold;
       color: variables.$text-color;
+      text-decoration: none;
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
     }
   }
 }
 
 @media (max-width: variables.$tablet-breakpoint) and (min-width: variables.$mobile-breakpoint + 1px) {
   .main-nav {
-    justify-content: space-between;
-    padding: 0 10px;
+    .nav-content {
+      justify-content: space-between;
+      padding: 0 10px;
+    }
 
     a {
       margin: 0;
@@ -212,21 +315,20 @@ $section-width: 20%;
     justify-content: center;
     margin-right: 3vh;
 
-    a {
-      margin: 0 3px;
+    .profile-image {
+      width: 30px;
+      height: 30px;
     }
 
-    span {
+    .dropdown-item {
+      font-size: 0.9rem;
+    }
+
+    .separator {
       font-size: 0.9rem;
       margin: 0 3px;
     }
   }
-}
-
-.header-spacer {
-  height: $header-height;
-  width: 100%;
-  display: block;
 }
 
 @media (max-width: variables.$mobile-breakpoint) {
@@ -251,7 +353,14 @@ $section-width: 20%;
   }
 
   .main-nav {
-    justify-content: space-between;
+    .nav-content {
+      justify-content: space-between;
+    }
   }
+}
 
+.header-spacer {
+  height: $header-height;
+  width: 100%;
+  display: block;
 }
