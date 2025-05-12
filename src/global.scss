@@ -99,6 +99,10 @@ app-root {
   color: variables.$text-color;
 }
 
+ion-content {
+  background-color: transparent;
+}
+
 ion-content::part(scroll) {
   scrollbar-width: none;
   -ms-overflow-style: none;

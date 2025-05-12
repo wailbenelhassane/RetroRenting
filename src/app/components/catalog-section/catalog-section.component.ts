@@ -5,12 +5,13 @@ import { CatalogSectionService } from '../../services/catalog-section.service';
 import { FavoriteCarService } from '../../services/favorite-car.service';
 import { Auth, authState } from '@angular/fire/auth';
 import { CatalogSection } from '../../models/catalog-section.model';
+import {IonButton, IonCard, IonContent} from "@ionic/angular/standalone";
 
 @Component({
   selector: 'app-catalog-section',
   templateUrl: './catalog-section.component.html',
   standalone: true,
-  imports: [CommonModule, AsyncPipe],
+  imports: [CommonModule, AsyncPipe, IonContent, IonCard, IonButton],
   styleUrls: ['./catalog-section.component.scss']
 })
 export class CatalogSectionComponent implements OnInit, OnDestroy {
