@@ -1,5 +1,5 @@
 import { Inject, Injectable, NgZone, OnDestroy, PLATFORM_ID, Renderer2, RendererFactory2 } from '@angular/core';
-import { collection, DocumentData, Firestore, getDocs, QuerySnapshot } from '@angular/fire/firestore';
+import { collection, DocumentData, Firestore, getDocs, QuerySnapshot, query, orderBy } from '@angular/fire/firestore';
 import { BehaviorSubject, Subject } from 'rxjs';
 import { isPlatformBrowser } from '@angular/common';
 import { Router } from '@angular/router';
@@ -28,7 +28,9 @@ export class CatalogSectionService implements OnDestroy {
   private loadCatalogSections() {
     this.ngZone.run(() => {
       const catalogCollection = collection(this.firestore, 'catalogSection');
-      getDocs(catalogCollection).then((querySnapshot: QuerySnapshot<DocumentData>) => {
+      const orderedQuery = query(catalogCollection, orderBy('title', 'asc'));
+
+      getDocs(orderedQuery).then((querySnapshot: QuerySnapshot<DocumentData>) => {
         if (querySnapshot && !querySnapshot.empty) {
           const catalogSections = querySnapshot.docs.map(doc => doc.data() as CatalogSection);
           this.catalogDataSubject.next(catalogSections);
