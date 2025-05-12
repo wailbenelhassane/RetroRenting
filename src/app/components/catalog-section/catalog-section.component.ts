@@ -1,8 +1,10 @@
-import {Component, Inject, OnDestroy, OnInit, PLATFORM_ID} from '@angular/core';
-import {AsyncPipe, CommonModule, isPlatformBrowser} from '@angular/common';
-import {Observable, Subject} from 'rxjs';
-import {CatalogSectionService} from '../../services/catalog-section.service';
-import {CatalogSection} from '../../models/catalog-section.model';
+import { Component, Inject, OnDestroy, OnInit, PLATFORM_ID } from '@angular/core';
+import { AsyncPipe, CommonModule, isPlatformBrowser } from '@angular/common';
+import { Observable, Subject, takeUntil } from 'rxjs';
+import { CatalogSectionService } from '../../services/catalog-section.service';
+import { FavoriteCarService } from '../../services/favorite-car.service';
+import { Auth, authState } from '@angular/fire/auth';
+import { CatalogSection } from '../../models/catalog-section.model';
 
 @Component({
   selector: 'app-catalog-section',
@@ -13,16 +15,36 @@ import {CatalogSection} from '../../models/catalog-section.model';
 })
 export class CatalogSectionComponent implements OnInit, OnDestroy {
   catalogData$!: Observable<CatalogSection[]>;
+  isCarFavorited: { [key: string]: Observable<boolean> } = {};
+  userLoggedIn: boolean = false;
   private destroy$ = new Subject<void>();
 
   constructor(
     private catalogSectionService: CatalogSectionService,
+    private favoriteCarService: FavoriteCarService,
+    private auth: Auth,
     @Inject(PLATFORM_ID) private platformId: Object
   ) {
     this.catalogData$ = this.catalogSectionService.catalogData$;
   }
 
   ngOnInit() {
+    authState(this.auth).pipe(takeUntil(this.destroy$)).subscribe(user => {
+      this.userLoggedIn = !!user;
+    });
+    this.catalogData$.pipe(takeUntil(this.destroy$)).subscribe(sections => {
+      sections.forEach(section => {
+        section.catalogCards.forEach(card => {
+          this.isCarFavorited[card.id] = this.favoriteCarService.isCarFavorited(card.id);
+        });
+      });
+    });
+    this.favoriteCarService.favoriteState$.pipe(takeUntil(this.destroy$)).subscribe(state => {
+      Object.keys(state).forEach(carId => {
+        this.isCarFavorited[carId] = this.favoriteCarService.isCarFavorited(carId);
+      });
+    });
+
     if (isPlatformBrowser(this.platformId) && window.location.hash) {
       this.catalogSectionService.scrollToSection(window.location.hash.substring(1));
     }
@@ -30,6 +52,30 @@ export class CatalogSectionComponent implements OnInit, OnDestroy {
 
   onCardButtonClick(carId: string) {
     this.catalogSectionService.navigateToCarPage(carId);
+  }
+
+  toggleFavorite(carId: string) {
+    if (!this.userLoggedIn) {
+      alert('Por favor, inicia sesión para añadir a favoritos.');
+      return;
+    }
+    this.favoriteCarService.isCarFavorited(carId).subscribe({
+      next: isFavorited => {
+        const operation = isFavorited
+          ? this.favoriteCarService.removeFavoriteCar(carId)
+          : this.favoriteCarService.favoriteCar(carId);
+        operation.subscribe({
+          error: err => {
+            console.error(`CatalogSectionComponent - Error ${isFavorited ? 'removing' : 'adding'} favorite:`, err);
+            alert(`Error al ${isFavorited ? 'eliminar de' : 'añadir a'} favoritos: ${err.message}`);
+          }
+        });
+      },
+      error: err => {
+        console.error('CatalogSectionComponent - Error checking favorite status:', err);
+        alert('Error al verificar estado de favorito: ' + err.message);
+      }
+    });
   }
 
   ngOnDestroy() {

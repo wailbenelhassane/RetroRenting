@@ -1,38 +1,28 @@
 @use "../../../theme/variables";
 
-.catalog-phrase {
-  text-align: center;
-  font-family: variables.$font-family;
+.favorites-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  min-height: calc(100vh - 11vh);
 }
 
-.catalog-card-container {
+.favorites-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  font-family: variables.$font-family;
+  color: variables.$text-color;
+  margin: 20px 0;
+}
+
+.favorites-container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  margin-top: 6vh;
-  margin-bottom: 1vh;
-
-  a {
-    cursor: pointer;
-    font-size: 0.75rem;
-    text-decoration: none;
-    color: black;
-  }
-}
-
-.catalog-title {
-  background-color: variables.$resalt-color;
-  color: variables.$text-color;
-  text-align: center;
-  font-family: variables.$font-family;
-  font-size: 1.5rem;
-  font-weight: bold;
-  padding: 2vh 4vh;
-  width: 10%;
-  display: inline-block;
-  clip-path: polygon(0% 0%, 100% 0%, 60% 100%, 0% 100%);
+  width: 100%;
 }
 
 .catalog-card {
@@ -56,25 +46,6 @@
 
   &:hover.favorited {
     box-shadow: 0 0 20px rgba(variables.$resalt-color, 0.7);
-  }
-
-  @media (min-width: variables.$tablet-breakpoint) {
-    &:hover {
-      flex-grow: 3;
-      max-width: 70%;
-
-      .catalog-card-info {
-        display: flex;
-      }
-
-      .catalog-card-image {
-        width: 50%;
-      }
-    }
-
-    &:not(:hover) {
-      flex-shrink: 2;
-    }
   }
 
   .catalog-card-image {
@@ -152,42 +123,48 @@
       width: 24px;
       height: 24px;
       transition: transform 0.2s ease;
-    }
-
-    img.favorited {
       filter: brightness(0) saturate(100%) invert(67%) sepia(91%) saturate(749%) hue-rotate(356deg) brightness(103%) contrast(101%);
     }
 
     &:hover img {
       transform: scale(1.1);
     }
+  }
 
-    &.disabled {
-      cursor: not-allowed;
-      opacity: 0.5;
-      pointer-events: none;
+  @media (min-width: variables.$tablet-breakpoint) {
+    &:hover {
+      flex-grow: 3;
+      max-width: 70%;
+
+      .catalog-card-info {
+        display: flex;
+      }
+
+      .catalog-card-image {
+        width: 50%;
+      }
+    }
+
+    &:not(:hover) {
+      flex-shrink: 2;
     }
   }
 }
 
-@media (max-width: variables.$tablet-breakpoint) and (min-width: variables.$mobile-breakpoint + 1px) {
-  .catalog-title {
-    width: 20%;
-  }
+.no-favorites {
+  text-align: center;
+  font-size: 1.2rem;
+  color: variables.$text-color;
+  margin-top: 20px;
+}
 
-  .catalog-card-container {
+@media (max-width: variables.$tablet-breakpoint) and (min-width: variables.$mobile-breakpoint + 1px) {
+  .favorites-container {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
     align-items: stretch;
-    margin-top: 10px;
-  }
-
-  .catalog-card-container::after {
-    content: "";
-    flex-basis: 30%;
-    margin: 1vh;
   }
 
   .catalog-card {
@@ -197,7 +174,6 @@
     flex: 0 0 30%;
     max-width: none;
     margin: 1vh;
-    overflow: hidden;
 
     .catalog-card-image {
       width: 100%;
@@ -236,25 +212,13 @@
 }
 
 @media (max-width: variables.$mobile-breakpoint) {
-  .catalog-section {
-    margin-bottom: 10vh;
-    position: relative;
-    display: block;
+  .favorites-title {
+    font-size: 1.8rem;
   }
 
-  .catalog-title {
-    width: 40%;
-    margin-bottom: 2vh;
-    z-index: 10;
-    position: sticky;
-    top: 0;
-  }
-
-  .catalog-card-container {
+  .favorites-container {
     flex-direction: column;
-    margin-top: 2vh;
     width: 100%;
-    overflow: visible;
   }
 
   .catalog-card {

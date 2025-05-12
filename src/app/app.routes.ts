@@ -13,7 +13,9 @@ import {AdChoicesComponent} from './pages/footer-pages/ad-choices/ad-choices.com
 import {TermsConditionsComponent} from './pages/footer-pages/terms-conditions/terms-conditions.component';
 import {AuthGuard} from './guards/auth.guard';
 import {HistoryBookingComponent} from './pages/history-booking/history-booking.component';
+import {FavoritesPageComponent} from "./pages/favorites-page/favorites-page.component";
 
+let FavoritesComponent;
 export const routes: Routes = [
   { path: 'index', component: LandingPageComponent },
   { path: 'catalog', component: CatalogComponent },
@@ -34,5 +36,6 @@ export const routes: Routes = [
   { path: 'privacy-policy', component: PrivacyPolicyComponent },
   { path: 'ad-choices', component: AdChoicesComponent },
   { path: 'terms-conditions', component: TermsConditionsComponent },
+  { path: 'favorites', component: FavoritesPageComponent },
   { path: '**', redirectTo: 'index' }
 ];
