@@ -1,89 +1,91 @@
-<aside class="aside-image">
-  <img class="background-aside-image"
-       [ngSrc]="asideImgUrl"
-       alt="Background image"
-       width="1024"
-       height="768">
-</aside>
+<ion-content>
+  <aside class="aside-image">
+    <img class="background-aside-image"
+         [ngSrc]="asideImgUrl"
+         alt="Background image"
+         width="1024"
+         height="768">
+  </aside>
 
-<main class="register-container">
-  <header class="register-header">
-    <div class="register-logo">
-      <img class="logo-image"
-           [ngSrc]="logoUrl"
-           alt="Logo"
-           width="1024"
-           height="768">
-    </div>
-    <h1>Sign up!</h1>
-  </header>
-
-  <nav aria-label="Go back">
-    <a id="back-link"
-       href="#"
-       onclick="history.back(); return false"> &larr; Go back</a>
-  </nav>
-
-  <section class="register-form-container">
-    <form class="register-form"
-          [formGroup]="registerForm"
-          (ngSubmit)="onSubmit()">
-
-      <div class="name-group">
-        <input type="text"
-               id="name"
-               formControlName="name"
-               placeholder="First Name"
-               [class.invalid]="formErrors.includes('name') || formErrors.includes('nameInvalid')"
-               autocomplete="off">
-
-        <input type="text"
-               id="surname"
-               formControlName="surname"
-               placeholder="Last Name"
-               [class.invalid]="formErrors.includes('surname') || formErrors.includes('surnameInvalid')"
-               autocomplete="off">
+  <main class="register-container">
+    <header class="register-header">
+      <div class="register-logo">
+        <img class="logo-image"
+             [ngSrc]="logoUrl"
+             alt="Logo"
+             width="1024"
+             height="768">
       </div>
+      <h1>Sign up!</h1>
+    </header>
 
-      <input type="email"
-             id="email"
-             formControlName="email"
-             placeholder="Email"
-             [class.invalid]="formErrors.includes('email') || formErrors.includes('emailInvalid')">
+    <nav aria-label="Go back">
+      <a id="back-link"
+         href="#"
+         onclick="history.back(); return false"> ← Go back</a>
+    </nav>
 
-      <input type="text"
-             id="username"
-             formControlName="username"
-             placeholder="Username"
-             [class.invalid]="formErrors.includes('username') || formErrors.includes('usernameInvalid')">
+    <section class="register-form-container">
+      <form class="register-form"
+            [formGroup]="registerForm"
+            (ngSubmit)="onSubmit()">
 
-      <input type="password"
-             id="password"
-             formControlName="password"
-             placeholder="Password"
-             [class.invalid]="formErrors.includes('password') || formErrors.includes('passwordInvalid')">
+        <div class="name-group">
+          <ion-input type="text"
+                     id="name"
+                     formControlName="name"
+                     placeholder="First Name"
+                     [class.invalid]="formErrors.includes('name') || formErrors.includes('nameInvalid')"
+                     autocomplete="off"></ion-input>
 
-      <input type="password"
-             id="confirm-password"
-             formControlName="confirmPassword"
-             placeholder="Confirm password"
-             [class.invalid]="formErrors.includes('confirmPassword') || formErrors.includes('confirmPasswordInvalid')">
+          <ion-input type="text"
+                     id="surname"
+                     formControlName="surname"
+                     placeholder="Last Name"
+                     [class.invalid]="formErrors.includes('surname') || formErrors.includes('surnameInvalid')"
+                     autocomplete="off"></ion-input>
+        </div>
 
-      <button class="register-btn" type="submit">Sign up</button>
-    </form>
-  </section>
+        <ion-input type="email"
+                   id="email"
+                   formControlName="email"
+                   placeholder="Email"
+                   [class.invalid]="formErrors.includes('email') || formErrors.includes('emailInvalid')"></ion-input>
 
-  <div *ngIf="formErrors.length > 0" class="error-list">
-    <ul>
-      <li *ngFor="let error of formErrors">
-        {{ validationService.getErrorMessage(error) }}
-      </li>
-    </ul>
-  </div>
+        <ion-input type="text"
+                   id="username"
+                   formControlName="username"
+                   placeholder="Username"
+                   [class.invalid]="formErrors.includes('username') || formErrors.includes('usernameInvalid')"></ion-input>
 
-  <footer>
-    <p id="sign-in-link">Already have an account?
-      <a routerLink="/login" id="sign-in-btn">Sign in</a>
-    </p>
-  </footer>
-</main>
+        <ion-input type="password"
+                   id="password"
+                   formControlName="password"
+                   placeholder="Password"
+                   [class.invalid]="formErrors.includes('password') || formErrors.includes('passwordInvalid')"></ion-input>
+
+        <ion-input type="password"
+                   id="confirm-password"
+                   formControlName="confirmPassword"
+                   placeholder="Confirm password"
+                   [class.invalid]="formErrors.includes('confirmPassword') || formErrors.includes('confirmPasswordInvalid')"></ion-input>
+
+        <ion-button class="register-btn" type="submit" fill="solid">Sign up</ion-button>
+      </form>
+    </section>
+
+    <div *ngIf="formErrors.length > 0" class="error-list">
+      <ion-list>
+        <ion-item *ngFor="let error of formErrors" lines="none">
+          {{ validationService.getErrorMessage(error) }}
+        </ion-item>
+      </ion-list>
+    </div>
+
+    <footer>
+      <p id="sign-in-link">Already have an account?
+        <a routerLink="/login" id="sign-in-btn">Sign in</a>
+      </p>
+    </footer>
+  </main>
+</ion-content>

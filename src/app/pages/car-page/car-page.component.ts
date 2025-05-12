@@ -1,26 +1,27 @@
-import {Component} from '@angular/core';
-import {HeaderComponent} from "../../components/header/header.component";
-import {FooterComponent} from '../../components/footer/footer.component';
+import { Component, OnInit } from '@angular/core';
+import { HeaderComponent } from "../../components/header/header.component";
+import { FooterComponent } from '../../components/footer/footer.component';
 import {
   BarCarDetailsBookingComponent
 } from '../../components/bar-car-details-booking/bar-car-details-booking.component';
-import {CarViewerComponent} from '../../components/car-viewer/car-viewer.component';
-import {ActivatedRoute} from '@angular/router';
+import { CarViewerComponent } from '../../components/car-viewer/car-viewer.component';
+import { ActivatedRoute } from '@angular/router';
+import { IonicModule } from '@ionic/angular';
 
 @Component({
   selector: 'app-car-page',
+  standalone: true,
   imports: [
+    IonicModule,
     HeaderComponent,
     FooterComponent,
     BarCarDetailsBookingComponent,
     CarViewerComponent
   ],
   templateUrl: './car-page.component.html',
-  standalone: true,
-  styleUrl: './car-page.component.scss'
+  styleUrls: ['./car-page.component.scss']
 })
-
-export class CarPageComponent {
+export class CarPageComponent implements OnInit {
   carId: string = '';
 
   constructor(private route: ActivatedRoute) {}
