@@ -5,6 +5,7 @@ import {NgForOf, NgIf} from '@angular/common';
 import {HeaderComponent} from '../../components/header/header.component';
 import {AngularFireAuth} from '@angular/fire/compat/auth';
 import {ActivatedRoute} from '@angular/router';
+import {IonicModule} from "@ionic/angular";
 
 @Component({
   selector: 'app-booking-history',
@@ -13,6 +14,7 @@ import {ActivatedRoute} from '@angular/router';
     NgForOf,
     NgIf,
     HeaderComponent,
+    IonicModule,
   ],
   standalone: true,
   styleUrls: ['./history-booking.component.scss']

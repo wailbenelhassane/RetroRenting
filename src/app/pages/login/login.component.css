@@ -2,7 +2,6 @@
   float: left;
   width: 50%;
 }
-
 .aside-image img {
   width: 100%;
   height: 99vh;
@@ -25,12 +24,10 @@
   flex-direction: column;
   margin-top: 5%;
 }
-
 .login-container .login-logo img {
   width: 10vw;
   height: 20vh;
 }
-
 .login-container .login-header {
   display: flex;
   justify-content: center;
@@ -39,12 +36,10 @@
   gap: 1vh;
   margin-bottom: 1vh;
 }
-
 .login-container .login-header h1 {
   font-size: 4rem;
   font-family: "Roboto", sans-serif;
 }
-
 .login-container #back-link {
   width: 100%;
   text-align: left;
@@ -54,21 +49,13 @@
   text-decoration: none;
   margin-bottom: 1vh;
 }
-
 .login-container .login-form {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
-
-.login-container .login-form label {
-  margin-top: 1vh;
-  font-size: 1rem;
-  font-family: "Roboto", sans-serif;
-}
-
-.login-container .login-form input {
+.login-container .login-form ion-input {
   width: 35.14vw;
   height: 6.2vh;
   font-size: 1rem;
@@ -78,48 +65,39 @@
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
   margin-top: 1vh;
   margin-bottom: 2vh;
+  --padding-start: 2vh;
+  --padding-end: 2vh;
 }
-
-.login-container .login-form input:focus {
+.login-container .login-form ion-input:focus {
   outline: none;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
   border: 1px solid #ccc;
 }
-
-.login-container .login-form button {
+.login-container .login-form ion-input.invalid {
+  border: 2px solid #e53935;
+  --background: #fff6f6;
+}
+.login-container .login-form ion-button.login-btn {
+  --background: #9a7006;
+  --color: variables.$text-color;
   width: 15vw;
   height: 7vh;
-  background-color: #9a7006;
   font-size: 20px;
   font-weight: bold;
-  color: #FFFFFF;
   font-family: "Roboto", sans-serif;
-  border: none;
-  cursor: pointer;
   border-radius: 1vh;
   padding: 10px 15px;
   margin-top: 2vh;
   margin-bottom: 3vh;
+  --background-hover: #8B6508;
 }
-
-.login-container .login-form button:hover {
-  background-color: #8B6508;
-}
-
 .login-container .login-links {
   color: #FFFFFF;
   font-size: 1.2rem;
   font-family: "Roboto", sans-serif;
   margin-top: 2vh;
 }
-
-.login-container .login-links #sign-up-btn {
-  text-decoration: none;
-  color: #FFFFFF;
-  font-weight: bold;
-}
-
-.login-container .login-links #reemail-btn {
+.login-container .login-links #sign-up-btn, .login-container .login-links #reemail-btn {
   text-decoration: none;
   color: #FFFFFF;
   font-weight: bold;
@@ -134,18 +112,8 @@
   padding: 4px;
   margin-top: 1vh;
 }
-.error-list ul {
-  list-style-type: none;
-}
-
-input.invalid,
-select.invalid {
-  border: 2px solid #e53935;
-  background-color: #fff6f6;
-}
-
-:invalid {
-  border-color: red;
+.error-list ion-list {
+  --background: transparent;
 }
 
 @media (max-width: 1024px) {
@@ -160,78 +128,62 @@ select.invalid {
     height: 18vh;
   }
   .login-container #back-link {
-    text-align: left;
-    cursor: pointer;
-    font-size: 1.2rem;
-    color: #FFFFFF;
-    text-decoration: none;
-    margin-bottom: 1vh;
     margin-left: 8vw;
   }
   .login-container nav {
     width: 100%;
     text-align: left;
   }
-  .aside-image {
-    width: 40%;
-    margin-left: 0%;
-  }
-  .login-form input {
+  .login-container .login-form ion-input {
     width: 45vw;
     height: 7vh;
   }
-  .login-form button {
+  .login-container .login-form ion-button.login-btn {
     width: 20vw;
     height: 6vh;
     font-size: 18px;
   }
+  .aside-image {
+    width: 40%;
+    margin-left: 0%;
+  }
 }
 @media (max-width: 480px) {
   .login-container {
-    width: 90%;
+    width: 100%;
     margin-top: 20%;
   }
-  .aside-image {
-    display: none;
-  }
-  .login-logo img {
+  .login-container .login-logo img {
     width: 20vw;
     height: 15vh;
   }
-  .login-header h1 {
+  .login-container .login-header h1 {
     font-size: 2rem;
   }
-  .login-container {
-    width: 100%;
-  }
-  .login-container .login-form button {
-    width: 40vw;
-    height: 9vh;
-    font-size: 16px;
-  }
-  .login-container .login-form input {
+  .login-container .login-form ion-input {
     width: 80vw;
     height: 8vh;
     font-size: 0.9rem;
     text-align: center;
   }
+  .login-container .login-form ion-button.login-btn {
+    width: 40vw;
+    height: 9vh;
+    font-size: 16px;
+  }
   .login-container #back-link {
-    text-align: left;
-    cursor: pointer;
-    font-size: 1.2rem;
-    color: #FFFFFF;
-    text-decoration: none;
-    margin-bottom: 1vh;
     margin-left: 5vw;
   }
   .login-container nav {
     width: 100%;
     text-align: left;
   }
-  .login-links {
+  .login-container .login-links {
     font-size: 0.8rem;
   }
+  .aside-image {
+    display: none;
+  }
 }
-
 
 /*# sourceMappingURL=login.component.css.map */

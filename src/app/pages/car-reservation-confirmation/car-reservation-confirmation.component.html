@@ -1,10 +1,9 @@
-<app-header>
-</app-header>
-<app-process-booking-bar
-  [activeSteps]="[1]">
-</app-process-booking-bar>
-<app-book-summary
-  [carSelected]="car_selected"
-  [locationSelected]="location"
-  [dateSelected]="date">
-</app-book-summary>
+<ion-content>
+  <app-header></app-header>
+  <app-process-booking-bar [activeSteps]="[1]"></app-process-booking-bar>
+  <app-book-summary
+    [carSelected]="car_selected"
+    [locationSelected]="location"
+    [dateSelected]="date"
+  ></app-book-summary>
+</ion-content>

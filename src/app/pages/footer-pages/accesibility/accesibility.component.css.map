@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":["accesibility.component.scss","../../../../_variables.scss"],"names":[],"mappings":"AAQA;EACE,SANe;EAOf,OARc;EASd;EACA;;;AAGF;EACE,WAXkB;EAYlB;EACA,aCNY;EDOZ,aAbY;;AAeZ;EACE;;AAGF;EACE,OCnBG;;ADsBL;EACE,eA1BsB","file":"accesibility.component.css"}
+{"version":3,"sourceRoot":"","sources":["accesibility.component.scss","../../../../theme/variables.scss"],"names":[],"mappings":"AAQA;EACE,SANe;EAOf,OARc;EASd;EACA;;;AAGF;EACE,WAXkB;EAYlB;EACA,aCJY;EDKZ,aAbY;;AAeZ;EACE;;AAGF;EACE,OCjBG;;ADoBL;EACE,eA1BsB","file":"accesibility.component.css"}

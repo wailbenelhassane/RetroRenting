@@ -1,18 +1,3 @@
-@use "../../../theme/variables";
-
-$box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-$border-radius: 1vh;
-$button-radius: 1vh;
-$font-size-base: 1rem;
-$font-size-small: 1.2rem;
-
-@mixin flex-center($direction: column) {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: $direction;
-}
-
 * {
   box-sizing: border-box;
   margin: 0;
@@ -20,9 +5,9 @@ $font-size-small: 1.2rem;
 }
 
 #book-summary-container {
-  background-color: variables.$dark-gray;
+  background-color: #1F1F1F;
   padding: 2vh;
-  border-radius: $border-radius;
+  border-radius: 1vh;
   min-width: 15vw;
   max-width: 30vw;
   margin: 3vh auto;
@@ -30,13 +15,12 @@ $font-size-small: 1.2rem;
 }
 
 .book-summary-header {
-  font-family: variables.$font-family;
+  font-family: "Roboto", sans-serif;
   margin-bottom: 3vh;
-
-  h1 {
-    font-size: $font-size-small;
-    color: variables.$text-color;
-  }
+}
+.book-summary-header h1 {
+  font-size: 1.2rem;
+  color: #FFFFFF;
 }
 
 .book-summary-details {
@@ -50,9 +34,9 @@ $font-size-small: 1.2rem;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  font-family: variables.$font-family;
-  font-size: $font-size-base;
-  color: variables.$text-color;
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  color: #FFFFFF;
   padding: 1vh 0;
 }
 
@@ -76,15 +60,15 @@ $font-size-small: 1.2rem;
 }
 
 .pay-now-button {
-  --background: #{variables.$resalt-color};
-  --color: #{variables.$text-color};
-  --border-radius: #{$button-radius};
+  --background: #9a7006;
+  --color: #FFFFFF;
+  --border-radius: 1vh;
   width: 12vw;
   height: 5vh;
   font-size: 2vh;
   font-weight: bold;
-  font-family: variables.$font-family;
-  --background-hover: #{variables.$resalt-color-darker};
+  font-family: "Roboto", sans-serif;
+  --background-hover: #8B6508;
 }
 
 @media (max-width: 480px) {
@@ -92,18 +76,15 @@ $font-size-small: 1.2rem;
     padding: 1vh 0;
     max-width: 80%;
   }
-
   .pay-now-button {
     width: 100%;
   }
 }
-
-@media (min-width: 480px) and (max-width: variables.$tablet-breakpoint) {
+@media (min-width: 480px) and (max-width: 1025px) {
   #book-summary-container {
     padding: 1vh 0;
     max-width: 55%;
   }
-
   .car-selected,
   .location-selected,
   .date-selected {
@@ -111,8 +92,9 @@ $font-size-small: 1.2rem;
     margin-left: 1vw;
     margin-top: 1vw;
   }
-
   .pay-now-button {
     width: 16vw;
   }
 }
+
+/*# sourceMappingURL=book-summary.component.css.map */

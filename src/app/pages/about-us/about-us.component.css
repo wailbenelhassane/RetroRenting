@@ -1,0 +1,30 @@
+.center-align {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.general-button {
+  --background: #9a7006;
+  --color: #FFFFFF;
+  --border-radius: 5px;
+  font-family: Roboto, sans-serif;
+  font-weight: bold;
+  text-transform: none;
+  --background-hover: #8B6508;
+}
+
+.our-team-title {
+  text-align: center;
+  margin-top: 4vh;
+  margin-bottom: 3vh;
+  font-family: "Roboto", sans-serif;
+}
+@media (max-width: 1025px) {
+  .our-team-title {
+    font-size: 1.75rem;
+  }
+}
+
+/*# sourceMappingURL=about-us.component.css.map */

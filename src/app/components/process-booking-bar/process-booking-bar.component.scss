@@ -1,6 +1,5 @@
 @use "../../../theme/variables";
 
-
 $active-color: #4caf50;
 $inactive-color: #f44336;
 $circle-size: 50px;
@@ -50,7 +49,8 @@ $arrow-color: white;
     color: $arrow-color;
   }
 }
-@media(max-width: 480px) {
+
+@media (max-width: 480px) {
   .progress-bar {
     display: flex;
     align-items: center;
@@ -82,16 +82,14 @@ $arrow-color: white;
       .step-label {
         display: none;
       }
-      font-size: 1rem;
-      color: variables.$text-color;
-      font-family: variables.$font-family;
+
+      &.active .step-circle {
+        background-color: $active-color;
+      }
     }
 
-    &.active .step-circle {
-      background-color: $active-color;
+    .progress-arrow {
+      display: none;
     }
-  }
-  .progress-arrow {
-    display: none;
   }
 }

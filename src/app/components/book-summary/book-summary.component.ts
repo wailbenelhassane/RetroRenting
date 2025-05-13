@@ -1,14 +1,16 @@
-import {Component, Input} from '@angular/core';
-import {RouterLink} from '@angular/router';
+import { Component, Input } from '@angular/core';
+import { RouterLink } from '@angular/router';
+import { IonicModule } from '@ionic/angular';
 
 @Component({
-    selector: 'app-book-summary',
-    imports: [
-        RouterLink
-    ],
-    templateUrl: './book-summary.component.html',
-    standalone: true,
-    styleUrl: './book-summary.component.scss'
+  selector: 'app-book-summary',
+  standalone: true,
+  imports: [
+    RouterLink,
+    IonicModule
+  ],
+  templateUrl: './book-summary.component.html',
+  styleUrls: ['./book-summary.component.scss']
 })
 export class BookSummaryComponent {
   @Input() carSelected: string = '';

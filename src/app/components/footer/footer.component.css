@@ -1,0 +1,61 @@
+.footer-nav {
+  color: #FFFFFF;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 5vh;
+  margin-top: 4vh;
+  box-shadow: none;
+  width: 100%;
+  padding: 0 15px;
+}
+.footer-nav .footer-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.footer-nav ion-list.footer-menu {
+  --background: transparent !important;
+  background: transparent !important;
+}
+.footer-nav ion-item.footer-item {
+  --background: transparent !important;
+  background: transparent !important;
+  --ion-item-background: transparent !important;
+  --inner-border-width: 0;
+}
+.footer-nav .footer-item {
+  display: inline-flex;
+  margin: 0 15px;
+  font-size: 1rem;
+}
+.footer-nav .footer-item a {
+  text-decoration: none;
+  color: #FFFFFF;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+}
+.footer-nav .separator-bar {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+@media (max-width: 768px) {
+  .footer-nav {
+    height: auto;
+    padding: 10px;
+  }
+  .footer-menu {
+    flex-direction: column;
+    align-items: center;
+  }
+  .footer-item {
+    margin: 10px 0;
+  }
+}
+
+/*# sourceMappingURL=footer.component.css.map */

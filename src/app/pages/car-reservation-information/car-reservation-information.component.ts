@@ -2,14 +2,16 @@ import {Component} from '@angular/core';
 import {HeaderComponent} from '../../components/header/header.component';
 import {ProcessBookingBarComponent} from '../../components/process-booking-bar/process-booking-bar.component';
 import {MainDriverFormComponent} from '../../components/main-driver-form/main-driver-form.component';
+import {IonicModule} from "@ionic/angular";
 
 @Component({
   selector: 'app-car-reservation-information',
-  imports: [
-    HeaderComponent,
-    ProcessBookingBarComponent,
-    MainDriverFormComponent,
-  ],
+    imports: [
+        HeaderComponent,
+        ProcessBookingBarComponent,
+        MainDriverFormComponent,
+        IonicModule,
+    ],
   templateUrl: './car-reservation-information.component.html',
   standalone: true,
   styleUrl: './car-reservation-information.component.scss'

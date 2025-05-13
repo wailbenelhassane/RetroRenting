@@ -1,11 +1,13 @@
-<section class="progress-bar">
-  <ng-container *ngFor="let step of [1, 2, 3]; let i = index">
-    <div class="progress-step" [class.active]="activeSteps.includes(step)">
-      <div class="step-circle">{{ step }}</div>
-      <p class="step-label">
-        {{ step === 1 ? 'Your Selection!' : step === 2 ? 'Your booking!' : 'Complete Booking!' }}
-      </p>
-    </div>
-    <div class="progress-arrow" *ngIf="i < 2">→</div>
-  </ng-container>
-</section>
+<ion-content>
+  <section class="progress-bar">
+    <ng-container *ngFor="let step of [1, 2, 3]; let i = index">
+      <div class="progress-step" [class.active]="activeSteps.includes(step)">
+        <div class="step-circle">{{ step }}</div>
+        <p class="step-label">
+          {{ step === 1 ? 'Your Selection!' : step === 2 ? 'Your booking!' : 'Complete Booking!' }}
+        </p>
+      </div>
+      <div class="progress-arrow" *ngIf="i < 2">→</div>
+    </ng-container>
+  </section>
+</ion-content>
