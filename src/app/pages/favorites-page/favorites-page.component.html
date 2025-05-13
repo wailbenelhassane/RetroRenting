@@ -3,23 +3,36 @@
   <main class="favorites-content">
     <h1 class="favorites-title">Your Favourite Cars</h1>
     <div class="favorites-container">
-      <ion-card class="catalog-card" *ngFor="let card of favoriteCars$ | async" [ngClass]="{ 'favorited': true }">
+      <ion-card
+        class="catalog-card"
+        *ngFor="let card of favoriteCars"
+        [ngClass]="{ 'favorited': true }"
+        [id]="'car-' + card.id"
+      >
         <div class="catalog-card-image">
-          <img [src]="card.image.src" [alt]="card.image.altText">
+          <img [src]="card.image.src" [alt]="card.image.altText" />
           <p>{{ card.title }}</p>
         </div>
         <div class="catalog-card-info">
           <p *ngFor="let infoText of card.info">{{ infoText }}</p>
           <div>
-            <ion-button class="catalog-card-button" [attr.data-car-id]="card.id" (click)="onCardButtonClick(card.id)" fill="solid">See more</ion-button>
+            <ion-button
+              class="catalog-card-button"
+              [attr.data-car-id]="card.id"
+              (click)="onCardButtonClick(card.id)"
+              fill="solid"
+            >
+              See more
+            </ion-button>
           </div>
         </div>
         <div class="favorite-button" (click)="toggleFavorite(card.id)">
-          <img src="/assets/key-icon-filled.svg" alt="Favorite Car">
+          <img src="/assets/key-icon-filled.svg" alt="Favorite Car" />
         </div>
       </ion-card>
     </div>
-    <div class="no-favorites" *ngIf="(favoriteCars$ | async)?.length === 0">
+
+    <div class="no-favorites" *ngIf="favoriteCars.length === 0">
       <p>No favorite cars yet. Add some from the catalog!</p>
     </div>
   </main>

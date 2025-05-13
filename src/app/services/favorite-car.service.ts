@@ -1,7 +1,24 @@
 import { Injectable, NgZone } from '@angular/core';
-import { Firestore, doc, setDoc, deleteDoc, getDoc, collection, getDocs, query } from '@angular/fire/firestore';
+import {
+  Firestore,
+  doc,
+  setDoc,
+  deleteDoc,
+  getDoc,
+  collection,
+  getDocs,
+  query,
+  collectionData
+} from '@angular/fire/firestore';
 import { Auth, authState } from '@angular/fire/auth';
-import { BehaviorSubject, Observable, from, of, firstValueFrom, combineLatest } from 'rxjs';
+import {
+  BehaviorSubject,
+  Observable,
+  from,
+  of,
+  firstValueFrom,
+  combineLatest
+} from 'rxjs';
 import { map, switchMap, catchError } from 'rxjs/operators';
 import { CatalogCard, CatalogSection } from '../models/catalog-section.model';
 
@@ -24,19 +41,20 @@ export class FavoriteCarService {
   }
 
   getCurrentUserId(): Observable<string | null> {
-    return from(this.ngZone.run(() => firstValueFrom(
-      authState(this.auth).pipe(
-        map(user => user ? user.uid : null)
+    return from(this.ngZone.run(() =>
+      firstValueFrom(
+        authState(this.auth).pipe(
+          map(user => user ? user.uid : null)
+        )
       )
-    )));
+    ));
   }
 
   isCarFavorited(carId: string): Observable<boolean> {
     return this.getCurrentUserId().pipe(
       switchMap(userId => {
-        if (!userId) {
-          return of(false);
-        }
+        if (!userId) return of(false);
+
         const carDocRef = doc(this.firestore, `users/${userId}/favoriteCars/${carId}`);
         return from(this.ngZone.run(() => getDoc(carDocRef))).pipe(
           map(snapshot => snapshot.exists()),
@@ -52,20 +70,16 @@ export class FavoriteCarService {
   favoriteCar(carId: string): Observable<void> {
     return this.getCurrentUserId().pipe(
       switchMap(userId => {
-        if (!userId) {
+        if (!userId || !carId) {
+          console.error('favoriteCar - Invalid userId or carId');
           return of(void 0);
         }
-        if (!carId) {
-          console.error('favoriteCar - carId is undefined or empty');
-          return of(void 0);
-        }
+
         const carDocRef = doc(this.firestore, `users/${userId}/favoriteCars/${carId}`);
         return from(this.ngZone.run(() => setDoc(carDocRef, { favoritedAt: new Date() }))).pipe(
-          map(() => {
-            this.notifyFavoriteStateChange(carId, true);
-          }),
+          map(() => this.notifyFavoriteStateChange(carId, true)),
           catchError(err => {
-            console.error('favoriteCar - Error adding car to favorites:', err);
+            console.error('favoriteCar - Error adding to favorites:', err);
             throw err;
           })
         );
@@ -76,16 +90,13 @@ export class FavoriteCarService {
   removeFavoriteCar(carId: string): Observable<void> {
     return this.getCurrentUserId().pipe(
       switchMap(userId => {
-        if (!userId) {
-          return of(void 0);
-        }
+        if (!userId) return of(void 0);
+
         const carDocRef = doc(this.firestore, `users/${userId}/favoriteCars/${carId}`);
         return from(this.ngZone.run(() => deleteDoc(carDocRef))).pipe(
-          map(() => {
-            this.notifyFavoriteStateChange(carId, false);
-          }),
+          map(() => this.notifyFavoriteStateChange(carId, false)),
           catchError(err => {
-            console.error('removeFavoriteCar - Error removing car from favorites:', err);
+            console.error('removeFavoriteCar - Error removing from favorites:', err);
             throw err;
           })
         );
@@ -96,47 +107,45 @@ export class FavoriteCarService {
   getFavoriteCars(): Observable<CatalogCard[]> {
     return this.getCurrentUserId().pipe(
       switchMap(userId => {
-        if (!userId) {
-          return of([]);
-        }
+        if (!userId) return of([]);
+
         const favoriteCarsRef = collection(this.firestore, `users/${userId}/favoriteCars`);
-return from(this.ngZone.run(() => getDocs(favoriteCarsRef))).pipe(
-  map(favoriteSnapshot => favoriteSnapshot.docs.map(doc => doc.id)),
-  switchMap(carIds => {
-    if (carIds.length === 0) {
-      return of([]);
-    }
-    const cars: CatalogCard[] = [];
-    const batchSize = 10;
-    const batches: Observable<CatalogCard[]>[] = [];
-    for (let i = 0; i < carIds.length; i += batchSize) {
-      const batchIds = carIds.slice(i, i + batchSize);
-      const carsRef = collection(this.firestore, 'catalogSection');
-      const q = query(carsRef);
-      batches.push(
-        from(this.ngZone.run(() => getDocs(q))).pipe(
-          map(carsSnapshot =>
-            carsSnapshot.docs
-              .map(doc => doc.data() as CatalogSection)
-              .flatMap((section: CatalogSection) => section.catalogCards)
-              .filter((card: CatalogCard) => batchIds.includes(card.id))
-          )
-        )
-      );
-    }
-    return combineLatest(batches).pipe(
-      map(batchResults => {
-        batchResults.forEach(batch => cars.push(...batch));
-        return cars;
+
+        return collectionData(favoriteCarsRef, { idField: 'id' }).pipe(
+          map((favorites: any[]) => favorites.map(fav => fav.id)),
+          switchMap((carIds: string[]) => {
+            if (carIds.length === 0) return of([]);
+
+            const batchSize = 10;
+            const batches: Observable<CatalogCard[]>[] = [];
+
+            for (let i = 0; i < carIds.length; i += batchSize) {
+              const batchIds = carIds.slice(i, i + batchSize);
+              const carsRef = collection(this.firestore, 'catalogSection');
+              const q = query(carsRef);
+
+              batches.push(
+                from(this.ngZone.run(() => getDocs(q))).pipe(
+                  map(snapshot =>
+                    snapshot.docs
+                      .map(doc => doc.data() as CatalogSection)
+                      .flatMap((section: CatalogSection) => section.catalogCards)
+                      .filter((card: CatalogCard) => batchIds.includes(card.id))
+                  )
+                )
+              );
+            }
+
+            return combineLatest(batches).pipe(
+              map(results => results.flat())
+            );
+          }),
+          catchError(err => {
+            console.error('getFavoriteCars - Error in real-time subscription:', err);
+            return of([]);
+          })
+        );
       })
     );
-  }),
-  catchError(err => {
-    console.error('getFavoriteCars - Error fetching favorite cars:', err);
-    return of([]);
-  })
-);
-})
-);
-}
+  }
 }
