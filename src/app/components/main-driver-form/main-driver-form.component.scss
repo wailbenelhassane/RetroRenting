@@ -69,6 +69,7 @@ $font-size-small: 1.2rem;
 
     ion-input,
     ion-select {
+      color: black;
       --padding-start: 10px;
       --padding-end: 10px;
       --border-radius: #{$border-radius};

@@ -1,29 +1,27 @@
-<ion-content>
-  <section id="book-summary-container">
-    <div class="book-summary-header">
-      <h1>Book Summary</h1>
+<section id="book-summary-container">
+  <div class="book-summary-header">
+    <h1>Book Summary</h1>
+  </div>
+  <div class="book-summary-details">
+    <div class="book-summary-item">
+      <p class="book-summary-label">Car Selected:</p>
+      <p id="car-selected">{{ carSelected }}</p>
     </div>
-    <div class="book-summary-details">
-      <div class="book-summary-item">
-        <p class="book-summary-label">Car Selected:</p>
-        <p id="car-selected">{{ carSelected }}</p>
-      </div>
 
-      <div class="book-summary-item">
-        <p class="book-summary-label">Location:</p>
-        <p id="location-selected">{{ locationSelected }}</p>
-      </div>
-
-      <div class="book-summary-item">
-        <p class="book-summary-label">Date:</p>
-        <p id="date-selected">{{ dateSelected }}</p>
-      </div>
-
-      <div class="btn-container">
-        <a routerLink="/car-reservation-information">
-          <ion-button class="pay-now-button" fill="solid">Continue</ion-button>
-        </a>
-      </div>
+    <div class="book-summary-item">
+      <p class="book-summary-label">Location:</p>
+      <p id="location-selected">{{ locationSelected }}</p>
     </div>
-  </section>
-</ion-content>
+
+    <div class="book-summary-item">
+      <p class="book-summary-label">Date:</p>
+      <p id="date-selected">{{ dateSelected }}</p>
+    </div>
+
+    <div class="btn-container">
+      <a routerLink="/car-reservation-information">
+        <ion-button class="pay-now-button" fill="solid">Continue</ion-button>
+      </a>
+    </div>
+  </div>
+</section>
