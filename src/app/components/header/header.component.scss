@@ -51,6 +51,11 @@ ion-list {
   background: transparent !important;
 }
 
+ion-item {
+  --background: transparent !important;
+  background: transparent !important;
+}
+
 .logo-container {
   display: flex;
   align-items: flex-start;
@@ -218,6 +223,15 @@ ion-list {
   opacity: 0;
   visibility: hidden;
   transition: all 0.3s ease-in-out;
+  overflow-y: scroll;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  scrollbar-width: none;
+
+  -ms-overflow-style: none;
 
   &.mobile-menu-open {
     display: block;
@@ -229,6 +243,7 @@ ion-list {
     @include flex-center(column);
     padding: 20px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    margin-bottom: 20px;
 
     .profile-image {
       width: 60px;
@@ -261,31 +276,26 @@ ion-list {
       }
     }
   }
-}
 
-.mobile-navigation-menu {
-  @include flex-center(column);
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  height: 100%;
-  --background: transparent;
+  .mobile-navigation-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    margin-top: 10px;
 
-  .mobile-navigation-item {
-    margin: 15px 0;
-    width: 100%;
-    text-align: center;
-    --background: transparent;
-    --border: none;
+    .mobile-navigation-item {
+      margin: 10px 0;
 
-    a {
-      font-size: 1.5rem;
-      display: inline-block;
-      color: variables.$text-color;
-      text-decoration: none;
+      a {
+        font-size: 1.3rem;
+        color: variables.$text-color;
+        text-decoration: none;
 
-      &:hover {
-        background-color: rgba(255, 255, 255, 0.1);
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.1);
+          padding: 5px;
+        }
       }
     }
   }
