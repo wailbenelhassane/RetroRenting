@@ -3,6 +3,7 @@ import {ActivatedRoute} from '@angular/router';
 import {ProcessBookingBarComponent} from '../../components/process-booking-bar/process-booking-bar.component';
 import {BookSummaryComponent} from '../../components/book-summary/book-summary.component';
 import {HeaderComponent} from '../../components/header/header.component';
+import {IonicModule} from "@ionic/angular";
 
 
 @Component({
@@ -12,6 +13,7 @@ import {HeaderComponent} from '../../components/header/header.component';
     ProcessBookingBarComponent,
     BookSummaryComponent,
     HeaderComponent,
+    IonicModule,
   ],
   templateUrl: './car-reservation-confirmation.component.html',
   styleUrls: ['./car-reservation-confirmation.component.scss']

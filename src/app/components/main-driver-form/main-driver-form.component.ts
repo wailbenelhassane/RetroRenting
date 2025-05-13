@@ -1,18 +1,19 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
-import {NgForOf, NgIf} from '@angular/common';
-import {MainDriverFormService} from '../../services/main-driver-form.service';
-import {Subscription} from 'rxjs';
-import {Country} from '../../models/main-driver-form.model';
-import {FormValidationService} from '../../services/utils/form-validation.service';
-import {Router} from '@angular/router'; // Asegúrate de tenerlo
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { NgForOf, NgIf } from '@angular/common';
+import { MainDriverFormService } from '../../services/main-driver-form.service';
+import { Subscription } from 'rxjs';
+import { Country } from '../../models/main-driver-form.model';
+import { FormValidationService } from '../../services/utils/form-validation.service';
+import { Router } from '@angular/router';
+import { IonicModule } from '@ionic/angular';
 
 @Component({
   selector: 'app-main-driver-form',
   standalone: true,
-  imports: [ReactiveFormsModule, NgIf, NgForOf],
+  imports: [ReactiveFormsModule, NgIf, NgForOf, IonicModule],
   templateUrl: './main-driver-form.component.html',
-  styleUrl: './main-driver-form.component.scss'
+  styleUrls: ['./main-driver-form.component.scss']
 })
 export class MainDriverFormComponent implements OnInit, OnDestroy {
   formErrors: string[] = [];

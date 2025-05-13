@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":[],"names":[],"mappings":"","file":"car-page.component.css"}
+{"version":3,"sourceRoot":"","sources":["car-page.component.scss","../../../theme/variables.scss"],"names":[],"mappings":"AAEA;EACE;EACA;EACA;EACA;EACA;;;AAGF;EACE;EACA;EACA,aCCY;EDAZ,OCNW;EDOX;EACA","file":"car-page.component.css"}

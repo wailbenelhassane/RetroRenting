@@ -2,23 +2,25 @@ import { Component, OnInit } from '@angular/core';
 import { NgForOf, NgIf, NgOptimizedImage } from '@angular/common';
 import { FormBuilder, ReactiveFormsModule, Validators, FormGroup } from '@angular/forms';
 import { LoginService } from '../../services/login.service';
-import {Router} from '@angular/router';
-import {FormValidationService} from '../../services/utils/form-validation.service';
-
+import { Router, RouterLink } from '@angular/router';
+import { FormValidationService } from '../../services/utils/form-validation.service';
+import { IonicModule } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
+  standalone: true,
   imports: [
     NgOptimizedImage,
     ReactiveFormsModule,
     NgIf,
-    NgForOf
+    NgForOf,
+    IonicModule,
+    RouterLink
   ],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.scss',
-  standalone: true,
+  styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit{
+export class LoginComponent implements OnInit {
   logoUrl: string = 'test';
   asideImgUrl: string = 'test';
   formErrors: string[] = [];
@@ -26,13 +28,13 @@ export class LoginComponent implements OnInit{
   loginForm: FormGroup;
 
   constructor(
-      private formBuilder: FormBuilder,
-      public loginService: LoginService,
-      public validationService: FormValidationService,
-      private router: Router,
+    private formBuilder: FormBuilder,
+    public loginService: LoginService,
+    public validationService: FormValidationService,
+    private router: Router
   ) {
     this.loginForm = this.formBuilder.group({
-      email: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]]
     });
   }
@@ -46,6 +48,8 @@ export class LoginComponent implements OnInit{
 
   onSubmit(): void {
     this.formErrors = this.loginService.processLogin(this.loginForm);
-    if (this.formErrors.length == 0) this.router.navigate(['/']);
+    if (this.formErrors.length === 0) {
+      this.router.navigate(['/']);
+    }
   }
 }

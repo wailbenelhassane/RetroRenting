@@ -56,32 +56,27 @@ $font-size-small: 1.2rem;
       gap: 10px;
       width: 100%;
 
-      input {
-        flex: 1;
-        padding: 10px;
-        border: 1px solid $input-border-color;
-        border-radius: $border-radius;
-        box-shadow: $box-shadow;
+      ion-input {
+        --padding-start: 10px;
+        --padding-end: 10px;
+        --border-radius: #{$border-radius};
+        --background: white;
+        --border: 1px solid #{$input-border-color};
+        box-shadow: #{$box-shadow};
         font-family: variables.$font-family;
       }
-
-      input:focus {
-        outline: none;
-      }
     }
 
-    input,
-    select {
-      width: 100%;
-      padding: 10px;
-      border: 1px solid $input-border-color;
-      border-radius: $border-radius;
-      box-shadow: $box-shadow;
+    ion-input,
+    ion-select {
+      color: black;
+      --padding-start: 10px;
+      --padding-end: 10px;
+      --border-radius: #{$border-radius};
+      --background: white;
+      --border: 1px solid #{$input-border-color};
+      box-shadow: #{$box-shadow};
       font-family: variables.$font-family;
-    }
-
-    input:focus, select:focus {
-      outline: none;
     }
 
     .phone-group {
@@ -89,38 +84,27 @@ $font-size-small: 1.2rem;
       width: 100%;
       gap: 5px;
 
-      select {
+      ion-select {
         width: 30%;
-        background-size: cover;
-        border-radius: $border-radius;
+        --border-radius: #{$border-radius};
       }
 
-      select:focus {
-        outline: none;
-      }
-
-      input {
+      ion-input {
         width: 70%;
       }
     }
 
-    button {
+    .book-btn {
+      --background: #{variables.$resalt-color};
+      --color: #{variables.$text-color};
+      --border-radius: #{$button-radius};
       width: 125px;
       height: 50px;
-      background-color: variables.$resalt-color;
       font-size: 15px;
       font-weight: bold;
-      color: variables.$text-color;
       font-family: variables.$font-family;
-      border: none;
-      cursor: pointer;
-      border-radius: $button-radius;
-      padding: 10px 15px;
       margin-top: 20px;
-    }
-
-    button:hover {
-      background-color: variables.$resalt-color-darker;
+      --background-hover: #{variables.$resalt-color-darker};
     }
 
     .btn-container {
@@ -141,262 +125,34 @@ $font-size-small: 1.2rem;
   list-style-type: none;
 }
 
-input.invalid,
-select.invalid {
-  border: 2px solid #e53935;
-  background-color: #fff6f6;
+ion-input.invalid,
+ion-select.invalid {
+  --border: 2px solid #e53935;
+  --background: #fff6f6;
 }
 
-:invalid {
-  border-color: red;
-}
-
-footer {
-  bottom: 0;
-}
-
-@media (max-width : 480px){
-  @mixin flex-center($direction: row) {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: $direction;
-  }
-
-  * {
-    box-sizing: border-box;
-    margin: 0;
-  }
-
+@media (max-width: 480px) {
   #main-driver-form-container {
-    background-color: variables.$dark-gray;
-    padding: 4vh;
-    border-radius: $border-radius;
-    height: 90%;
     width: 80%;
     margin: 3vh auto;
-    box-shadow: $box-shadow;
   }
 
-  .main-driver-header {
-    text-align: center;
-    font-family: variables.$font-family;
-    margin-bottom: 5vh;
-
-    h2 {
-      font-size: $font-size-small;
-      color: variables.$text-color;
-    }
-  }
-
-  .input-container {
-    @include flex-center(column);
-    width: 100%;
-
-    .main-driver-form {
-      display: flex;
-      flex-direction: column;
-      gap: 3vh;
-
-      .name-group {
-        display: flex;
-        gap: 10px;
-        width: 100%;
-
-        input {
-          flex: 1;
-          padding: 10px;
-          border: 1px solid $input-border-color;
-          border-radius: $border-radius;
-          box-shadow: $box-shadow;
-          font-family: variables.$font-family;
-        }
-
-        input:focus {
-          outline: none;
-        }
+  .main-driver-form {
+    .phone-group {
+      ion-select {
+        width: 37%;
+        padding: 0;
       }
 
-      input,
-      select {
-        width: 100%;
-        padding: 10px;
-        border: 1px solid $input-border-color;
-        border-radius: $border-radius;
-        box-shadow: $box-shadow;
-        font-family: variables.$font-family;
-      }
-
-      .phone-group {
-        display: flex;
-        width: 100%;
-        gap: 5px;
-
-        select {
-          width: 37%;
-          background-size: cover;
-          border-radius: $border-radius;
-          padding: 0;
-        }
-
-        select:focus {
-          outline: none;
-        }
-
-        input {
-          width: 70%;
-        }
-      }
-
-      button {
-        width: 125px;
-        height: 50px;
-        background-color: variables.$resalt-color;
-        font-size: 15px;
-        font-weight: bold;
-        color: variables.$text-color;
-        font-family: variables.$font-family;
-        border: none;
-        cursor: pointer;
-        border-radius: $button-radius;
-        padding: 10px 15px;
-        margin-top: 20px;
-      }
-
-      button:hover {
-        background-color: variables.$resalt-color-darker;
-      }
-
-      .btn-container {
-        display: flex;
-        justify-content: center;
+      ion-input {
+        width: 63%;
       }
     }
-  }
-
-  footer {
-    bottom: 0;
   }
 }
+
 @media (min-width: 480px) and (max-width: variables.$tablet-breakpoint) {
-  @mixin flex-center($direction: row) {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: $direction;
-  }
-
-  * {
-    box-sizing: border-box;
-    margin: 0;
-  }
-
   #main-driver-form-container {
-    background-color: variables.$dark-gray;
-    padding: 4vh;
-    border-radius: $border-radius;
-    height: 90%;
     width: 60%;
-    margin: 6vh auto;
-    box-shadow: $box-shadow;
-  }
-
-  .main-driver-header {
-    text-align: center;
-    font-family: variables.$font-family;
-    margin-bottom: 5vh;
-
-    h2 {
-      font-size: $font-size-small;
-      color: variables.$text-color;
-    }
-  }
-
-  .input-container {
-    @include flex-center(column);
-    width: 100%;
-
-    .main-driver-form {
-      display: flex;
-      flex-direction: column;
-      gap: 3vh;
-
-      .name-group {
-        display: flex;
-        gap: 10px;
-        width: 100%;
-
-        input {
-          flex: 1;
-          padding: 10px;
-          border: 1px solid $input-border-color;
-          border-radius: $border-radius;
-          box-shadow: $box-shadow;
-          font-family: variables.$font-family;
-        }
-
-        input:focus {
-          outline: none;
-        }
-      }
-
-      input,
-      select {
-        width: 100%;
-        padding: 10px;
-        border: 1px solid $input-border-color;
-        border-radius: $border-radius;
-        box-shadow: $box-shadow;
-        font-family: variables.$font-family;
-      }
-
-      .phone-group {
-        display: flex;
-        width: 100%;
-        gap: 5px;
-
-        select {
-          width: 30%;
-          background-size: cover;
-          border-radius: $border-radius;
-        }
-
-        select:focus {
-          outline: none;
-        }
-
-        input {
-          width: 70%;
-        }
-      }
-
-      button {
-        width: 125px;
-        height: 50px;
-        background-color: variables.$resalt-color;
-        font-size: 15px;
-        font-weight: bold;
-        color: variables.$text-color;
-        font-family: variables.$font-family;
-        border: none;
-        cursor: pointer;
-        border-radius: $button-radius;
-        padding: 10px 15px;
-        margin-top: 20px;
-      }
-
-      button:hover {
-        background-color: variables.$resalt-color-darker;
-      }
-
-      .btn-container {
-        display: flex;
-        justify-content: center;
-      }
-    }
-  }
-
-  footer {
-    bottom: 0;
   }
 }

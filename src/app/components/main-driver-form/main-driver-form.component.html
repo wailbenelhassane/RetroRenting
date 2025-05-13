@@ -5,50 +5,61 @@
     </div>
 
     <div class="input-container">
-      <form [formGroup]="driverForm"
-            (ngSubmit)="onSubmit()"
-            class="main-driver-form">
-
+      <form [formGroup]="driverForm" (ngSubmit)="onSubmit()" class="main-driver-form">
         <div class="name-group">
-          <input type="text"
-                 placeholder="First Name"
-                 formControlName="name"
-                 [class.invalid]="formErrors.includes('name') || formErrors.includes('invalidName')">
+          <ion-input
+            type="text"
+            placeholder="First Name"
+            formControlName="name"
+            [class.invalid]="formErrors.includes('name') || formErrors.includes('invalidName')"
+          ></ion-input>
 
-          <input type="text"
-                 placeholder="Last Name"
-                 formControlName="surname"
-                 [class.invalid]="formErrors.includes('surname') || formErrors.includes('invalidSurName')">
+          <ion-input
+            type="text"
+            placeholder="Last Name"
+            formControlName="surname"
+            [class.invalid]="formErrors.includes('surname') || formErrors.includes('invalidSurName')"
+          ></ion-input>
         </div>
 
-        <input type="email"
-               placeholder="Email"
-               formControlName="email"
-               [class.invalid]="formErrors.includes('email') || formErrors.includes('invalidEmail')">
+        <ion-input
+          type="email"
+          placeholder="Email"
+          formControlName="email"
+          [class.invalid]="formErrors.includes('email') || formErrors.includes('invalidEmail')"
+        ></ion-input>
 
         <div class="phone-group">
-          <select formControlName="prefix"
-                  [class.invalid]="formErrors.includes('prefix')">
-            <option *ngFor="let country of countries"
-                    [value]="country.value">
+          <ion-select
+            formControlName="prefix"
+            [class.invalid]="formErrors.includes('prefix')"
+            interface="action-sheet"
+          >
+            <ion-select-option *ngFor="let country of countries" [value]="country.value">
               {{ country.prefix }}
-          </select>
+            </ion-select-option>
+          </ion-select>
 
-          <input type="tel"
-                 placeholder="Phone Number"
-                 formControlName="phone"
-                 [class.invalid]="formErrors.includes('phone') || formErrors.includes('invalidPhone')">
+          <ion-input
+            type="tel"
+            placeholder="Phone Number"
+            formControlName="phone"
+            [class.invalid]="formErrors.includes('phone') || formErrors.includes('invalidPhone')"
+          ></ion-input>
         </div>
 
-        <select formControlName="country"
-                [class.invalid]="formErrors.includes('country')">
-          <option *ngFor="let country of countries"
-                  [value]="country.value">
+        <ion-select
+          formControlName="country"
+          [class.invalid]="formErrors.includes('country')"
+          interface="action-sheet"
+        >
+          <ion-select-option *ngFor="let country of countries" [value]="country.value">
             {{ country.name }}
-        </select>
+          </ion-select-option>
+        </ion-select>
 
         <div class="btn-container">
-          <button class="book-btn" type="submit">Pay now!</button>
+          <ion-button class="book-btn" type="submit" fill="solid">Pay now!</ion-button>
         </div>
 
         <ul *ngIf="formErrors.length > 0" class="error-list">
@@ -58,6 +69,5 @@
         </ul>
       </form>
     </div>
-
   </div>
 </section>
