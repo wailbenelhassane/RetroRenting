@@ -100,7 +100,7 @@ app-root {
 }
 
 ion-content {
-  background-color: variables.$background-color;
+  --background: #{variables.$background-color};
 }
 
 ion-content::part(scroll) {
