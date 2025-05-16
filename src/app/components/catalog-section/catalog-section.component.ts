@@ -6,6 +6,7 @@ import { FavoriteCarService } from '../../services/favorite-car.service';
 import { Auth, authState } from '@angular/fire/auth';
 import { CatalogSection } from '../../models/catalog-section.model';
 import {IonButton, IonCard, IonContent} from "@ionic/angular/standalone";
+import {DatabaseService} from '../../services/database.service';
 
 @Component({
   selector: 'app-catalog-section',
@@ -24,6 +25,7 @@ export class CatalogSectionComponent implements OnInit, OnDestroy {
     private catalogSectionService: CatalogSectionService,
     private favoriteCarService: FavoriteCarService,
     private auth: Auth,
+    private databaseService: DatabaseService,
     @Inject(PLATFORM_ID) private platformId: Object
   ) {
     this.catalogData$ = this.catalogSectionService.catalogData$;
@@ -60,6 +62,7 @@ export class CatalogSectionComponent implements OnInit, OnDestroy {
       alert('Por favor, inicia sesión para añadir a favoritos.');
       return;
     }
+    this.databaseService.addFavorite(carId);
     this.favoriteCarService.isCarFavorited(carId).subscribe({
       next: isFavorited => {
         const operation = isFavorited
