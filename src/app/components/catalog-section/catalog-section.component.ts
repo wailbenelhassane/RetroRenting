@@ -12,7 +12,7 @@ import {DatabaseService} from '../../services/database.service';
   selector: 'app-catalog-section',
   templateUrl: './catalog-section.component.html',
   standalone: true,
-  imports: [CommonModule, AsyncPipe, IonContent, IonCard, IonButton],
+  imports: [CommonModule, AsyncPipe, IonCard, IonButton],
   styleUrls: ['./catalog-section.component.scss']
 })
 export class CatalogSectionComponent implements OnInit, OnDestroy {
@@ -62,13 +62,25 @@ export class CatalogSectionComponent implements OnInit, OnDestroy {
       alert('Por favor, inicia sesión para añadir a favoritos.');
       return;
     }
-    this.databaseService.addFavorite(carId);
+
     this.favoriteCarService.isCarFavorited(carId).subscribe({
       next: isFavorited => {
         const operation = isFavorited
           ? this.favoriteCarService.removeFavoriteCar(carId)
           : this.favoriteCarService.favoriteCar(carId);
+
         operation.subscribe({
+          next: async () => {
+            try {
+              if (isFavorited) {
+                await this.databaseService.removeFavorite(carId);
+              } else {
+                await this.databaseService.addFavorite(carId);
+              }
+            } catch (dbErr) {
+              console.error('Error actualizando base de datos local:', dbErr);
+            }
+          },
           error: err => {
             console.error(`CatalogSectionComponent - Error ${isFavorited ? 'removing' : 'adding'} favorite:`, err);
             alert(`Error al ${isFavorited ? 'eliminar de' : 'añadir a'} favoritos: ${err.message}`);
@@ -81,6 +93,7 @@ export class CatalogSectionComponent implements OnInit, OnDestroy {
       }
     });
   }
+
 
   ngOnDestroy() {
     this.destroy$.next();
