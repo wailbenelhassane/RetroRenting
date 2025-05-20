@@ -46,9 +46,7 @@ export class CatalogSectionService implements OnDestroy {
   }
 
   navigateToCarPage(carId: string) {
-    if (isPlatformBrowser(this.platformId)) {
-      this.router.navigate(['/car-page'], { queryParams: { carId } });
-    }
+      this.router.navigate(['/car-page'], { queryParams: { carId } })
   }
 
   scrollToSection(targetId: string) {

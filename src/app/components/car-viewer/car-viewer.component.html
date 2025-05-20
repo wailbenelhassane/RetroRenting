@@ -1,4 +1,5 @@
-<section class="car-viewer-container">
+<!-- Para web: todo dentro del section -->
+<section class="car-viewer-container" *ngIf="!isMobile">
   <div class="principal-image">
     <img [src]="allImages[0]" alt="Imagen Principal" id="main-image" />
   </div>
@@ -7,7 +8,41 @@
       class="secondary-image"
       *ngFor="let img of allImages.slice(1); let i = index"
       (click)="swapWithMain(i + 1)">
-    <img [src]="img" alt="Imagen Secundaria" class="secondary-img" />
-  </div>
+      <img [src]="img" alt="Imagen Secundaria" class="secondary-img" />
+    </div>
   </div>
 </section>
+
+<!-- Para móvil: fuera del section -->
+<div class="mobile-carousel" *ngIf="isMobile">
+  <div class="carousel-container">
+    <div
+      class="carousel-track"
+      [style.transform]="'translateX(-' + currentIndex * 100 + '%)'"
+    >
+      <div class="carousel-slide" *ngFor="let img of allImages">
+        <img [src]="img" alt="Imagen del coche" />
+      </div>
+    </div>
+    <button class="carousel-button prev-button" (click)="prevImage()">‹</button>
+    <button class="carousel-button next-button" (click)="nextImage()">›</button>
+  </div>
+
+  <div class="carousel-controls">
+    <ion-button class="carousel-button prev-button" (click)="prevImage()" [disabled]="currentIndex === 0">
+      ‹
+    </ion-button>
+    <ion-button class="carousel-button next-button" (click)="nextImage()" [disabled]="currentIndex === allImages.length - 1">
+      ›
+    </ion-button>
+  </div>
+
+  <div class="carousel-dots">
+    <span
+      class="dot"
+      *ngFor="let _ of allImages; let i = index"
+      [class.active]="i === currentIndex"
+      (click)="goToImage(i)">
+    </span>
+  </div>
+</div>

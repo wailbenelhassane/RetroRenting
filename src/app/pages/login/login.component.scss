@@ -80,10 +80,6 @@
         border: 1px solid #ccc;
       }
 
-      &.invalid {
-        border: 2px solid #e53935;
-        --background: #fff6f6;
-      }
     }
 
     ion-button.login-btn {
@@ -114,6 +110,14 @@
       font-weight: bold;
     }
   }
+}
+
+ion-input.invalid,
+ion-select.invalid {
+  --border-color: #e53935;
+  --highlight-color-invalid: #e53935;
+  --background: transparent;
+  --box-shadow: none;
 }
 
 .error-list {
@@ -189,6 +193,14 @@
       height: 8vh;
       font-size: 0.9rem;
       text-align: center;
+    }
+
+    ion-input.invalid,
+    ion-select.invalid {
+      --border-color: #e53935;
+      --highlight-color-invalid: #e53935;
+      --background: transparent;
+      --box-shadow: none;
     }
 
     .login-form ion-button.login-btn {

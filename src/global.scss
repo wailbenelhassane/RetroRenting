@@ -91,6 +91,14 @@ app-root {
   width: 10%;
 }
 
+ion-input.invalid,
+ion-select.invalid {
+  --border-color: #e53935;
+  --highlight-color-invalid: #e53935;
+  --background: transparent;
+  --box-shadow: none;
+}
+
 .car-name{
   display:flex;
   margin: 4%;

@@ -1,7 +1,9 @@
 <ion-content>
   <app-header></app-header>
   <main class="content">
-    <app-car-viewer></app-car-viewer>
+    <app-car-viewer
+      [carId]="carId">
+    </app-car-viewer>
     <p class="car-name">{{formattedCarName}}</p>
     <app-bar-car-details-booking></app-bar-car-details-booking>
   </main>
