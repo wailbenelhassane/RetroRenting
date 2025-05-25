@@ -29,8 +29,6 @@ RetroRenting es una plataforma para la gestión de alquileres con temática retr
   Permite a los usuarios iniciar sesión en la página web con los siguientes datos: nombre de usuario y contraseña. 
 -  **Información de la empresa:**  
   Permite a los usuarios conocer la filosofía y metodología de la empresa.
-- **Integración de pagos:**  
-  Procesamiento seguro de pagos en línea.
   
 ## Listado de páginas HTML y Mockup que implementan  
 ### 1. **Inicio (`landing-page.component.html`)**
