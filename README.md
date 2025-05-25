@@ -1,7 +1,7 @@
 ## RetroRenting
 
 ## AVISO  
-Para poder usar el repositorio es necesario que cuando se descargue se cambie el nombre del directorio raíz a "RetroRenting". 
+La práctica fue completada exitosamente, sin embargo, durante las pruebas en el emulador (usando configuración de Pixel 8 y Android API 33+), en ocasiones se presentaron comportamientos inesperados o fallos de ejecución. Estos problemas parecen estar relacionados con el entorno de emulación, ya que el código se comporta correctamente en condiciones normales.
 
 ## Nombre del Proyecto y Componentes del Grupo
 
@@ -70,6 +70,14 @@ RetroRenting es una plataforma para la gestión de alquileres con temática retr
 - **Mockup Implementado:** [Car Reservation Confirmation] [Car Reservation Confirmation - Tablet] [Car Reservation Confirmation - Mobile]  
 - Muestra los datos acerca de la reserva realizada.
 ---
+
+### 9. **Mis reservas (`history-bookings.component.html`)**  
+- Muestra las reservas realizadas.
+---  
+
+### 10. **Mis favoritos (`favorites-page.component.html`)**  
+- Muestra los coches marcados como favoritos.
+---  
 
 ## Archivos Templates Identificados
 - **Templates de la Interfaz:**
@@ -158,49 +166,6 @@ RetroRenting es una plataforma para la gestión de alquileres con temática retr
       * Surname: : Mínimo dos cáracteres y primera letra mayúscula.  
       * Email: Formato email: nombre@dominio.com.  
       * Phone: Sólo números con longitud de minimo nueve y máximo quince dígitos.
-  
-
-- **Estructura:**  
-
-### 📁 Estructura del proyecto
-
-```
-RetroRenting-sprint-3/
-├── public/
-│   └── ...                          # Recursos estáticos públicos
-├── src/
-│   ├── app/
-│   │   ├── components/
-│   │   │   ├── bar-car-details-booking/
-│   │   │   ├── book-summary/
-│   │   │   ├── booking-bar/
-│   │   │   ├── car-catalog/
-│   │   │   │   ├── car-viewer/
-│   │   │   │   ├── catalog-section/
-│   │   │   │   ├── center-text-section/
-│   │   │   │   ├── details-bar/
-│   │   │   │   └── footer/
-│   │   │   ├── header/
-│   │   │   ├── main-driver-form/
-│   │   │   └── ...
-│   │   ├── guards/
-│   │   ├── models/
-│   │   ├── pages/
-│   │   │   ├── about-us/
-│   │   │   ├── car-page/
-│   │   │   ├── footer-pages/
-│   │   │   │   ├── privacy-policy/
-│   │   │   │   └── ...
-│   │   │   └── ...
-│   │   ├── services/
-│   │   │   ├── auth/
-│   │   │   └── firebase/
-│   │   └── app.module.ts
-│   ├── environments/
-│   ├── index.html
-│   ├── main.ts
-│   └── styles.scss
-```
 
 
 ## Almacenamiento de Datos en Firebase – RetroRenting
@@ -227,6 +192,7 @@ Cada documento incluye:
 - surname: Apellido del usuario (ej. "González").
 - email: Email del usuario (ej. "pepe@gmail.com").
 - username: Nombre de usuario (ej. "pepe123").
+- favoriteCars: Coches favoritos (ej. [`"BMW Sedan Series 6"`]).
 
 ---
 
