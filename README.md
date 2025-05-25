@@ -288,6 +288,9 @@ Firestore, al ser una base de datos *NoSQL*, permite manejar esta jerarquía de 
 - **Elección del estilo:**  
   Para la realización del diseño y de la consecuente implementación hemos decidido elegir una gama de colores elegante y seria, puesto que se ha buscado evocar la seriedad y elegancia que los coches retro transmiten.  
 
+- **SQLite:**  
+  Se ha realizado correctamente la integración de SQLite para almacenar localmente datos de coches favoritos.  
+
 
 ## Enlace a Figma
 Accede al prototipo interactivo y a los diseños de la interfaz en el siguiente enlace:  
